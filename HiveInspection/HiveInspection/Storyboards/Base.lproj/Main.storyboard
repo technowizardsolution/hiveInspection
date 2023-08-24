@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BjF-bq-yvx">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ABeeZee-Italic.ttf">
+            <string>ABeeZee-Italic</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--LoginVC-->
+        <scene sceneID="XkL-Gg-aE6">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="BjF-bq-yvx" customClass="LoginVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jpb-9n-tfe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hive" translatesAutoresizingMaskIntoConstraints="NO" id="jRn-us-CDc">
+                                <rect key="frame" x="85" y="317.66666666666669" width="223" height="242.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="242" id="dNa-Ch-j8o"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hexPattern" translatesAutoresizingMaskIntoConstraints="NO" id="0eD-HU-NnM">
+                                <rect key="frame" x="131" y="612" width="262" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="s2y-Ku-bcC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome to Hive inspection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-Wm-zgN">
+                                <rect key="frame" x="10" y="479.66666666666669" width="373" height="32"/>
+                                <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="27"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJg-Ob-fsy">
+                                <rect key="frame" x="20" y="531.66666666666674" width="353" height="106.66666666666663"/>
+                                <string key="text">The beekeeper's essential tool for effortless hive inspections! This app streamlines the process, allowing you to record critical colony findings easily. Track and maintain your bee's health with ease, right from your mobile device. Help your bees thrive with a routine Hive Inspection.</string>
+                                <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="15"/>
+                                <color key="textColor" red="0.49803921568627452" green="0.51764705882352935" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-ew-gTE">
+                                <rect key="frame" x="20" y="683" width="353" height="115"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-ha-jok" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rll-sg-9K5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBtnLoginAction:" destination="BjF-bq-yvx" eventType="touchUpInside" id="1xa-wg-KFW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-EG-Rfw" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="353" height="50"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="-">
+                                            <color key="titleColor" name="ThemeBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onBtnSignUpAction:" destination="BjF-bq-yvx" eventType="touchUpInside" id="sMp-sw-avI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k0e-bi-POd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jRn-us-CDc" firstAttribute="centerY" secondItem="k0e-bi-POd" secondAttribute="centerY" id="1NY-8j-aAN"/>
+                            <constraint firstItem="WJg-Ob-fsy" firstAttribute="top" secondItem="Hgu-Wm-zgN" secondAttribute="bottom" constant="20" id="25t-aa-mnQ"/>
+                            <constraint firstItem="0eD-HU-NnM" firstAttribute="width" secondItem="0eD-HU-NnM" secondAttribute="height" multiplier="131:120" id="3EW-Gu-YlN"/>
+                            <constraint firstItem="0eD-HU-NnM" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="131" id="ER0-Yh-bC3"/>
+                            <constraint firstItem="Hgu-Wm-zgN" firstAttribute="centerX" secondItem="k0e-bi-POd" secondAttribute="centerX" id="Gz1-fc-nQ1"/>
+                            <constraint firstItem="jRn-us-CDc" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="85" id="IkV-4E-aaH"/>
+                            <constraint firstItem="k0e-bi-POd" firstAttribute="trailing" secondItem="FQ3-ew-gTE" secondAttribute="trailing" constant="20" id="Vu0-aA-E3R"/>
+                            <constraint firstItem="WJg-Ob-fsy" firstAttribute="centerX" secondItem="Hgu-Wm-zgN" secondAttribute="centerX" id="bBE-OD-d9k"/>
+                            <constraint firstItem="Hgu-Wm-zgN" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="10" id="dOf-ax-kjy"/>
+                            <constraint firstItem="WJg-Ob-fsy" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="20" id="eqO-Zi-Tuv"/>
+                            <constraint firstAttribute="bottom" secondItem="0eD-HU-NnM" secondAttribute="bottom" id="g8A-xe-qFE"/>
+                            <constraint firstItem="jRn-us-CDc" firstAttribute="centerX" secondItem="k0e-bi-POd" secondAttribute="centerX" id="iYp-Df-wvW"/>
+                            <constraint firstItem="k0e-bi-POd" firstAttribute="trailing" secondItem="0eD-HU-NnM" secondAttribute="trailing" id="pgm-Nv-eAx"/>
+                            <constraint firstItem="FQ3-ew-gTE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WJg-Ob-fsy" secondAttribute="bottom" constant="10" id="rRp-kE-t8z"/>
+                            <constraint firstItem="Hgu-Wm-zgN" firstAttribute="top" secondItem="jRn-us-CDc" secondAttribute="bottom" constant="40" id="saj-TE-HVM"/>
+                            <constraint firstItem="k0e-bi-POd" firstAttribute="bottom" secondItem="FQ3-ew-gTE" secondAttribute="bottom" constant="20" id="tnv-gM-alP"/>
+                            <constraint firstItem="FQ3-ew-gTE" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="20" id="zDn-jA-gEl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hiveImageView" destination="jRn-us-CDc" id="MfU-Oj-jrm"/>
+                        <outlet property="hiveImgVerticalConstraint" destination="1NY-8j-aAN" id="aqv-ed-4PR"/>
+                        <outlet property="lblDescriptionOutlet" destination="WJg-Ob-fsy" id="8P5-4h-ZBT"/>
+                        <outlet property="lblTitleOutlet" destination="Hgu-Wm-zgN" id="UCe-ua-xav"/>
+                        <outlet property="onBtnLoginOutlet" destination="HeX-ha-jok" id="08Q-LH-taw"/>
+                        <outlet property="onBtnSignUpOutlet" destination="9ay-EG-Rfw" id="Yy1-2w-22n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQX-a0-jw0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.58778625954199" y="-30.281690140845072"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="9ay-EG-Rfw">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="HeX-ha-jok">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="ic_hexPattern" width="262" height="240"/>
+        <image name="ic_hive" width="220" height="241"/>
+        <namedColor name="ThemeBlue">
+            <color red="0.31000000238418579" green="0.41200000047683716" blue="0.67799997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

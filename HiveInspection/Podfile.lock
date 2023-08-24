@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (4.9.0)
+  - EVReflection/Alamofire (5.10.1):
+    - Alamofire
+    - EVReflection/Core
+  - EVReflection/Core (5.10.1)
+  - IQKeyboardManagerSwift (6.5.12)
+  - Kingfisher (7.9.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Result (4.1.0)
+  - Siren (6.1.2)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (= 4.9.0)
+  - EVReflection/Alamofire
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - Moya
+  - Siren
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - EVReflection
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Moya
+    - Result
+    - Siren
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  EVReflection: 8124de482178d34ccd56473e16cd95990f9a1113
+  IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
+  Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Siren: c951ae243b57160629fb2e4d2f630cbfc5d5452b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 1a64c94d3fc4cdf4bec569b59be64cdc5554b014
+
+COCOAPODS: 1.12.1
