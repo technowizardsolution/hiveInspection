@@ -56,6 +56,7 @@ extension LoginVC {
     
     private func animateUI() {
         func setTopConstraintOfImage() {
+            //animate image from center to top of the screen
             let topHeight = (SCREEN_HEIGHT/2) - (self.hiveImageView.frame.height / 2) - 40
             self.hiveImgVerticalConstraint.constant = -topHeight
             UIView.animate(withDuration: 0.8, animations: {
