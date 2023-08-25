@@ -2,90 +2,79 @@
 //  LoginVC.swift
 //  HiveInspection
 //
-//  Created by Trupen Chauhan on 24/08/23.
+//  Created by LN-iMAC-004 on 25/08/23.
 //
 
 import UIKit
 
 class LoginVC : UIViewController {
-    @IBOutlet weak var hiveImgVerticalConstraint : NSLayoutConstraint!
-    @IBOutlet weak var hiveImageView : UIImageView!
-    @IBOutlet weak var lblTitleOutlet : UILabel!
-    @IBOutlet weak var lblDescriptionOutlet : UILabel!
-    @IBOutlet weak var onBtnLoginOutlet : LetsButton!
-    @IBOutlet weak var onBtnSignUpOutlet : LetsButton!
-    
-    override func loadView() {
-        super.loadView()
-        setupUI()
-    }
-    
+    @IBOutlet private weak var txtEmailOutlet : UITextField!
+    @IBOutlet private weak var txtPasswordOutlet : UITextField!
+    @IBOutlet private weak var onBtnSignInOutlet : LetsButton!
+    @IBOutlet private weak var onBtnSignUpOutlet : LetsButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateUI()
+        setupButtons()
     }
 }
 
 extension LoginVC {
-    private func setupUI() {
-        func setupInitialValues() {
-            onBtnLoginOutlet.alpha = 0
-            onBtnSignUpOutlet.alpha = 0
-            lblTitleOutlet.alpha = 0
-            lblDescriptionOutlet.alpha = 0
+    private func setupButtons() {
+        func setupEmailPassword() {
+            txtEmailOutlet.keyboardType = .emailAddress
+            txtPasswordOutlet.keyboardType = .default
         }
         func setupLoginButton() {
-            onBtnLoginOutlet.setTitle("Login", for: .normal)
-            onBtnLoginOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
-            onBtnLoginOutlet.setTitleColor(UIColor.black, for: .normal)
-            onBtnLoginOutlet.cornerRadius = onBtnSignUpOutlet.frame.height / 2
-            onBtnLoginOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
+            onBtnSignInOutlet.setTitle("Login", for: .normal)
+            onBtnSignInOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
+            onBtnSignInOutlet.setTitleColor(UIColor.black, for: .normal)
+            onBtnSignInOutlet.cornerRadius = onBtnSignUpOutlet.frame.height / 2
+            onBtnSignInOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupSignUpButton() {
-            onBtnSignUpOutlet.setTitle("Create Account", for: .normal)
-            onBtnSignUpOutlet.setTitleColor(UIColor(named: HiveColor.ThemeBlue.rawValue), for: .normal)
+            onBtnSignUpOutlet.setTitle("New User? SIGN UP", for: .normal)
+            onBtnSignUpOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
+            onBtnSignUpOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnSignUpOutlet.cornerRadius = onBtnSignUpOutlet.frame.height / 2
-            onBtnSignUpOutlet.borderWidth = 1.5
-            onBtnSignUpOutlet.borderColor = UIColor(named: HiveColor.ThemeBlue.rawValue)!
             onBtnSignUpOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
-        setupInitialValues()
         setupLoginButton()
         setupSignUpButton()
     }
-    
-    private func animateUI() {
-        func setTopConstraintOfImage() {
-            //animate image from center to top of the screen
-            let topHeight = (SCREEN_HEIGHT/2) - (self.hiveImageView.frame.height / 2) - 40
-            self.hiveImgVerticalConstraint.constant = -topHeight
-            UIView.animate(withDuration: 0.8, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: { finished in
-                self.view.layoutIfNeeded()
-                showWithAlpha1()
-            })
-        }
-        
-        func showWithAlpha1() {
-            UIView.animate(withDuration: 0.5) {
-                self.onBtnLoginOutlet.alpha = 1
-                self.onBtnSignUpOutlet.alpha = 1
-                self.lblTitleOutlet.alpha = 1
-                self.lblDescriptionOutlet.alpha = 1
-            }
-        }
-        
-        setTopConstraintOfImage()
-    }
 }
 
 extension LoginVC {
-    @IBAction private func onBtnLoginAction(_ sender: UIButton){
+    @IBAction private func onBtnLoginAction(_ sender : UIButton) {
+        self.vibrate()
+        var loginValidation = LoginValidation()
+        loginValidation.email = txtEmailOutlet.text ?? ""
+        loginValidation.password = txtPasswordOutlet.text ?? ""
+        let validated = checkLoginValidation(validationModel: loginValidation)
+        if validated.0 {
+
+        }else {
+            UIAlertController.actionWith(andMessage: validated.1, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
+        }
+    }
+
+    @IBAction private func onBtnSignUpAction(_ sender : UIButton) {
         self.vibrate()
     }
-    
-    @IBAction private func onBtnSignUpAction(_ sender: UIButton){
+
+    @IBAction private func onBtnForgotPasswordAction(_ sender : UIButton) {
+        self.vibrate()
+    }
+
+    @IBAction private func onBtnLoginWithFacebookAction(_ sender : UIButton) {
+        self.vibrate()
+    }
+
+    @IBAction private func onBtnLoginWithGoogleAction(_ sender : UIButton) {
+        self.vibrate()
+    }
+
+    @IBAction private func onBtnLoginWithAppleAction(_ sender : UIButton) {
         self.vibrate()
     }
 }

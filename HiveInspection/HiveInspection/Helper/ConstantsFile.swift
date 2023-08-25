@@ -1,11 +1,3 @@
-//
-//  ExtensionFile.swift
-//  LetsNurture
-//
-//  Created by Lokesh Dudhat on 21/12/15.
-//  Copyright © 2015 letsnurture. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import CoreGraphics
@@ -32,6 +24,7 @@ public typealias voidBlock = ()->()
 public typealias objectBlock = (AnyObject?)->()
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
 
 public var SCALE_IPHONE : CGFloat {
     if IS_IPHONE_6P {

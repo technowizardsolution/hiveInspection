@@ -53,7 +53,7 @@ public func validateEmailWithString(_ Email: String) -> Bool {
 }
 public func validePassword(_ text : NSString) ->Bool
 {
-    if text.length < 6 || text.length > 16
+    if text.length < 6
     {
         return true
     }

@@ -8,25 +8,19 @@
 import XCTest
 
 final class HiveInspectionUITestsLaunchTests: XCTestCase {
-
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
-    }
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
 
-    func testLaunch() throws {
-        let app = XCUIApplication()
+    func testSignUp() {
         app.launch()
+        app.buttons["Create Account"].tap()
+    }
 
-        // Insert steps here to perform after app launch but before taking a screenshot,
-        // such as logging into a test account or navigating somewhere in the app
-
-        let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = "Launch Screen"
-        attachment.lifetime = .keepAlways
-        add(attachment)
+    func testSignIn() {
+        app.launch()
+        app.buttons["Login"].tap()
     }
 }
