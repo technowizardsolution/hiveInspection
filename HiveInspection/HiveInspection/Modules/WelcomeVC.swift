@@ -89,5 +89,7 @@ extension WelcomeVC {
     
     @IBAction private func onBtnSignUpAction(_ sender: UIButton){
         self.vibrate()
+        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }

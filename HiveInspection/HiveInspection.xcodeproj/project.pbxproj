@@ -66,6 +66,9 @@
 		CC2523A72A98D71600DC186F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53678C5F2A971881007FA7D2 /* Main.storyboard */; };
 		CC2523A92A98D89300DC186F /* ValidateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2523A82A98D89300DC186F /* ValidateData.swift */; };
 		CC2523B22A98E76D00DC186F /* WelcomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2523B12A98E76D00DC186F /* WelcomeUITests.swift */; };
+		CC7ABB4D2A99B4670054177D /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB4C2A99B4670054177D /* SignUpVC.swift */; };
+		CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB4E2A99B55B0054177D /* Extension.swift */; };
+		CC7ABB512A99C5F70054177D /* HiveSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */; };
 		CCCA96FB2A9887CC00D1195A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA96FA2A9887CC00D1195A /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +156,9 @@
 		CC2523082A98D28300DC186F /* Structure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structure.swift; sourceTree = "<group>"; };
 		CC2523A82A98D89300DC186F /* ValidateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateData.swift; sourceTree = "<group>"; };
 		CC2523B12A98E76D00DC186F /* WelcomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeUITests.swift; sourceTree = "<group>"; };
+		CC7ABB4C2A99B4670054177D /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		CC7ABB4E2A99B55B0054177D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveSetupVC.swift; sourceTree = "<group>"; };
 		CCCA96FA2A9887CC00D1195A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CF84D458C0AB247A4B35F356 /* Pods-HiveInspection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspection.release.xcconfig"; path = "Target Support Files/Pods-HiveInspection/Pods-HiveInspection.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +302,8 @@
 			children = (
 				53678C902A971922007FA7D2 /* WelcomeVC.swift */,
 				CCCA96FA2A9887CC00D1195A /* LoginVC.swift */,
+				CC7ABB4C2A99B4670054177D /* SignUpVC.swift */,
+				CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 		53678C942A971ABE007FA7D2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				CC7ABB4E2A99B55B0054177D /* Extension.swift */,
 				53678CE82A97373E007FA7D2 /* LetsButton.swift */,
 				53678CE72A97373E007FA7D2 /* LetsFloatField.swift */,
 				53678CE42A97373D007FA7D2 /* LetsImagView.swift */,
@@ -622,11 +631,14 @@
 				53678CE02A972A8F007FA7D2 /* ImageAssetName.swift in Sources */,
 				53678CD82A971B48007FA7D2 /* Int+Extension.swift in Sources */,
 				53678CC32A971B48007FA7D2 /* ImagePicker.swift in Sources */,
+				CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */,
 				CCCA96FB2A9887CC00D1195A /* LoginVC.swift in Sources */,
 				53678CC92A971B48007FA7D2 /* UITextField+Extension.swift in Sources */,
 				CC2523A92A98D89300DC186F /* ValidateData.swift in Sources */,
+				CC7ABB512A99C5F70054177D /* HiveSetupVC.swift in Sources */,
 				53678CCA2A971B48007FA7D2 /* UIColor+Extension.swift in Sources */,
 				53678CD22A971B48007FA7D2 /* UIView+Extension.swift in Sources */,
+				CC7ABB4D2A99B4670054177D /* SignUpVC.swift in Sources */,
 				53678C912A971922007FA7D2 /* WelcomeVC.swift in Sources */,
 				53678CD62A971B48007FA7D2 /* UILabelExtensions.swift in Sources */,
 				53678CCD2A971B48007FA7D2 /* UITextFieldExtensions.swift in Sources */,
@@ -750,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -804,7 +816,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -830,7 +842,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -860,7 +872,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -884,7 +896,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.HiveInspectionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -905,7 +917,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.HiveInspectionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -925,7 +937,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.HiveInspectionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -945,7 +957,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.HiveInspectionUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

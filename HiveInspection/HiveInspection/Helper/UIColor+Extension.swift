@@ -108,5 +108,6 @@ enum HiveColor : String {
     case ThemeYellow = "ThemeYellow"
     case CustomWhite = "CustomWhite"
     case ThemeBlue = "ThemeBlue"
+    case ThemeGrey = "ThemeGrey"
 }
 

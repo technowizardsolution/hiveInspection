@@ -11,3 +11,8 @@ struct LoginValidation {
     var email : String = ""
     var password : String = ""
 }
+
+struct HiveSetup {
+    var name : String = ""
+    var isSelected = false
+}

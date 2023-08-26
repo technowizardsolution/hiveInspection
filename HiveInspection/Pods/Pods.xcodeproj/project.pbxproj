@@ -532,7 +532,7 @@
 		9A5FD1A191844674161FCFE68F497154 /* Pods-HiveInspectionTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HiveInspectionTests-dummy.m"; sourceTree = "<group>"; };
 		9A91CABC21FF77E404D27709C3E31DFB /* Pods-HiveInspectionTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HiveInspectionTests.modulemap"; sourceTree = "<group>"; };
 		9D77A457888487FC2C8982A39BDAD54E /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/Utility/String+MD5.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E2EC653D9F75A1C8E3A8CEA2ED239F7 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/General/ImageSource/Resource.swift; sourceTree = "<group>"; };
 		9FA722E05A5CDD64B626571B5729DD07 /* GIFAnimatedImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFAnimatedImage.swift; path = Sources/Image/GIFAnimatedImage.swift; sourceTree = "<group>"; };
 		A0BF0EF5C8748039DAFDF1CFEE3AC78F /* Pods-HiveInspection-HiveInspectionUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HiveInspection-HiveInspectionUITests"; path = Pods_HiveInspection_HiveInspectionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -749,7 +749,6 @@
 				BF2E7DD2D095853327F29D64836A25EF /* Core */,
 				D2A3505F24D68717C905A65100681CA1 /* Support Files */,
 			);
-			name = Moya;
 			path = Moya;
 			sourceTree = "<group>";
 		};
@@ -792,7 +791,6 @@
 				CA64A31B37C5180FDBE678746579C122 /* Resources */,
 				A49713D64915AC160E24F0E69032C41F /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -822,7 +820,6 @@
 				39903B9818E37F6D8E912A9B82EF7EB3 /* Resources */,
 				A65969E8E12FDC7EFD34A28F22891BC3 /* Support Files */,
 			);
-			name = Siren;
 			path = Siren;
 			sourceTree = "<group>";
 		};
@@ -931,7 +928,6 @@
 				3C51AD9C674557244CAF52B2BF70FDB4 /* IQUIViewController+Additions.swift */,
 				7BF9AC39E57BD1E88EC04F8BB3E969A6 /* Support Files */,
 			);
-			name = IQKeyboardManagerSwift;
 			path = IQKeyboardManagerSwift;
 			sourceTree = "<group>";
 		};
@@ -1001,7 +997,6 @@
 				4D24AB54CD11023D3BC14D9EE64E4A4D /* WKInterfaceImage+Kingfisher.swift */,
 				05B772966A720A11431CE05450F527DB /* Support Files */,
 			);
-			name = Kingfisher;
 			path = Kingfisher;
 			sourceTree = "<group>";
 		};
@@ -1069,7 +1064,6 @@
 				466847B58CC106D466AE85E2705B5EB4 /* ResultProtocol.swift */,
 				78E7F1EF6F3086AEFC21E15FA2951A9C /* Support Files */,
 			);
-			name = Result;
 			path = Result;
 			sourceTree = "<group>";
 		};
@@ -1080,7 +1074,6 @@
 				6C767DCAD7060087BB88D43541FAFAE9 /* Core */,
 				E130B36E38D5A906F090E578B8F21E52 /* Support Files */,
 			);
-			name = EVReflection;
 			path = EVReflection;
 			sourceTree = "<group>";
 		};
@@ -1193,7 +1186,6 @@
 				A20FDC8B9D83CC711F874381248D91A4 /* Validation.swift */,
 				EA5D641DB36F1F307D5DED5169441B12 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -2469,7 +2461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2601,7 +2593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
