@@ -17,8 +17,12 @@ struct HiveSetup {
     var isSelected = false
 }
 
-
 struct SettingsData {
     var title : String = ""
     var type : SettingsType = .detail
+}
+
+struct HiveInspectData {
+    var title : String = ""
+    var type : HiveInspectionType = .text
 }

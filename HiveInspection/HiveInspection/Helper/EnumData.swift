@@ -20,3 +20,11 @@ enum SettingsType {
     case version
     case none
 }
+
+enum HiveInspectionType {
+    case date
+    case _switch
+    case _switchWithText
+    case text
+    case dropdown
+}

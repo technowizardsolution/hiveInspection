@@ -40,14 +40,10 @@ extension ShareVC {
 extension ShareVC {
     @IBAction private func onBtnSubmitAction(_ sender : LetsButton) {
         self.vibrate()
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-        navigationController?.pushViewController(dvc, animated: true)
     }
     
     @IBAction private func onBtnStartInspectingAction(_ sender : LetsButton) {
         self.vibrate()
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "TermsAndPrivacyVC") as! TermsAndPrivacyVC
-        navigationController?.pushViewController(dvc, animated: true)
     }
     
     @IBAction private func onBtnShareAction(_ sender : UIButton) {
@@ -59,7 +55,7 @@ extension ShareVC {
     
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
         self.vibrate()
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
+        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         navigationController?.pushViewController(dvc, animated: true)
     }
 }

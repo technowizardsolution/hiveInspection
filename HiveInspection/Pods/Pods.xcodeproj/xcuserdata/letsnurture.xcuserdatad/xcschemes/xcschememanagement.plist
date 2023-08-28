@@ -11,6 +11,13 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Cosmos.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>EVReflection.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
@@ -84,6 +91,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>00F31BD5217A20974B5E9AAC6256D98E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>17F9141D333DA1A7BE5937F227221070</key>
 		<dict>
 			<key>primary</key>

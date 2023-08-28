@@ -65,6 +65,7 @@
 		53EBA37D2A9774F90031416E /* ABeeZee-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE32A9730B6007FA7D2 /* ABeeZee-Italic.ttf */; };
 		64564E336E36A388FF064C6B /* Pods_HiveInspection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7159DABD74C05EC1011070 /* Pods_HiveInspection.framework */; };
 		8BC0850EADB4B4DE90F392C5 /* Pods_HiveInspection_HiveInspectionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5121CD4FC9EC53661C738CA /* Pods_HiveInspection_HiveInspectionUITests.framework */; };
+		CC1891642A9CC2AD00D88466 /* FlexibleSteppedProgressBar in Frameworks */ = {isa = PBXBuildFile; productRef = CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */; };
 		CC2523012A98C4E400DC186F /* EnumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2523002A98C4E400DC186F /* EnumData.swift */; };
 		CC2523072A98D12B00DC186F /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2523062A98D12B00DC186F /* LoginTests.swift */; };
 		CC2523092A98D28300DC186F /* Structure.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2523082A98D28300DC186F /* Structure.swift */; };
@@ -75,6 +76,7 @@
 		CC7ABB4D2A99B4670054177D /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB4C2A99B4670054177D /* SignUpVC.swift */; };
 		CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB4E2A99B55B0054177D /* Extension.swift */; };
 		CC7ABB512A99C5F70054177D /* HiveSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */; };
+		CCA94C3F2A9CBA59000F49A9 /* HiveInspect1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94C3E2A9CBA59000F49A9 /* HiveInspect1VC.swift */; };
 		CCCA96FB2A9887CC00D1195A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA96FA2A9887CC00D1195A /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +173,7 @@
 		CC7ABB4C2A99B4670054177D /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		CC7ABB4E2A99B55B0054177D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveSetupVC.swift; sourceTree = "<group>"; };
+		CCA94C3E2A9CBA59000F49A9 /* HiveInspect1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveInspect1VC.swift; sourceTree = "<group>"; };
 		CCCA96FA2A9887CC00D1195A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CF84D458C0AB247A4B35F356 /* Pods-HiveInspection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspection.release.xcconfig"; path = "Target Support Files/Pods-HiveInspection/Pods-HiveInspection.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1891642A9CC2AD00D88466 /* FlexibleSteppedProgressBar in Frameworks */,
 				64564E336E36A388FF064C6B /* Pods_HiveInspection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +326,7 @@
 				531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */,
 				531131CB2A9C4E070040370C /* ChangePasswordVC.swift */,
 				531131CD2A9C55070040370C /* SettingsVC.swift */,
+				CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -382,6 +387,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */ = {
+			isa = PBXGroup;
+			children = (
+				CCA94C3E2A9CBA59000F49A9 /* HiveInspect1VC.swift */,
+			);
+			path = HiveInspection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +413,9 @@
 			dependencies = (
 			);
 			name = HiveInspection;
+			packageProductDependencies = (
+				CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */,
+			);
 			productName = HiveInspection;
 			productReference = 53678C562A971881007FA7D2 /* HiveInspection.app */;
 			productType = "com.apple.product-type.application";
@@ -475,6 +491,9 @@
 				Base,
 			);
 			mainGroup = 53678C4D2A971881007FA7D2;
+			packageReferences = (
+				CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */,
+			);
 			productRefGroup = 53678C572A971881007FA7D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -654,6 +673,7 @@
 				CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */,
 				CCCA96FB2A9887CC00D1195A /* LoginVC.swift in Sources */,
 				53678CC92A971B48007FA7D2 /* UITextField+Extension.swift in Sources */,
+				CCA94C3F2A9CBA59000F49A9 /* HiveInspect1VC.swift in Sources */,
 				CC2523A92A98D89300DC186F /* ValidateData.swift in Sources */,
 				CC7ABB512A99C5F70054177D /* HiveSetupVC.swift in Sources */,
 				53678CCA2A971B48007FA7D2 /* UIColor+Extension.swift in Sources */,
@@ -1032,6 +1052,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/amratab/FlexibleSteppedProgressBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */;
+			productName = FlexibleSteppedProgressBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		53678C622A971881007FA7D2 /* HiveInspection.xcdatamodeld */ = {

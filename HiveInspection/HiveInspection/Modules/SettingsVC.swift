@@ -12,6 +12,10 @@ class CellT_Settings : UITableViewCell {
     @IBOutlet weak var lblVersionOutlet : UILabel!
     @IBOutlet weak var lblTitleOutlet : UILabel!
     @IBOutlet weak var switchNotificationOutlet : UISwitch!
+    var completionSwitchChanged : (UISwitch) -> () = { _ in }
+    @IBAction func onSwitchNotificationAction(_ sender: UISwitch) {
+        completionSwitchChanged(sender)
+    }
 }
 
 class SettingsVC : UIViewController {
@@ -74,18 +78,64 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableview.dequeueReusableCell(withIdentifier: "CellT_Settings") as? CellT_Settings else { return UITableViewCell() }
-        cell.backgroundColor = indexPath.row
-        == 0 ? UIColor(red: 0.922, green: 0.934, blue: 0.97, alpha: 1) : .white
+        cell.backgroundColor = indexPath.row == 0 ? UIColor(red: 0.922, green: 0.934, blue: 0.97, alpha: 1) : .clear
         let item = getSettingsData?[indexPath.row]
         cell.imgDetailView.isHidden = !(item?.type == .detail)
         cell.switchNotificationOutlet.isHidden = !(item?.type == ._switch)
         cell.lblVersionOutlet.isHidden = !(item?.type == .version)
         cell.lblTitleOutlet.text = item?.title
         cell.lblVersionOutlet.text = "V \(UIApplication.shared.version ?? "1.0")"
+        cell.completionSwitchChanged = { sender in
+            //Call notification Api
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            //Add a Hive
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect1VC") as! HiveInspect1VC
+            navigationController?.pushViewController(dvc, animated: true)
+            break
+        case 1:
+            //Edit a Hive
+            break
+        case 3:
+            //About Us
+            self.vibrate()
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            navigationController?.pushViewController(dvc, animated: true)
+            break
+        case 5:
+            //Change Password
+            self.vibrate()
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
+            navigationController?.pushViewController(dvc, animated: true)
+            break
+        case 6, 7:
+            //Terms & Conditions
+            //Privacy Policy
+            self.vibrate()
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "TermsAndPrivacyVC") as! TermsAndPrivacyVC
+            navigationController?.pushViewController(dvc, animated: true)
+            break
+        case 9:
+            //Logout
+            self.vibrate()
+            UIAlertController.actionWith(andMessage: "Are you sure you want to logout", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .default),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
+                self.vibrate()
+                if btn == "Yes" {
+                    //navigate to login
+                }
+            }
+            break
+        default:
+            break
+        }
     }
 }

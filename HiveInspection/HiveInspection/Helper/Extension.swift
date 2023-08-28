@@ -73,7 +73,7 @@ extension UIViewController {
         let barButton = UIBarButtonItem(image: UIImage(named: "ic_back"), style: .plain, target: self, action: #selector(UIViewController.gotoBack))
         barButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = barButton
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     func closeButton() {
@@ -82,7 +82,39 @@ extension UIViewController {
         let barButton = UIBarButtonItem(image: UIImage(named: "ic_close"), style: .plain, target: self, action: #selector(UIViewController.gotoBack))
         barButton.tintColor = UIColor(named: HiveColor.ThemeGrey.rawValue)
         self.navigationItem.leftBarButtonItem = barButton
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
+
+    func pullDownButton(completion : @escaping (String) -> ()) {
+        self.view.endEditing(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let filterPullDownButtom = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+
+        let optionClosure = {(action: UIAction) in
+            completion(action.title)
+            filterPullDownButtom.setTitle(action.title, for: .normal)
+//            guard let index = self.hiveSetupDataArray?.firstIndex(where: {$0.name == action.title}) else { return }
+//            for (getIndex,_) in (self.hiveSetupDataArray ?? []).enumerated() {
+//                self.hiveSetupDataArray?[getIndex].isSelected = false
+//            }
+//            self.hiveSetupDataArray?[index].isSelected = true
+        }
+        var arrUIAction = [UIAction]()
+        for intData in 1...10 {
+            arrUIAction.append(UIAction(title: intData.string, state: .off, handler: optionClosure))
+        }
+        filterPullDownButtom.setTitleColor(.black, for: .normal)
+        filterPullDownButtom.setTitle("1", for: .normal)
+        filterPullDownButtom.menu = UIMenu(children: arrUIAction)
+        filterPullDownButtom.showsMenuAsPrimaryAction = true
+        if #available(iOS 15.0, *) {
+            filterPullDownButtom.changesSelectionAsPrimaryAction = true
+        }
+        filterPullDownButtom.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)!
+        let barButton = UIBarButtonItem(customView: filterPullDownButtom)
+        barButton.tintColor = UIColor(named: HiveColor.ThemeGrey.rawValue)
+        self.navigationItem.rightBarButtonItem = barButton
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     func showTransparentNavigationBar() {
@@ -103,7 +135,7 @@ extension UIViewController {
         self.navigationController?.view.backgroundColor = color
         self.navigationController?.navigationBar.backgroundColor = color
         self.navigationController?.navigationBar.tintColor  = color
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     func clearNavigationBar() {
@@ -111,7 +143,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor  = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 }
 
