@@ -82,7 +82,7 @@ extension UIViewController {
         let barButton = UIBarButtonItem(image: UIImage(named: "ic_close"), style: .plain, target: self, action: #selector(UIViewController.gotoBack))
         barButton.tintColor = UIColor(named: HiveColor.ThemeGrey.rawValue)
         self.navigationItem.leftBarButtonItem = barButton
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     func showTransparentNavigationBar() {
@@ -103,7 +103,7 @@ extension UIViewController {
         self.navigationController?.view.backgroundColor = color
         self.navigationController?.navigationBar.backgroundColor = color
         self.navigationController?.navigationBar.tintColor  = color
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     func clearNavigationBar() {
@@ -111,7 +111,7 @@ extension UIViewController {
         self.navigationController?.navigationBar.tintColor  = UIColor.white
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 14.0)! , NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 17.0)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 }
 

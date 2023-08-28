@@ -39,7 +39,7 @@ extension LoginVC {
             onBtnSignInOutlet.setTitle("Login", for: .normal)
             onBtnSignInOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnSignInOutlet.setTitleColor(UIColor.black, for: .normal)
-            onBtnSignInOutlet.cornerRadius = onBtnSignUpOutlet.frame.height / 2
+            onBtnSignInOutlet.cornerRadius = onBtnSignInOutlet.frame.height / 2
             onBtnSignInOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupSignUpButton() {

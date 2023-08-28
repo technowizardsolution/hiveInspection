@@ -13,6 +13,7 @@ target 'HiveInspection' do
   pod 'Kingfisher'
   pod 'Siren'
   pod 'Moya'
+  pod 'Cosmos'
   
   target 'HiveInspectionTests' do
     inherit! :search_paths

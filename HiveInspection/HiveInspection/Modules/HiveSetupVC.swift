@@ -16,6 +16,12 @@ class HiveSetupVC : UIViewController {
     @IBOutlet weak var onBtnAddAHiveOutlet : LetsButton!
     @IBOutlet weak var onBtnStartInspectingOutlet : LetsButton!
 
+    @IBOutlet weak var queenIntroducedDatePickerOutlet: UIDatePicker!
+    @IBOutlet weak var buildDatePickerOutlet: UIDatePicker!
+    
+    @IBOutlet weak var txtHiveLocationOutlet: UITextField!
+    @IBOutlet weak var txtHiveNameOutlet: UITextField!
+    
     var hiveSetupDataArray : [HiveSetup]?
     var hiveSetupDeepsDataArray : [HiveSetup]?
     var hiveSetupMediumDataArray : [HiveSetup]?
@@ -38,6 +44,8 @@ class HiveSetupVC : UIViewController {
 extension HiveSetupVC {
     @IBAction private func onBtnSaveAction(_ sender : UIButton) {
         self.vibrate()
+        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "RateAppVC") as! RateAppVC
+        navigationController?.pushViewController(dvc, animated: true)
     }
 
     @IBAction private func onBtnAddAHiveAction(_ sender : UIButton) {

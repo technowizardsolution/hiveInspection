@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		369615410B9AC6E63C708D2D /* Pods_HiveInspectionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E22E17937644C8D3EE7277 /* Pods_HiveInspectionTests.framework */; };
+		531131C82A9C45780040370C /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131C72A9C45780040370C /* AboutUsVC.swift */; };
+		531131CA2A9C45850040370C /* TermsAndPrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */; };
+		531131CC2A9C4E070040370C /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131CB2A9C4E070040370C /* ChangePasswordVC.swift */; };
+		531131CE2A9C55080040370C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131CD2A9C55070040370C /* SettingsVC.swift */; };
+		5354725A2A9C3BE50009715C /* RateAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535472592A9C3BE50009715C /* RateAppVC.swift */; };
 		53678C5A2A971881007FA7D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678C592A971881007FA7D2 /* AppDelegate.swift */; };
 		53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678C5B2A971881007FA7D2 /* SceneDelegate.swift */; };
 		53678C612A971881007FA7D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53678C5F2A971881007FA7D2 /* Main.storyboard */; };
@@ -54,6 +59,7 @@
 		53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE62A97373D007FA7D2 /* LetsView.swift */; };
 		53678CEC2A97373E007FA7D2 /* LetsFloatField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE72A97373E007FA7D2 /* LetsFloatField.swift */; };
 		53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE82A97373E007FA7D2 /* LetsButton.swift */; };
+		53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A91B202A9C415600EF3205 /* ShareVC.swift */; };
 		53EBA37B2A97707E0031416E /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */; };
 		53EBA37C2A9774F90031416E /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE22A9730B6007FA7D2 /* ABeeZee-Regular.ttf */; };
 		53EBA37D2A9774F90031416E /* ABeeZee-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE32A9730B6007FA7D2 /* ABeeZee-Italic.ttf */; };
@@ -93,6 +99,11 @@
 		0D7159DABD74C05EC1011070 /* Pods_HiveInspection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveInspection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3871EFBB58D2C8B3774E600F /* Pods-HiveInspectionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspectionTests.release.xcconfig"; path = "Target Support Files/Pods-HiveInspectionTests/Pods-HiveInspectionTests.release.xcconfig"; sourceTree = "<group>"; };
 		504FF494BB0B8536D80B1E05 /* Pods-HiveInspectionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspectionTests.debug.xcconfig"; path = "Target Support Files/Pods-HiveInspectionTests/Pods-HiveInspectionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		531131C72A9C45780040370C /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyVC.swift; sourceTree = "<group>"; };
+		531131CB2A9C4E070040370C /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		531131CD2A9C55070040370C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		535472592A9C3BE50009715C /* RateAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppVC.swift; sourceTree = "<group>"; };
 		53678C562A971881007FA7D2 /* HiveInspection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveInspection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53678C592A971881007FA7D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53678C5B2A971881007FA7D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +156,7 @@
 		53678CE62A97373D007FA7D2 /* LetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsView.swift; sourceTree = "<group>"; };
 		53678CE72A97373E007FA7D2 /* LetsFloatField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFloatField.swift; sourceTree = "<group>"; };
 		53678CE82A97373E007FA7D2 /* LetsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsButton.swift; sourceTree = "<group>"; };
+		53A91B202A9C415600EF3205 /* ShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
 		53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		67E22E17937644C8D3EE7277 /* Pods_HiveInspectionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveInspectionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9800AA4E5B222B523C6EA689 /* Pods-HiveInspection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspection.debug.xcconfig"; path = "Target Support Files/Pods-HiveInspection/Pods-HiveInspection.debug.xcconfig"; sourceTree = "<group>"; };
@@ -304,6 +316,12 @@
 				CCCA96FA2A9887CC00D1195A /* LoginVC.swift */,
 				CC7ABB4C2A99B4670054177D /* SignUpVC.swift */,
 				CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */,
+				535472592A9C3BE50009715C /* RateAppVC.swift */,
+				53A91B202A9C415600EF3205 /* ShareVC.swift */,
+				531131C72A9C45780040370C /* AboutUsVC.swift */,
+				531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */,
+				531131CB2A9C4E070040370C /* ChangePasswordVC.swift */,
+				531131CD2A9C55070040370C /* SettingsVC.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -616,11 +634,13 @@
 				53EBA37B2A97707E0031416E /* UIDeviceExtension.swift in Sources */,
 				53678CEA2A97373E007FA7D2 /* LetsTextView.swift in Sources */,
 				53678CC42A971B48007FA7D2 /* UIToolbar+Extension.swift in Sources */,
+				53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */,
 				53678CCF2A971B48007FA7D2 /* UICollectionViewExtensions.swift in Sources */,
 				53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */,
 				CC2523012A98C4E400DC186F /* EnumData.swift in Sources */,
 				53678CE92A97373E007FA7D2 /* LetsImagView.swift in Sources */,
 				53678CC22A971B48007FA7D2 /* UIAlertController + extension.swift in Sources */,
+				531131C82A9C45780040370C /* AboutUsVC.swift in Sources */,
 				53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */,
 				53678CC82A971B48007FA7D2 /* NSDate+Extension.swift in Sources */,
 				53678CCB2A971B48007FA7D2 /* UITableViewExtensions.swift in Sources */,
@@ -637,14 +657,18 @@
 				CC2523A92A98D89300DC186F /* ValidateData.swift in Sources */,
 				CC7ABB512A99C5F70054177D /* HiveSetupVC.swift in Sources */,
 				53678CCA2A971B48007FA7D2 /* UIColor+Extension.swift in Sources */,
+				531131CC2A9C4E070040370C /* ChangePasswordVC.swift in Sources */,
 				53678CD22A971B48007FA7D2 /* UIView+Extension.swift in Sources */,
+				531131CE2A9C55080040370C /* SettingsVC.swift in Sources */,
 				CC7ABB4D2A99B4670054177D /* SignUpVC.swift in Sources */,
 				53678C912A971922007FA7D2 /* WelcomeVC.swift in Sources */,
+				5354725A2A9C3BE50009715C /* RateAppVC.swift in Sources */,
 				53678CD62A971B48007FA7D2 /* UILabelExtensions.swift in Sources */,
 				53678CCD2A971B48007FA7D2 /* UITextFieldExtensions.swift in Sources */,
 				53678CD52A971B48007FA7D2 /* UIApplicationExtensions.swift in Sources */,
 				53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */,
 				53678CD92A971B48007FA7D2 /* UIWindowExtensions.swift in Sources */,
+				531131CA2A9C45850040370C /* TermsAndPrivacyVC.swift in Sources */,
 				CC2523092A98D28300DC186F /* Structure.swift in Sources */,
 				53678CD32A971B48007FA7D2 /* UIImageView+Extension.swift in Sources */,
 				53678CCC2A971B48007FA7D2 /* NSTimer+Extension.swift in Sources */,

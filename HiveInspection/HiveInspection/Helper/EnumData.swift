@@ -13,3 +13,10 @@ enum popupMessages : String {
     case noPassword = "Please enter your password"
     case incorrectPassword = "Your password should be 6 or more characters long"
 }
+
+enum SettingsType {
+    case detail
+    case _switch
+    case version
+    case none
+}

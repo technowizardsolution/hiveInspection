@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.0)
+  - Cosmos (23.0.0)
   - EVReflection/Alamofire (5.10.1):
     - Alamofire
     - EVReflection/Core
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.9.0)
+  - Cosmos
   - EVReflection/Alamofire
   - IQKeyboardManagerSwift
   - Kingfisher
@@ -27,6 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - EVReflection
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -37,6 +40,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   EVReflection: 8124de482178d34ccd56473e16cd95990f9a1113
   IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
@@ -45,6 +49,6 @@ SPEC CHECKSUMS:
   Siren: c951ae243b57160629fb2e4d2f630cbfc5d5452b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1a64c94d3fc4cdf4bec569b59be64cdc5554b014
+PODFILE CHECKSUM: 173a451f14158abed8e3f84d6edbdea221c5883c
 
 COCOAPODS: 1.12.1
