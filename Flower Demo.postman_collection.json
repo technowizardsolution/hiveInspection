@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "eb053b2d-f432-409a-a3bb-d83500140ff7",
+		"name": "Flower Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4046977"
+	},
+	"item": [
+		{
+			"name": "Basic",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"email\": \"videsh@mailinator.com\",\n        \"password\": \"Letsdoit@123\",\n        \"device_type\": \"1\",\n        \"device_token\": \"asafdxt454tgfyt756tedf1\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n  \"data\": {\r\n    \t\t\"first_name\": \"Nency Kadachhi\",\r\n    \t    \"email\":\"nency@letsnurtuer.com\",\r\n            \"password\":\"Letsdoit@123\",\r\n            \"device_type\":\"1\"\r\n       }\r\n}                   \r\n"
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "social Register/ Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n  \"data\": {\r\n    \t\t\"first_name\": \"Krunal sojitra\",\r\n    \t    \"social_provider\":\"facebook\",\r\n            \"social_provider_id\":\"1232\",\r\n            \"device_type\":\"\",\r\n            \"device_token\":\"\"\r\n       }\r\n}                   \r\n"
+						},
+						"url": {
+							"raw": "{{url}}/socialRegister",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"socialRegister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n      \"device_token\": \"2233\"\n       }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n    \t\t\"email\":\"krunal@letsnurtuer.com\"\n       }\n}   "
+						},
+						"url": {
+							"raw": "{{url}}/forgotPassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n\t\"data\": {\n\t\t\"first_name\": \"Krunal Sojitra\",\n                \"mobile_number\":\"9879898798\",\n                 \"gender\":\"m\",\n                \"dob\":\"15-08-2000\"\n\t}\n}",
+									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"type": "file",
+									"src": "/home/lnit-lptp-001/Downloads/PowerPro.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/updateProfile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n    \t\t\"old_password\": \"Letsdoit@1234\",\n    \t\t\"new_password\":\"Letsdoit@123\"\n       }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/changePassword",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Device Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"device_type\": \"1\",\n        \"device_token\": \"1234\",\n        \"app_type\": \"1\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/updateDeviceToken",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateDeviceToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n    \t\t\"mobile_number\":\"7600769215\"\n       }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/userConsent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"userConsent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Banner List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/bannerList",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"bannerList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n        \"category\" : \"Hello\"\n       }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/category",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sub Category List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n  \"data\": {\n        \"category_id\" : \"2\",\n        \"subcategory\" : \"test\"\n       }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/subcategory",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"subcategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

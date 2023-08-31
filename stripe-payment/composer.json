@@ -1,0 +1,5 @@
+{
+    "require":{
+        "cartalyst/stripe": "~2.0"
+    }
+}

@@ -1,0 +1,360 @@
+body {
+    background-color: #f8f2ec;
+}
+
+header {
+    background: #fff;
+    padding: 10px 0;
+}
+
+header .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .main-header .logo a {
+    display: block;
+    width: 80px;
+}
+
+header .main-header .logo a img {
+    width: 100%;
+}
+
+.form-section {
+    padding: 50px 0;
+}
+
+header .main-header .login-btn a {
+    display: inline-block;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+header .main-header .login-btn a.btn-login {
+    background: #F3B61B;
+    border: solid 1px #F3B61B;
+    padding: 10px 45px;
+    display: inline-block;
+    border-radius: 100px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.login-box {
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 84vh;
+}
+
+.login-box .login-box-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    width:600px;
+}
+
+.login-box .login-box-card img {
+    width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+
+.login-box .login-box-card h2 {
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 0px 0 20px;
+    color: #ffb13e;
+}
+
+.login-box .login-box-card .form-group {
+    clear: both;
+}
+
+.login-box .login-box-card .form-group button {
+    background: #ffb13e;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #000;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 19px;
+    border-radius: 100px;
+}
+
+.login-box .login-box-card a {
+    display: block;
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    margin: 15px 0 0;
+    text-decoration: none;
+}
+
+.login-box .login-box-card span {
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    background: #fff;
+    z-index: 14;
+    width: 310px;
+    margin: 0px auto 20px;
+}
+
+.login-box .login-box-card .Social-Box a {
+    display: inline-block;
+    width: 257px;
+    margin: 10px auto;
+    padding: 7px 0;
+    border-radius: 50px;
+    background: #fff;
+    color: #000;
+    border: #000 solid 1px;
+}
+
+.login-box .login-box-card .Social-Box a img {
+    width: 22px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+}
+
+.login-box .login-box-card span:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    z-index: -2;
+    right: 0;
+    display: none;
+}
+
+.login-box .login-box-card .Social-Box a:first-child {
+    background: #1778F2;
+    color: #fff;
+    border: #1778F2 solid 1px;
+}
+
+.login-box .login-box-card .Social-Box a:last-child {
+    background: #000;
+    color: #fff;
+}
+
+.checkbox-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: solid 1px #ffa75d;
+    padding: 10px 40px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-label .checkmark {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    height: 26px;
+    width: 26px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-label .checkbox-label:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-label input:checked~.checkmark {
+    background-color: #ffac50;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-label .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-label input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-label .checkmark:after {
+    left: 10px;
+    top: 6px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.step-info-card {
+    background: #fff;
+    padding: 30px;
+    position: relative;
+    z-index: 3;
+    border-radius: 15px;
+}
+
+.checkbox-card .form-group {
+    width: 24%;
+    margin-right: 10px;
+    float: left;
+}
+
+.checkbox-card .form-group label.checkbox-label {
+    margin: 0;
+}
+
+.next-btn {
+    text-align: right;
+}
+
+.next-btn a {
+    background: #F3B61B;
+    border: solid 1px #F3B61B;
+    padding: 10px 45px;
+    display: inline-block;
+    border-radius: 100px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.next-btn button {
+    background: #F3B61B;
+    border: solid 1px #F3B61B;
+    padding: 10px 45px;
+    display: inline-block;
+    border-radius: 100px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.step-info-card img {
+    width: 310px;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    z-index: -2;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+footer .footer-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .footer-card p {
+    margin: 0;
+}
+
+footer .footer-card a {
+    color: #fff;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.step-info-card .card-title {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.step-info-card .card-title h3 {
+    font-size: 22px;
+    color: #000;
+}
+
+.step-info-card .card-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background: #ffb13e;
+    width: 90px;
+    height: 5px;
+    border-radius: 100px;
+}
+
+.previous-btn {
+    text-align: left;
+}
+.previous-btn button {
+    background: #F3B61B;
+    border: solid 2px #F3B61B;
+    padding: 10px 45px;
+    display: inline-block;
+    border-radius: 100px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+.previous-btn a {
+    background: #fff;
+    border: solid 2px #F3B61B;
+    padding: 10px 45px;
+    display: inline-block;
+    border-radius: 100px;
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+}
+.step-info-card .form-control {
+    border: solid 1px #ffa75d;
+}
+
+.step-info-card .form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+.about-section {
+    padding: 50px 0;
+    min-height: 398px;
+}
