@@ -27,4 +27,6 @@ enum HiveInspectionType {
     case _switchWithText
     case text
     case dropdown
+    case none
+    case frontSwitch
 }

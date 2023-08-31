@@ -25,4 +25,5 @@ struct SettingsData {
 struct HiveInspectData {
     var title : String = ""
     var type : HiveInspectionType = .text
+    var selectedTitle = ""
 }

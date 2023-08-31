@@ -1,16 +1,16 @@
 //
-//  HiveInspect1VC.swift
+//  HiveInspect4VC.swift
 //  HiveInspection
 //
-//  Created by LN-iMAC-004 on 28/08/23.
+//  Created by LN-iMAC-004 on 31/08/23.
 //
 
 import UIKit
 import FlexibleSteppedProgressBar
 
-class CellT_HiveInspect : UITableViewCell {
+class CellT_HiveInspect4 : UITableViewCell {
     @IBOutlet weak var onSwitchOutlet : UISwitch!
-//    @IBOutlet weak var onSwitchWithTextOutlet : UISwitch!
+    @IBOutlet weak var onSwitchWithTextOutlet : UISwitch!
     @IBOutlet weak var onDatePickerOutlet : UIDatePicker!
     @IBOutlet weak var onBtnDropDownOutlet : UIButton!
     @IBOutlet weak var lblTitleOutlet : UILabel!
@@ -31,33 +31,32 @@ class CellT_HiveInspect : UITableViewCell {
         }
     }
     @IBAction func onSwitchChangeAction(_ sender: UISwitch) {
-
     }
 
     @IBAction func onSwitchWithTextChangeAction(_ sender: UISwitch) {
     }
 }
 
-class HiveInspect1VC : UIViewController {
+class HiveInspect4VC : UIViewController {
     @IBOutlet private weak var tableview : UITableView!
     @IBOutlet weak var onBtnAddAHiveOutlet : LetsButton!
     @IBOutlet weak var onBtnNextOutlet : LetsButton!
-
+    var selectedHiveNumber = ""
     var getHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
-    var selectedHiveNumber = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Hive Number"
+        self.title = "Hive Number \(selectedHiveNumber)"
         tableview.dataSource = self
         tableview.delegate = self
         setupData()
         setupButtons()
         showTransparentNavigationBar()
         closeButton()
-        pullDownButton { selectedString in
-            self.selectedHiveNumber = selectedString
-        }
+//        pullDownButton { selectedString in
+//            print(selectedString)
+//        }
         setupProgressBar()
     }
 
@@ -65,19 +64,19 @@ class HiveInspect1VC : UIViewController {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
-        pullDownButton { selectedString in
-            self.selectedHiveNumber = selectedString
-        }
+//        pullDownButton { selectedString in
+//            print(selectedString)
+//        }
     }
 }
 
-extension HiveInspect1VC : UITableViewDataSource, UITableViewDelegate {
+extension HiveInspect4VC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getHiveInspectData?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellT_HiveInspect", for: indexPath) as? CellT_HiveInspect else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellT_HiveInspect4", for: indexPath) as? CellT_HiveInspect4 else { return UITableViewCell() }
         if let itemData = getHiveInspectData {
             let item = itemData[indexPath.row]
             cell.lblTitleOutlet.text = item.title
@@ -98,7 +97,7 @@ extension HiveInspect1VC : UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension HiveInspect1VC {
+extension HiveInspect4VC {
     private func setupButtons() {
         func setupAddAHiveButton() {
             onBtnAddAHiveOutlet.setTitle("Add a Hive", for: .normal)
@@ -137,11 +136,9 @@ extension HiveInspect1VC {
     }
 }
 
-extension HiveInspect1VC {
+extension HiveInspect4VC {
     @IBAction private func onBtnNextAction(_ sender : UIButton) {
         self.vibrate()
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect2VC") as! HiveInspect2VC
-        navigationController?.pushViewController(dvc, animated: true)
     }
 
     @IBAction private func onBtnAddAHiveAction(_ sender : UIButton) {
@@ -154,7 +151,7 @@ extension HiveInspect1VC {
     }
 }
 
-extension HiveInspect1VC : FlexibleSteppedProgressBarDelegate {
+extension HiveInspect4VC : FlexibleSteppedProgressBarDelegate {
     func setupProgressBar() {
         progressBar = FlexibleSteppedProgressBar()
         progressBar.translatesAutoresizingMaskIntoConstraints = false
@@ -176,7 +173,7 @@ extension HiveInspect1VC : FlexibleSteppedProgressBarDelegate {
         progressBar.progressRadius = 1
         progressBar.progressLineHeight = 3
         progressBar.delegate = self
-        progressBar.completedTillIndex = 1
+        progressBar.completedTillIndex = 4
         progressBar.displayStepText = false
         progressBar.useLastState = true
         progressBar.lastStateCenterColor = UIColor(named: HiveColor.ThemeBlue.rawValue)! //progressColor

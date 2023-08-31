@@ -3,4 +3,180 @@
    uuid = "0E3B572C-88B9-43D9-899D-E102399EBB64"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3646B013-2850-4778-A82F-6E50D512C262"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3646B013-2850-4778-A82F-6E50D512C262 - cc0492146611ad02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3120">
+               </Location>
+               <Location
+                  uuid = "3646B013-2850-4778-A82F-6E50D512C262 - cc0492146611ad02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "3168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "994B1FE5-70DA-4F41-80A1-822BDE8A2A4E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "resetSelectedData(data:)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "994B1FE5-70DA-4F41-80A1-822BDE8A2A4E - cc0492146611aea1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "3760">
+               </Location>
+               <Location
+                  uuid = "994B1FE5-70DA-4F41-80A1-822BDE8A2A4E - f75ce6681c542039"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "994B1FE5-70DA-4F41-80A1-822BDE8A2A4E - cc0492146611aea1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "230"
+                  endingLineNumber = "230"
+                  offsetFromSymbolStart = "4004">
+               </Location>
+               <Location
+                  uuid = "994B1FE5-70DA-4F41-80A1-822BDE8A2A4E - f75ce6681c542039"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5C74855-1521-4D83-ACB6-C3072A325DD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C5C74855-1521-4D83-ACB6-C3072A325DD8 - f75ce6681c5420d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "C5C74855-1521-4D83-ACB6-C3072A325DD8 - f75ce6681c5420d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in HiveInspection.HiveInspect2VC.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "HiveInspection"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Data-1/RaviShankar/RAVI_SHANKAR/Trupen/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspect2VC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "476">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
