@@ -19,9 +19,13 @@ class CellT_HiveInspect2 : UITableViewCell {
     var solidUniformFrameData : [HiveSetup] = []
     var slightlySpottyFramesData : [HiveSetup] = []
     var spottyFramesData : [HiveSetup] = []
+    var normalOdorData : [HiveSetup] = []
     var broodData : [HiveSetup] = []
     var honeyData : [HiveSetup] = []
     var pollenData : [HiveSetup] = []
+
+    var completionOnSwitchChanged : ((UISwitch) -> ())?
+    var completionOnSwitchWithTextChanged : ((UISwitch) -> ())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -103,6 +107,22 @@ class CellT_HiveInspect2 : UITableViewCell {
         }
     }
 
+    func setPopUpButtonNormalOdor(completion : @escaping (String) -> ()) {
+        let optionClosure = {(action: UIAction) in
+            completion(action.title)
+        }
+        var arrUIAction = [UIAction]()
+        for hiveSetupData in spottyFramesData {
+            arrUIAction.append(UIAction(title: hiveSetupData.name, state: hiveSetupData.isSelected ? .on : .off, handler: optionClosure))
+        }
+        onBtnDropDownOutlet.menu = UIMenu(children: arrUIAction)
+        onBtnDropDownOutlet.showsMenuAsPrimaryAction = true
+        if #available(iOS 15.0, *) {
+            onBtnDropDownOutlet.changesSelectionAsPrimaryAction = true
+        }
+    }
+
+
     func setPopUpButtonBrood(completion : @escaping (String) -> ()) {
         let optionClosure = {(action: UIAction) in
             completion(action.title)
@@ -149,9 +169,11 @@ class CellT_HiveInspect2 : UITableViewCell {
     }
 
     @IBAction func onSwitchChangeAction(_ sender: UISwitch) {
+        completionOnSwitchChanged?(sender)
     }
 
     @IBAction func onSwitchWithTextChangeAction(_ sender: UISwitch) {
+        completionOnSwitchWithTextChanged?(sender)
     }
 }
 
@@ -167,6 +189,7 @@ class HiveInspect2VC : UIViewController {
     var solidUniformFrameData : [HiveSetup] = []
     var slightlySpottyFramesData : [HiveSetup] = []
     var spottyFramesData : [HiveSetup] = []
+    var normalOdorData : [HiveSetup] = []
     var broodData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
     var honeyData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
     var pollenData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
@@ -175,10 +198,12 @@ class HiveInspect2VC : UIViewController {
         solidUniformFrameData = []
         slightlySpottyFramesData = []
         spottyFramesData = []
+        normalOdorData = []
         for getData in 1...10 {
             solidUniformFrameData.append(HiveSetup(name: getData.string, isSelected: false))
             slightlySpottyFramesData.append(HiveSetup(name: getData.string, isSelected: false))
             spottyFramesData.append(HiveSetup(name: getData.string, isSelected: false))
+            normalOdorData.append(HiveSetup(name: getData.string, isSelected: false))
         }
         self.title = "Hive Number \(selectedHiveNumber)"
         tableview.dataSource = self
@@ -210,7 +235,9 @@ extension HiveInspect2VC : UITableViewDataSource, UITableViewDelegate {
         let item = getHiveInspectData?[indexPath.row]
         cell.lblTitleOutlet.text = item?.title
         cell.onSwitchOutlet.isHidden = !(item?.type == ._switch)
+        cell.onSwitchOutlet.tag = indexPath.row
         cell.onSwitchWithTextOutlet.isHidden = !(item?.type == ._switchWithText)
+        cell.onSwitchWithTextOutlet.tag = indexPath.row
         cell.onSwitchWithTextOutlet.layerCornerRadius = cell.onSwitchWithTextOutlet.height / 2
         cell.onDatePickerOutlet.isHidden = !(item?.type == .date)
         cell.onSwitchOutlet.layerCornerRadius = cell.onSwitchOutlet.height / 2
@@ -219,12 +246,25 @@ extension HiveInspect2VC : UITableViewDataSource, UITableViewDelegate {
         cell.solidUniformFrameData = self.solidUniformFrameData
         cell.slightlySpottyFramesData = self.slightlySpottyFramesData
         cell.spottyFramesData = self.spottyFramesData
+        cell.normalOdorData = self.normalOdorData
         cell.broodData = self.broodData
         cell.honeyData = self.honeyData
         cell.pollenData = self.pollenData
-        cell.onBtnDropDownOutlet.isHidden = !(item?.type == .dropdown || item?.type == ._switchWithText)
+        if indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6 {
+            if (self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false) {
+                cell.onBtnDropDownOutlet.isHidden = !(item?.type == .dropdown || item?.type == ._switchWithText)
+            }else {
+                cell.onBtnDropDownOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+            }
+        }else{
+            cell.onBtnDropDownOutlet.isHidden = !(item?.type == .dropdown || item?.type == ._switchWithText)
+        }
         cell.onBtnDropDownOutlet.setTitle(self.getHiveInspectData?[indexPath.row].selectedTitle, for: .normal)
-
+        cell.completionOnSwitchWithTextChanged = { _switch in
+            self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn = _switch.isOn
+            cell.onBtnDropDownOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+            cell.layoutSubviews()
+        }
         switch (item?.title ?? "") {
         case "Temperment":
             cell.setPopUpButtonTemperment { selectedTitle in
@@ -285,6 +325,19 @@ extension HiveInspect2VC : UITableViewDataSource, UITableViewDelegate {
                 }
                 if let index = self.spottyFramesData.firstIndex(where: {$0.name == selectedTitle}) {
                     self.spottyFramesData[index].isSelected = true
+                }
+                cell.layoutSubviews()
+            }
+            break
+        case "Normal Odor":
+            cell.setPopUpButtonSpottyframes { selectedTitle in
+                self.getHiveInspectData?[indexPath.row].selectedTitle = selectedTitle
+                cell.onBtnDropDownOutlet.setTitle(selectedTitle, for: .normal)
+                for (getIndex,_) in self.normalOdorData.enumerated() {
+                    self.normalOdorData[getIndex].isSelected = false
+                }
+                if let index = self.normalOdorData.firstIndex(where: {$0.name == selectedTitle}) {
+                    self.normalOdorData[index].isSelected = true
                 }
                 cell.layoutSubviews()
             }
@@ -367,7 +420,7 @@ extension HiveInspect2VC {
         getHiveInspectData?.append(HiveInspectData(title: "Solid & Uniform frames", type: ._switchWithText, selectedTitle: "1"))
         getHiveInspectData?.append(HiveInspectData(title: "Slightly Spotty frames", type: ._switchWithText, selectedTitle: "1"))
         getHiveInspectData?.append(HiveInspectData(title: "Spotty frames", type: ._switchWithText, selectedTitle: "1"))
-        getHiveInspectData?.append(HiveInspectData(title: "Normal Odor", type: .frontSwitch, selectedTitle: "Normal Odor"))
+        getHiveInspectData?.append(HiveInspectData(title: "Normal Odor", type: ._switchWithText, selectedTitle: "1"))
         getHiveInspectData?.append(HiveInspectData(title: "Brood", type: .dropdown, selectedTitle: "Heavy"))
         getHiveInspectData?.append(HiveInspectData(title: "Honey", type: .dropdown, selectedTitle: "Heavy"))
         getHiveInspectData?.append(HiveInspectData(title: "Pollen", type: .dropdown, selectedTitle: "Heavy"))
@@ -378,6 +431,7 @@ extension HiveInspect2VC {
     @IBAction private func onBtnNextAction(_ sender : UIButton) {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect3VC") as! HiveInspect3VC
+        dvc.selectedHiveNumber = selectedHiveNumber
         navigationController?.pushViewController(dvc, animated: true)
     }
 
@@ -387,7 +441,12 @@ extension HiveInspect2VC {
 
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
         self.vibrate()
-        self.navigationController?.popViewController(animated: true)
+        let mainViewControllerVC = self.navigationController?.viewControllers.first(where: { (viewcontroller) -> Bool in
+            return viewcontroller is SettingsVC
+        })
+        if let mainViewControllerVC = mainViewControllerVC {
+            navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }
     }
 }
 

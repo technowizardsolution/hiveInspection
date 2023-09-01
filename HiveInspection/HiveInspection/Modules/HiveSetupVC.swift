@@ -50,10 +50,14 @@ extension HiveSetupVC {
 
     @IBAction private func onBtnAddAHiveAction(_ sender : UIButton) {
         self.vibrate()
+        self.viewDidLoad()
+        self.viewWillAppear(true)
     }
 
     @IBAction private func onBtnStartInvestingAction(_ sender : UIButton) {
         self.vibrate()
+        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect1VC") as! HiveInspect1VC
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 

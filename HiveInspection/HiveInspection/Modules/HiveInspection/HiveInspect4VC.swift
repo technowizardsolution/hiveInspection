@@ -9,11 +9,14 @@ import UIKit
 import FlexibleSteppedProgressBar
 
 class CellT_HiveInspect4 : UITableViewCell {
-    @IBOutlet weak var onSwitchOutlet : UISwitch!
     @IBOutlet weak var onSwitchWithTextOutlet : UISwitch!
-    @IBOutlet weak var onDatePickerOutlet : UIDatePicker!
     @IBOutlet weak var onBtnDropDownOutlet : UIButton!
+    @IBOutlet weak var txtHiveDataOutlet : UITextField!
+    @IBOutlet weak var bottomBorderOutlet : UIView!
+    @IBOutlet weak var hiveTextStackViewOutlet : UIStackView!
     @IBOutlet weak var lblTitleOutlet : UILabel!
+    var completionOnSwitchWithTextChanged : ((UISwitch) -> ())?
+    var medicationData : [HiveSetup] = [HiveSetup(name: "Formic", isSelected: false), HiveSetup(name: "Apivar", isSelected: false), HiveSetup(name: "Other", isSelected: false)]
 
     func setPopUpButton(completion : @escaping (String) -> ()) {
         let optionClosure = {(action: UIAction) in
@@ -21,8 +24,8 @@ class CellT_HiveInspect4 : UITableViewCell {
             completion(action.title)
         }
         var arrUIAction = [UIAction]()
-        for hiveSetupData in 1...10 {
-            arrUIAction.append(UIAction(title: hiveSetupData.string, state: .off, handler: optionClosure))
+        for hiveSetupData in medicationData {
+            arrUIAction.append(UIAction(title: hiveSetupData.name, state: hiveSetupData.isSelected ? .on : .off, handler: optionClosure))
         }
         onBtnDropDownOutlet.menu = UIMenu(children: arrUIAction)
         onBtnDropDownOutlet.showsMenuAsPrimaryAction = true
@@ -30,10 +33,9 @@ class CellT_HiveInspect4 : UITableViewCell {
             onBtnDropDownOutlet.changesSelectionAsPrimaryAction = true
         }
     }
-    @IBAction func onSwitchChangeAction(_ sender: UISwitch) {
-    }
 
     @IBAction func onSwitchWithTextChangeAction(_ sender: UISwitch) {
+        completionOnSwitchWithTextChanged?(sender)
     }
 }
 
@@ -44,6 +46,7 @@ class HiveInspect4VC : UIViewController {
     var selectedHiveNumber = ""
     var getHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
+    var medicationData : [HiveSetup] = [HiveSetup(name: "Formic", isSelected: false), HiveSetup(name: "Apivar", isSelected: false), HiveSetup(name: "Other", isSelected: false)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +57,6 @@ class HiveInspect4VC : UIViewController {
         setupButtons()
         showTransparentNavigationBar()
         closeButton()
-//        pullDownButton { selectedString in
-//            print(selectedString)
-//        }
         setupProgressBar()
     }
 
@@ -64,9 +64,13 @@ class HiveInspect4VC : UIViewController {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
-//        pullDownButton { selectedString in
-//            print(selectedString)
-//        }
+    }
+}
+
+extension HiveInspect4VC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        getHiveInspectData?[textField.tag].selectedTitle = (textField.text ?? "") + string
+        return true
     }
 }
 
@@ -80,13 +84,47 @@ extension HiveInspect4VC : UITableViewDataSource, UITableViewDelegate {
         if let itemData = getHiveInspectData {
             let item = itemData[indexPath.row]
             cell.lblTitleOutlet.text = item.title
-            cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown)
-            cell.onSwitchOutlet.isHidden = !(item.type == ._switch)
-//            cell.onSwitchWithTextOutlet.isHidden = !(item.type == ._switchWithText)
-            cell.onDatePickerOutlet.isHidden = !(item.type == .date)
-            cell.onSwitchOutlet.layerCornerRadius = cell.onSwitchOutlet.height / 2
+            cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown || item.type == ._switchWithDropDown)
+            cell.onSwitchWithTextOutlet.isHidden = !(item.type == .frontSwitch || item.type == ._switchWithDropDown || item.type == ._switchWithText)
+            cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown || item.type == ._switchWithDropDown)
+            cell.onSwitchWithTextOutlet.layerCornerRadius = cell.onSwitchWithTextOutlet.height / 2
             cell.setPopUpButton { selectedTitle in
-                print(selectedTitle)
+                self.getHiveInspectData?[indexPath.row].selectedTitle = selectedTitle
+                cell.onBtnDropDownOutlet.setTitle(selectedTitle, for: .normal)
+                for (getIndex,_) in self.medicationData.enumerated() {
+                    self.medicationData[getIndex].isSelected = false
+                }
+                if let index = self.medicationData.firstIndex(where: {$0.name == selectedTitle}) {
+                    self.medicationData[index].isSelected = true
+                }
+                cell.layoutSubviews()
+            }
+            cell.txtHiveDataOutlet.tag = indexPath.row
+            cell.txtHiveDataOutlet.delegate = self
+            cell.txtHiveDataOutlet.text = getHiveInspectData?[indexPath.row].selectedTitle
+            if item.type == ._switchWithText {
+                cell.hiveTextStackViewOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                cell.onBtnDropDownOutlet.isHidden = true
+            }else if item.type == ._switchWithDropDown {
+                cell.hiveTextStackViewOutlet.isHidden = true
+                cell.onBtnDropDownOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+            }else {
+                cell.onBtnDropDownOutlet.isHidden = true
+                cell.hiveTextStackViewOutlet.isHidden = true
+            }
+            cell.completionOnSwitchWithTextChanged = { _switch in
+                self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn = _switch.isOn
+                if self.getHiveInspectData?[indexPath.row].type == ._switchWithText {
+                    cell.hiveTextStackViewOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                    cell.onBtnDropDownOutlet.isHidden = true
+                }else if self.getHiveInspectData?[indexPath.row].type == ._switchWithDropDown {
+                    cell.hiveTextStackViewOutlet.isHidden = true
+                    cell.onBtnDropDownOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                }else {
+                    cell.onBtnDropDownOutlet.isHidden = true
+                    cell.hiveTextStackViewOutlet.isHidden = true
+                }
+                cell.layoutSubviews()
             }
         }
         return cell
@@ -100,14 +138,14 @@ extension HiveInspect4VC : UITableViewDataSource, UITableViewDelegate {
 extension HiveInspect4VC {
     private func setupButtons() {
         func setupAddAHiveButton() {
-            onBtnAddAHiveOutlet.setTitle("Add a Hive", for: .normal)
+            onBtnAddAHiveOutlet.setTitle("Send Report", for: .normal)
             onBtnAddAHiveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnAddAHiveOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnAddAHiveOutlet.cornerRadius = onBtnAddAHiveOutlet.frame.height / 2
             onBtnAddAHiveOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupStartInspectingButton() {
-            onBtnNextOutlet.setTitle("Next!", for: .normal)
+            onBtnNextOutlet.setTitle("See History", for: .normal)
             onBtnNextOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnNextOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnNextOutlet.cornerRadius = onBtnNextOutlet.frame.height / 2
@@ -119,20 +157,13 @@ extension HiveInspect4VC {
 
     private func setupData() {
         getHiveInspectData = []
-        getHiveInspectData?.append(HiveInspectData(title: "Date", type: .date))
-        getHiveInspectData?.append(HiveInspectData(title: "Normal Hive Condition", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Saw Queen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Queen Marked", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Eggs Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Larva Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Pupa Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Drone Cells", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Queen Cells", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Hive Beetles", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Wax Moth", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Noseema", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Mite Wash", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Mite Count", type: .dropdown))
+        getHiveInspectData?.append(HiveInspectData(title: "Feed Hive What?", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Install Medication What?", type: ._switchWithDropDown))
+        getHiveInspectData?.append(HiveInspectData(title: "Remove Medication", type: .frontSwitch))
+        getHiveInspectData?.append(HiveInspectData(title: "Split Hive", type: .frontSwitch))
+        getHiveInspectData?.append(HiveInspectData(title: "Re Queen", type: .frontSwitch))
+        getHiveInspectData?.append(HiveInspectData(title: "Swap Brood Boxes", type: .frontSwitch))
+        getHiveInspectData?.append(HiveInspectData(title: "Insulate / Winterize", type: .frontSwitch))
     }
 }
 
@@ -147,7 +178,12 @@ extension HiveInspect4VC {
 
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
         self.vibrate()
-        self.navigationController?.popViewController(animated: true)
+        let mainViewControllerVC = self.navigationController?.viewControllers.first(where: { (viewcontroller) -> Bool in
+            return viewcontroller is SettingsVC
+        })
+        if let mainViewControllerVC = mainViewControllerVC {
+            navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }
     }
 }
 

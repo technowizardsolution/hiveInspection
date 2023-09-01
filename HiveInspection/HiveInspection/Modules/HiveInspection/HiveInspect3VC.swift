@@ -10,31 +10,14 @@ import UIKit
 import FlexibleSteppedProgressBar
 
 class CellT_HiveInspect3 : UITableViewCell {
-    @IBOutlet weak var onSwitchOutlet : UISwitch!
     @IBOutlet weak var onSwitchWithTextOutlet : UISwitch!
-    @IBOutlet weak var onDatePickerOutlet : UIDatePicker!
-    @IBOutlet weak var onBtnDropDownOutlet : UIButton!
     @IBOutlet weak var lblTitleOutlet : UILabel!
-
-    func setPopUpButton(completion : @escaping (String) -> ()) {
-        let optionClosure = {(action: UIAction) in
-            self.onBtnDropDownOutlet.setTitle(action.title, for: .normal)
-            completion(action.title)
-        }
-        var arrUIAction = [UIAction]()
-        for hiveSetupData in 1...10 {
-            arrUIAction.append(UIAction(title: hiveSetupData.string, state: .off, handler: optionClosure))
-        }
-        onBtnDropDownOutlet.menu = UIMenu(children: arrUIAction)
-        onBtnDropDownOutlet.showsMenuAsPrimaryAction = true
-        if #available(iOS 15.0, *) {
-            onBtnDropDownOutlet.changesSelectionAsPrimaryAction = true
-        }
-    }
-    @IBAction func onSwitchChangeAction(_ sender: UISwitch) {
-    }
+    @IBOutlet weak var bottomBorderOutlet : UIView!
+    @IBOutlet weak var txtHiveDataOutlet : UITextField!
+    var completionOnSwitchWithTextChanged : ((UISwitch) -> ())?
 
     @IBAction func onSwitchWithTextChangeAction(_ sender: UISwitch) {
+        completionOnSwitchWithTextChanged?(sender)
     }
 }
 
@@ -72,6 +55,15 @@ class HiveInspect3VC : UIViewController {
     }
 }
 
+extension HiveInspect3VC : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        getHiveInspectData?[textField.tag].selectedTitle = (textField.text ?? "") + string
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return ((textField.text ?? "") + string).count <= 5 && allowedCharacters.isSuperset(of: characterSet)
+    }
+}
+
 extension HiveInspect3VC : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getHiveInspectData?.count ?? 0
@@ -82,13 +74,20 @@ extension HiveInspect3VC : UITableViewDataSource, UITableViewDelegate {
         if let itemData = getHiveInspectData {
             let item = itemData[indexPath.row]
             cell.lblTitleOutlet.text = item.title
-            cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown)
-            cell.onSwitchOutlet.isHidden = !(item.type == ._switch)
-//            cell.onSwitchWithTextOutlet.isHidden = !(item.type == ._switchWithText)
-            cell.onDatePickerOutlet.isHidden = !(item.type == .date)
-            cell.onSwitchOutlet.layerCornerRadius = cell.onSwitchOutlet.height / 2
-            cell.setPopUpButton { selectedTitle in
-                print(selectedTitle)
+            cell.onSwitchWithTextOutlet.isHidden = !(item.type == ._switchWithText)
+            cell.onSwitchWithTextOutlet.layerCornerRadius = cell.onSwitchWithTextOutlet.height / 2
+            cell.txtHiveDataOutlet.tag = indexPath.row
+            cell.txtHiveDataOutlet.delegate = self
+            cell.txtHiveDataOutlet.text = getHiveInspectData?[indexPath.row].selectedTitle
+            if item.type == ._switchWithText {
+                cell.txtHiveDataOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                cell.bottomBorderOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+            }
+            cell.completionOnSwitchWithTextChanged = { _switch in
+                self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn = _switch.isOn
+                cell.txtHiveDataOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                cell.bottomBorderOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+                cell.layoutSubviews()
             }
         }
         return cell
@@ -121,20 +120,19 @@ extension HiveInspect3VC {
 
     private func setupData() {
         getHiveInspectData = []
-        getHiveInspectData?.append(HiveInspectData(title: "Date", type: .date))
-        getHiveInspectData?.append(HiveInspectData(title: "Normal Hive Condition", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Saw Queen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Queen Marked", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Eggs Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Larva Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Pupa Seen", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Drone Cells", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Queen Cells", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Hive Beetles", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Wax Moth", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Noseema", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Mite Wash", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Mite Count", type: .dropdown))
+        getHiveInspectData?.append(HiveInspectData(title: "Frames of Bees", type: .text))
+        getHiveInspectData?.append(HiveInspectData(title: "Frames of Brood", type: .text))
+        getHiveInspectData?.append(HiveInspectData(title: "Frames of Honey", type: .text))
+        getHiveInspectData?.append(HiveInspectData(title: "Frames of Pollen", type: .text))
+        getHiveInspectData?.append(HiveInspectData(title: "Honey Supers", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Add Supers", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Super 3", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Super 2", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Super 1", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Brood 3", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Brood 2", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Weigh Brood 1", type: ._switchWithText))
+        getHiveInspectData?.append(HiveInspectData(title: "Prep for extraction", type: ._switchWithText))
     }
 }
 
@@ -142,6 +140,7 @@ extension HiveInspect3VC {
     @IBAction private func onBtnNextAction(_ sender : UIButton) {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect4VC") as! HiveInspect4VC
+        dvc.selectedHiveNumber = selectedHiveNumber
         navigationController?.pushViewController(dvc, animated: true)
     }
 
@@ -151,7 +150,12 @@ extension HiveInspect3VC {
 
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
         self.vibrate()
-        self.navigationController?.popViewController(animated: true)
+        let mainViewControllerVC = self.navigationController?.viewControllers.first(where: { (viewcontroller) -> Bool in
+            return viewcontroller is SettingsVC
+        })
+        if let mainViewControllerVC = mainViewControllerVC {
+            navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }
     }
 }
 

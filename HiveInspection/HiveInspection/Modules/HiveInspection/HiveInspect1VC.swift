@@ -45,7 +45,7 @@ class HiveInspect1VC : UIViewController {
 
     var getHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
-    var selectedHiveNumber = ""
+    var selectedHiveNumber = "1"
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Hive Number"
@@ -141,6 +141,7 @@ extension HiveInspect1VC {
     @IBAction private func onBtnNextAction(_ sender : UIButton) {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect2VC") as! HiveInspect2VC
+        dvc.selectedHiveNumber = self.selectedHiveNumber
         navigationController?.pushViewController(dvc, animated: true)
     }
 
@@ -150,7 +151,12 @@ extension HiveInspect1VC {
 
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
         self.vibrate()
-        self.navigationController?.popViewController(animated: true)
+        let mainViewControllerVC = self.navigationController?.viewControllers.first(where: { (viewcontroller) -> Bool in
+            return viewcontroller is SettingsVC
+        })
+        if let mainViewControllerVC = mainViewControllerVC {
+            navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }
     }
 }
 
