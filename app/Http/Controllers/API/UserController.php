@@ -60,8 +60,7 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
-        $data = $request->json()->get('data');
-        dd( $data ); exit();
+        $data = $request->json()->get('data');        
         try {
             if (empty($data)) {
                 return $this->APIResponse->respondNotFound(__('Data key not found or Empty'));
