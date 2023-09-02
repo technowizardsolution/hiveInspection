@@ -29,13 +29,13 @@
                               </div>
                             @endif
 
-                            <input type="hidden" name="token" value="{{ $user->password_reset_token }}">
+                            <input type="hidden" name="token" value="{{ $token }}">
                               <div class="form-group">
                                 <div class="d-flex justify-content-between">
                                   <label class="form-label" for="login-email">Email</label>
                                 </div>
                                 <div class="input-group input-group-merge">
-                                  <input id="email" type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="@if($user->email) {{$user->email}} @else {{old('email')}}@endif" placeholder="Email" required aria-describedby="email" autofocus="" tabindex="1">
+                                  <input id="email" type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{old('email')}}" placeholder="Email" required aria-describedby="email" autofocus="" tabindex="1">
                                 </div>
                                 @if ($errors->has('email'))
                                   <span class="invalid-feedback" role="alert">
