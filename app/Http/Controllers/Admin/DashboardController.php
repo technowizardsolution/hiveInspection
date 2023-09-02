@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use DB;
 use App\User;
+use App\Hive;
+use App\Inspection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,16 +32,14 @@ class DashboardController extends Controller
 
     // $start_date = date("Y-m-d H:i:s", strtotime($request->start_date));
     // $end_date = date("Y-m-d 23:59:59", strtotime($request->end_date));
-    $totalUser = User::whereHas("roles", function($q){ $q->where("name", "user"); })
-                      ->where('users.created_at','>=',$start_date)
-                      ->where('users.created_at','<=',$end_date)
+    $totalHive = Hive::where('created_at','>=',$start_date)
+                      ->where('created_at','<=',$end_date)
                       ->count();
-    $totalSubadmin = User::whereHas("roles", function($q){ $q->where("name", "subadmin"); })
-                      ->where('users.created_at','>=',$start_date)
-                      ->where('users.created_at','<=',$end_date)
+    $totalInspection = Inspection::where('created_at','>=',$start_date)
+                      ->where('created_at','<=',$end_date)
                       ->count();
-    $countInfo['totalUser'] = $totalUser;
-    $countInfo['totalSubadmin'] = $totalSubadmin;
+    $countInfo['totalHive'] = $totalHive;
+    $countInfo['totalInspection'] = $totalInspection;
     return $countInfo;
   }
 }

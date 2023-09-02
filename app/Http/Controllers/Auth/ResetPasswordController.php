@@ -73,12 +73,14 @@ class ResetPasswordController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         } else {
-            $user = User::where('password_reset_token', $request->token)->where('email',$request->email)->first();
+            
+            //$user = User::where('password_reset_token', $request->token)->where('email',$request->email)->first();
+            $user = User::where('email',$request->email)->first();            
             if($user){
                 $user->password = bcrypt($request->password);
                 $user->password_reset_token = null;
                 if($user->save()) {
-                    Session::put('message', "Hello, Your password has been successfully updated.");
+                    Session::put('message', "Your password has been successfully updated.");
                     return redirect('/login');
                 } else {
                     Session::put('message', "Hello, Some Error occured on Updating your password. Please Request again to Generate Reset Password Link. Thank you!");

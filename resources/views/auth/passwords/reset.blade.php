@@ -1,27 +1,16 @@
 @extends('user.layouts.authapp')
 
 @section('content')
-<div class="app-content content ">
-  <div class="content-overlay"></div>
-  <div class="header-navbar-shadow"></div>
-  <div class="content-wrapper">
-      <div class="content-header row">
-      </div>
-      <div class="content-body">
-          <div class="auth-wrapper auth-v2">
-              <div class="auth-inner row m-0">
-                  <a class="brand-logo" href="javascript:void(0);">
-                      <img src="{{ URL::asset('resources/uploads/logo/Logo7.png')}}" alt="" height="28">
-                      {{-- <h2 class="brand-text text-primary ml-1">{{ config('app.name', 'Laravel') }}</h2> --}}
-                  </a>
-                  <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                      <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="{{ URL::asset('/resources/assets/app-assets/images/pages/reset-password-v2-dark.svg')}}" alt="Login V2" /></div>
-                  </div>
-                  <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
-                      <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                          <h2 class="card-title font-weight-bold mb-1">Reset Password 🔒</h2>
-                          <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
-                          <form class="auth-login-form mt-2" method="POST" id="passwordReset" action="{{ route('password.update') }}">
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="login-box">
+                    <div class="login-box-card">
+                        <h2>Reset password</h2>
+                        <p></p>
+
+                        <form class="auth-login-form mt-2" method="POST" id="passwordReset" action="{{ route('password.update') }}">
                           @csrf
                             @if (session('status'))
                               <div class="alert alert-success" role="alert">
@@ -31,56 +20,47 @@
 
                             <input type="hidden" name="token" value="{{ $token }}">
                               <div class="form-group">
-                                <div class="d-flex justify-content-between">
-                                  <label class="form-label" for="login-email">Email</label>
-                                </div>
-                                <div class="input-group input-group-merge">
-                                  <input id="email" type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{old('email')}}" placeholder="Email" required aria-describedby="email" autofocus="" tabindex="1">
-                                </div>
+                                <label for="login-email">Email</label>
+                                <input id="email" type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{old('email')}}" placeholder="Email" required aria-describedby="email" autofocus="" tabindex="1">
                                 @if ($errors->has('email'))
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $errors->first('email') }}</strong>
                                   </span>
                                 @endif
                               </div>
-                              <div class="form-group">
-                                  <div class="d-flex justify-content-between">
-                                      <label for="login-password">Password</label>
-                                  </div>
-                                  <div class="input-group input-group-merge form-password-toggle">
-                                      <input id="password" type="password" class="form-control form-control-merge {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required aria-describedby="password" tabindex="2" >
-                                      <div class="input-group-append"><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span></div>
-                                  </div>
+                              <div class="form-group">                                  
+                                  <label for="Password">Password</label>
+                                  <input id="password" type="password" class="form-control form-control-merge {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required aria-describedby="password" tabindex="2" >
                                   @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                   @endif
                               </div>
-                              <div class="form-group">
-                                  <div class="d-flex justify-content-between">
-                                      <label for="login-password">Confirm Password</label>
-                                  </div>
-                                  <div class="input-group input-group-merge form-password-toggle">
-                                      <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control form-control-merge @error('password-confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" tabindex="3">
-                                      <div class="input-group-append"><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span></div>
-                                  </div>
+                              <div class="form-group">                                  
+                                  <label for="Confirm Password">Confirm Password</label>
+                                  <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control form-control-merge @error('password-confirm') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" tabindex="3">
                                   @if ($errors->has('password'))
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $errors->first('password') }}</strong>
                                       </span>
                                   @endif
                               </div>
-                              <button type="submit" id="resetBtn" class="btn btn-primary btn-block" tabindex="4">Set New Password</button>
+                              <div class="form-group">       
+                                  <button type="submit" id="resetBtn" tabindex="4">Set New Password</button>
+                              </div>
                           </form>
                           <p class="text-center mt-2"><a href="{{url('login')}}"><i data-feather="chevron-left"></i> Back to login</a></p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+
+
+                    </div>    
+                </div>        
+            </div>        
+         </div>      
+    </div>         
+</section>   
+                          
+                      
 @endsection
 @section('css')
 @endsection
@@ -134,7 +114,7 @@
 
                   },
                   errorPlacement: function(error, element) {
-                      error.insertAfter(element.closest(".input-group"));
+                      error.insertAfter(element.closest(".form-control"));
                   },
                       submitHandler: function(form,e) {
                           e.preventDefault();

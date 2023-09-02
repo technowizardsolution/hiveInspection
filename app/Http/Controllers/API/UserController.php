@@ -276,6 +276,7 @@ class UserController extends Controller
 
     public function forgotPassword(Request $request)
     {
+       
         $data = $request->json()->get('data');
         try {
             if (empty($data)) {
@@ -298,7 +299,7 @@ class UserController extends Controller
                         if ($checkUserExits->email_verified == '0' || $checkUserExits->email_verified == null) {
                             return $this->APIResponse->respondUnauthorized(__(Lang::get('messages.verifyemailfirst')));
                         } else {
-                            $checkUserExits->password_reset_token = Str::random(30);
+                            $checkUserExits->password_reset_token = Str::random(30);                         
                             if ($checkUserExits->save()) {
                                 $checkUserExits->notify(new APIForgotPassword($checkUserExits));
 

@@ -49,7 +49,7 @@
                                               </div>
                                           </div>
                                           <div class="media-body my-auto">
-                                              <h4 class="font-weight-bolder mb-0" id="usercount"></h4>
+                                              <h4 class="font-weight-bolder mb-0" id="totalHive"></h4>
                                               <p class="card-text font-small-3 mb-0">Hive</p>
                                               <p>
                                                 <a href="{{url('admin/hive')}}" class="small-box-footer">
@@ -67,7 +67,7 @@
                                               </div>
                                           </div>
                                           <div class="media-body my-auto">
-                                              <h4 class="font-weight-bolder mb-0" id="totalSubadmin"></h4>
+                                              <h4 class="font-weight-bolder mb-0" id="totalInspection"></h4>
                                               <p class="card-text font-small-3 mb-0">Inspection</p>
                                               <p>
                                                 <a href="{{url('admin/inspection')}}" class="small-box-footer text-info">
@@ -94,51 +94,7 @@
 <script src="{{URL::asset('resources/assets/custom/jQuery-validation-plugin/additional-methods.js')}}"></script>
 <script src="{{URL::asset('resources/assets/admin/plugins/daterangepicker/moment.js')}}"></script>
 <script src="{{URL::asset('resources/assets/admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
-<script>
 
-function getData(){
-    var xMonth = [];
-    var yData = [];
-    var currentYear = new Date().getFullYear();
-    console.log(currentYear);
-    $.ajax({
-        url: "{{ route('getUsersData') }}",
-        type: 'GET',
-        dataType: 'JSON',
-        success: function(result){
-            jQuery.each(result, function(index, item) {
-                xMonth.push(item.month);
-                yData.push(item.count);
-
-            //now you can access properties using dot notation
-            console.log(item.month);
-        });
-            console.log(result);
-    //   $("#div1").html(result);
-
-
-    new Chart("myChart", {
-      type: "bar",
-      data: {
-        labels: xMonth,
-        datasets: [{
-          backgroundColor:'#00cfe8',
-          data: yData
-        }]
-      },
-      options: {
-        legend: {display: false},
-        title: {
-          display: true,
-          text: "User Data " + currentYear,
-        }
-      }
-    });
-    }});
-}
-getData();
-
-    </script>
 
 @if(Session::has('message'))
     <script>
@@ -210,8 +166,8 @@ var SITE_URL = '<?php echo URL::to('/').'/'; ?>';
       data: {"_token": "{{ csrf_token() }}",date},
       success: function (data) {
         data =JSON.parse(data);
-        $("#usercount").html(data.totalUser);
-        $("#totalSubadmin").html(data.totalSubadmin);
+        $("#totalHive").html(data.totalHive);
+        $("#totalInspection").html(data.totalInspection);
       }
     });
   }

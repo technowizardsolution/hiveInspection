@@ -358,3 +358,8 @@ footer .footer-card a {
     padding: 50px 0;
     min-height: 398px;
 }
+
+span#email-error, span#password-error, span#password-confirm-error {
+    float: left !important;
+    display: inline-flex !important;
+}

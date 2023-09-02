@@ -24,6 +24,7 @@ use Crypt;
 use Google2FA;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use \ParagonIE\ConstantTime\Base32;
+use Illuminate\Support\Facades\DB;
 
 class HiveController extends Controller
 {
@@ -74,7 +75,10 @@ class HiveController extends Controller
 
     public function create()
     {
-        $users = User::where('user_status','1')->whereHas("roles", function($q){ $q->where("id","=","2"); })->get();        
+        $users = DB::table("users")->select('*')->whereNotIn('id',function($query) {
+            $query->select('user_id')->from('hive');         
+        })->whereNotIn('id',[1])->get();
+        //$users = User::where('user_status','1')->whereHas("roles", function($q){ $q->where("id","=","2"); })->get();        
         return View('admin.hive.create',compact('users'));
     }
 
