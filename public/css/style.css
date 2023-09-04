@@ -232,7 +232,12 @@ header .main-header .login-btn a.btn-login {
     padding: 30px;
     position: relative;
     z-index: 3;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.step-info-card.step-button{
+    border-radius: 0px 0px 15px 15px;
+    padding: 0px 30px 30px 30px;
 }
 
 .checkbox-card .form-group {

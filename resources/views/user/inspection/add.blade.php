@@ -2,19 +2,32 @@
 @section('title') Hive | @endsection
 @section('content')
 <style>
-    .hide{
-        display:none;
-    }
+  
+
+    .tab{display: none; width: 100%; height: 50%;margin: 0px auto;}
+.current{display: block;}
+
+.previous {background-color: #bbbbbb; }
+
+/* Make circles that indicate the steps of the form: */
+.step {height: 30px; width: 30px; cursor: pointer; margin: 0 2px; color: #fff; background-color: #bbbbbb; border: none; border-radius: 50%; display: inline-block; opacity: 0.8; padding: 5px}
+
+.step.active {opacity: 1; background-color: #69c769;}
+
+.step.finish {background-color: #4CAF50; }
+
+.error {color: #f00; }
 </style>
 
 <section class="form-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+
                     <form class="form-horizontal" id="inspectionForm" role="form" action="{{url('user/inspection/store')}}" method="post" enctype="multipart/form-data" >
                         @csrf 
                         <input type="hidden" class="form-control" name="hive_id" id="hive_id" value="{{$hive_id}}">
-                        <div class="step-info-card step1">
+                        <div class="step-info-card step1 tab">
                             <div class="step-info">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -119,23 +132,11 @@
                                     </div>
                                 </div>
                                 
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="next-btn">
-                                        <a href="javascript:;" class="first_next">NEXT</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                            
                             <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
                         </div> 
 
-
-                       
-                        <div class="step-info-card step2 hide">
+                        <div class="step-info-card step2 tab">
                             <div class="step-info">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -236,25 +237,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="previous-btn">
-                                        <a href="javascript:;" class="second_previous">Previous</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="next-btn">
-                                        <a href="javascript:;" class="second_next">NEXT</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                            
                             <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
                         </div>
-                        
 
-
-                        <div class="step-info-card step3 hide">
+                        <div class="step-info-card step3 tab">
                             <div class="step-info">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -392,23 +379,11 @@
                                     </div>
                                 </div>
                                 
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="previous-btn">
-                                        <a href="javascript:;" class="third_previous">Previous</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="next-btn">
-                                        <a href="javascript:;" class="third_next">NEXT</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                            
                             <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
                         </div>
                         
-                        <div class="step-info-card step4 hide">
+                        <div class="step-info-card step4 tab">
                             <div class="step-info">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -489,21 +464,30 @@
                                 </div>
                         
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="previous-btn">
-                                        <a href="javascript:;" class="forth_previous">Previous</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="next-btn">
-                                        <button type="submit" class="">Send Report</button>
-                                        <button type="button" class="">See History</button>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
                         </div> 
+
+                        <div class="step-info-card step-button">
+                            <div class="step-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="previous-btn">
+                                            <a href="javascript:;" class="second_previous previous">Previous</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="next-btn">
+                                            <a href="javascript:;" class="second_next next">NEXT</a>   
+                                            <button type="submit" class="submit">Send Report</button>
+                                            <button type="button" class="submit">See History</button>                                         
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>    
+                        </div>                           
+
                     </form>          
                 </div>
             </div>
@@ -519,38 +503,109 @@
         });
         </script>
     @endif
+
+	<script type="text/javascript">
+		$(document).ready(function(){	
+			var val	=	{
+			    rules: {
+                    inspection_date: {
+                        required: true
+                    },
+                    mite_count : {
+                        required: true,
+                    },
+                    temperment: {
+                        required: true
+                    },
+                    population : {
+                        required: true,
+                    },
+                    brood : {
+                        required: true,
+                    },
+                    honey : {
+                        required: true,
+                    },
+                    pollen : {
+                        required: true,
+                    },
+                    frames_of_bees: {
+                        required: true
+                    },
+                    frames_of_brood : {
+                        required: true,
+                    },
+                    frames_of_honey : {
+                        required: true,
+                    },
+                    frames_of_pollen : {
+                        required: true,
+                    }
+			    },
+			    messages: {
+					inspection_date: {
+						required:"Inspection date is required",
+					},
+					mite_count: {
+						required:"Mite count is required",
+					},
+					temperment:{
+						required:"Temperment is requied"
+					},
+					population:{
+						required:"Population is required"
+					},
+					brood:{
+						required:"Brood is required",
+					},
+					honey:{
+						required:"Honey is required",
+					},
+					pollen:{
+						required:"Pollen is required",
+					},
+					frames_of_bees:{
+						required:"Frames of bees is required",
+					},                   
+                    frames_of_brood : {
+                        required: "Frames of brood required",
+                    },
+                    frames_of_honey : {
+                        required: "Frames of honey required",
+                    },
+                    frames_of_pollen : {
+                        required: "Frames of pollen required",
+                    }
+			    }
+			}
+			$("#inspectionForm").multiStepForm(
+			{
+				// defaultStep:0,
+				beforeSubmit : function(form, submit){
+					console.log("called before submiting the form");
+					console.log(form);
+					console.log(submit);
+                   
+
+				},
+				validations:val,
+			}
+			).navigateTo(0);
+		});
+	</script>
+
+
+
+
 <script>
+
 $(document).ajaxStart(function() { Pace.restart(); });
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-$(document).ready(function () {
-    // $(".first_next").click(function () {
-    //     $(".step2").removeClass('hide');
-    //     $(".step1").addClass('hide');
-    // });
-    $(".second_previous").click(function () {
-        $(".step1").removeClass('hide');
-        $(".step2").addClass('hide');
-    });
-    // $(".second_next").click(function () {
-    //     $(".step3").removeClass('hide');
-    //     $(".step2").addClass('hide');
-    // });
-    $(".third_previous").click(function () {
-        $(".step2").removeClass('hide');
-        $(".step3").addClass('hide');
-    });
-    // $(".third_next").click(function () {
-    //     $(".step4").removeClass('hide');
-    //     $(".step3").addClass('hide');
-    // });
-    $(".forth_previous").click(function () {
-        $(".step3").removeClass('hide');
-        $(".step4").addClass('hide');
-    });  
+$(document).ready(function () {    
     
     $("#solid_uniform_frames").change(function() {
         if(this.checked) {
@@ -650,143 +705,7 @@ $(document).ready(function () {
     
 });
 
-$(document).ready(function(){ 
-    $(".first_next").click(function(){
-        var form = $("#inspectionForm");
-        form.validate({
-            errorElement: 'span',
-            errorClass: 'text-red text-danger',
-            ignore: [],
-            rules: {
-                inspection_date: {
-                    required: true
-                },
-                mite_count : {
-                    required: true,
-                }
-            },
-            messages: {
-                inspection_date: {
-                    required: "Inspection date required",
-                },
-                mite_count : {
-                    required: "Mite count required",
-                }
-            },
-            errorPlacement: function(error, element) {
-                if(element.is('select')){
-                    error.appendTo(element.closest("div"));
-                }else{
-                    error.insertAfter(element.closest(".form-control"));
-                }
-            },
-        });
-        if (form.valid() === true){
-            $(".step2").removeClass('hide');
-            $(".step1").addClass('hide');
-        }
-    });
-    $(".second_next").click(function(){
-        var secondform = $("#inspectionForm");
-        secondform.validate({
-            errorElement: 'span',
-            errorClass: 'text-red text-danger',
-            ignore: [],
-            rules: {
-                temperment: {
-                    required: true
-                },
-                population : {
-                    required: true,
-                },
-                brood : {
-                    required: true,
-                },
-                honey : {
-                    required: true,
-                },
-                pollen : {
-                    required: true,
-                }
-            },
-            messages: {
-                temperment: {
-                    required: "Temperment required",
-                },
-                population : {
-                    required: "Population required",
-                },
-                brood : {
-                    required: "Brood required",
-                },
-                honey : {
-                    required: "Honey required",
-                },
-                pollen : {
-                    required: "Pollen required",
-                }
-            },
-            errorPlacement: function(error, element) {
-                if(element.is('select')){
-                    error.appendTo(element.closest("div"));
-                }else{
-                    error.insertAfter(element.closest(".form-control"));
-                }
-            },
-        });
-        if (secondform.valid() === true){            
-            $(".step3").removeClass('hide');
-            $(".step2").addClass('hide');
-        }
-    });
-    $(".third_next").click(function(){
-        var thirdform = $("#inspectionForm");
-        thirdform.validate({
-            errorElement: 'span',
-            errorClass: 'text-red text-danger',
-            ignore: [],
-            rules: {
-                frames_of_bees: {
-                    required: true
-                },
-                frames_of_brood : {
-                    required: true,
-                },
-                frames_of_honey : {
-                    required: true,
-                },
-                frames_of_pollen : {
-                    required: true,
-                }
-            },
-            messages: {
-                frames_of_bees: {
-                    required: "Frames of bees required",
-                },
-                frames_of_brood : {
-                    required: "Frames of brood required",
-                },
-                frames_of_honey : {
-                    required: "Frames of honey required",
-                },
-                frames_of_pollen : {
-                    required: "Frames of pollen required",
-                }
-            },
-            errorPlacement: function(error, element) {
-                if(element.is('select')){
-                    error.appendTo(element.closest("div"));
-                }else{
-                    error.insertAfter(element.closest(".form-control"));
-                }
-            },
-        });
-        if (thirdform.valid() === true){
-            $(".step4").removeClass('hide');
-            $(".step3").addClass('hide');
-        }
-    });
-});
+
 	
 </script>
 
