@@ -80,7 +80,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="previous-btn">
-                                <button type="submit" class="">Add a Hive</button>
+                                @if(isset($hivedata) && $hivedata->hive_id)
+                                   <button type="submit" class="">Update a Hive</button>
+                                @else
+                                   <button type="submit" class="">Add a Hive</button>
+                                @endif
                                 </div>
                             </div>
                             <div class="col-md-6">

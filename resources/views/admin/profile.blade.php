@@ -45,13 +45,13 @@
                                         <span class="d-none d-sm-block">Password</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center" id="setting-tab" data-toggle="tab"
                                         href="#setting" aria-controls="setting" role="tab" aria-selected="false">
                                         <i class="fa fa-cog" aria-hidden="true"></i>
                                         <span class="d-none d-sm-block">Setting</span>
                                     </a>
-                                </li>                                
+                                </li>                                 -->
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane @if(!app('request')->input('redirect') || app('request')->input('redirect') != "Authnticator") active @endif" id="account" aria-labelledby="account-tab" role="tabpanel">

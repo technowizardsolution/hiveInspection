@@ -214,6 +214,14 @@ $(document).ajaxStart(function() { Pace.restart(); });
     $("#cancelBtn").click(function () {
         window.location.href = "{{url('admin/hive')}}";
     });
+
+    $(document).ready(function() {
+        $("#user_id").select2({
+            placeholder: "Select a User",
+            allowClear: true,
+        });
+    });
+
 </script>
 
 @endsection

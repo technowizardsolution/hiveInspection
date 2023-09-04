@@ -95,7 +95,11 @@ Route::group(['middleware' => ['web']], function () {
 
             // Hive
             Route::resource('/hive', 'HiveController');
-            Route::post('/hive/status-change', 'HiveController@changeStatus');            
+            Route::post('/hive/status-change', 'HiveController@changeStatus');         
+            
+            //CMS Pages Routing
+            Route::resource('/pages', 'CMSPagesController');
+            Route::post('/pages/status-change', 'CMSPagesController@changeStatus');
            
         });
 

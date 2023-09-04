@@ -57,6 +57,18 @@
             </li>
           @endcan
 
+
+          @can('page-list')
+          <li class=" nav-item @if(Request::is('admin/pages') ||Request::is('admin/pages/*') ) active @endif">
+            <a class="d-flex align-items-center" href="{{url('admin/pages')}}">
+              <i class="fa fa-flag"></i>
+              <span class="menu-title text-truncate" data-i18n="pages">
+                Pages
+              </span>
+            </a>
+          </li>
+          @endcan
+
           <!-- @can('subadmin-list')
             <li class=" nav-item @if(Request::is('admin/subadmins') ||Request::is('admin/subadmins/*') ) active @endif">
                 <a class="d-flex align-items-center" href="{{url('admin/subadmins')}}">
@@ -101,16 +113,6 @@
           </li>
           @endcan
 
-          @can('page-list')
-          <li class=" nav-item @if(Request::is('admin/pages') ||Request::is('admin/pages/*') ) active @endif">
-            <a class="d-flex align-items-center" href="{{url('admin/pages')}}">
-              <i class="fa fa-flag"></i>
-              <span class="menu-title text-truncate" data-i18n="pages">
-                Pages
-              </span>
-            </a>
-          </li>
-          @endcan
 
           @can('categories-list')
           <li class=" nav-item @if(Request::is('admin/categories') ||Request::is('admin/categories/*') ) active @endif">
