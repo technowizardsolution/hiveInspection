@@ -8,7 +8,7 @@
 import Foundation
 
 func checkLoginValidation(validationModel : LoginValidation) -> (Bool,String) {
-    return (true,"")
+//    return (true,"")
     if validationModel.email == "" {
         return (false,popupMessages.noEmail.rawValue)
     }else if validateEmailWithString(validationModel.email) {

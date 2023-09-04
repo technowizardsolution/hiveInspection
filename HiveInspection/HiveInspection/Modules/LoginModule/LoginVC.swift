@@ -12,7 +12,9 @@ class LoginVC : UIViewController {
     @IBOutlet private weak var txtPasswordOutlet : UITextField!
     @IBOutlet private weak var onBtnSignInOutlet : LetsButton!
     @IBOutlet private weak var onBtnSignUpOutlet : LetsButton!
-
+    
+    var loginVM : LoginViewModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
@@ -20,12 +22,32 @@ class LoginVC : UIViewController {
         closeButton()
         txtEmailOutlet.delegate = self
         txtPasswordOutlet.delegate = self
+        loginVM = LoginViewModel()
+        loginVM?.delegate = self
+        if UIApplication.shared.inferredEnvironment == .debug {
+            txtEmailOutlet.text = "chauhantrupen@gmail.com"
+            txtPasswordOutlet.text = "Trupen@123"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
+    }
+}
+
+extension LoginVC : LoginResponse {
+    func getLoginResponse(_ model: LoginModel) {
+        if let token = model.data?.token {
+            UserDefaults.standard.set(token, forKey: "token")
+        }
+        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func failureResponse(_ error: String) {
+        print(error)
     }
 }
 
@@ -62,8 +84,8 @@ extension LoginVC {
         loginValidation.password = txtPasswordOutlet.text ?? ""
         let validated = checkLoginValidation(validationModel: loginValidation)
         if validated.0 {
-            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
-            navigationController?.pushViewController(dvc, animated: true)
+            let param : [String:Any] = ["data": ["email":txtEmailOutlet.text ?? "", "password":txtPasswordOutlet.text ?? "", "device_type":"1", "device_token": Constants.FCMToken()]]
+            loginVM?.callLoginAPI(param)
         }else {
             UIAlertController.actionWith(andMessage: validated.1, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
         }

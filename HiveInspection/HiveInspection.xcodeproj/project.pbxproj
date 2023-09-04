@@ -59,6 +59,26 @@
 		53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE62A97373D007FA7D2 /* LetsView.swift */; };
 		53678CEC2A97373E007FA7D2 /* LetsFloatField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE72A97373E007FA7D2 /* LetsFloatField.swift */; };
 		53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE82A97373E007FA7D2 /* LetsButton.swift */; };
+		5386A4562AA5B30B006E444B /* MoyaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4552AA5B30B006E444B /* MoyaHandler.swift */; };
+		5386A4582AA5B379006E444B /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4572AA5B379006E444B /* ApiConstants.swift */; };
+		5386A45A2AA5F830006E444B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4592AA5F830006E444B /* NetworkManager.swift */; };
+		5386A45D2AA5F898006E444B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A45C2AA5F898006E444B /* LoginModel.swift */; };
+		5386A45F2AA5FB95006E444B /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A45E2AA5FB95006E444B /* SignUpModel.swift */; };
+		5386A4642AA5FC33006E444B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4632AA5FC33006E444B /* LoginViewModel.swift */; };
+		5386A4662AA5FD5D006E444B /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4652AA5FD5D006E444B /* APIHandler.swift */; };
+		5386A4752AA605F3006E444B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5386A4742AA605F3006E444B /* GoogleService-Info.plist */; };
+		5386A4782AA6076D006E444B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4772AA6076D006E444B /* FirebaseAnalytics */; };
+		5386A47A2AA6076D006E444B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4792AA6076D006E444B /* FirebaseAnalyticsOnDeviceConversion */; };
+		5386A47C2AA6076D006E444B /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A47B2AA6076D006E444B /* FirebaseAnalyticsSwift */; };
+		5386A47E2AA6076D006E444B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A47D2AA6076D006E444B /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		5386A4802AA6076D006E444B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A47F2AA6076D006E444B /* FirebaseAuth */; };
+		5386A4822AA6076D006E444B /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4812AA6076D006E444B /* FirebaseAuthCombine-Community */; };
+		5386A4842AA6076D006E444B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4832AA6076D006E444B /* FirebaseCrashlytics */; };
+		5386A4862AA6076D006E444B /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4852AA6076D006E444B /* FirebaseMessaging */; };
+		5386A4882AA6076D006E444B /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4872AA6076D006E444B /* FirebasePerformance */; };
+		5386A48A2AA6076D006E444B /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A4892AA6076D006E444B /* FirebaseRemoteConfig */; };
+		5386A48C2AA6076D006E444B /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A48B2AA6076D006E444B /* FirebaseRemoteConfigSwift */; };
+		5386A48E2AA613AB006E444B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A48D2AA613AB006E444B /* SignUpViewModel.swift */; };
 		53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A91B202A9C415600EF3205 /* ShareVC.swift */; };
 		53EBA37B2A97707E0031416E /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */; };
 		53EBA37C2A9774F90031416E /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE22A9730B6007FA7D2 /* ABeeZee-Regular.ttf */; };
@@ -161,6 +181,15 @@
 		53678CE62A97373D007FA7D2 /* LetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsView.swift; sourceTree = "<group>"; };
 		53678CE72A97373E007FA7D2 /* LetsFloatField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFloatField.swift; sourceTree = "<group>"; };
 		53678CE82A97373E007FA7D2 /* LetsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsButton.swift; sourceTree = "<group>"; };
+		5386A4552AA5B30B006E444B /* MoyaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHandler.swift; sourceTree = "<group>"; };
+		5386A4572AA5B379006E444B /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		5386A4592AA5F830006E444B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5386A45C2AA5F898006E444B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		5386A45E2AA5FB95006E444B /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		5386A4632AA5FC33006E444B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5386A4652AA5FD5D006E444B /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		5386A4742AA605F3006E444B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5386A48D2AA613AB006E444B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		53A91B202A9C415600EF3205 /* ShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
 		53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		67E22E17937644C8D3EE7277 /* Pods_HiveInspectionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveInspectionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,8 +218,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5386A4882AA6076D006E444B /* FirebasePerformance in Frameworks */,
 				CC1891642A9CC2AD00D88466 /* FlexibleSteppedProgressBar in Frameworks */,
+				5386A47E2AA6076D006E444B /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				5386A48A2AA6076D006E444B /* FirebaseRemoteConfig in Frameworks */,
+				5386A4862AA6076D006E444B /* FirebaseMessaging in Frameworks */,
 				64564E336E36A388FF064C6B /* Pods_HiveInspection.framework in Frameworks */,
+				5386A4782AA6076D006E444B /* FirebaseAnalytics in Frameworks */,
+				5386A47A2AA6076D006E444B /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				5386A4802AA6076D006E444B /* FirebaseAuth in Frameworks */,
+				5386A4842AA6076D006E444B /* FirebaseCrashlytics in Frameworks */,
+				5386A47C2AA6076D006E444B /* FirebaseAnalyticsSwift in Frameworks */,
+				5386A4822AA6076D006E444B /* FirebaseAuthCombine-Community in Frameworks */,
+				5386A48C2AA6076D006E444B /* FirebaseRemoteConfigSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +352,7 @@
 			children = (
 				53678CE12A9730A2007FA7D2 /* Fonts */,
 				53678C6A2A971884007FA7D2 /* Info.plist */,
+				5386A4742AA605F3006E444B /* GoogleService-Info.plist */,
 				53678C622A971881007FA7D2 /* HiveInspection.xcdatamodeld */,
 				53678C652A971884007FA7D2 /* Assets.xcassets */,
 				53678C922A97197F007FA7D2 /* Colors.xcassets */,
@@ -322,9 +363,9 @@
 		53678C8F2A9718C7007FA7D2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5386A4612AA5FBE8006E444B /* SignupModule */,
+				5386A4602AA5FBD1006E444B /* LoginModule */,
 				53678C902A971922007FA7D2 /* WelcomeVC.swift */,
-				CCCA96FA2A9887CC00D1195A /* LoginVC.swift */,
-				CC7ABB4C2A99B4670054177D /* SignUpVC.swift */,
 				CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */,
 				535472592A9C3BE50009715C /* RateAppVC.swift */,
 				53A91B202A9C415600EF3205 /* ShareVC.swift */,
@@ -340,6 +381,7 @@
 		53678C942A971ABE007FA7D2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				5386A4542AA5B2FC006E444B /* ApiManager */,
 				CC7ABB4E2A99B55B0054177D /* Extension.swift */,
 				53678CE82A97373E007FA7D2 /* LetsButton.swift */,
 				53678CE72A97373E007FA7D2 /* LetsFloatField.swift */,
@@ -393,6 +435,37 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		5386A4542AA5B2FC006E444B /* ApiManager */ = {
+			isa = PBXGroup;
+			children = (
+				5386A4552AA5B30B006E444B /* MoyaHandler.swift */,
+				5386A4572AA5B379006E444B /* ApiConstants.swift */,
+				5386A4592AA5F830006E444B /* NetworkManager.swift */,
+				5386A4652AA5FD5D006E444B /* APIHandler.swift */,
+			);
+			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		5386A4602AA5FBD1006E444B /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCCA96FA2A9887CC00D1195A /* LoginVC.swift */,
+				5386A45C2AA5F898006E444B /* LoginModel.swift */,
+				5386A4632AA5FC33006E444B /* LoginViewModel.swift */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		5386A4612AA5FBE8006E444B /* SignupModule */ = {
+			isa = PBXGroup;
+			children = (
+				CC7ABB4C2A99B4670054177D /* SignUpVC.swift */,
+				5386A45E2AA5FB95006E444B /* SignUpModel.swift */,
+				5386A48D2AA613AB006E444B /* SignUpViewModel.swift */,
+			);
+			path = SignupModule;
+			sourceTree = "<group>";
+		};
 		CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +497,17 @@
 			name = HiveInspection;
 			packageProductDependencies = (
 				CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */,
+				5386A4772AA6076D006E444B /* FirebaseAnalytics */,
+				5386A4792AA6076D006E444B /* FirebaseAnalyticsOnDeviceConversion */,
+				5386A47B2AA6076D006E444B /* FirebaseAnalyticsSwift */,
+				5386A47D2AA6076D006E444B /* FirebaseAnalyticsWithoutAdIdSupport */,
+				5386A47F2AA6076D006E444B /* FirebaseAuth */,
+				5386A4812AA6076D006E444B /* FirebaseAuthCombine-Community */,
+				5386A4832AA6076D006E444B /* FirebaseCrashlytics */,
+				5386A4852AA6076D006E444B /* FirebaseMessaging */,
+				5386A4872AA6076D006E444B /* FirebasePerformance */,
+				5386A4892AA6076D006E444B /* FirebaseRemoteConfig */,
+				5386A48B2AA6076D006E444B /* FirebaseRemoteConfigSwift */,
 			);
 			productName = HiveInspection;
 			productReference = 53678C562A971881007FA7D2 /* HiveInspection.app */;
@@ -502,6 +586,7 @@
 			mainGroup = 53678C4D2A971881007FA7D2;
 			packageReferences = (
 				CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */,
+				5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 53678C572A971881007FA7D2 /* Products */;
 			projectDirPath = "";
@@ -525,6 +610,7 @@
 				53EBA37C2A9774F90031416E /* ABeeZee-Regular.ttf in Resources */,
 				53678C662A971884007FA7D2 /* Assets.xcassets in Resources */,
 				53678C612A971881007FA7D2 /* Main.storyboard in Resources */,
+				5386A4752AA605F3006E444B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,8 +740,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5386A4562AA5B30B006E444B /* MoyaHandler.swift in Sources */,
 				53678CD02A971B48007FA7D2 /* UIImageViewExtensions.swift in Sources */,
 				53678C5A2A971881007FA7D2 /* AppDelegate.swift in Sources */,
+				5386A4662AA5FD5D006E444B /* APIHandler.swift in Sources */,
 				53678CDE2A971B48007FA7D2 /* UINavigationBar+Extension.swift in Sources */,
 				53678CC62A971B48007FA7D2 /* String+Extension.swift in Sources */,
 				53678CC52A971B48007FA7D2 /* NSAttributedString+Extension.swift in Sources */,
@@ -665,11 +753,13 @@
 				53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */,
 				53678CCF2A971B48007FA7D2 /* UICollectionViewExtensions.swift in Sources */,
 				53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */,
+				5386A45A2AA5F830006E444B /* NetworkManager.swift in Sources */,
 				CC2523012A98C4E400DC186F /* EnumData.swift in Sources */,
 				53678CE92A97373E007FA7D2 /* LetsImagView.swift in Sources */,
 				CC9B4C7A2AA066FF001098AD /* HiveInspect3VC.swift in Sources */,
 				53678CC22A971B48007FA7D2 /* UIAlertController + extension.swift in Sources */,
 				531131C82A9C45780040370C /* AboutUsVC.swift in Sources */,
+				5386A45D2AA5F898006E444B /* LoginModel.swift in Sources */,
 				53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */,
 				53678CC82A971B48007FA7D2 /* NSDate+Extension.swift in Sources */,
 				53678CCB2A971B48007FA7D2 /* UITableViewExtensions.swift in Sources */,
@@ -679,6 +769,7 @@
 				53678CD12A971B48007FA7D2 /* Array+Extension.swift in Sources */,
 				53678CDC2A971B48007FA7D2 /* UISearchBar+Extension.swift in Sources */,
 				53678CE02A972A8F007FA7D2 /* ImageAssetName.swift in Sources */,
+				5386A4582AA5B379006E444B /* ApiConstants.swift in Sources */,
 				53678CD82A971B48007FA7D2 /* Int+Extension.swift in Sources */,
 				53678CC32A971B48007FA7D2 /* ImagePicker.swift in Sources */,
 				CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */,
@@ -697,10 +788,12 @@
 				5354725A2A9C3BE50009715C /* RateAppVC.swift in Sources */,
 				53678CD62A971B48007FA7D2 /* UILabelExtensions.swift in Sources */,
 				53678CCD2A971B48007FA7D2 /* UITextFieldExtensions.swift in Sources */,
+				5386A45F2AA5FB95006E444B /* SignUpModel.swift in Sources */,
 				53678CD52A971B48007FA7D2 /* UIApplicationExtensions.swift in Sources */,
 				53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */,
 				53678CD92A971B48007FA7D2 /* UIWindowExtensions.swift in Sources */,
 				531131CA2A9C45850040370C /* TermsAndPrivacyVC.swift in Sources */,
+				5386A48E2AA613AB006E444B /* SignUpViewModel.swift in Sources */,
 				CC2523092A98D28300DC186F /* Structure.swift in Sources */,
 				53678CD32A971B48007FA7D2 /* UIImageView+Extension.swift in Sources */,
 				53678CCC2A971B48007FA7D2 /* NSTimer+Extension.swift in Sources */,
@@ -711,6 +804,7 @@
 				53678CDB2A971B48007FA7D2 /* ValidationFile.swift in Sources */,
 				53678CD72A971B48007FA7D2 /* NSManagedObject+Extension.swift in Sources */,
 				53678CEC2A97373E007FA7D2 /* LetsFloatField.swift in Sources */,
+				5386A4642AA5FC33006E444B /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,9 +987,11 @@
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiveInspection/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -923,9 +1019,11 @@
 				DEVELOPMENT_TEAM = 97YDN7Z7B9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiveInspection/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspection";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1066,6 +1164,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/amratab/FlexibleSteppedProgressBar";
@@ -1077,6 +1183,61 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5386A4772AA6076D006E444B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5386A4792AA6076D006E444B /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		5386A47B2AA6076D006E444B /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		5386A47D2AA6076D006E444B /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		5386A47F2AA6076D006E444B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5386A4812AA6076D006E444B /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		5386A4832AA6076D006E444B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		5386A4852AA6076D006E444B /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		5386A4872AA6076D006E444B /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		5386A4892AA6076D006E444B /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		5386A48B2AA6076D006E444B /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5386A4762AA6076D006E444B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
 		CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC1891622A9CC2AD00D88466 /* XCRemoteSwiftPackageReference "FlexibleSteppedProgressBar" */;

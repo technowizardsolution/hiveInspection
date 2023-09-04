@@ -11,7 +11,9 @@ class SignUpVC : UIViewController {
     @IBOutlet private weak var txtEmailOutlet : UITextField!
     @IBOutlet private weak var txtPasswordOutlet : UITextField!
     @IBOutlet private weak var onBtnSignUpOutlet : LetsButton!
-
+    
+    var signUpVM : SignUpViewModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
@@ -19,12 +21,24 @@ class SignUpVC : UIViewController {
         txtPasswordOutlet.delegate = self
         showTransparentNavigationBar()
         closeButton()
+        signUpVM = SignUpViewModel()
+        signUpVM?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
+    }
+}
+
+extension SignUpVC : SignUpResponse {
+    func getSignUpResponse(_ model: SignUpModel) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func failureResponse(_ error: String) {
+        print(error)
     }
 }
 
@@ -53,12 +67,16 @@ extension SignUpVC {
         loginValidation.password = txtPasswordOutlet.text ?? ""
         let validated = checkLoginValidation(validationModel: loginValidation)
         if validated.0 {
-
+            let param : [String:Any] = ["data": ["email":txtEmailOutlet.text ?? "",
+                                                 "password":txtPasswordOutlet.text ?? "",
+                                                 "device_type":"1"]]
+            signUpVM?.callSignUpAPI(param)
         }else {
             UIAlertController.actionWith(andMessage: validated.1, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
         }
     }
 }
+
 extension SignUpVC : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtEmailOutlet {
