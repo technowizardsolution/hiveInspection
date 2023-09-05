@@ -24,6 +24,11 @@
             <div class="row">
                 <div class="col-md-12">
 
+                    <a href="{{url('/user/inspection/export')}}" class="float-right; margin-left: 8px;">
+                        <button type="button" class="btn btn-primary waves-effect waves-float waves-light">Export</button>
+                    </a>
+
+
                     <form class="form-horizontal" id="inspectionForm" role="form" action="{{url('user/inspection/store')}}" method="post" enctype="multipart/form-data" >
                         @csrf 
                         <input type="hidden" class="form-control" name="hive_id" id="hive_id" value="{{$hive_id}}">

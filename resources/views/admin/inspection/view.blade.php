@@ -335,7 +335,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><strong>feed_hive_what</strong></td>
+                                            <td><strong>Feed hive what</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->feed_hive_what)
                                                 {{$inspection->feed_hive_what}}

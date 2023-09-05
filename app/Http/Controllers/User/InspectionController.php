@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Inspection;
 use Session;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\InspectionExport;
 
 class InspectionController extends Controller
 {
@@ -14,6 +16,12 @@ class InspectionController extends Controller
     {
         $user = Auth::user();        
         return view('user.inspection.add',compact('user','hive_id'));
+    }
+
+    public function inspectionExport()
+    {
+        dd('test');
+        return Excel::download(new InspectionExport, 'Inspection.xlsx');
     }
 
     public function store(Request $request)

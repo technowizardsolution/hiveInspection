@@ -170,7 +170,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Softon\LaravelFaceDetect\FaceDetectServiceProvider::class,
-
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         /*
@@ -244,6 +244,7 @@ return [
         'Input' => Illuminate\Support\Facades\Request::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Pusher' => Pusher\Pusher::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'FaceDetect' => Softon\LaravelFaceDetect\Facades\FaceDetect::class,
         'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
 
