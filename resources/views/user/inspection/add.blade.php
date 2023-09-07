@@ -1,21 +1,13 @@
 @extends('user.layouts.authapp')
 @section('title') Hive | @endsection
 @section('content')
-<style>
-  
-
-    .tab{display: none; width: 100%; height: 50%;margin: 0px auto;}
+<style>  
+.tab{display: none; width: 100%; height: 50%;margin: 0px auto;}
 .current{display: block;}
-
 .previous {background-color: #bbbbbb; }
-
-/* Make circles that indicate the steps of the form: */
 .step {height: 30px; width: 30px; cursor: pointer; margin: 0 2px; color: #fff; background-color: #bbbbbb; border: none; border-radius: 50%; display: inline-block; opacity: 0.8; padding: 5px}
-
 .step.active {opacity: 1; background-color: #69c769;}
-
 .step.finish {background-color: #4CAF50; }
-
 .error {color: #f00; }
 </style>
 
@@ -23,12 +15,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-
-                    <a href="{{url('/user/inspection/export')}}" class="float-right; margin-left: 8px;">
-                        <button type="button" class="btn btn-primary waves-effect waves-float waves-light">Export</button>
-                    </a>
-
-
                     <form class="form-horizontal" id="inspectionForm" role="form" action="{{url('user/inspection/store')}}" method="post" enctype="multipart/form-data" >
                         @csrf 
                         <input type="hidden" class="form-control" name="hive_id" id="hive_id" value="{{$hive_id}}">
