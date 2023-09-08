@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <a href="{{url('/user/inspection/export')}}" class="float-right; margin-left: 8px;">
+                    <a href="{{url('/user/inspectionexport')}}" class="float-right; margin-left: 8px;">
                         <button type="button" class="btn btn-primary waves-effect waves-float waves-light">Export</button>
                     </a>
 
