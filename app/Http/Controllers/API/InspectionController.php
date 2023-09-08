@@ -9,6 +9,7 @@ use App\Helper\GlobalHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Response\APIResponse;
 use App\User;
+use App\CMSPage;
 use App\UserToken;
 use Exception;
 use File;
@@ -132,6 +133,8 @@ class InspectionController extends Controller
             return $this->APIResponse->handleAndResponseException($e);
         }
     }  
+
+    
     
 
 }

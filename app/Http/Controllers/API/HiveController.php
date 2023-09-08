@@ -98,11 +98,11 @@ class HiveController extends Controller
             if (empty($data)) {
                 return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
             } else {                                
-                $hive = Hive::findorfail($data['hive_id']);                
+                $hive = Hive::findorfail($data['hive_id']);     
                 if ($hive->delete()) {                              
                     return $this->APIResponse->respondWithMessageAndPayload($hive, 'Hive Record Deleted');
                 } else {
-                    return $this->APIResponse->respondInternalError(__('Something went wrong.'));
+                    return $this->APIResponse->respondInternalError('Something went wrong.',__('Something went wrong.'));
                 }            
             }
             

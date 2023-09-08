@@ -38,7 +38,8 @@ Route::group(['middleware' => 'localization'], function(){
   Route::post('/resetPassword', 'API\UserController@resetPassword');  
   Route::post('/testnotification', 'API\UserController@testnotification');
   
-  
+  Route::post('/getCMSpages', 'CommonController@getCMSpages');
+
 	Route::group(['middleware' => 'auth:api'], function(){
     //User
     Route::post('/updateDeviceToken', 'API\UserController@updateDeviceToken');

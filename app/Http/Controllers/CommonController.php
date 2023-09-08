@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Response\APIResponse;
 use Validator;
 use Session;
 use App\User;
+use App\CMSPage;
 
 class CommonController extends Controller
 {
@@ -14,6 +16,11 @@ class CommonController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
+  public function __construct()
+  {
+      $this->APIResponse = new APIResponse();
+  }  
+
   public function accountDeactivate()
   {
     return view('deactivate_account');
@@ -65,5 +72,27 @@ class CommonController extends Controller
   {
     return view('termsPrivacy');
   }
+
+  public function getCMSPages(Request $request)
+    {
+        $data = $request->json()->get('data');        
+        try {
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {
+                $slug = $data['slug'];
+                $cmspage = CMSPage::where('slug',$slug)->first();
+                if($cmspage){
+                  return $this->APIResponse->respondWithMessageAndPayload($cmspage, 'CMS Record');
+                }else{
+                  return $this->APIResponse->respondInternalError('Something went wrong.',__('Something went wrong.'));
+                }
+                
+            }
+        }  catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }  
+
+    }
   
 }
