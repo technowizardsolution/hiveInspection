@@ -106,7 +106,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::group(['prefix' => 'user', 'middleware' => ['role:user'], 'namespace' => 'User'], function () {
             // Hive
             Route::get('/hive', 'HiveController@index');
+            Route::get('/hive/add', 'HiveController@add');
             Route::post('/hive/store', 'HiveController@store');
+            Route::get('/hive/edit/{id}', 'HiveController@edit');
+            Route::post('/hive/update', 'HiveController@update');
+            Route::get('/hive/destroy/{id}', 'HiveController@destroy');
 
             // Inspection
             Route::get('/inspection/{id}', 'InspectionController@index');

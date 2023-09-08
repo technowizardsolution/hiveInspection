@@ -368,3 +368,28 @@ span#email-error, span#password-error, span#password-confirm-error {
     float: left !important;
     display: inline-flex !important;
 }
+#hive-card .card{
+    border:1px solid #F4B61A
+}
+.card-title span{
+    font-size:14px;
+}
+.main-section {
+    display: flex; height: 60px;
+}
+.main-tittle {
+    width: 50%; 
+}
+.main-button {
+    flex-grow: 1; text-align:end; 
+}
+.hive-button{
+    background-color: #F3B61B;
+    border:1px solid #F4B61A;
+    color:#000;
+}
+.btn-primary:hover{
+    background-color: #F3B61B !important;
+    border:1px solid #F4B61A !important;
+    color:#000 !important;
+}
