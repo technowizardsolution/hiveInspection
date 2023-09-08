@@ -1,6 +1,38 @@
 @extends('admin.layouts.app')
 @section('title')  Inspection Details | @endsection
 @section('content')
+
+<style>
+  .color-green{
+    background-color: #008000;    
+    display: block;
+    color: #fff;
+    margin: 0px;
+    padding: 0.72rem 2rem;
+  }
+  .color-red{
+    background-color: #FF0000;    
+    display: block;
+    color: #fff;
+    margin: 0px;
+    padding: 0.72rem 2rem;
+  }
+  .color-yellow{
+    background-color: #F4B61A;    
+    display: block;
+    color: #fff;
+    margin: 0px;
+    padding: 0.72rem 2rem;
+  }
+  .color-gray{
+    background-color: #D3D3D3;    
+    display: block;
+    color: #fff;
+    margin: 0px;
+    padding: 0.72rem 2rem;    
+  }
+  
+</style>
 <div class="app-content content ">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -42,9 +74,9 @@
                                             <td><strong>Normal Hive Condition</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->normal_hive_condition == '1')
-                                                Yes
+                                                <span class="color-green"> Yes </span>
                                               @elseif($inspection->normal_hive_condition == '0')
-                                                No
+                                                <span class="color-red"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -52,9 +84,9 @@
                                             <td><strong>Saw Queen</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->saw_queen == '1')
-                                                Yes
+                                                <span class="color-green"> Yes </span>
                                               @elseif($inspection->saw_queen == '0')
-                                                No
+                                                <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -62,9 +94,9 @@
                                             <td><strong>Queen marked</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->queen_marked == '1')
-                                                Yes
+                                                <span class="color-green"> Yes </span>
                                               @elseif($inspection->queen_marked == '0')
-                                                No
+                                                <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -72,9 +104,9 @@
                                             <td><strong>Eggs seen</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->eggs_seen == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->eggs_seen == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -82,9 +114,9 @@
                                             <td><strong>Larva seen</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->larva_seen == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->larva_seen == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -92,9 +124,9 @@
                                             <td><strong>Pupa seen</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->pupa_seen == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->pupa_seen == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -102,9 +134,9 @@
                                             <td><strong>Drone cells</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->drone_cells == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->drone_cells == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -112,9 +144,9 @@
                                             <td><strong>Queen cells</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->queen_cells == '1')
-                                                Yes
+                                              <span class="color-yellow"> Yes </span>
                                               @elseif($inspection->queen_cells == '0')
-                                                No
+                                              <span class="color-green"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -122,9 +154,9 @@
                                             <td><strong>Hive beetles</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->hive_beetles == '1')
-                                                Yes
+                                              <span class="color-red"> Yes </span>
                                               @elseif($inspection->hive_beetles == '0')
-                                                No
+                                              <span class="color-green"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -132,9 +164,9 @@
                                             <td><strong>Wax moth</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->wax_moth == '1')
-                                                Yes
+                                              <span class="color-red"> Yes </span>
                                               @elseif($inspection->wax_moth == '0')
-                                                No
+                                              <span class="color-green"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -142,9 +174,9 @@
                                             <td><strong>Noseema</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->noseema == '1')
-                                                Yes
+                                              <span class="color-red"> Yes </span>
                                               @elseif($inspection->noseema == '0')
-                                                No
+                                              <span class="color-green"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -152,9 +184,9 @@
                                             <td><strong>Mite wash</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->mite_wash == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->mite_wash == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -164,11 +196,27 @@
                                         </tr>
                                         <tr>
                                             <td><strong>Temperment</strong></td>
-                                            <td class="text-primary">{{$inspection->temperment}}</td>
+                                            <td class="text-primary">
+                                              @if($inspection->temperment == 'Calm')
+                                              <span class="color-green"> {{$inspection->temperment}} </span>
+                                              @elseif($inspection->temperment == 'Nervous')
+                                              <span class="color-yellow"> {{$inspection->temperment}} </span>
+                                              @elseif($inspection->temperment == 'Aggressive')
+                                              <span class="color-red"> {{$inspection->temperment}} </span>
+                                              @endif                                              
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Population</strong></td>
-                                            <td class="text-primary">{{$inspection->population}}</td>
+                                            <td class="text-primary">
+                                              @if($inspection->population == 'Heavy')
+                                              <span class="color-yellow"> {{$inspection->population}} </span>
+                                              @elseif($inspection->population == 'Moderate')
+                                              <span class="color-green"> {{$inspection->population}} </span>
+                                              @elseif($inspection->population == 'Low')
+                                              <span class="color-red"> {{$inspection->population}} </span>
+                                              @endif
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -200,9 +248,9 @@
                                             <td><strong>Spotty frames</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->spotty_frames == '1')
-                                                Yes
+                                              <span class="color-red"> Yes </span>
                                               @elseif($inspection->spotty_frames == '0')
-                                                No
+                                              <span class="color-green"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -210,23 +258,47 @@
                                             <td><strong>Normal odor</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->normal_odor == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->normal_odor == '0')
-                                                No
+                                              <span class="color-red"> No </span>
                                               @endif
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Brood</strong></td>
-                                            <td class="text-primary">@if($inspection->brood){{$inspection->brood}}@endif</td>
+                                            <td class="text-primary">
+                                              @if($inspection->brood == 'Heavy')
+                                              <span class="color-yellow"> {{$inspection->brood}} </span>
+                                              @elseif($inspection->brood == 'Moderate')
+                                              <span class="color-green"> {{$inspection->brood}} </span>
+                                              @elseif($inspection->brood == 'Low')
+                                              <span class="color-red"> {{$inspection->brood}} </span>
+                                              @endif
+                                              </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Honey</strong></td>
-                                            <td class="text-primary">@if($inspection->honey){{$inspection->honey}}@endif</td>
+                                            <td class="text-primary">
+                                              @if($inspection->honey == 'Heavy')
+                                              <span class="color-yellow"> {{$inspection->honey}} </span>
+                                              @elseif($inspection->honey == 'Moderate')
+                                              <span class="color-gray"> {{$inspection->honey}} </span>
+                                              @elseif($inspection->honey == 'Low')
+                                              <span class="color-red"> {{$inspection->honey}} </span>
+                                              @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Pollen</strong></td>
-                                            <td class="text-primary">@if($inspection->pollen){{$inspection->pollen}}@endif</td>
+                                            <td class="text-primary">
+                                              @if($inspection->pollen == 'Heavy')
+                                              <span class="color-yellow"> {{$inspection->pollen}} </span>
+                                              @elseif($inspection->pollen == 'Moderate')
+                                              <span class="color-green"> {{$inspection->pollen}} </span>
+                                              @elseif($inspection->pollen == 'Low')
+                                              <span class="color-red"> {{$inspection->pollen}} </span>
+                                              @endif
+                                              </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Frames of bees</strong></td>
@@ -248,9 +320,9 @@
                                             <td><strong>Honey supers</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->honey_supers)
-                                                {{$inspection->honey_supers}}
+                                              <span class="color-green"> {{$inspection->honey_supers}} </span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -258,9 +330,9 @@
                                             <td><strong>Add supers</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->add_supers)
-                                                {{$inspection->add_supers}}
+                                              <span class="color-green">  {{$inspection->add_supers}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -268,9 +340,9 @@
                                             <td><strong>Weigh super 3</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_super_3)
-                                                {{$inspection->weigh_super_3}}
+                                              <span class="color-green">  {{$inspection->weigh_super_3}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -278,9 +350,9 @@
                                             <td><strong>Weigh super 2</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_super_2)
-                                                {{$inspection->weigh_super_2}}
+                                              <span class="color-green">  {{$inspection->weigh_super_2}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -288,9 +360,9 @@
                                             <td><strong>Weigh super 1</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_super_1)
-                                                {{$inspection->weigh_super_1}}
+                                              <span class="color-green"> {{$inspection->weigh_super_1}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -298,9 +370,9 @@
                                             <td><strong>Weigh brood 3</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_brood_3)
-                                                {{$inspection->weigh_brood_3}}
+                                              <span class="color-green">  {{$inspection->weigh_brood_3}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -308,9 +380,9 @@
                                             <td><strong>Weigh brood 2</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_brood_2)
-                                                {{$inspection->weigh_brood_2}}
+                                              <span class="color-green">  {{$inspection->weigh_brood_2}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -318,9 +390,9 @@
                                             <td><strong>Weigh brood 1</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->weigh_brood_1)
-                                                {{$inspection->weigh_brood_1}}
+                                              <span class="color-green">  {{$inspection->weigh_brood_1}}</span>
                                               @else
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -328,9 +400,9 @@
                                             <td><strong>Prep for extraction</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->prep_for_extraction == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->prep_for_extraction == '0')
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -347,20 +419,22 @@
                                         <tr>
                                             <td><strong>Install medication what</strong></td>
                                             <td class="text-primary">
-                                              @if($inspection->install_medication_what)
-                                                {{$inspection->install_medication_what}}
-                                              @else
-                                                -
-                                              @endif
+                                              @if($inspection->install_medication_what == 'Formic')
+                                              <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
+                                              @elseif($inspection->install_medication_what == 'Apivar')
+                                              <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
+                                              @elseif($inspection->install_medication_what == 'Other')
+                                              <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
+                                              @endif                                              
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><strong>Remove medication</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->remove_medication == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->remove_medication == '0')
-                                                No
+                                              <span class="color-yellow"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -368,9 +442,9 @@
                                             <td><strong>Split hive</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->split_hive == '1')
-                                                Yes
+                                              <span class="color-yellow"> Yes </span>
                                               @elseif($inspection->split_hive == '0')
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -378,9 +452,9 @@
                                             <td><strong>Re queen</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->re_queen == '1')
-                                                Yes
+                                              <span class="color-green"> Yes </span>
                                               @elseif($inspection->re_queen == '0')
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -388,9 +462,9 @@
                                             <td><strong>Swap brood boxes</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->swap_brood_boxes == '1')
-                                                Yes
+                                              <span class="color-gray"> Yes </span>
                                               @elseif($inspection->swap_brood_boxes == '0')
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -398,9 +472,9 @@
                                             <td><strong>Insulate winterize</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->insulate_winterize == '1')
-                                                Yes
+                                              <span class="color-gray"> Yes </span>
                                               @elseif($inspection->insulate_winterize == '0')
-                                                No
+                                              <span class="color-gray"> No </span>
                                               @endif
                                             </td>
                                         </tr>
@@ -411,9 +485,9 @@
                                       </tbody>
                                     </table>
                                     <div class="col-sm-12">
-                                        <div class="" style="border-top:0">
+                                        <div style="border-top:0">
                                             <div class="box-footer">
-                                                <a type="" href="{{url('/admin/inspection')}}" id="cancelBtn" class="btn btn-primary pull-right">
+                                                <a href="{{url('/admin/inspection')}}" id="cancelBtn" class="btn btn-primary pull-right">
                                                   Back
                                                 </a>
                                             </div>

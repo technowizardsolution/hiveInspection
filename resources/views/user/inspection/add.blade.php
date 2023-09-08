@@ -1,7 +1,8 @@
 @extends('user.layouts.authapp')
 @section('title') Hive | @endsection
 @section('content')
-<style>  
+<style> 
+.hide{display: none;} 
 .tab{display: none; width: 100%; height: 50%;margin: 0px auto;}
 .current{display: block;}
 .previous {background-color: #bbbbbb; }
@@ -400,7 +401,7 @@
                                                 <span class="checkmark"></span>
                                             </label>
                                             <select name="install_medication_what_input" id="install_medication_what_input" class="form-control hide install_medication_what_input">
-                                                <option value="">Select Pollen</option>
+                                                <option value="">Select Medication</option>
                                                 <option value="Heavy">Formic</option>
                                                 <option value="Moderate">Apivar</option>
                                                 <option value="Low">Other</option>
