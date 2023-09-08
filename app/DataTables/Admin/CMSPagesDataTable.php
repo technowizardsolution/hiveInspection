@@ -37,18 +37,18 @@ class CMSPagesDataTable extends DataTable
 
             return $edit.' '.$delete;
         })
-        ->addColumn('status',  function($page) {
-            $id=$page->cms_page_id;
-            $status = $page->status;
-            $class='text-danger';
-            $label='Deactive';
-            if($status==1)
-            {
-                $class='text-success';
-                $label='Active';
-            }
-          return  '<a class="'.$class.' actStatus" id = "page'.$id.'" data-sid="'.$id.'">'.$label.'</a>';
-        })
+        // ->addColumn('status',  function($page) {
+        //     $id=$page->cms_page_id;
+        //     $status = $page->status;
+        //     $class='text-danger';
+        //     $label='Deactive';
+        //     if($status==1)
+        //     {
+        //         $class='text-success';
+        //         $label='Active';
+        //     }
+        //   return  '<a class="'.$class.' actStatus" id = "page'.$id.'" data-sid="'.$id.'">'.$label.'</a>';
+        // })
         ->editColumn('created_at', function($page) {
             return GlobalHelper::getFormattedDate($page->created_at);
         })

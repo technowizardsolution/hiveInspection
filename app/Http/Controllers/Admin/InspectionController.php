@@ -50,7 +50,7 @@ class InspectionController extends Controller
         $html = $builder->columns([
             ['data' => 'inspection_id', 'name' => 'inspection_id', 'title' => 'ID'],
             ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
-            ['data' => 'hive_date', 'name' => 'hive_date', 'title' => 'Hive Date'],            
+            ['data' => 'inspection_date', 'name' => 'inspection_date', 'title' => 'Inspection Date'],            
             ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created At'],            
             ['data' => 'action', 'name' => 'action', 'orderable' => false, 'searchable' => false, 'title' => 'Action'],
         ])->parameters([

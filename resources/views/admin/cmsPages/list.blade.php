@@ -25,13 +25,13 @@
         <div class="content-body">
             <section id="">
                 <div class="row">
-                   <div class="col-sm-12 pull-right  " style="padding-bottom: 10px;">
+                   <!-- <div class="col-sm-12 pull-right  " style="padding-bottom: 10px;">
                     @can('page-create')
                       <a href="{{route('pages.create')}}" class="float-right">
                         <button type="button" class="btn btn-primary waves-effect waves-float waves-light">New CMS Pages</button>
                       </a>
                     @endcan
-                  </div>
+                  </div> -->
                    <div class="clear-fix"></div>
                   <div class="col-12">
                       <div class="card">

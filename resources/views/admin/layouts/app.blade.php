@@ -9,7 +9,7 @@
         <title> @yield('title') {{ config('app.name', 'Xcash') }}</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="shortcut icon" href="{{ URL::asset('resources/uploads/logo/fav.png')}}" />
+        <link rel="shortcut icon" href="{{ URL::asset('public/images/favicon_io/favicon.ico')}}" />
         @include('admin.layouts.css')
         @yield('css')
 

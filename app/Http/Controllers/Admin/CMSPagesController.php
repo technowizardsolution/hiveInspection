@@ -35,8 +35,8 @@ class CMSPagesController extends Controller
         $html = $builder->columns([
             ['data' => 'cms_page_id', 'name' => 'cms_page_id','title' => 'ID'],
             ['data' => 'page_title', 'name' => 'page_title','title' => 'Title'],
-            ['data' => 'slug', 'name' => 'slug','title' => 'Slug'],
-            ['data' => 'status', 'name' => 'status','title' => 'Status'],
+            //['data' => 'slug', 'name' => 'slug','title' => 'Slug'],
+            //['data' => 'status', 'name' => 'status','title' => 'Status'],
             ['data' => 'created_at', 'name' => 'created_at','title' => 'Scaned At'],
             ['data' => 'action', 'name' => 'action', 'orderable' => false, 'searchable' => false,'title' => 'Action'],
         ])->parameters([
@@ -77,8 +77,8 @@ class CMSPagesController extends Controller
         $rules = [
             'page_title' => 'required',
             // 'content' => 'required',
-            'metaDescription' => 'sometimes',
-            'metaKeyword' => 'sometimes',
+            // 'metaDescription' => 'sometimes',
+            // 'metaKeyword' => 'sometimes',
         ];
 
         $messages = ['page_title.required'=>'Please enter page title.
@@ -93,11 +93,10 @@ class CMSPagesController extends Controller
         } else {
             $pages = new CMSPage();
             $slug = ($request->slug!=null) ? $request->slug : Str::slug($request->page_title, '-');
-            $pages->page_title = $request->page_title;
-            $pages->slug = $slug;
+            $pages->page_title = $request->page_title;            
             $pages->content = $request->content;
-            $pages->metaDescription = $request->metaDescription;
-            $pages->metaKeyword = $request->metaKeyword;
+            // $pages->metaDescription = $request->metaDescription;
+            // $pages->metaKeyword = $request->metaKeyword;
             $pages->status = '1';
             if($pages->save()) {
                 Session::flash('message', 'Page added succesfully!');
@@ -149,8 +148,8 @@ class CMSPagesController extends Controller
             'cms_page_id' => 'required',
             'page_title' => 'required',
             // 'content' => 'required',
-            'metaDescription' => 'sometimes',
-            'metaKeyword' => 'sometimes',
+            // 'metaDescription' => 'sometimes',
+            // 'metaKeyword' => 'sometimes',
         ];
         $messages = [
             'page_title.required' => 'Please enter page title.
@@ -166,11 +165,10 @@ class CMSPagesController extends Controller
             $slug = ($request->slug!=null) ? $request->slug : Str::slug($request->page_title, '-');
             $pages = CMSPage::find($request->cms_page_id);
             $pages->page_title = $request->page_title;
-            $pages->slug = $slug;
+            //$pages->slug = $slug;
             $pages->content = $request->content;
-            $pages->metaDescription = $request->metaDescription;
-            $pages->metaKeyword = $request->metaKeyword;
-
+            // $pages->metaDescription = $request->metaDescription;
+            // $pages->metaKeyword = $request->metaKeyword;
             $pages->updated_at = date("Y-m-d H:i:s");
 
             if ($pages->save()) {

@@ -40,8 +40,8 @@ class InspectionDataTable extends DataTable
             ->editColumn('email', function ($inspection) {
                 return $inspection->user->email;
             })  
-            ->editColumn('hive_date', function ($inspection) {
-                return GlobalHelper::getFormattedDate($inspection->hive_date);
+            ->editColumn('inspection_date', function ($inspection) {
+                return GlobalHelper::getFormattedDate($inspection->inspection_date);
             })  
             ->editColumn('created_at', function ($inspection) {
                 return GlobalHelper::getFormattedDate($inspection->created_at);

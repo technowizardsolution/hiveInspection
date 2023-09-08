@@ -49,7 +49,8 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="form-group {{ $errors->has('slug') ? ' has-error' : '' }}">
+
+                                            <!-- <div class="form-group {{ $errors->has('slug') ? ' has-error' : '' }}">
                                                 <label  class=" control-label" for="slug">Slug</label>
                                                 <div class="">
                                                     <input  class="form-control" id="slug" name="slug" value=" @if(isset($pages)) @if(!empty(old('slug'))){{old('slug')}}@else{{$pages->slug}}@endif @endif"/>
@@ -59,7 +60,8 @@
                                                     </span>
                                                     @endif
                                                 </div>
-                                            </div>
+                                            </div> -->
+
                                             <div class="form-group {{ $errors->has('content') ? ' has-error' : '' }}">
                                                 <label  class=" control-label" for="content">Content <span class="colorRed"> *</span></label>
                                                 <div class="">
@@ -72,7 +74,7 @@
                                                 </div>
                                             </div>
         
-                                            <div class="form-group {{ $errors->has('metaKeyword') ? ' has-error' : '' }}">
+                                            <!-- <div class="form-group {{ $errors->has('metaKeyword') ? ' has-error' : '' }}">
                                                 <label  class=" control-label" for="metaKeyword">Meta Keyword</label>
                                                 <div class="">
                                                     <textarea class="form-control" id="metaKeyword" name="metaKeyword">@if(isset($pages)) @if(!empty(old('metaKeyword'))){{old('metaKeyword')}}@else{{$pages->metaKeyword}}@endif @endif</textarea>
@@ -94,7 +96,7 @@
                                                     </span>
                                                     @endif
                                                 </div>
-                                            </div>
+                                            </div> -->
                                     </div>
                                     <!-- /.box-body -->
                                     <span class="help-block"> <span class="colorRed"> *</span> mentioned fields are mandatory.</span>

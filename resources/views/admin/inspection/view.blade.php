@@ -35,8 +35,8 @@
                                     <table class="table table-user-information">
                                       <tbody>
                                         <tr>
-                                            <td><strong>hive_date</strong></td>
-                                            <td class="text-primary">{{$inspection->hive_date}}</td>
+                                            <td><strong>Inspection date</strong></td>
+                                            <td class="text-primary">{{$inspection->inspection_date}}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Normal Hive Condition</strong></td>

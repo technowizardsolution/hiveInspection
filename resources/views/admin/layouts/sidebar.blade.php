@@ -4,7 +4,7 @@
           <li class="nav-item mr-auto">
             <a class="navbar-brand" href="{{url('admin/dashboard')}}">
               <span class=""> <img src="{{ URL::asset('resources/uploads/logo/Logo7.png')}}" alt="logo" height="28"></span>
-              {{-- <h2 class="brand-text">{{ config('app.name') }}</h2> --}}
+              <h2 class="brand-text">{{ config('app.name') }}</h2>
             </a>
           </li>
           <li class="nav-item nav-toggle">

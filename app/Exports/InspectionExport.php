@@ -75,7 +75,7 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings
         
 
         return [
-            date("Y-m-d ", strtotime($inspection->created_at)),
+            date("Y-m-d ", strtotime($inspection->inspection_date)),
             $normal_hive_condition,
             $saw_queen,
             $queen_marked,
