@@ -32,26 +32,13 @@ Route::group(['middleware' => 'localization'], function(){
 
   //get category
   Route::post('/category', 'API\UserController@getCategory');
-  Route::post('/subcategory', 'API\UserController@getSubcategory');
+  Route::post('/subcategory', 'API\UserController@getSubcategory');  
 
-  //country state city
-  Route::get('/country', 'API\CountryController@country');
-  Route::post('/state', 'API\CountryController@state');
-  Route::post('/city', 'API\CountryController@city');
-
-  // Verify OTP
-  Route::post('/verifyMobile', 'API\UserController@verifyMobile');
-  Route::post('/sendOTP', 'API\UserController@sendOTP');
-  Route::post('/resetPassword', 'API\UserController@resetPassword');
-
-  // ContactUS
-  Route::post('/ContactUS', 'API\UserController@ContactUS');
-  Route::get('/faq', 'API\UserController@faq');
-
+  
+  Route::post('/resetPassword', 'API\UserController@resetPassword');  
   Route::post('/testnotification', 'API\UserController@testnotification');
-
-  Route::post('editUserGame','API\UserGameController@editUserGame');
-  Route::get('/bannerList','API\BannerController@bannerList');
+  
+  
 	Route::group(['middleware' => 'auth:api'], function(){
     //User
     Route::post('/updateDeviceToken', 'API\UserController@updateDeviceToken');
@@ -60,8 +47,10 @@ Route::group(['middleware' => 'localization'], function(){
     Route::post('/getProfile','API\UserController@getProfile');
 
     //Hive
+    Route::get('/getHiveList','API\HiveController@getHiveList');
     Route::post('/addUpdateHive', 'API\HiveController@addUpdateHive');
     Route::get('/getHiveById/{id}','API\HiveController@getHiveById');
+    Route::post('/deleteHive','API\HiveController@deleteHive');
 
     Route::post('/addInspection', 'API\InspectionController@addInspection');
     Route::get('/getInspectionById/{id}','API\InspectionController@getInspectionById');

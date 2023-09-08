@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label for="">Password</label>
                                 <input id="password" type="password" name="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="@lang('messages.password')"  required aria-describedby="password">
-                                <span toggle="#password-field" class="fa fa-fw fa-eye-slash pass_field_icon toggle-password password-eye-login"></span>
+                                <!-- <span toggle="#password-field" class="fa fa-fw fa-eye-slash pass_field_icon toggle-password password-eye-login"></span> -->
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>

@@ -31,7 +31,7 @@
                                             </div>
                                             <div class="main-button">
                                             <a class="btn btn-success" href="{{url('user/hive/edit',$data->hive_id)}}"  title="Edit"><i class='fa fa-edit'></i></a>
-                                            <a class="btn btn-danger" onclick="deleteConfirm({{$data->hive_id}})" href="javascript:;"  title="Delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            <a class="btn btn-danger" onclick="deleteConfirm({{$data->hive_id}})" href="javascript:;"  title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </div>                       
                                         </div>
 
@@ -54,8 +54,8 @@
                                             <strong> Queen introduced : </strong> {{$data->queen_introduced}}
                                         </p>                                                
 
-                                        <a class="btn btn-primary hive-button" href="{{url('user/inspection',$data->hive_id)}}">Start inspecting!</a>
-                                        <a class="btn btn-primary hive-button" href="{{url('/user/inspection/export')}}">Export report</a>
+                                        <a class="btn btn-primary hive-button" href="{{url('user/inspection',$data->hive_id)}}">Start Inspecting!</a>
+                                        <a class="btn btn-primary hive-button" href="{{url('/user/inspectionexport',$data->hive_id)}}">Export Report</a>
                                         
                                     </div>
                                 </div>

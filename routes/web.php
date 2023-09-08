@@ -115,7 +115,7 @@ Route::group(['middleware' => ['web']], function () {
             // Inspection
             Route::get('/inspection/{id}', 'InspectionController@index');
             Route::post('/inspection/store', 'InspectionController@store');
-            Route::get('/inspectionexport', 'InspectionController@inspectionExport');
+            Route::get('/inspectionexport/{id}', 'InspectionController@inspectionExport');
 
         });
 

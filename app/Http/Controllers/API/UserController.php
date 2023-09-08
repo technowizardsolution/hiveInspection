@@ -595,104 +595,10 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Developed By :
-     * Description  : Contact Us
-     * Date         :
-     */
-    public function ContactUS(Request $request)
-    {
-        $data = $request->json()->get('data');
-        try {
-            if (empty($data)) {
-                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
-            } else {
-                $rules = array(
-                    'name' => 'required',
-                    'email' => 'required|string|email|max:255',
-                    'description' => 'required',
-                );
-                $messages = [
-                    'name.required' => Lang::get('messages.enter_name'),
-                    'email.required' => Lang::get('messages.email_require'),
-                    'description.required' => Lang::get('messages.publication_description'),
-                ];
-                $validator = Validator::make($data, $rules, $messages);
-                if ($validator->fails()) {
-                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
-                } else {
-                    $contact_us = new ContactUs();
-                    $contact_us->name = $data['name'];
-                    $contact_us->email = $data['email'];
-                    $contact_us->description = $data['description'];
-                    if ($contact_us->save()) {
-                        $contact_us = GlobalHelper::removeNull($contact_us);
-                        return $this->APIResponse->respondWithMessageAndPayload($contact_us, 'Contact Us Form Filled Successfully');
-                    } else {
-                        return $this->APIResponse->respondInternalError('Oops ! Something Went Wrong');
-                    }
-                }
-            }
-        } catch (\Exception $e) {
-            return $this->APIResponse->handleAndResponseException($e);
-        }
-    }
 
-    /**
-     * Developed By :
-     * Description  : Faq
-     * Date         :
-     */
-    public function faq(Request $request)
-    {
-        $faqs = FAQ::where('status', '1')->get()->toArray();
-        if (empty($faqs)) {
-            return $this->APIResponse->respondNotFound('No Record Found');
-        } else {
-            return $this->APIResponse->respondWithMessageAndPayload($faqs, 'FAQ List');
-        }
 
-    }
-    public function verifyMobile(Request $request)
-    {
-        $data = $request->json()->get('data');
-        try {
-            if (empty($data)) {
-                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
-            } else {
-                $rules = array(
-                    'country_code' => 'required',
-                    'user_mobile' => 'required',
-                );
-                $messages = [
-                    'country_code.required' => Lang::get('messages.enter_country_code'),
-                    'user_mobile.required' => Lang::get('messages.enter_mobile'),
-                ];
-                $validator = Validator::make($data, $rules, $messages);
-                if ($validator->fails()) {
-                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
-                } else {
-                    $checkUser = User::where('id', Auth()->user()->id)->first();
-                    if (empty($checkUser)) {
-                        return $this->APIResponse->respondNotFound(__(Lang::get('messages.norecordfound_id')));
-                    } else {
-                        $checkUser->country_code = $data['country_code'];
-                        $checkUser->user_mobile = $data['user_mobile'];
-                        $checkUser->mobile_verified = '1';
-                        $checkUser->mobile_verified_at = date('Y-m-d H:i:s');
-                        if ($checkUser->save()) {
-                            return $this->APIResponse->respondWithMessage(Lang::get('messages.verify_mobile'));
-                        } else {
-                            return $this->APIResponse->respondInternalError(__(Lang::get('messages.something_wrong')));
-                        }
-
-                    }
-                }
-            }
-        } catch (\Exception $e) {
-            return $this->APIResponse->handleAndResponseException($e);
-        }
-    }
+ 
+   
 
     public function testnotification(Request $request)
     {
@@ -714,45 +620,5 @@ class UserController extends Controller
         }
     }
 
-    public function sendOTP(Request $request)
-    {
-        $data = $request->json()->get('data');
-        try {
-            if (empty($data)) {
-                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
-            } else {
-                $rules = array(
-                    'user_mobile' => 'required|numeric',
-                    'country_code' => 'required',
-                );
-                $messages = [
-                    'country_code.required' => Lang::get('messages.enter_country_code'),
-                    'user_mobile.required' => Lang::get('messages.enter_mobile'),
-                    'user_mobile.numeric' => Lang::get('messages.mobile_numeric'),
-                ];
-                $validator = Validator::make($data, $rules, $messages);
-                if ($validator->fails()) {
-                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
-                } else {
-                    $otp = rand(1000, 9999);
-                    $otp = 1234;
-                    $data['otp'] = $otp;
-                    $data['user_mobile'] = $data['user_mobile'];
-                    $data['country_code'] = $data['country_code'];
-                    $mobileNo = $data['country_code'] . '' . $data['user_mobile'];
-                    $mobileNo = str_replace(array('+'), '', $mobileNo);
-                    $message = $otp . ' is your ' . env('APP_NAME') . ' verification code.';
-                    //GlobalHelper::sendMessage($message,$mobileNo);
-
-                    //GlobalHelper::sendMessageByunifonic($message,$mobileNo);
-
-                    //GlobalHelper::sendTwilioMessage($mobileNo,$message);
-                    return $this->APIResponse->respondWithMessageAndPayload($data, 'OTP sent successfully!.');
-                }
-            }
-        } catch (\Exception $e) {
-            return $this->APIResponse->handleAndResponseException($e);
-        }
-    }
 
 }

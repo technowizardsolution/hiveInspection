@@ -46,11 +46,11 @@ class InspectionController extends Controller
             } else {
                 $rules = array(
                     'hive_date' => 'required',
-                    'normal_hive_condition' => 'required'
+                   // 'normal_hive_condition' => 'required'
                 );
                 $messages = [
                     'hive_date.required' => 'Hive date is required',
-                    'normal_hive_condition.required' => 'Normal hive condition is required'
+                   // 'normal_hive_condition.required' => 'Normal hive condition is required'
                 ];
                 $validator = Validator::make($data, $rules, $messages);
                 if ($validator->fails()) {
@@ -100,6 +100,9 @@ class InspectionController extends Controller
                     $inspection->prep_for_extraction = $data['prep_for_extraction'];
                     $inspection->feed_hive_what = $data['feed_hive_what'];
                     $inspection->install_medication_what = $data['install_medication_what']; 
+                    if($data['medication_reminder']){
+                        $inspection->medication_reminder = $data['medication_reminder']; 
+                    } 
                     $inspection->remove_medication = $data['remove_medication'];
                     $inspection->split_hive = $data['split_hive'];
                     $inspection->re_queen = $data['re_queen']; 

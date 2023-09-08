@@ -26,6 +26,16 @@ class HiveController extends Controller
         $this->APIResponse = new APIResponse();
     }  
 
+    public function getHiveList()
+    {
+        try {
+            $hive = Hive::where('user_id',Auth()->user()->id)->get()->toArray();
+            return $this->APIResponse->respondWithMessageAndPayload($hive, 'Hive Record');
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }
+    }   
+
     public function getHiveById($hive_id)
     {
         try {
@@ -45,11 +55,11 @@ class HiveController extends Controller
             } else {
                 $rules = array(
                     'hive_name' => 'required',
-                    'location' => 'required'
+                  //  'location' => 'required'
                 );
                 $messages = [
                     'hive_name.required' => 'Hive name is required',
-                    'location.required' => 'Location is required'
+                   // 'location.required' => 'Location is required'
                 ];
                 $validator = Validator::make($data, $rules, $messages);
                 if ($validator->fails()) {
@@ -80,5 +90,26 @@ class HiveController extends Controller
             return $this->APIResponse->handleAndResponseException($e);
         }
     }
+
+    public function deleteHive(Request $request)
+    {
+        try {
+            $data = $request->json()->get('data');            
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {                                
+                $hive = Hive::findorfail($data['hive_id']);                
+                if ($hive->delete()) {                              
+                    return $this->APIResponse->respondWithMessageAndPayload($hive, 'Hive Record Deleted');
+                } else {
+                    return $this->APIResponse->respondInternalError(__('Something went wrong.'));
+                }            
+            }
+            
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }
+    }    
+    
 
 }

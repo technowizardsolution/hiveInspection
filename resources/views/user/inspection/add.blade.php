@@ -15,15 +15,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-<<<<<<< HEAD
-
-                    <a href="{{url('/user/inspectionexport')}}" class="float-right; margin-left: 8px;">
-                        <button type="button" class="btn btn-primary waves-effect waves-float waves-light">Export</button>
-                    </a>
-
-
-=======
->>>>>>> 75dcf0b3727ddf715bcceec5f1413439e79364b2
                     <form class="form-horizontal" id="inspectionForm" role="form" action="{{url('user/inspection/store')}}" method="post" enctype="multipart/form-data" >
                         @csrf 
                         <input type="hidden" class="form-control" name="hive_id" id="hive_id" value="{{$hive_id}}">
@@ -416,10 +407,22 @@
                                             </select>
                                         </div>                                         
                                     </div>
-
-                                    
-
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group {{ $errors->has('medication_reminder') ? ' has-error' : '' }}">
+                                            <label for="">Medication Reminder</label>
+                                            <input type="date" class="form-control" name="medication_reminder" id="medication_reminder" placeholder="Medication Reminder">
+                                            @if ($errors->has('medication_reminder'))
+                                            <span class="help-block alert alert-danger">
+                                                <strong>{{ $errors->first('medication_reminder') }}</strong>
+                                            </span>
+                                            @endif
+                                        </div>                                                                              
+                                    </div>                                    
+                                </div>
+
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="checkbox-card">
@@ -479,8 +482,7 @@
                                     <div class="col-md-6">
                                         <div class="next-btn">
                                             <a href="javascript:;" class="second_next next">NEXT</a>   
-                                            <button type="submit" class="submit">Send Report</button>
-                                            <button type="button" class="submit">See History</button>                                         
+                                            <button type="submit" class="submit">Send Report</button>                                            
                                         </div>
                                     </div>
 
@@ -511,71 +513,71 @@
                     inspection_date: {
                         required: true
                     },
-                    mite_count : {
-                        required: true,
-                    },
-                    temperment: {
-                        required: true
-                    },
-                    population : {
-                        required: true,
-                    },
-                    brood : {
-                        required: true,
-                    },
-                    honey : {
-                        required: true,
-                    },
-                    pollen : {
-                        required: true,
-                    },
-                    frames_of_bees: {
-                        required: true
-                    },
-                    frames_of_brood : {
-                        required: true,
-                    },
-                    frames_of_honey : {
-                        required: true,
-                    },
-                    frames_of_pollen : {
-                        required: true,
-                    }
+                    // mite_count : {
+                    //     required: true,
+                    // },
+                    // temperment: {
+                    //     required: true
+                    // },
+                    // population : {
+                    //     required: true,
+                    // },
+                    // brood : {
+                    //     required: true,
+                    // },
+                    // honey : {
+                    //     required: true,
+                    // },
+                    // pollen : {
+                    //     required: true,
+                    // },
+                    // frames_of_bees: {
+                    //     required: true
+                    // },
+                    // frames_of_brood : {
+                    //     required: true,
+                    // },
+                    // frames_of_honey : {
+                    //     required: true,
+                    // },
+                    // frames_of_pollen : {
+                    //     required: true,
+                    // }
 			    },
 			    messages: {
 					inspection_date: {
 						required:"Inspection date is required",
 					},
-					mite_count: {
-						required:"Mite count is required",
-					},
-					temperment:{
-						required:"Temperment is requied"
-					},
-					population:{
-						required:"Population is required"
-					},
-					brood:{
-						required:"Brood is required",
-					},
-					honey:{
-						required:"Honey is required",
-					},
-					pollen:{
-						required:"Pollen is required",
-					},
-					frames_of_bees:{
-						required:"Frames of bees is required",
-					},                   
-                    frames_of_brood : {
-                        required: "Frames of brood required",
-                    },
-                    frames_of_honey : {
-                        required: "Frames of honey required",
-                    },
-                    frames_of_pollen : {
-                        required: "Frames of pollen required",
-                    }
+					// mite_count: {
+					// 	required:"Mite count is required",
+					// },
+					// temperment:{
+					// 	required:"Temperment is requied"
+					// },
+					// population:{
+					// 	required:"Population is required"
+					// },
+					// brood:{
+					// 	required:"Brood is required",
+					// },
+					// honey:{
+					// 	required:"Honey is required",
+					// },
+					// pollen:{
+					// 	required:"Pollen is required",
+					// },
+					// frames_of_bees:{
+					// 	required:"Frames of bees is required",
+					// },                   
+                    // frames_of_brood : {
+                    //     required: "Frames of brood required",
+                    // },
+                    // frames_of_honey : {
+                    //     required: "Frames of honey required",
+                    // },
+                    // frames_of_pollen : {
+                    //     required: "Frames of pollen required",
+                    // }
 			    }
 			}
 			$("#inspectionForm").multiStepForm(

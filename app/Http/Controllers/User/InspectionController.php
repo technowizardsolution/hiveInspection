@@ -18,10 +18,11 @@ class InspectionController extends Controller
         return view('user.inspection.add',compact('user','hive_id'));
     }
 
-    public function inspectionExport()
+    public function inspectionExport($hive_id)
     {
-        dd('test');
-        return Excel::download(new InspectionExport, 'Inspection.xlsx');
+        $export = new InspectionExport($hive_id);
+        $fileName = 'Inspection.xlsx';
+        return Excel::download($export, $fileName);
     }
 
     public function store(Request $request)
@@ -147,7 +148,10 @@ class InspectionController extends Controller
         }
         if($request['insulate_winterize']){
             $inspection->insulate_winterize = $request['insulate_winterize']; 
-        }        
+        }   
+        if($request['medication_reminder']){
+            $inspection->medication_reminder = $request['medication_reminder']; 
+        }   
         $inspection->additional_notes = $request['additional_notes'];             
         if ($inspection->save()) {
             Session::flash('message', 'Inspection added succesfully !');
