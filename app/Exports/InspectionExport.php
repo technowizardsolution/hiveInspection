@@ -47,13 +47,13 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
                 $inspections = Inspection::where('hive_id',$this->hive_id)->get();
                 foreach($inspections as $key => $inspection) {
                     if($inspection->normal_hive_condition==1) {
-                        $event->sheet->getDelegate()->getStyle((string)('B'.$key+2))
+                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))
                         ->getFill()
                         ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                         ->getStartColor()
                         ->setARGB('008000');
                     } else {
-                        $event->sheet->getDelegate()->getStyle((string)('B'.$key+2))
+                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))
                         ->getFill()
                         ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                         ->getStartColor()
