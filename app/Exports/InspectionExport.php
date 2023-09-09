@@ -8,10 +8,11 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithEvents;
 use App\Helper\GlobalHelper;
 use App\Inspection;
 
-class InspectionExport implements FromCollection,WithMapping, WithHeadings
+class InspectionExport implements FromCollection,WithMapping, WithHeadings, WithEvents
 {
   
     use Exportable;
@@ -36,6 +37,21 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings
         // DB::enableQueryLog();
         $inspection = Inspection::where('hive_id',$this->hive_id)->get();
         return $inspection;
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+  
+                $event->sheet->getDelegate()->getStyle('A1:C1')
+                        ->getFill()
+                        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                        ->getStartColor()
+                        ->setARGB('DD4B39');
+  
+            },
+        ];
     }
 
     public function map($inspection): array
