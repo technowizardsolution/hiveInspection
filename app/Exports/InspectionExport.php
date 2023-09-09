@@ -20,7 +20,11 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
 
     public function __construct($hive_id)
     {
-        $this->hive_id = $hive_id;        
+        $this->hive_id = $hive_id;   
+        $this->green = '008000';   
+        $this->red = 'FF0000';   
+        $this->yellow = 'F4B61A';        
+        $this->gray = 'adabab';        
     }
 
     /**
@@ -29,7 +33,7 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
     public function headings(): array
     {
          
-        return ['Inspection Date','Normal Hive Condition', 'Saw Queen','Queen marked','Eggs seen', 'Larva seen','Pupa seen', 'Drone cells', 'Queen cells','Hive beetles','Wax moth','Noseema','Mite wash','Mite count','Temperment','Population', 'Solid uniform frames','Slightly potty frames','Spotty frames','Normal odor','Brood','Honey','Pollen','Frames of bees','Frames of brood','Frames of honey','Frames of pollen','Honey supers','Add supers','Weigh super 3','Weigh super 2','Weigh super 1','Weigh brood 3','Weigh brood 2','Weigh brood 1','Prep for extraction','Feed hive what','Install medication what','Remove medication','Split hive','Re queen','Swap brood boxes','Insulate winterize','Additional notes'];        
+        return ['Inspection Date','Normal Hive Condition', 'Saw Queen','Queen marked','Eggs seen', 'Larva seen','Pupa seen', 'Drone cells', 'Queen cells','Hive beetles','Wax moth','Noseema','Mite wash','Mite count','Temperment','Population', 'Solid uniform frames','Slightly potty frames','Spotty frames','Normal odor','Brood','Honey','Pollen','Frames of bees','Frames of brood','Frames of honey','Frames of pollen','Honey supers','Add supers','Weigh super 3','Weigh super 2','Weigh super 1','Weigh brood 3','Weigh brood 2','Weigh brood 1','Prep for extraction','Feed hive what','Medication Reminder','Install medication what','Remove medication','Split hive','Re queen','Swap brood boxes','Insulate winterize','Additional notes'];        
     }
 
     public function collection()
@@ -43,21 +47,223 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
     public function registerEvents(): array
     {
         return [
-            AfterSheet::class    => function(AfterSheet $event) {
+            AfterSheet::class => function(AfterSheet $event) {
                 $inspections = Inspection::where('hive_id',$this->hive_id)->get();
                 foreach($inspections as $key => $inspection) {
                     if($inspection->normal_hive_condition==1) {
-                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))
-                        ->getFill()
-                        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                        ->getStartColor()
-                        ->setARGB('008000');
+                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
                     } else {
-                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))
-                        ->getFill()
-                        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                        ->getStartColor()
-                        ->setARGB('FF0000');
+                        $event->sheet->getDelegate()->getStyle('B'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->saw_queen==1) {
+                        $event->sheet->getDelegate()->getStyle('c'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('c'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->queen_marked==1) {
+                        $event->sheet->getDelegate()->getStyle('D'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('D'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->eggs_seen==1) {
+                        $event->sheet->getDelegate()->getStyle('E'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('E'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->larva_seen==1) {
+                        $event->sheet->getDelegate()->getStyle('F'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('F'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->pupa_seen==1) {
+                        $event->sheet->getDelegate()->getStyle('G'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('G'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->drone_cells==1) {
+                        $event->sheet->getDelegate()->getStyle('H'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('H'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->queen_cells==1) {
+                        $event->sheet->getDelegate()->getStyle('I'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('I'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                    }
+
+                    if($inspection->hive_beetles==1) {
+                        $event->sheet->getDelegate()->getStyle('J'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('J'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                    }
+
+                    if($inspection->wax_moth==1) {
+                        $event->sheet->getDelegate()->getStyle('K'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('K'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                    }
+
+                    if($inspection->noseema==1) {
+                        $event->sheet->getDelegate()->getStyle('L'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('L'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                    }
+
+                    if($inspection->mite_wash==1) {
+                        $event->sheet->getDelegate()->getStyle('M'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('M'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->temperment == 'Calm') {
+                        $event->sheet->getDelegate()->getStyle('O'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else if($inspection->temperment == 'Nervous') {
+                        $event->sheet->getDelegate()->getStyle('O'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('O'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->population == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('P'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else if($inspection->population == 'Moderate') {
+                        $event->sheet->getDelegate()->getStyle('P'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('P'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->spotty_frames==1) {
+                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                    }
+
+                    if($inspection->normal_odor==1) {
+                        $event->sheet->getDelegate()->getStyle('T'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('T'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->brood == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('U'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else if($inspection->brood == 'Moderate') {
+                        $event->sheet->getDelegate()->getStyle('U'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('U'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->honey == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('V'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else if($inspection->honey == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('V'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->gray);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('V'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->pollen == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('W'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else if($inspection->pollen == 'Heavy') {
+                        $event->sheet->getDelegate()->getStyle('W'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('W'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
+                    }
+
+                    if($inspection->honey_supers) {
+                        $event->sheet->getDelegate()->getStyle('AB'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AB'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->add_supers) {
+                        $event->sheet->getDelegate()->getStyle('AC'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AC'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_super_3) {
+                        $event->sheet->getDelegate()->getStyle('AD'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AD'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_super_2) {
+                        $event->sheet->getDelegate()->getStyle('AE'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AE'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_super_1) {
+                        $event->sheet->getDelegate()->getStyle('AF'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AF'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_brood_3) {
+                        $event->sheet->getDelegate()->getStyle('AG'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AG'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_brood_2) {
+                        $event->sheet->getDelegate()->getStyle('AH'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AH'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->weigh_brood_1) {
+                        $event->sheet->getDelegate()->getStyle('AI'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AI'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->prep_for_extraction ==1) {
+                        $event->sheet->getDelegate()->getStyle('AJ'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AJ'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->install_medication_what == 'Formic') {
+                        $event->sheet->getDelegate()->getStyle('AM'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else if($inspection->install_medication_what == 'Apivar') {
+                        $event->sheet->getDelegate()->getStyle('AM'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AM'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->remove_medication ==1) {
+                        $event->sheet->getDelegate()->getStyle('AN'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AN'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->yellow);
+                    }
+
+                    if($inspection->split_hive ==1) {
+                        $event->sheet->getDelegate()->getStyle('AO'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->yellow);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AO'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->re_queen ==1) {
+                        $event->sheet->getDelegate()->getStyle('AP'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->green);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AP'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->swap_brood_boxes ==1) {
+                        $event->sheet->getDelegate()->getStyle('AQ'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->gray);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AQ'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
+                    }
+
+                    if($inspection->insulate_winterize ==1) {
+                        $event->sheet->getDelegate()->getStyle('AR'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->gray);
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('AR'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->gray);
                     }
                 }
             },
@@ -78,8 +284,8 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
         if($inspection->wax_moth==1){ $wax_moth='Yes'; }else{ $wax_moth='No'; }
         if($inspection->noseema==1){ $noseema='Yes'; }else{ $noseema='No'; }
         if($inspection->mite_wash==1){ $mite_wash='Yes'; }else{ $mite_wash='No'; }
-        if($inspection->solid_uniform_frames==1){ $solid_uniform_frames='Yes'; }else{ $solid_uniform_frames='No'; }
-        if($inspection->slightly_spotty_frames==1){ $slightly_spotty_frames='Yes'; }else{ $slightly_spotty_frames='No'; }
+        if($inspection->solid_uniform_frames){ $solid_uniform_frames=$inspection->solid_uniform_frames; }else{ $solid_uniform_frames='No'; }
+        if($inspection->slightly_spotty_frames){ $slightly_spotty_frames=$inspection->slightly_spotty_frames; }else{ $slightly_spotty_frames='No'; }
         if($inspection->spotty_frames==1){ $spotty_frames='Yes'; }else{ $spotty_frames='No'; }
         if($inspection->normal_odor==1){ $normal_odor='Yes'; }else{ $normal_odor='No'; }
         if($inspection->honey_supers){ $honey_supers = $inspection->honey_supers; }else{ $honey_supers='No'; }
@@ -138,7 +344,8 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
             $weigh_brood_1,
             $prep_for_extraction,
             $feed_hive_what,
-            $install_medication_what,
+            $inspection->medication_reminder,
+            $install_medication_what,            
             $remove_medication,
             $split_hive,
             $re_queen,

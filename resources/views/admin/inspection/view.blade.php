@@ -9,6 +9,7 @@
     color: #fff;
     margin: 0px;
     padding: 0.72rem 2rem;
+    font-weight: 600;
   }
   .color-red{
     background-color: #FF0000;    
@@ -16,6 +17,7 @@
     color: #fff;
     margin: 0px;
     padding: 0.72rem 2rem;
+    font-weight: 600;
   }
   .color-yellow{
     background-color: #F4B61A;    
@@ -23,13 +25,15 @@
     color: #fff;
     margin: 0px;
     padding: 0.72rem 2rem;
+    font-weight: 600;
   }
   .color-gray{
-    background-color: #D3D3D3;    
+    background-color: #adabab;    
     display: block;
     color: #fff;
     margin: 0px;
     padding: 0.72rem 2rem;    
+    font-weight: 600;
   }
   
 </style>
@@ -227,9 +231,9 @@
                                         <tr>
                                             <td><strong>Solid uniform frames</strong></td>
                                             <td class="text-primary">
-                                              @if($inspection->solid_uniform_frames == '1')
+                                              @if($inspection->solid_uniform_frames)
                                                 {{$inspection->solid_uniform_frames}}
-                                              @elseif($inspection->solid_uniform_frames == '0')
+                                              @else
                                                 No
                                               @endif
                                             </td>
@@ -237,9 +241,9 @@
                                         <tr>
                                             <td><strong>Slightly potty frames</strong></td>
                                             <td class="text-primary">
-                                              @if($inspection->slightly_spotty_frames == '1')
+                                              @if($inspection->slightly_spotty_frames)
                                                 {{$inspection->slightly_spotty_frames}}
-                                              @elseif($inspection->slightly_spotty_frames == '0')
+                                              @else
                                                 No
                                               @endif
                                             </td>
@@ -428,6 +432,14 @@
                                               @endif                                              
                                             </td>
                                         </tr>
+
+                                        <tr>
+                                            <td><strong>Medication Reminder</strong></td>
+                                            <td class="text-primary">
+                                               <span> {{$inspection->medication_reminder}} </span>                                             
+                                            </td>
+                                        </tr>
+
                                         <tr>
                                             <td><strong>Remove medication</strong></td>
                                             <td class="text-primary">

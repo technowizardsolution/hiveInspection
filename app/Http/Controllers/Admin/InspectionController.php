@@ -51,6 +51,7 @@ class InspectionController extends Controller
             ['data' => 'inspection_id', 'name' => 'inspection_id', 'title' => 'ID'],
             ['data' => 'email', 'name' => 'email', 'title' => 'Email'],
             ['data' => 'inspection_date', 'name' => 'inspection_date', 'title' => 'Inspection Date'],            
+            ['data' => 'medication_reminder', 'name' => 'medication_reminder', 'title' => 'Medication Reminder'],            
             ['data' => 'created_at', 'name' => 'created_at', 'title' => 'Created At'],            
             ['data' => 'action', 'name' => 'action', 'orderable' => false, 'searchable' => false, 'title' => 'Action'],
         ])->parameters([

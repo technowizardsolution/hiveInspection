@@ -402,9 +402,9 @@
                                             </label>
                                             <select name="install_medication_what_input" id="install_medication_what_input" class="form-control hide install_medication_what_input">
                                                 <option value="">Select Medication</option>
-                                                <option value="Heavy">Formic</option>
-                                                <option value="Moderate">Apivar</option>
-                                                <option value="Low">Other</option>
+                                                <option value="Formic">Formic</option>
+                                                <option value="Apivar">Apivar</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                         </div>                                         
                                     </div>

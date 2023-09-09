@@ -97,7 +97,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="">Mediums</label>
-                                                <input type="text" class="form-control" name="mediums" id="mediums" value="@if(isset($hivedata) && $hivedata->mediums){{$hivedata->mediums}}@endif" placeholder="Mediums">
+                                                <input type="number" class="form-control" name="mediums" id="mediums" value="@if(isset($hivedata) && $hivedata->mediums){{$hivedata->mediums}}@endif" placeholder="Mediums">
                                             </div>
                                         </div>
 

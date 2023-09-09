@@ -43,6 +43,9 @@ class InspectionDataTable extends DataTable
             ->editColumn('inspection_date', function ($inspection) {
                 return GlobalHelper::getFormattedDate($inspection->inspection_date);
             })  
+            ->editColumn('medication_reminder', function ($inspection) {
+                return GlobalHelper::getFormattedDate($inspection->medication_reminder);
+            })              
             ->editColumn('created_at', function ($inspection) {
                 return GlobalHelper::getFormattedDate($inspection->created_at);
             })            
