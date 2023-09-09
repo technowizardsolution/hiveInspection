@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->isJson()) {
-          return response()->json(['status'=>'2','message' => 'Token is invalid.','data'=>array()], 200);
+          return response()->json(['status'=>'2','message' => 'Token is invalid.'], 200);
         }
         return redirect()->guest(route('login'));
     }
