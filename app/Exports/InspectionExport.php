@@ -44,13 +44,22 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-  
-                $event->sheet->getDelegate()->getStyle('A1:C1')
+                $inspections = Inspection::where('hive_id',$this->hive_id)->get();
+                foreach($inspections as $key => $inspection) {
+                    if($inspection->normal_hive_condition==1) {
+                        $event->sheet->getDelegate()->getStyle('B'.$key+2)
                         ->getFill()
                         ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                         ->getStartColor()
-                        ->setARGB('DD4B39');
-  
+                        ->setARGB('008000');
+                    } else {
+                        $event->sheet->getDelegate()->getStyle('A1:C1')
+                        ->getFill()
+                        ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                        ->getStartColor()
+                        ->setARGB('FF0000');
+                    }
+                }
             },
         ];
     }
