@@ -15,6 +15,12 @@ enum Constants {
     enum API {
         static let login = "login"
         static let signup = "register"
+        static let addUpdateHive = "addUpdateHive"
+        static let hiveList = "getHiveList"
+        static let changePassword = "changePassword"
+        static let cms = "getCMSpages"
+        static let deleteHive = "deleteHive"
+        static let addInspection = "addInspection"
     }
     
     static func FCMToken() -> String {
@@ -25,5 +31,16 @@ enum Constants {
     static func getToken() -> String {
         guard let fcm = UserDefaults.standard.object(forKey: "token") as? String else { return "" }
         return fcm
+    }
+    
+    static func getUserId() -> String {
+        guard let userId = UserDefaults.standard.object(forKey: "UserId") as? String else { return "" }
+        return userId
+    }
+    
+    static func clearDefaults() {
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "UserId")
+        UserDefaults.standard.removeObject(forKey: "fcmToken")
     }
 }

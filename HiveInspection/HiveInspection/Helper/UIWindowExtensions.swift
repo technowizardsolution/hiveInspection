@@ -30,6 +30,7 @@ public extension UIWindow {
             let oldState = UIView.areAnimationsEnabled
             UIView.setAnimationsEnabled(false)
             self.rootViewController = viewController
+            self.makeKeyAndVisible()
             UIView.setAnimationsEnabled(oldState)
         }, completion: { _ in
             completion?()

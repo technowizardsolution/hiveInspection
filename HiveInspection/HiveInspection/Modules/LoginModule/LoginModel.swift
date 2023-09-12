@@ -11,7 +11,7 @@ import Foundation
 struct LoginModel: Codable {
     let status: Int?
     let message: String?
-    let data: LoginModelData? = nil
+    let data: LoginModelData?
 
     enum CodingKeys: String, CodingKey {
         case status = "status"

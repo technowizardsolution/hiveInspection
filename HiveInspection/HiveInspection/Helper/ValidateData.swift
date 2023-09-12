@@ -20,3 +20,23 @@ func checkLoginValidation(validationModel : LoginValidation) -> (Bool,String) {
     }
     return (true,"")
 }
+
+func checkAddAHiveValidation(validationModel : AddAHiveValidation) -> (Bool,String) {
+    if validationModel.hiveName == "" {
+        return (false,popupMessages.noHiveName.rawValue)
+    }else if validationModel.hiveLocation == "" {
+        return (false,popupMessages.noHiveLocation.rawValue)
+    }
+    return (true,"")
+}
+
+func checkChangePasswordValidation(validationModel : ChangePasswordValidation) -> (Bool,String) {
+    if validationModel.oldPassword == "" {
+        return (false,popupMessages.noOldPassword.rawValue)
+    }else if validationModel.newPassword == "" {
+        return (false,popupMessages.noNewPassword.rawValue)
+    }else if validationModel.newPassword != validationModel.newConfirmPassword {
+        return (false,popupMessages.confirmNotMatch.rawValue)
+    }
+    return (true,"")
+}

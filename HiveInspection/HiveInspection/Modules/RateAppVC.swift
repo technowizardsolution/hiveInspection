@@ -18,7 +18,7 @@ class RateAppVC : UIViewController {
 extension RateAppVC {
     private func setupButtons() {
         func setupSubmitButton() {
-            onBtnSubmitOutlet.setTitle("Submit", for: .normal)
+            onBtnSubmitOutlet.setTitle("Next", for: .normal)
             onBtnSubmitOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnSubmitOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnSubmitOutlet.cornerRadius = onBtnSubmitOutlet.frame.height / 2

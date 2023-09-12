@@ -48,7 +48,7 @@ extension SettingsVC {
         }
         getSettingsData = []
         getSettingsData?.append(SettingsData(title: "Add a Hive", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Edit a Hive", type: .detail))
+//        getSettingsData?.append(SettingsData(title: "Edit a Hive", type: .detail))
         getSettingsData?.append(SettingsData(title: "Notifications", type: ._switch))
         getSettingsData?.append(SettingsData(title: "About Us", type: .detail))
         getSettingsData?.append(SettingsData(title: "Subscription", type: .detail))
@@ -57,10 +57,12 @@ extension SettingsVC {
         getSettingsData?.append(SettingsData(title: "Privacy Policy", type: .detail))
         getSettingsData?.append(SettingsData(title: "App Version", type: .version))
         getSettingsData?.append(SettingsData(title: "Logout", type: .none))
+        getSettingsData?.append(SettingsData(title: "Delete Account", type: .none))
     }
     
     private func setupButtons() {
         func setupStartInspectingButton() {
+            onBtnStartInspectingOutlet.isHidden = true
             onBtnStartInspectingOutlet.setTitle("Start inspecting!", for: .normal)
             onBtnStartInspectingOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnStartInspectingOutlet.setTitleColor(UIColor.black, for: .normal)
@@ -96,41 +98,67 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = getSettingsData?[indexPath.row]
         switch indexPath.row {
         case 0:
             //Add a Hive
-            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect1VC") as! HiveInspect1VC
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
+            dvc.showBackbutton = true
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 1:
-            //Edit a Hive
-            break
-        case 3:
+        case 2:
             //About Us
             self.vibrate()
-            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
+            dvc.cms = .aboutus
+            dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 5:
+        case 4:
             //Change Password
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 6, 7:
+        case 5:
             //Terms & Conditions
-            //Privacy Policy
             self.vibrate()
-            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "TermsAndPrivacyVC") as! TermsAndPrivacyVC
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
+            dvc.cms = .termsandcondition
+            dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 9:
+        case 6:
+            //Privacy Policy
+            self.vibrate()
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
+            dvc.cms = .privacypolicy
+            dvc.getTitle = item?.title ?? ""
+            navigationController?.pushViewController(dvc, animated: true)
+            break
+        case 8:
             //Logout
             self.vibrate()
             UIAlertController.actionWith(andMessage: "Are you sure you want to logout", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .default),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
                 self.vibrate()
                 if btn == "Yes" {
                     //navigate to login
+                    Constants.clearDefaults()
+                    let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                    appDelegate.window?.switchRootViewController(to: dvc)
+                }
+            }
+            break
+        case 9:
+            //Delete Account
+            self.vibrate()
+            UIAlertController.actionWith(andMessage: "Are you sure you want to delete your account?", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .destructive),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
+                self.vibrate()
+                if btn == "Yes" {
+                    //navigate to login
+                    Constants.clearDefaults()
+                    let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                    appDelegate.window?.switchRootViewController(to: dvc)
                 }
             }
             break

@@ -9,24 +9,44 @@ import Moya
 
 
 enum API {
-    case Login(param : [String:Any])
-    case SignUp(param : [String:Any])
+    case login(param : [String:Any])
+    case signUp(param : [String:Any])
+    case addUpdateHive(param : [String:Any])
+    case hiveList
+    case changePassword(param : [String:Any])
+    case CMS(param : [String:Any])
+    case deleteHive(param : [String:Any])
+    case addInspect(param : [String:Any])
 }
 
 extension API : TargetType {
     var path: String {
         switch self {
-        case .Login:
+        case .login:
             return Constants.API.login
-        case .SignUp:
+        case .signUp:
             return Constants.API.signup
+        case .addUpdateHive:
+            return Constants.API.addUpdateHive
+        case .hiveList:
+            return Constants.API.hiveList
+        case .changePassword:
+            return Constants.API.changePassword
+        case .CMS:
+            return Constants.API.cms
+        case .deleteHive:
+            return Constants.API.deleteHive
+        case .addInspect:
+            return Constants.API.addInspection
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .Login, .SignUp:
+        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect:
             return .post
+        case .hiveList:
+            return .get
         }
     }
     
@@ -36,13 +56,20 @@ extension API : TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .Login(param: let param), .SignUp(param: let param):
-            return .requestParameters(parameters: param, encoding: URLEncoding.default)
+        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param):
+            return .requestParameters(parameters: param, encoding: JSONEncoding.default)
+        case .hiveList:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        return ["Content-type": "application/json"]
+        switch self {
+        case .login, .signUp:
+            return ["Content-type": "application/json"]
+        default:
+            return ["Content-type": "application/json","Authorization" : "Bearer \(Constants.getToken())"]
+        }
     }
     
     var baseURL: URL {

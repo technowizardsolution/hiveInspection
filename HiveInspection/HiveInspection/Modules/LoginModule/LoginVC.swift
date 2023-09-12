@@ -39,11 +39,16 @@ class LoginVC : UIViewController {
 
 extension LoginVC : LoginResponse {
     func getLoginResponse(_ model: LoginModel) {
-        if let token = model.data?.token {
-            UserDefaults.standard.set(token, forKey: "token")
+        if (model.status ?? 1) == 1, let data = model.data {
+            UserDefaults.standard.set(data.token ?? "", forKey: "token")
+            UserDefaults.standard.set(data.id?.string ?? "" , forKey: "UserId")
+            let dvc : HiveListVC = mainStoryBoard.instantiateViewController(withIdentifier: "HiveListVC") as! HiveListVC
+            let navVC : UINavigationController = UINavigationController(rootViewController: dvc)
+            navVC.showColoredNavigationBar(.white)
+            appDelegate.window?.switchRootViewController(to: navVC)
+        }else {
+            UIAlertController.actionWith(andMessage: model.message ?? "", getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
         }
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
-        navigationController?.pushViewController(dvc, animated: true)
     }
     
     func failureResponse(_ error: String) {

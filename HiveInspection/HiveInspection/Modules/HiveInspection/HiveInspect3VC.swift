@@ -26,8 +26,9 @@ class HiveInspect3VC : UIViewController {
     @IBOutlet weak var onBtnAddAHiveOutlet : LetsButton!
     @IBOutlet weak var onBtnNextOutlet : LetsButton!
     var selectedHiveNumber = ""
-
+    var hiveId = ""
     var getHiveInspectData : [HiveInspectData]?
+    var getTotalHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
 
     override func viewDidLoad() {
@@ -52,6 +53,11 @@ class HiveInspect3VC : UIViewController {
 //        pullDownButton { selectedString in
 //            print(selectedString)
 //        }
+    }
+    
+    override func gotoBack() {
+        super.gotoBack()
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -82,6 +88,9 @@ extension HiveInspect3VC : UITableViewDataSource, UITableViewDelegate {
             if item.type == ._switchWithText {
                 cell.txtHiveDataOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
                 cell.bottomBorderOutlet.isHidden = !(self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn ?? false)
+            }else {
+                cell.txtHiveDataOutlet.isHidden = false
+                cell.bottomBorderOutlet.isHidden = false
             }
             cell.completionOnSwitchWithTextChanged = { _switch in
                 self.getHiveInspectData?[indexPath.row].isSwitchWithTextOn = _switch.isOn
@@ -101,6 +110,7 @@ extension HiveInspect3VC : UITableViewDataSource, UITableViewDelegate {
 extension HiveInspect3VC {
     private func setupButtons() {
         func setupAddAHiveButton() {
+            onBtnAddAHiveOutlet.isHidden = true
             onBtnAddAHiveOutlet.setTitle("Add a Hive", for: .normal)
             onBtnAddAHiveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnAddAHiveOutlet.setTitleColor(UIColor.black, for: .normal)
@@ -141,6 +151,9 @@ extension HiveInspect3VC {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect4VC") as! HiveInspect4VC
         dvc.selectedHiveNumber = selectedHiveNumber
+        dvc.hiveId = self.hiveId
+        getTotalHiveInspectData?.append(contentsOf: getHiveInspectData ?? [])
+        dvc.getTotalHiveInspectData = getTotalHiveInspectData
         navigationController?.pushViewController(dvc, animated: true)
     }
 
@@ -155,6 +168,10 @@ extension HiveInspect3VC {
         })
         if let mainViewControllerVC = mainViewControllerVC {
             navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }else {
+            navigationController?.popToRootViewController(animated: true)
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+            self.navigationController?.pushViewController(dvc, animated: true)
         }
     }
 }
@@ -166,9 +183,11 @@ extension HiveInspect3VC : FlexibleSteppedProgressBarDelegate {
         self.view.addSubview(progressBar)
 
         let horizontalConstraint = progressBar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let navigationBarHeight = self.navigationController!.navigationBar.frame.height
         let verticalConstraint = progressBar.topAnchor.constraint(
             equalTo: view.topAnchor,
-            constant: 100
+            constant: statusBarHeight + navigationBarHeight
         )
         let widthConstraint = progressBar.widthAnchor.constraint(equalToConstant: CGFloat(self.view.frame.width - 20))
         let heightConstraint = progressBar.heightAnchor.constraint(equalToConstant: CGFloat(30))

@@ -84,6 +84,19 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = barButton
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
     }
+    
+    func addButton() {
+        self.view.endEditing(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UIViewController.addButtonAction))
+        barButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = barButton
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
+    
+    @objc func addButtonAction() {
+        self.view.endEditing(true)
+    }
 
     func pullDownButton(completion : @escaping (String) -> ()) {
         self.view.endEditing(true)
@@ -93,11 +106,6 @@ extension UIViewController {
         let optionClosure = {(action: UIAction) in
             completion(action.title)
             filterPullDownButtom.setTitle(action.title, for: .normal)
-//            guard let index = self.hiveSetupDataArray?.firstIndex(where: {$0.name == action.title}) else { return }
-//            for (getIndex,_) in (self.hiveSetupDataArray ?? []).enumerated() {
-//                self.hiveSetupDataArray?[getIndex].isSelected = false
-//            }
-//            self.hiveSetupDataArray?[index].isSelected = true
         }
         var arrUIAction = [UIAction]()
         for intData in 1...10 {
@@ -171,6 +179,15 @@ extension DateFormatter
     func setLocal() {
         self.locale = Locale.init(identifier: "en_US_POSIX")
         self.timeZone = TimeZone(abbreviation: "EDT")!
+    }
+    
+    func formatDate(date : Date, fromDateFormat : String, toFormat : String) -> Date {
+        self.setLocal()
+        self.dateFormat = fromDateFormat
+        let getDateStr = self.string(from: date)
+        self.locale = .current
+        self.dateFormat = toFormat
+        return self.date(from: getDateStr) ?? Date()
     }
 }
 

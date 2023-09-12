@@ -10,6 +10,7 @@ import FlexibleSteppedProgressBar
 
 class CellT_HiveInspect4 : UITableViewCell {
     @IBOutlet weak var onSwitchWithTextOutlet : UISwitch!
+    @IBOutlet weak var hiveInspectDatePicker: UIDatePicker!
     @IBOutlet weak var onBtnDropDownOutlet : UIButton!
     @IBOutlet weak var txtHiveDataOutlet : UITextField!
     @IBOutlet weak var bottomBorderOutlet : UIView!
@@ -43,8 +44,13 @@ class HiveInspect4VC : UIViewController {
     @IBOutlet private weak var tableview : UITableView!
     @IBOutlet weak var onBtnAddAHiveOutlet : LetsButton!
     @IBOutlet weak var onBtnNextOutlet : LetsButton!
+    @IBOutlet weak var txtViewOutlet : LetsTextView!
     var selectedHiveNumber = ""
+    
+    var hiveInspectVM : HiveInspectViewModel?
+    var hiveId = ""
     var getHiveInspectData : [HiveInspectData]?
+    var getTotalHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
     var medicationData : [HiveSetup] = [HiveSetup(name: "Formic", isSelected: false), HiveSetup(name: "Apivar", isSelected: false), HiveSetup(name: "Other", isSelected: false)]
 
@@ -58,12 +64,35 @@ class HiveInspect4VC : UIViewController {
         showTransparentNavigationBar()
         closeButton()
         setupProgressBar()
+        hiveInspectVM = HiveInspectViewModel()
+        hiveInspectVM?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
+    }
+    
+    override func gotoBack() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension HiveInspect4VC : HiveInspectResponse {
+    func getHiveInspectResponse(_ model: HiveInspectModel) {
+        if (model.status ?? 1) == 1 {
+            self.gotoBack()
+        }else if (model.status ?? 0) == 2 {
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let navVC : UINavigationController = UINavigationController(rootViewController: dvc)
+            navVC.showColoredNavigationBar(.white)
+            appDelegate.window?.switchRootViewController(to: navVC)
+        }
+    }
+    
+    func failureResponse(_ error: String) {
+        UIAlertController.actionWith(andMessage: error, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
     }
 }
 
@@ -85,9 +114,11 @@ extension HiveInspect4VC : UITableViewDataSource, UITableViewDelegate {
             let item = itemData[indexPath.row]
             cell.lblTitleOutlet.text = item.title
             cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown || item.type == ._switchWithDropDown)
-            cell.onSwitchWithTextOutlet.isHidden = !(item.type == .frontSwitch || item.type == ._switchWithDropDown || item.type == ._switchWithText)
+            cell.onSwitchWithTextOutlet.isHidden = !(item.type == .frontSwitch || item.type == ._switchWithDropDown || item.type == ._switchWithText || item.type == ._frontSwitchWithDate)
             cell.onBtnDropDownOutlet.isHidden = !(item.type == .dropdown || item.type == ._switchWithDropDown)
             cell.onSwitchWithTextOutlet.layerCornerRadius = cell.onSwitchWithTextOutlet.height / 2
+            cell.hiveInspectDatePicker.isHidden = !(item.type == .date)
+            
             cell.setPopUpButton { selectedTitle in
                 self.getHiveInspectData?[indexPath.row].selectedTitle = selectedTitle
                 cell.onBtnDropDownOutlet.setTitle(selectedTitle, for: .normal)
@@ -158,22 +189,40 @@ extension HiveInspect4VC {
     private func setupData() {
         getHiveInspectData = []
         getHiveInspectData?.append(HiveInspectData(title: "Feed Hive What?", type: ._switchWithText))
-        getHiveInspectData?.append(HiveInspectData(title: "Install Medication What?", type: ._switchWithDropDown))
+        getHiveInspectData?.append(HiveInspectData(title: "Install Medication What?", type: ._switchWithDropDown, selectedTitle: "Formic"))
+        getHiveInspectData?.append(HiveInspectData(title: "Medication Reminder", type: .date))
         getHiveInspectData?.append(HiveInspectData(title: "Remove Medication", type: .frontSwitch))
         getHiveInspectData?.append(HiveInspectData(title: "Split Hive", type: .frontSwitch))
         getHiveInspectData?.append(HiveInspectData(title: "Re Queen", type: .frontSwitch))
         getHiveInspectData?.append(HiveInspectData(title: "Swap Brood Boxes", type: .frontSwitch))
         getHiveInspectData?.append(HiveInspectData(title: "Insulate / Winterize", type: .frontSwitch))
     }
+    
+    func updateDataAndPush() {
+        func selectDate(_index : Int) {
+            if let cell = tableview.cellForRow(at: IndexPath(row: _index, section: 0)) as? CellT_HiveInspect4 {
+                let dateString = cell.hiveInspectDatePicker.date.toString("yyyy-MM-dd") ?? ""
+                getHiveInspectData?[_index].selectedTitle = dateString
+            }else {
+                selectDate(_index: _index)
+            }
+        }
+        for (_index,inspectData) in (getHiveInspectData ?? []).enumerated() {
+            if inspectData.type == .frontSwitch {
+                getHiveInspectData?[_index].selectedTitle = inspectData.isSwitchWithTextOn ? "1" : "0"
+            }else if inspectData.type == .date {
+                selectDate(_index: _index)
+            }
+        }
+        getTotalHiveInspectData?.append(contentsOf: getHiveInspectData ?? [])
+        hiveInspectVM?.callAPI(with: self.getTotalHiveInspectData ?? [], hiveId: self.hiveId, additionalNotes: txtViewOutlet.text)
+    }
 }
 
 extension HiveInspect4VC {
-    @IBAction private func onBtnNextAction(_ sender : UIButton) {
-        self.vibrate()
-    }
-
     @IBAction private func onBtnAddAHiveAction(_ sender : UIButton) {
         self.vibrate()
+        updateDataAndPush()
     }
 
     @IBAction private func onBtnSettingsAction(_ sender : UIButton) {
@@ -183,6 +232,10 @@ extension HiveInspect4VC {
         })
         if let mainViewControllerVC = mainViewControllerVC {
             navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }else {
+            navigationController?.popToRootViewController(animated: true)
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+            self.navigationController?.pushViewController(dvc, animated: true)
         }
     }
 }
@@ -194,9 +247,11 @@ extension HiveInspect4VC : FlexibleSteppedProgressBarDelegate {
         self.view.addSubview(progressBar)
 
         let horizontalConstraint = progressBar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let navigationBarHeight = self.navigationController!.navigationBar.frame.height
         let verticalConstraint = progressBar.topAnchor.constraint(
             equalTo: view.topAnchor,
-            constant: 100
+            constant: statusBarHeight + navigationBarHeight
         )
         let widthConstraint = progressBar.widthAnchor.constraint(equalToConstant: CGFloat(self.view.frame.width - 20))
         let heightConstraint = progressBar.heightAnchor.constraint(equalToConstant: CGFloat(30))

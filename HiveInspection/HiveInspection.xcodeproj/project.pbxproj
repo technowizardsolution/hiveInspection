@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		369615410B9AC6E63C708D2D /* Pods_HiveInspectionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E22E17937644C8D3EE7277 /* Pods_HiveInspectionTests.framework */; };
-		531131C82A9C45780040370C /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131C72A9C45780040370C /* AboutUsVC.swift */; };
-		531131CA2A9C45850040370C /* TermsAndPrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */; };
+		531131CA2A9C45850040370C /* CMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131C92A9C45850040370C /* CMSVC.swift */; };
 		531131CC2A9C4E070040370C /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131CB2A9C4E070040370C /* ChangePasswordVC.swift */; };
 		531131CE2A9C55080040370C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531131CD2A9C55070040370C /* SettingsVC.swift */; };
+		533BC5FA2AAAFD86005F2726 /* ReviewMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533BC5F92AAAFD86005F2726 /* ReviewMeVC.swift */; };
 		5354725A2A9C3BE50009715C /* RateAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535472592A9C3BE50009715C /* RateAppVC.swift */; };
 		53678C5A2A971881007FA7D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678C592A971881007FA7D2 /* AppDelegate.swift */; };
 		53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678C5B2A971881007FA7D2 /* SceneDelegate.swift */; };
@@ -80,9 +80,19 @@
 		5386A48C2AA6076D006E444B /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5386A48B2AA6076D006E444B /* FirebaseRemoteConfigSwift */; };
 		5386A48E2AA613AB006E444B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A48D2AA613AB006E444B /* SignUpViewModel.swift */; };
 		53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A91B202A9C415600EF3205 /* ShareVC.swift */; };
+		53D65E412AACA5A90064B86D /* HiveListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D65E402AACA5A90064B86D /* HiveListVC.swift */; };
+		53D65E432AACBAB90064B86D /* HiveListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D65E422AACBAB90064B86D /* HiveListModel.swift */; };
+		53D65E452AACBB290064B86D /* HiveListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D65E442AACBB290064B86D /* HiveListViewModel.swift */; };
 		53EBA37B2A97707E0031416E /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */; };
 		53EBA37C2A9774F90031416E /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE22A9730B6007FA7D2 /* ABeeZee-Regular.ttf */; };
 		53EBA37D2A9774F90031416E /* ABeeZee-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53678CE32A9730B6007FA7D2 /* ABeeZee-Italic.ttf */; };
+		53F4E8DC2AAF33E400D9EC73 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4E8DB2AAF33E400D9EC73 /* ChangePasswordViewModel.swift */; };
+		53F4E8DF2AAF60B500D9EC73 /* CMSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4E8DE2AAF60B500D9EC73 /* CMSViewModel.swift */; };
+		53F4E8E12AAF60C000D9EC73 /* CMSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4E8E02AAF60C000D9EC73 /* CMSModel.swift */; };
+		53F4E8E42AB0729F00D9EC73 /* HiveInspectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4E8E32AB0729F00D9EC73 /* HiveInspectViewModel.swift */; };
+		53F4E8E62AB07D3B00D9EC73 /* HiveInspectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4E8E52AB07D3B00D9EC73 /* HiveInspectionModel.swift */; };
+		53FFE3302AA774E700C01B3D /* HiveSetupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FFE32F2AA774E700C01B3D /* HiveSetupModel.swift */; };
+		53FFE3322AA774F000C01B3D /* HiveSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FFE3312AA774F000C01B3D /* HiveSetupViewModel.swift */; };
 		64564E336E36A388FF064C6B /* Pods_HiveInspection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7159DABD74C05EC1011070 /* Pods_HiveInspection.framework */; };
 		8BC0850EADB4B4DE90F392C5 /* Pods_HiveInspection_HiveInspectionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5121CD4FC9EC53661C738CA /* Pods_HiveInspection_HiveInspectionUITests.framework */; };
 		CC1891642A9CC2AD00D88466 /* FlexibleSteppedProgressBar in Frameworks */ = {isa = PBXBuildFile; productRef = CC1891632A9CC2AD00D88466 /* FlexibleSteppedProgressBar */; };
@@ -124,10 +134,10 @@
 		0D7159DABD74C05EC1011070 /* Pods_HiveInspection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveInspection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3871EFBB58D2C8B3774E600F /* Pods-HiveInspectionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspectionTests.release.xcconfig"; path = "Target Support Files/Pods-HiveInspectionTests/Pods-HiveInspectionTests.release.xcconfig"; sourceTree = "<group>"; };
 		504FF494BB0B8536D80B1E05 /* Pods-HiveInspectionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspectionTests.debug.xcconfig"; path = "Target Support Files/Pods-HiveInspectionTests/Pods-HiveInspectionTests.debug.xcconfig"; sourceTree = "<group>"; };
-		531131C72A9C45780040370C /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
-		531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyVC.swift; sourceTree = "<group>"; };
+		531131C92A9C45850040370C /* CMSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSVC.swift; sourceTree = "<group>"; };
 		531131CB2A9C4E070040370C /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		531131CD2A9C55070040370C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		533BC5F92AAAFD86005F2726 /* ReviewMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewMeVC.swift; sourceTree = "<group>"; };
 		535472592A9C3BE50009715C /* RateAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppVC.swift; sourceTree = "<group>"; };
 		53678C562A971881007FA7D2 /* HiveInspection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveInspection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53678C592A971881007FA7D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,7 +201,17 @@
 		5386A4742AA605F3006E444B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5386A48D2AA613AB006E444B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		53A91B202A9C415600EF3205 /* ShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
+		53D65E402AACA5A90064B86D /* HiveListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveListVC.swift; sourceTree = "<group>"; };
+		53D65E422AACBAB90064B86D /* HiveListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveListModel.swift; sourceTree = "<group>"; };
+		53D65E442AACBB290064B86D /* HiveListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveListViewModel.swift; sourceTree = "<group>"; };
 		53EBA37A2A97707E0031416E /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		53F4E8DB2AAF33E400D9EC73 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		53F4E8DE2AAF60B500D9EC73 /* CMSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSViewModel.swift; sourceTree = "<group>"; };
+		53F4E8E02AAF60C000D9EC73 /* CMSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSModel.swift; sourceTree = "<group>"; };
+		53F4E8E32AB0729F00D9EC73 /* HiveInspectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveInspectViewModel.swift; sourceTree = "<group>"; };
+		53F4E8E52AB07D3B00D9EC73 /* HiveInspectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveInspectionModel.swift; sourceTree = "<group>"; };
+		53FFE32F2AA774E700C01B3D /* HiveSetupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveSetupModel.swift; sourceTree = "<group>"; };
+		53FFE3312AA774F000C01B3D /* HiveSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveSetupViewModel.swift; sourceTree = "<group>"; };
 		67E22E17937644C8D3EE7277 /* Pods_HiveInspectionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiveInspectionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9800AA4E5B222B523C6EA689 /* Pods-HiveInspection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspection.debug.xcconfig"; path = "Target Support Files/Pods-HiveInspection/Pods-HiveInspection.debug.xcconfig"; sourceTree = "<group>"; };
 		A8160BDF725818660FC953DA /* Pods-HiveInspection-HiveInspectionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiveInspection-HiveInspectionUITests.debug.xcconfig"; path = "Target Support Files/Pods-HiveInspection-HiveInspectionUITests/Pods-HiveInspection-HiveInspectionUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +296,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		533BC5FB2AAC92DC005F2726 /* HiveListModule */ = {
+			isa = PBXGroup;
+			children = (
+				53D65E402AACA5A90064B86D /* HiveListVC.swift */,
+				53D65E422AACBAB90064B86D /* HiveListModel.swift */,
+				53D65E442AACBB290064B86D /* HiveListViewModel.swift */,
+			);
+			path = HiveListModule;
+			sourceTree = "<group>";
+		};
 		53678C4D2A971881007FA7D2 = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +380,7 @@
 		53678C8E2A9718B2007FA7D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				533BC5F92AAAFD86005F2726 /* ReviewMeVC.swift */,
 				53678CE12A9730A2007FA7D2 /* Fonts */,
 				53678C6A2A971884007FA7D2 /* Info.plist */,
 				5386A4742AA605F3006E444B /* GoogleService-Info.plist */,
@@ -363,16 +394,16 @@
 		53678C8F2A9718C7007FA7D2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				53678C902A971922007FA7D2 /* WelcomeVC.swift */,
+				535472592A9C3BE50009715C /* RateAppVC.swift */,
 				5386A4612AA5FBE8006E444B /* SignupModule */,
 				5386A4602AA5FBD1006E444B /* LoginModule */,
-				53678C902A971922007FA7D2 /* WelcomeVC.swift */,
-				CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */,
-				535472592A9C3BE50009715C /* RateAppVC.swift */,
+				53F4E8DA2AAF33BA00D9EC73 /* ChangePasswordModule */,
+				53FFE32E2AA774CD00C01B3D /* HiveSetupModule */,
+				533BC5FB2AAC92DC005F2726 /* HiveListModule */,
 				53A91B202A9C415600EF3205 /* ShareVC.swift */,
-				531131C72A9C45780040370C /* AboutUsVC.swift */,
-				531131C92A9C45850040370C /* TermsAndPrivacyVC.swift */,
-				531131CB2A9C4E070040370C /* ChangePasswordVC.swift */,
 				531131CD2A9C55070040370C /* SettingsVC.swift */,
+				53F4E8DD2AAF609E00D9EC73 /* CMSModule */,
 				CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */,
 			);
 			path = Modules;
@@ -466,6 +497,35 @@
 			path = SignupModule;
 			sourceTree = "<group>";
 		};
+		53F4E8DA2AAF33BA00D9EC73 /* ChangePasswordModule */ = {
+			isa = PBXGroup;
+			children = (
+				531131CB2A9C4E070040370C /* ChangePasswordVC.swift */,
+				53F4E8DB2AAF33E400D9EC73 /* ChangePasswordViewModel.swift */,
+			);
+			path = ChangePasswordModule;
+			sourceTree = "<group>";
+		};
+		53F4E8DD2AAF609E00D9EC73 /* CMSModule */ = {
+			isa = PBXGroup;
+			children = (
+				531131C92A9C45850040370C /* CMSVC.swift */,
+				53F4E8E02AAF60C000D9EC73 /* CMSModel.swift */,
+				53F4E8DE2AAF60B500D9EC73 /* CMSViewModel.swift */,
+			);
+			path = CMSModule;
+			sourceTree = "<group>";
+		};
+		53FFE32E2AA774CD00C01B3D /* HiveSetupModule */ = {
+			isa = PBXGroup;
+			children = (
+				CC7ABB502A99C5F70054177D /* HiveSetupVC.swift */,
+				53FFE32F2AA774E700C01B3D /* HiveSetupModel.swift */,
+				53FFE3312AA774F000C01B3D /* HiveSetupViewModel.swift */,
+			);
+			path = HiveSetupModule;
+			sourceTree = "<group>";
+		};
 		CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +533,8 @@
 				CC9B4C772AA066E1001098AD /* HiveInspect2VC.swift */,
 				CC9B4C792AA066FF001098AD /* HiveInspect3VC.swift */,
 				CC9B4C7B2AA06706001098AD /* HiveInspect4VC.swift */,
+				53F4E8E32AB0729F00D9EC73 /* HiveInspectViewModel.swift */,
+				53F4E8E52AB07D3B00D9EC73 /* HiveInspectionModel.swift */,
 			);
 			path = HiveInspection;
 			sourceTree = "<group>";
@@ -743,6 +805,7 @@
 				5386A4562AA5B30B006E444B /* MoyaHandler.swift in Sources */,
 				53678CD02A971B48007FA7D2 /* UIImageViewExtensions.swift in Sources */,
 				53678C5A2A971881007FA7D2 /* AppDelegate.swift in Sources */,
+				53FFE3322AA774F000C01B3D /* HiveSetupViewModel.swift in Sources */,
 				5386A4662AA5FD5D006E444B /* APIHandler.swift in Sources */,
 				53678CDE2A971B48007FA7D2 /* UINavigationBar+Extension.swift in Sources */,
 				53678CC62A971B48007FA7D2 /* String+Extension.swift in Sources */,
@@ -751,19 +814,22 @@
 				53678CEA2A97373E007FA7D2 /* LetsTextView.swift in Sources */,
 				53678CC42A971B48007FA7D2 /* UIToolbar+Extension.swift in Sources */,
 				53A91B212A9C415600EF3205 /* ShareVC.swift in Sources */,
+				533BC5FA2AAAFD86005F2726 /* ReviewMeVC.swift in Sources */,
+				53F4E8DC2AAF33E400D9EC73 /* ChangePasswordViewModel.swift in Sources */,
 				53678CCF2A971B48007FA7D2 /* UICollectionViewExtensions.swift in Sources */,
 				53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */,
 				5386A45A2AA5F830006E444B /* NetworkManager.swift in Sources */,
 				CC2523012A98C4E400DC186F /* EnumData.swift in Sources */,
 				53678CE92A97373E007FA7D2 /* LetsImagView.swift in Sources */,
 				CC9B4C7A2AA066FF001098AD /* HiveInspect3VC.swift in Sources */,
+				53F4E8DF2AAF60B500D9EC73 /* CMSViewModel.swift in Sources */,
 				53678CC22A971B48007FA7D2 /* UIAlertController + extension.swift in Sources */,
-				531131C82A9C45780040370C /* AboutUsVC.swift in Sources */,
 				5386A45D2AA5F898006E444B /* LoginModel.swift in Sources */,
 				53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */,
 				53678CC82A971B48007FA7D2 /* NSDate+Extension.swift in Sources */,
 				53678CCB2A971B48007FA7D2 /* UITableViewExtensions.swift in Sources */,
 				53678CC72A971B48007FA7D2 /* UIViewExtensions.swift in Sources */,
+				53F4E8E42AB0729F00D9EC73 /* HiveInspectViewModel.swift in Sources */,
 				53678CDA2A971B48007FA7D2 /* LetsReach.swift in Sources */,
 				CC9B4C782AA066E1001098AD /* HiveInspect2VC.swift in Sources */,
 				53678CD12A971B48007FA7D2 /* Array+Extension.swift in Sources */,
@@ -772,7 +838,10 @@
 				5386A4582AA5B379006E444B /* ApiConstants.swift in Sources */,
 				53678CD82A971B48007FA7D2 /* Int+Extension.swift in Sources */,
 				53678CC32A971B48007FA7D2 /* ImagePicker.swift in Sources */,
+				53D65E452AACBB290064B86D /* HiveListViewModel.swift in Sources */,
+				53F4E8E12AAF60C000D9EC73 /* CMSModel.swift in Sources */,
 				CC7ABB4F2A99B55B0054177D /* Extension.swift in Sources */,
+				53D65E432AACBAB90064B86D /* HiveListModel.swift in Sources */,
 				CCCA96FB2A9887CC00D1195A /* LoginVC.swift in Sources */,
 				53678CC92A971B48007FA7D2 /* UITextField+Extension.swift in Sources */,
 				CCA94C3F2A9CBA59000F49A9 /* HiveInspect1VC.swift in Sources */,
@@ -791,8 +860,9 @@
 				5386A45F2AA5FB95006E444B /* SignUpModel.swift in Sources */,
 				53678CD52A971B48007FA7D2 /* UIApplicationExtensions.swift in Sources */,
 				53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */,
+				53FFE3302AA774E700C01B3D /* HiveSetupModel.swift in Sources */,
 				53678CD92A971B48007FA7D2 /* UIWindowExtensions.swift in Sources */,
-				531131CA2A9C45850040370C /* TermsAndPrivacyVC.swift in Sources */,
+				531131CA2A9C45850040370C /* CMSVC.swift in Sources */,
 				5386A48E2AA613AB006E444B /* SignUpViewModel.swift in Sources */,
 				CC2523092A98D28300DC186F /* Structure.swift in Sources */,
 				53678CD32A971B48007FA7D2 /* UIImageView+Extension.swift in Sources */,
@@ -800,7 +870,9 @@
 				53678CD42A971B48007FA7D2 /* UIScreen+Extension.swift in Sources */,
 				53678CDD2A971B48007FA7D2 /* UIImage+Extension.swift in Sources */,
 				53678C642A971881007FA7D2 /* HiveInspection.xcdatamodeld in Sources */,
+				53F4E8E62AB07D3B00D9EC73 /* HiveInspectionModel.swift in Sources */,
 				53678CCE2A971B48007FA7D2 /* ConstantsFile.swift in Sources */,
+				53D65E412AACA5A90064B86D /* HiveListVC.swift in Sources */,
 				53678CDB2A971B48007FA7D2 /* ValidationFile.swift in Sources */,
 				53678CD72A971B48007FA7D2 /* NSManagedObject+Extension.swift in Sources */,
 				53678CEC2A97373E007FA7D2 /* LetsFloatField.swift in Sources */,

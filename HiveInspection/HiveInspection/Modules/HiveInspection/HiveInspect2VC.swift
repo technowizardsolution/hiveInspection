@@ -183,6 +183,7 @@ class HiveInspect2VC : UIViewController {
     @IBOutlet weak var onBtnNextOutlet : LetsButton!
     var selectedHiveNumber = ""
     var getHiveInspectData : [HiveInspectData]?
+    var getTotalHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
     var tempermentData : [HiveSetup] = [HiveSetup(name: "Calm", isSelected: false), HiveSetup(name: "Nervous", isSelected: false), HiveSetup(name: "Aggressive", isSelected: false)]
     var populationData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
@@ -193,6 +194,8 @@ class HiveInspect2VC : UIViewController {
     var broodData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
     var honeyData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
     var pollenData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
+    var hiveId = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         solidUniformFrameData = []
@@ -213,6 +216,11 @@ class HiveInspect2VC : UIViewController {
         showTransparentNavigationBar()
         closeButton()
         setupProgressBar()
+    }
+    
+    override func gotoBack() {
+        super.gotoBack()
+        navigationController?.popToRootViewController(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -395,6 +403,7 @@ extension HiveInspect2VC : UITableViewDataSource, UITableViewDelegate {
 extension HiveInspect2VC {
     private func setupButtons() {
         func setupAddAHiveButton() {
+            onBtnAddAHiveOutlet.isHidden = true
             onBtnAddAHiveOutlet.setTitle("Add a Hive", for: .normal)
             onBtnAddAHiveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnAddAHiveOutlet.setTitleColor(UIColor.black, for: .normal)
@@ -432,6 +441,10 @@ extension HiveInspect2VC {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect3VC") as! HiveInspect3VC
         dvc.selectedHiveNumber = selectedHiveNumber
+        getTotalHiveInspectData?.append(contentsOf: getHiveInspectData ?? [])
+        getTotalHiveInspectData = getTotalHiveInspectData?.filter({$0.selectedTitle != ""})
+        dvc.hiveId = self.hiveId
+        dvc.getTotalHiveInspectData = getTotalHiveInspectData
         navigationController?.pushViewController(dvc, animated: true)
     }
 
@@ -446,6 +459,10 @@ extension HiveInspect2VC {
         })
         if let mainViewControllerVC = mainViewControllerVC {
             navigationController?.popToViewController(mainViewControllerVC, animated: true)
+        }else {
+            navigationController?.popToRootViewController(animated: true)
+            let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+            self.navigationController?.pushViewController(dvc, animated: true)
         }
     }
 }
@@ -457,9 +474,11 @@ extension HiveInspect2VC : FlexibleSteppedProgressBarDelegate {
         self.view.addSubview(progressBar)
 
         let horizontalConstraint = progressBar.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
+        let navigationBarHeight = self.navigationController!.navigationBar.frame.height
         let verticalConstraint = progressBar.topAnchor.constraint(
             equalTo: view.topAnchor,
-            constant: 100
+            constant: statusBarHeight + navigationBarHeight
         )
         let widthConstraint = progressBar.widthAnchor.constraint(equalToConstant: CGFloat(self.view.frame.width - 20))
         let heightConstraint = progressBar.heightAnchor.constraint(equalToConstant: CGFloat(30))

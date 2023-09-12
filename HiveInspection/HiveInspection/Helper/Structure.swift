@@ -12,6 +12,11 @@ struct LoginValidation {
     var password : String = ""
 }
 
+struct AddAHiveValidation {
+    var hiveName : String = ""
+    var hiveLocation : String = ""
+}
+
 struct HiveSetup {
     var name : String = ""
     var isSelected = false
@@ -28,4 +33,10 @@ struct HiveInspectData {
     var selectedTitle = ""
     var isSwitchOn = false
     var isSwitchWithTextOn = false
+}
+
+struct ChangePasswordValidation {
+    var oldPassword : String = ""
+    var newPassword : String = ""
+    var newConfirmPassword : String = ""
 }

@@ -9,19 +9,57 @@ import Moya
 
 protocol Networkable {
     var provider: MoyaProvider<API> { get }
+    
     func login(_ param : [String:Any], completion: @escaping (Result<LoginModel, Error>) -> ())
+    
     func signup(_ param : [String:Any], completion: @escaping (Result<SignUpModel, Error>) -> ())
+    
+    func addUpdateHive(_ param : [String:Any], completion: @escaping (Result<HiveSetupModel, Error>) -> ())
+    
+    func hiveList(completion: @escaping (Result<HiveListModel, Error>) -> ())
+    
+    func changepassword(_ param : [String:Any], completion: @escaping (Result<LoginModel, Error>) -> ())
+    
+    func cms(_ param : [String:Any], completion: @escaping (Result<CMSModel, Error>) -> ())
+    
+    func deleteHive(_ param : [String:Any], completion: @escaping (Result<HiveListDeleteModel, Error>) -> ())
+    
+    func addInspection(_ param : [String:Any], completion: @escaping (Result<HiveInspectModel, Error>) -> ())
 }
 
 class NetworkManager: Networkable {
     var provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin()])
     
     func login(_ param: [String : Any], completion: @escaping (Result<LoginModel, Error>) -> ()) {
-        request(target: API.Login(param: param), completion: completion)
+        request(target: API.login(param: param), completion: completion)
     }
     
     func signup(_ param: [String : Any], completion: @escaping (Result<SignUpModel, Error>) -> ()) {
-        request(target: API.SignUp(param: param), completion: completion)
+        request(target: API.signUp(param: param), completion: completion)
+    }
+    
+    func addUpdateHive(_ param: [String : Any], completion: @escaping (Result<HiveSetupModel, Error>) -> ()) {
+        request(target: API.addUpdateHive(param: param), completion: completion)
+    }
+    
+    func hiveList(completion: @escaping (Result<HiveListModel, Error>) -> ()) {
+        request(target: API.hiveList, completion: completion)
+    }
+    
+    func changepassword(_ param: [String : Any], completion: @escaping (Result<LoginModel, Error>) -> ()) {
+        request(target: API.changePassword(param: param), completion: completion)
+    }
+    
+    func cms(_ param: [String : Any], completion: @escaping (Result<CMSModel, Error>) -> ()) {
+        request(target: API.CMS(param: param), completion: completion)
+    }
+    
+    func deleteHive(_ param: [String : Any], completion: @escaping (Result<HiveListDeleteModel, Error>) -> ()) {
+        request(target: API.deleteHive(param: param), completion: completion)
+    }
+    
+    func addInspection(_ param: [String : Any], completion: @escaping (Result<HiveInspectModel, Error>) -> ()) {
+        request(target: API.addInspect(param: param), completion: completion)
     }
 }
 
@@ -31,6 +69,7 @@ private extension NetworkManager {
             switch result {
             case let .success(response):
                 do {
+                    print(dataToJSON(data: response.data))
                     let results = try JSONDecoder().decode(T.self, from: response.data)
                     completion(.success(results))
                 } catch let error {
@@ -41,4 +80,13 @@ private extension NetworkManager {
             }
         }
     }
+}
+// Convert from NSData to json object
+func dataToJSON(data: Data) -> AnyObject? {
+    do {
+        return try JSONSerialization.jsonObject(with: data) as AnyObject
+    } catch let myJSONError {
+        print(myJSONError)
+    }
+    return nil
 }

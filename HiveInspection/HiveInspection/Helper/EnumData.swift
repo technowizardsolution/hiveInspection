@@ -12,6 +12,11 @@ enum popupMessages : String {
     case correctEmail = "Please check your email id"
     case noPassword = "Please enter your password"
     case incorrectPassword = "Your password should be 6 or more characters long"
+    case noHiveName = "Please enter a hive name"
+    case noHiveLocation = "Please enter a hive location"
+    case noOldPassword = "Please enter old password"
+    case noNewPassword = "Please enter new password"
+    case confirmNotMatch = "Password and confirm password do not match"
 }
 
 enum SettingsType {
@@ -26,8 +31,15 @@ enum HiveInspectionType {
     case _switch
     case _switchWithText
     case _switchWithDropDown
+    case _frontSwitchWithDate
     case text
     case dropdown
     case none
     case frontSwitch
+}
+
+enum CMSPages : String {
+    case aboutus = "about"
+    case termsandcondition = "terms-and-conditions"
+    case privacypolicy = "privacy-policy"
 }

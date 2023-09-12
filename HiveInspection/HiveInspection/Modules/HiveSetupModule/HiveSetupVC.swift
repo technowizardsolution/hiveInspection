@@ -25,43 +25,157 @@ class HiveSetupVC : UIViewController {
     var hiveSetupDataArray : [HiveSetup]?
     var hiveSetupDeepsDataArray : [HiveSetup]?
     var hiveSetupMediumDataArray : [HiveSetup]?
-
+    var hiveSetupVM : HiveSetupViewModel?
+    var hiveListModelData : HiveListModelData?
+    var showBackbutton = false
     override func viewDidLoad() {
         super.viewDidLoad()
         showTransparentNavigationBar()
+        if showBackbutton {
+            closeButton()
+        }
         setupHiveOriginData()
         setupHiveDeepsData()
         setupHiveMediumData()
         setupButtons()
+        hiveSetupVM = HiveSetupViewModel()
+        hiveSetupVM?.delegate = self
+        setupPrefilledData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
+        if showBackbutton {
+            closeButton()
+        }
+        setupPrefilledData()
+    }
+}
+
+extension HiveSetupVC {
+    private func setupPrefilledData() {
+        if hiveListModelData != nil {
+            defer {
+                setPopUpButton()
+                setPopUpDeepsButton()
+                setPopUpMediumButton()
+            }
+            self.title = "Update Hive"
+            closeButton()
+            txtHiveLocationOutlet.text = hiveListModelData?.location ?? ""
+            txtHiveNameOutlet.text = hiveListModelData?.hiveName ?? ""
+    
+            
+            if let buildDate = hiveListModelData?.buildDate?.toDate("yyyy-MM-dd") {
+                if buildDate.daysUntilNow.intValue > 0 {
+                    let date = Date().minusDays(buildDate.daysUntilNow.uintValue)
+                    buildDatePickerOutlet.date = date
+                }else {
+                    let date = Date().plusDays(buildDate.daysUntilNow.uintValue)
+                    buildDatePickerOutlet.date = date
+                }
+            }
+            
+            if let queenIntroducedDate =  hiveListModelData?.queenIntroduced?.toDate("yyyy-MM-dd") {
+                if queenIntroducedDate.daysUntilNow.intValue > 0 {
+                    let date = Date().minusDays(queenIntroducedDate.daysUntilNow.uintValue)
+                    queenIntroducedDatePickerOutlet.date = date
+                }else {
+                    let plusDate = -queenIntroducedDate.daysUntilNow.intValue
+                    let date = Date().plusDays(UInt(plusDate))
+                    queenIntroducedDatePickerOutlet.date = date
+                }
+            }
+        }
+    }
+}
+
+extension HiveSetupVC : HiveSetupResponse {
+    func getHiveSetupResponse(_ model: HiveSetupModel) {
+        if (model.status ?? 1) == 1, let _ = model.data {
+            if hiveListModelData != nil {
+                self.navigationController?.popViewController(animated: true)
+            }else {
+                let dvc : HiveListVC = mainStoryBoard.instantiateViewController(withIdentifier: "HiveListVC") as! HiveListVC
+                let navVC : UINavigationController = UINavigationController(rootViewController: dvc)
+                navVC.showColoredNavigationBar(.white)
+                appDelegate.window?.switchRootViewController(to: navVC)
+            }
+        }else {
+            UIAlertController.actionWith(andMessage: model.message ?? "", getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
+        }
+    }
+    
+    func failureResponse(_ error: String) {
+        UIAlertController.actionWith(andMessage: error, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
     }
 }
 
 extension HiveSetupVC {
     @IBAction private func onBtnSaveAction(_ sender : UIButton) {
         self.vibrate()
-        let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "RateAppVC") as! RateAppVC
-        navigationController?.pushViewController(dvc, animated: true)
     }
 
     @IBAction private func onBtnAddAHiveAction(_ sender : UIButton) {
         self.vibrate()
-        self.viewDidLoad()
-        self.viewWillAppear(true)
+//        sender.isEnabled = false
+        checkValidation()
     }
 
     @IBAction private func onBtnStartInvestingAction(_ sender : UIButton) {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect1VC") as! HiveInspect1VC
+        if hiveListModelData != nil {
+            dvc.hiveId = hiveListModelData?.hiveid?.string ?? ""
+        }
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
 extension HiveSetupVC {
+    func checkValidation() {
+        var validation = AddAHiveValidation()
+        validation.hiveName = txtHiveNameOutlet.text ?? ""
+        validation.hiveLocation = txtHiveLocationOutlet.text ?? ""
+        let validated = checkAddAHiveValidation(validationModel: validation)
+        if validated.0 {
+            guard let buildDate = buildDatePickerOutlet.date.toString("yyyy-MM-dd") else { return }
+            guard let queenIntroducedDate = queenIntroducedDatePickerOutlet.date.toString("yyyy-MM-dd") else { return }
+            guard let getHiveSetupDataOrigin = hiveSetupDataArray?.filter({$0.isSelected}).first else { return }
+            guard let getHiveSetupDeeps = hiveSetupDeepsDataArray?.filter({$0.isSelected}).first else { return }
+            guard let getHiveSetupMedium = hiveSetupMediumDataArray?.filter({$0.isSelected}).first else { return }
+            if hiveListModelData != nil {
+                let param : [String : Any] = [ "data" :[
+                    "hive_name" : txtHiveNameOutlet.text ?? "",
+                    "location": txtHiveLocationOutlet.text ?? "",
+                    "build_date": buildDate,
+                    "origin": getHiveSetupDataOrigin.name,
+                    "deeps": getHiveSetupDeeps.name,
+                    "mediums": getHiveSetupMedium.name,
+                    "queen_introduced": queenIntroducedDate,
+                    "user_id": Constants.getUserId(),
+                    "hive_id" : self.hiveListModelData?.hiveid?.string ?? ""
+                ]]
+                hiveSetupVM?.callAPI(param)
+            }else {
+                let param : [String : Any] = [ "data" :[
+                    "hive_name" : txtHiveNameOutlet.text ?? "",
+                    "location": txtHiveLocationOutlet.text ?? "",
+                    "build_date": buildDate,
+                    "origin": getHiveSetupDataOrigin.name,
+                    "deeps": getHiveSetupDeeps.name,
+                    "mediums": getHiveSetupMedium.name,
+                    "queen_introduced": queenIntroducedDate,
+                    "user_id": Constants.getUserId()
+                ]]
+                hiveSetupVM?.callAPI(param)
+            }
+        }else {
+            UIAlertController.actionWith(andMessage: validated.1, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
+        }
+    }
+    
     func setupHiveOriginData() {
         defer {
             setPopUpButton()
@@ -73,6 +187,13 @@ extension HiveSetupVC {
         hiveSetupDataArray?.append(HiveSetup(name: "Scratch", isSelected: false))
         hiveSetupDataArray?.append(HiveSetup(name: "Package", isSelected: false))
         hiveSetupDataArray?.append(HiveSetup(name: "Other", isSelected: false))
+        
+        if let originIndex = hiveSetupDataArray?.firstIndex(where: {$0.name == (hiveListModelData?.origin ?? "")}) {
+            hiveSetupDataArray?[originIndex].isSelected = true
+            onBtnOriginOutlet.setTitle(hiveListModelData?.origin, for: .normal)
+        }else {
+            hiveSetupDataArray?[0].isSelected = true
+        }
     }
 
     func setupHiveDeepsData() {
@@ -83,6 +204,13 @@ extension HiveSetupVC {
         hiveSetupDeepsDataArray?.append(HiveSetup(name: "1", isSelected: false))
         hiveSetupDeepsDataArray?.append(HiveSetup(name: "2", isSelected: false))
         hiveSetupDeepsDataArray?.append(HiveSetup(name: "3", isSelected: false))
+        
+        if let deepsIndex = hiveSetupDeepsDataArray?.firstIndex(where: {$0.name == (hiveListModelData?.deeps?.string ?? "")}) {
+            hiveSetupDeepsDataArray?[deepsIndex].isSelected = true
+            onBtnDeepsOutlet.setTitle(hiveListModelData?.deeps?.string ?? "", for: .normal)
+        }else {
+            hiveSetupDeepsDataArray?[0].isSelected = true
+        }
     }
 
     func setupHiveMediumData() {
@@ -93,6 +221,12 @@ extension HiveSetupVC {
         hiveSetupMediumDataArray?.append(HiveSetup(name: "1", isSelected: false))
         hiveSetupMediumDataArray?.append(HiveSetup(name: "2", isSelected: false))
         hiveSetupMediumDataArray?.append(HiveSetup(name: "3", isSelected: false))
+        if let mediumIndex = hiveSetupMediumDataArray?.firstIndex(where: {$0.name == (hiveListModelData?.mediums?.string ?? "")}) {
+            hiveSetupMediumDataArray?[mediumIndex].isSelected = true
+            onBtnMediumsOutlet.setTitle(hiveListModelData?.mediums?.string ?? "", for: .normal)
+        }else {
+            hiveSetupMediumDataArray?[0].isSelected = true
+        }
     }
 
     func setPopUpButton(){
@@ -154,6 +288,7 @@ extension HiveSetupVC {
 
     private func setupButtons() {
         func setupSaveButton() {
+            onBtnSaveOutlet.isHidden = true
             onBtnSaveOutlet.setTitle("Save", for: .normal)
             onBtnSaveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnSaveOutlet.setTitleColor(UIColor.black, for: .normal)
@@ -161,7 +296,7 @@ extension HiveSetupVC {
             onBtnSaveOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupAddAHiveButton() {
-            onBtnAddAHiveOutlet.setTitle("Add a Hive", for: .normal)
+            onBtnAddAHiveOutlet.setTitle(hiveListModelData == nil ? "Add a Hive" : "Update a Hive", for: .normal)
             onBtnAddAHiveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnAddAHiveOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnAddAHiveOutlet.cornerRadius = onBtnAddAHiveOutlet.frame.height / 2
