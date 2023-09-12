@@ -29,8 +29,27 @@ class HiveController extends Controller
     public function getHiveList()
     {
         try {
-            $hive = Hive::where('user_id',Auth()->user()->id)->get()->toArray();
-            return $this->APIResponse->respondWithMessageAndPayload($hive, 'Hive Record');
+            $hive = Hive::where('user_id',Auth()->user()->id)->get();
+
+            if(count($hive)){
+				$output = array();
+				foreach ($hive as $key => $value) {
+					$result['hive_id'] = $value->hive_id;
+					$result['hive_name'] = $value->hive_name;					
+                    $result['location'] = $value->location;
+					$result['build_date'] = $value->build_date;					
+                    $result['origin'] = $value->origin;
+					$result['deeps'] = $value->deeps;					
+                    $result['mediums'] = $value->mediums;
+					$result['queen_introduced'] = $value->queen_introduced;					
+                    $result['user_id'] = $value->user_id;
+					$result['report_file'] = ($value->report_file)? url('/')."/public/report/".$value->report_file:'';				
+					$output[] = $result;
+				}
+                return $this->APIResponse->respondWithMessageAndPayload($output, 'Hive Record');
+			}else{
+				return $this->APIResponse->respondNotFound('No Practice found.');
+			}
         } catch (\Exception $e) {
             return $this->APIResponse->handleAndResponseException($e);
         }

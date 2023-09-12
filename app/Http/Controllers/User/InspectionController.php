@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Inspection;
+use App\Hive;
 use Session;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\InspectionExport;
+use Response;
+
 
 class InspectionController extends Controller
 {
@@ -21,9 +24,31 @@ class InspectionController extends Controller
     public function inspectionExport($hive_id)
     {
         $export = new InspectionExport($hive_id);
-        $fileName = 'Inspection.xlsx';
-        return Excel::download($export, $fileName);
+        $hivedata = Hive::find($hive_id);
+        $name = str_replace(' ', '', $hivedata->hive_name);
+        $fileName = $name.'_inspection.xlsx';
+        Excel::store($export, $fileName);
+        $hivedata->report_file = $fileName;
+        $hivedata->save(); 
+        $file= public_path()."/report/".$fileName;
+        $headers = array('Content-Type: application/excel');
+        return Response::download($file, $fileName, $headers);        
+
+        //return Excel::download($export, $fileName);
     }
+
+    public function getDownload()
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/download/info.pdf";
+
+        $headers = array(
+                'Content-Type: application/pdf',
+                );
+
+        return Response::download($file, 'filename.pdf', $headers);
+    }
+
 
     public function store(Request $request)
     {
