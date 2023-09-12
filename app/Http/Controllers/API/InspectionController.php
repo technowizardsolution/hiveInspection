@@ -46,11 +46,11 @@ class InspectionController extends Controller
                 return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
             } else {
                 $rules = array(
-                    'hive_date' => 'required',
+                    'inspection_date' => 'required',
                    // 'normal_hive_condition' => 'required'
                 );
                 $messages = [
-                    'hive_date.required' => 'Hive date is required',
+                    'inspection_date.required' => 'Hive date is required',
                    // 'normal_hive_condition.required' => 'Normal hive condition is required'
                 ];
                 $validator = Validator::make($data, $rules, $messages);
@@ -62,6 +62,8 @@ class InspectionController extends Controller
                     }else{
                         $inspection = new Inspection();
                     }   
+                    
+                    $inspection->hive_id = $data['hive_id'];
                     $inspection->user_id = $request->user()->id;
                     $inspection->inspection_date = $data['inspection_date'];
                     $inspection->normal_hive_condition = $data['normal_hive_condition'];
