@@ -5,9 +5,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="about-card-box">
-                        <h1>{{$about->page_title}}</h1>
+                        @if($about && $about->page_title)
+                        <h1>{!! $about->page_title !!} </h1>
+                        @endif
 
-                        <p>{{$about->content}}</p>
+                        @if($about && $about->content)
+                        <p>{!! $about->content !!}</p>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -5,3 +5,4 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('/public/css/style.css')}}">
+<link rel='stylesheet' href='{{URL::asset('resources/assets/css/toastr.min.css')}}' type='text/css' media='all' />

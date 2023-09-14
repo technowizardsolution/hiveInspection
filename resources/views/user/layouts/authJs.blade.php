@@ -6,6 +6,7 @@
 <script src="{{URL::asset('resources/assets/custom/jQuery-validation-plugin/jquery.validate.js')}}"></script>
 <script src="{{URL::asset('resources/assets/js/multi-form.js')}}"></script>
 <script src="{{URL::asset('/resources/assets/admin/bootstrap/js/bootbox.js')}}"></script>
+<script src="{{URL::asset('resources/assets/js/toastr.min.js')}}"></script> 
 <!-- <script src="{{URL::asset('resources/assets/custom/jQuery-validation-plugin/additional-methods.js')}}"></script>
 <script src="{{URL::asset('/resources/assets/app-assets/js/scripts/forms/form-validation.js')}}"></script> -->
 

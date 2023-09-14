@@ -128,48 +128,48 @@ $(document.body).on('click', "#hiveForm", function(){
                 "hive_name":{
                     required:true
                 },
-                // "location":{
-                //     required:true
-                // },
-                // "build_date":{
-                //     required:true,                            
-                // },
+                "location":{
+                    required:true
+                },
+                "build_date":{
+                    required:true,                            
+                },
                 // "origin":{
                 //     required:true,                            
                 // },
-                // "deeps":{
-                //     required:true,                            
-                // },
-                // "mediums":{
-                //     required:true,                            
-                // },
-                // "queen_introduced":{
-                //     required:true,                            
-                // }
+                "deeps":{
+                    required:true,                            
+                },
+                "mediums":{
+                    required:true,                            
+                },
+                "queen_introduced":{
+                    required:true,                            
+                }
 
             },
             messages: {
                 "hive_name":{
                     required:"Please enter hive name.",
                 },
-                // "location":{
-                //     required:"Please enter location.",
-                // },
-                // "build_date":{
-                //     required:"Please enter build date.",                            
-                // },
+                "location":{
+                    required:"Please enter location.",
+                },
+                "build_date":{
+                    required:"Please enter build date.",                            
+                },
                 // "origin":{
                 //     required:"Please enter origin.",                            
                 // },
-                // "deeps":{
-                //     required:"Please enter deeps.",                            
-                // },
-                // "mediums":{
-                //     required:"Please enter mediums.",                            
-                // },
-                // "queen_introduced":{
-                //     required:"Please enter queen introduced.",                            
-                // }                        
+                "deeps":{
+                    required:"Please enter deeps.",                            
+                },
+                "mediums":{
+                    required:"Please enter mediums.",                            
+                },
+                "queen_introduced":{
+                    required:"Please enter queen introduced.",                            
+                }                        
             },
             errorPlacement: function(error, element) {
                 if(element.is('select')){

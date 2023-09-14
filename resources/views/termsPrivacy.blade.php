@@ -5,22 +5,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="about-card-box">
-                        <h1>Terms & Privacy</h1>
-                        <p>As a third-generation beekeeper I just happen to be tech savvy and able to create this mobile app.</p>
-                        <p>Consistent inspection record keeping is critical for healthy hives. Combining my beekeeping heritage with my tech
-                        experience, I came up with this app.</p>                        
-                        <p>I believe that embracing technology can empower beekeepers of all ages to enhance their effectiveness and overcome the
-                        perceived barrier of critical record keeping.</p>                        
-                        <p>Thank you for your continued support!</p>                        
-                        <p>George & Jason Barnes</p>
-                        <p>As a third-generation beekeeper I just happen to be tech savvy and able to create this mobile app.</p>
-                        <p>Consistent inspection record keeping is critical for healthy hives. Combining my beekeeping heritage with my tech
-                            experience, I came up with this app.</p>
-                        <p>I believe that embracing technology can empower beekeepers of all ages to enhance their effectiveness and overcome
-                            the
-                            perceived barrier of critical record keeping.</p>
-                        <p>Thank you for your continued support!</p>
-                        <p>George & Jason Barnes</p>
+                        @if($privacy && $privacy->page_title)
+                        <h1>{!! $privacy->page_title !!} </h1>
+                        @endif
+
+                        @if($privacy && $privacy->content)
+                        <p>{!! $privacy->content !!}</p>
+                        @endif
                     </div>
                 </div>
             </div>
