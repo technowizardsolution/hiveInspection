@@ -393,3 +393,6 @@ span#email-error, span#password-error, span#password-confirm-error {
     border:1px solid #F4B61A !important;
     color:#000 !important;
 }
+.form-section{
+    height: calc(100vh - 152px);
+}
