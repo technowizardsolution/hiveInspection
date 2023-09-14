@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginResponse {
     func getLoginResponse(_ model : LoginModel)
+    func getForgotPasswordResponse(_ model : ForgotPasswordModel)
     func failureResponse(_ error : String)
 }
 
@@ -28,6 +29,20 @@ extension LoginViewModel {
             switch _result {
             case .success(let loginResponse):
                 weakSelf.delegate?.getLoginResponse(loginResponse)
+                break
+            case .failure(let err):
+                weakSelf.delegate?.failureResponse(err.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    func callForgotPasswordAPI(_ param : [String:Any]) {
+        APIHandler.shared.networkManager.forgotPassword(param) { [weak self] _result in
+            guard let weakSelf = self else { return }
+            switch _result {
+            case .success(let loginResponse):
+                weakSelf.delegate?.getForgotPasswordResponse(loginResponse)
                 break
             case .failure(let err):
                 weakSelf.delegate?.failureResponse(err.localizedDescription)

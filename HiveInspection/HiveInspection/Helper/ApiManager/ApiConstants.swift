@@ -21,6 +21,8 @@ enum Constants {
         static let cms = "getCMSpages"
         static let deleteHive = "deleteHive"
         static let addInspection = "addInspection"
+        static let forgotPassword = "forgotPassword"
+        static let exportReport = "inspectionExport"
     }
     
     static func FCMToken() -> String {

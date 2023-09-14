@@ -55,4 +55,20 @@ extension HiveListViewModel {
             }
         }
     }
+    
+    func callExportHiveAPI(param : [String:Any], completion : @escaping (ExportInspectionModel?) -> ()) {
+        SVProgressHUD.show()
+        APIHandler.shared.networkManager.hiveInspectionReportExport(param) { [weak self] _result in
+            SVProgressHUD.dismiss()
+            guard let weakSelf = self else { return }
+            switch _result {
+            case .success(let loginResponse):
+                completion(loginResponse)
+                break
+            case .failure(let err):
+                weakSelf.delegate?.failureResponse(err.localizedDescription)
+                break
+            }
+        }
+    }
 }

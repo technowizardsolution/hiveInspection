@@ -82,3 +82,14 @@ struct LoginModelData: Codable {
         case token = "token"
     }
 }
+
+// MARK: - ForgotPasswordModel
+struct ForgotPasswordModel: Codable {
+    let status: Int?
+    let message: String?
+
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case message = "message"
+    }
+}

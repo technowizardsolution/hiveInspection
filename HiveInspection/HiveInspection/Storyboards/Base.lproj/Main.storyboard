@@ -1606,41 +1606,66 @@ Please share / post where you can. Thank you!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ej9-Ug-N4A">
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Glz-ir-lJF">
                                                     <rect key="frame" x="10" y="10" width="342.66666666666669" height="72"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF3-V1-d9j">
-                                                            <rect key="frame" x="0.0" y="0.0" width="342.66666666666669" height="17.333333333333332"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ej9-Ug-N4A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="252.66666666666666" height="72"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF3-V1-d9j">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="252.66666666666666" height="17.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNK-Pr-VUZ">
+                                                                    <rect key="frame" x="0.0" y="27.333333333333336" width="252.66666666666666" height="17.333333333333336"/>
+                                                                    <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMB-TS-yhT">
+                                                                    <rect key="frame" x="0.0" y="54.666666666666671" width="252.66666666666666" height="17.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46G-fV-qb5" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                            <rect key="frame" x="262.66666666666669" y="18" width="80" height="36"/>
+                                                            <color key="backgroundColor" name="ThemeYellow"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="36" id="oqu-z5-dFm"/>
+                                                                <constraint firstAttribute="width" constant="80" id="qDZ-UW-ibB"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNK-Pr-VUZ">
-                                                            <rect key="frame" x="0.0" y="27.333333333333336" width="342.66666666666669" height="17.333333333333336"/>
-                                                            <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMB-TS-yhT">
-                                                            <rect key="frame" x="0.0" y="54.666666666666671" width="342.66666666666669" height="17.333333333333329"/>
-                                                            <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Export">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="onBtnExportAction:" destination="rpQ-ad-EB9" eventType="touchUpInside" id="irS-nw-HHP"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ej9-Ug-N4A" firstAttribute="leading" secondItem="hsW-0R-zZ6" secondAttribute="leading" constant="10" id="6RY-so-asW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ej9-Ug-N4A" secondAttribute="trailing" constant="10" id="7mr-Dt-8xq"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ej9-Ug-N4A" secondAttribute="bottom" constant="10" id="MGu-oa-Jvh"/>
-                                                <constraint firstItem="Ej9-Ug-N4A" firstAttribute="top" secondItem="hsW-0R-zZ6" secondAttribute="top" constant="10" id="dyN-qw-7uF"/>
+                                                <constraint firstItem="Glz-ir-lJF" firstAttribute="leading" secondItem="hsW-0R-zZ6" secondAttribute="leading" constant="10" id="9Ry-gf-hby"/>
+                                                <constraint firstItem="Glz-ir-lJF" firstAttribute="top" secondItem="hsW-0R-zZ6" secondAttribute="top" constant="10" id="Erg-Vd-sdK"/>
+                                                <constraint firstAttribute="trailing" secondItem="Glz-ir-lJF" secondAttribute="trailing" constant="10" id="j4u-hV-izt"/>
+                                                <constraint firstAttribute="bottom" secondItem="Glz-ir-lJF" secondAttribute="bottom" constant="10" id="nfS-VE-ipr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblHiveBuildDateOutlet" destination="tMB-TS-yhT" id="313-5p-9vL"/>
                                             <outlet property="lblHiveLocationOutlet" destination="qNK-Pr-VUZ" id="MVb-jN-56N"/>
                                             <outlet property="lblHiveNameOutlet" destination="NF3-V1-d9j" id="eHR-Mf-fbW"/>
+                                            <outlet property="onBtnExportHiveOutlet" destination="46G-fV-qb5" id="Swd-9E-8uX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1656,7 +1681,7 @@ Please share / post where you can. Thank you!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="No data found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqo-hj-nAI">
-                                <rect key="frame" x="138.66666666666666" y="428" width="115.66666666666666" height="21"/>
+                                <rect key="frame" x="135.33333333333334" y="428" width="122.66666666666666" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

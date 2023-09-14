@@ -10,6 +10,7 @@ class CellT_HiveList : UITableViewCell {
     @IBOutlet private weak var lblHiveNameOutlet : UILabel!
     @IBOutlet private weak var lblHiveLocationOutlet : UILabel!
     @IBOutlet private weak var lblHiveBuildDateOutlet : UILabel!
+    @IBOutlet weak var onBtnExportHiveOutlet : UIButton!
     
     func setDataWith(model : HiveListModelData) {
         self.lblHiveNameOutlet.text = model.hiveName
@@ -47,6 +48,19 @@ class HiveListVC: UIViewController {
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
         dvc.showBackbutton = true
         navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @IBAction func onBtnExportAction(_ sender: LetsButton) {
+        if let hiveId = hiveListVM?.hiveListModel?.data?[sender.tag].hiveid {
+            let param : [String:Any] = ["data":["hive_id":hiveId.string]]
+            hiveListVM?.callExportHiveAPI(param: param, completion: { response in
+                if let data = response?.data, let dataUrl = URL(string: data) {
+                    if UIApplication.shared.canOpenURL(dataUrl) {
+                        UIApplication.shared.open(dataUrl)
+                    }
+                }
+            })
+        }
     }
 }
 
@@ -100,6 +114,7 @@ extension HiveListVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CellT_HiveList", for: indexPath) as? CellT_HiveList else { return UITableViewCell() }
+        cell.onBtnExportHiveOutlet.tag = indexPath.row
         if let item = hiveListVM?.hiveListModel?.data?[indexPath.row] {
             cell.setDataWith(model: item)
         }

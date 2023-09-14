@@ -65,4 +65,15 @@ struct HiveListModelData: Codable {
     }
 }
 
-
+// MARK: - ExportInspectionModel
+struct ExportInspectionModel: Codable {
+    let status: Int?
+    let message: String?
+    let data: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case message = "message"
+        case data = "data"
+    }
+}

@@ -25,8 +25,8 @@ class LoginVC : UIViewController {
         loginVM = LoginViewModel()
         loginVM?.delegate = self
         if UIApplication.shared.inferredEnvironment == .debug {
-            txtEmailOutlet.text = "chauhantrupen@gmail.com"
-            txtPasswordOutlet.text = "Trupen@123"
+            txtEmailOutlet.text = "jhon@gmail.com"
+            txtPasswordOutlet.text = "Jhon@123"
         }
     }
     
@@ -53,6 +53,10 @@ extension LoginVC : LoginResponse {
     
     func failureResponse(_ error: String) {
         print(error)
+    }
+    
+    func getForgotPasswordResponse(_ model: ForgotPasswordModel) {
+        UIAlertController.actionWith(andMessage: model.message ?? "", getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
     }
 }
 
@@ -104,6 +108,7 @@ extension LoginVC {
 
     @IBAction private func onBtnForgotPasswordAction(_ sender : UIButton) {
         self.vibrate()
+        addAlertController()
     }
 
     @IBAction private func onBtnLoginWithFacebookAction(_ sender : UIButton) {
@@ -116,6 +121,38 @@ extension LoginVC {
 
     @IBAction private func onBtnLoginWithAppleAction(_ sender : UIButton) {
         self.vibrate()
+    }
+    
+    func addAlertController() {
+        let alertController: UIAlertController = UIAlertController(title: UIApplication.shared.displayName, message: "Please enter your email", preferredStyle: .alert)
+
+        //cancel button
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            //cancel code
+        }
+        alertController.addAction(cancelAction)
+
+        //Create an optional action
+        let nextAction: UIAlertAction = UIAlertAction(title: "Submit", style: .default) { action -> Void in
+            if let text = alertController.textFields?.first?.text {
+                if validateEmailWithString(text) {
+                    UIAlertController.actionWith(andMessage: popupMessages.correctEmail.rawValue, getStyle: .alert, controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in
+                        self.addAlertController()
+                    }
+                }else {
+                    let param : [String:Any] = ["data": ["email" : text]]
+                    self.loginVM?.callForgotPasswordAPI(param)
+                }
+            }
+        }
+        alertController.addAction(nextAction)
+
+        //Add text field
+        alertController.addTextField { (textField) -> Void in
+            textField.textColor = UIColor.black
+        }
+        //Present the AlertController
+        present(alertController, animated: true)
     }
 }
 

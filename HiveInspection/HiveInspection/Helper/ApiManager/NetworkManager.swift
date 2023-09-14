@@ -25,9 +25,15 @@ protocol Networkable {
     func deleteHive(_ param : [String:Any], completion: @escaping (Result<HiveListDeleteModel, Error>) -> ())
     
     func addInspection(_ param : [String:Any], completion: @escaping (Result<HiveInspectModel, Error>) -> ())
+    
+    func forgotPassword(_ param : [String:Any], completion: @escaping (Result<ForgotPasswordModel, Error>) -> ())
+    
+    func hiveInspectionReportExport(_ param : [String:Any], completion: @escaping (Result<ExportInspectionModel, Error>) -> ())
 }
 
 class NetworkManager: Networkable {
+    
+    
     var provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin()])
     
     func login(_ param: [String : Any], completion: @escaping (Result<LoginModel, Error>) -> ()) {
@@ -60,6 +66,14 @@ class NetworkManager: Networkable {
     
     func addInspection(_ param: [String : Any], completion: @escaping (Result<HiveInspectModel, Error>) -> ()) {
         request(target: API.addInspect(param: param), completion: completion)
+    }
+    
+    func forgotPassword(_ param: [String : Any], completion: @escaping (Result<ForgotPasswordModel, Error>) -> ()) {
+        request(target: API.forgotPassword(param: param), completion: completion)
+    }
+    
+    func hiveInspectionReportExport(_ param: [String : Any], completion: @escaping (Result<ExportInspectionModel, Error>) -> ()) {
+        request(target: API.inspectionExport(param: param), completion: completion)
     }
 }
 

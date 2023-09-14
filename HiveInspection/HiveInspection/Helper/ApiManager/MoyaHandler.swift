@@ -17,6 +17,8 @@ enum API {
     case CMS(param : [String:Any])
     case deleteHive(param : [String:Any])
     case addInspect(param : [String:Any])
+    case forgotPassword(param : [String:Any])
+    case inspectionExport(param : [String:Any])
 }
 
 extension API : TargetType {
@@ -38,12 +40,16 @@ extension API : TargetType {
             return Constants.API.deleteHive
         case .addInspect:
             return Constants.API.addInspection
+        case .forgotPassword:
+            return Constants.API.forgotPassword
+        case .inspectionExport:
+            return Constants.API.exportReport
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect:
+        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect, .forgotPassword, .inspectionExport:
             return .post
         case .hiveList:
             return .get
@@ -56,7 +62,7 @@ extension API : TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param):
+        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param), .forgotPassword(param: let param), .inspectionExport(param: let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .hiveList:
             return .requestPlain
