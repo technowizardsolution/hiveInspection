@@ -65,12 +65,14 @@ class CommonController extends Controller
 
   public function about()
   {
-    return view('about');
+    $about = CMSPage::where('slug','about')->first();
+    return view('about')->with(compact('about'));   
   }
 
   public function termsPrivacy()
   {
-    return view('termsPrivacy');
+    $privacy = CMSPage::where('slug','privacy-policy')->first();
+    return view('termsPrivacy')->with(compact('privacy'));       
   }
 
   public function getCMSPages(Request $request)

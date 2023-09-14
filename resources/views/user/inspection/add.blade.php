@@ -32,7 +32,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group {{ $errors->has('inspection_date') ? ' has-error' : '' }}">
                                             <label for="">Date</label>
-                                            <input type="date" class="form-control" name="inspection_date" id="inspection_date" placeholder="select your date">
+                                            <input type="date" class="form-control" name="inspection_date" id="inspection_date" placeholder="select your date" value="<?php echo date('Y-m-d'); ?>">
                                             @if ($errors->has('inspection_date'))
                                             <span class="help-block alert alert-danger">
                                                 <strong>{{ $errors->first('inspection_date') }}</strong>

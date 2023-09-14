@@ -9,6 +9,7 @@ use App\Helper\GlobalHelper;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Inspection;
+use App\Hive;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,6 +25,9 @@ use Crypt;
 use Google2FA;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use \ParagonIE\ConstantTime\Base32;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\InspectionExport;
+use Response;
 
 class InspectionController extends Controller
 {
@@ -66,6 +70,33 @@ class InspectionController extends Controller
             return $dataTable->dataTable($inspection)->toJson();
         }
         return view('admin.inspection.list', compact('html'));
+    }
+
+    public function inspectionExport($hive_id)
+    {
+
+        
+        $inspection = Inspection::where('hive_id',$hive_id)->get();
+        if(count($inspection) > 0){
+            $export = new InspectionExport($hive_id);
+            $hivedata = Hive::find($hive_id);
+            $name = str_replace(' ', '', $hivedata->hive_name);
+            $fileName = $name.'_inspection.xlsx';
+            Excel::store($export, $fileName);
+            $hivedata->report_file = $fileName;
+            $hivedata->save(); 
+            $file= public_path()."/report/".$fileName;
+            $headers = array('Content-Type: application/excel');
+            return Response::download($file, $fileName, $headers);  
+            
+        }else{
+            Session::flash('message', 'Inspection data is not available.');
+            Session::flash('alert-class', 'error');
+            return redirect('user/hive'); 
+        }
+             
+
+        //return Excel::download($export, $fileName);
     }
 
     /**

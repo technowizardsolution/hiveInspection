@@ -40,9 +40,11 @@ class HiveDataTable extends DataTable
                 } else {
                     $delete = '';
                 }
+
+                $export = '<a class="label label-primary badge badge-light-primary" href="'.url("/admin/inspectionexport",$id).'"  title="View"><i class="fa fa-download"></i>&nbsp</a>';
                
 
-                return $view . ' ' .$edit. ' ' .$delete;
+                return $view . ' ' .$edit. ' ' .$delete.' '.$export;
             })   
             ->editColumn('email', function ($hive) {
                 return $hive->user->email;
