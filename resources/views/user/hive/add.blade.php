@@ -72,16 +72,21 @@
                                         <input type="date" class="form-control" name="queen_introduced" id="queen_introduced" placeholder="Queen Introduced">
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                         </div>
+                    
                         
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="previous-btn">
                                 <button type="submit" class="">Add a Hive</button>
                                 </div>
-                            </div>                            
+                            </div>    
+                            <div class="col-md-6">
+                                <div class="next-btn">
+                                    <a href="{{url('/')}}" class="second_next next">Back</a>                                       
+                                </div>
+                            </div>                        
                         </div>
                     </form>                    
                     <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
