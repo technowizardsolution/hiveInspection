@@ -24,11 +24,7 @@ class InspectionController extends Controller
     public function inspectionExport($hive_id)
     {
         $inspection = Inspection::where('hive_id',$hive_id)->get();
-        if($inspection){
-            Session::flash('message', 'Oops !! Something went wrong!');
-            Session::flash('alert-class', 'error');
-            return redirect('user/hive');
-        }else{
+        if(count($inspection) > 0){
             $export = new InspectionExport($hive_id);
             $hivedata = Hive::find($hive_id);
             $name = str_replace(' ', '', $hivedata->hive_name);
@@ -38,7 +34,12 @@ class InspectionController extends Controller
             $hivedata->save(); 
             $file= public_path()."/report/".$fileName;
             $headers = array('Content-Type: application/excel');
-            return Response::download($file, $fileName, $headers);   
+            return Response::download($file, $fileName, $headers);  
+            
+        }else{
+            Session::flash('message', 'Inspection data is not available.');
+            Session::flash('alert-class', 'error');
+            return redirect('user/hive'); 
         }
              
 

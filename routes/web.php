@@ -91,7 +91,8 @@ Route::group(['middleware' => ['web']], function () {
 
             // Inspection
             Route::resource('/inspection', 'InspectionController');
-            Route::post('/inspection/status-change', 'InspectionController@changeStatus');            
+            Route::post('/inspection/status-change', 'InspectionController@changeStatus');     
+            Route::get('/inspectionexport/{id}', 'InspectionController@inspectionExport');       
 
             // Hive
             Route::resource('/hive', 'HiveController');
