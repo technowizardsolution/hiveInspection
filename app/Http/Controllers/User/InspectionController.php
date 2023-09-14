@@ -23,16 +23,24 @@ class InspectionController extends Controller
 
     public function inspectionExport($hive_id)
     {
-        $export = new InspectionExport($hive_id);
-        $hivedata = Hive::find($hive_id);
-        $name = str_replace(' ', '', $hivedata->hive_name);
-        $fileName = $name.'_inspection.xlsx';
-        Excel::store($export, $fileName);
-        $hivedata->report_file = $fileName;
-        $hivedata->save(); 
-        $file= public_path()."/report/".$fileName;
-        $headers = array('Content-Type: application/excel');
-        return Response::download($file, $fileName, $headers);        
+        $inspection = Inspection::where('hive_id',$hive_id)->get();
+        if($inspection){
+            Session::flash('message', 'Oops !! Something went wrong!');
+            Session::flash('alert-class', 'error');
+            return redirect('user/hive');
+        }else{
+            $export = new InspectionExport($hive_id);
+            $hivedata = Hive::find($hive_id);
+            $name = str_replace(' ', '', $hivedata->hive_name);
+            $fileName = $name.'_inspection.xlsx';
+            Excel::store($export, $fileName);
+            $hivedata->report_file = $fileName;
+            $hivedata->save(); 
+            $file= public_path()."/report/".$fileName;
+            $headers = array('Content-Type: application/excel');
+            return Response::download($file, $fileName, $headers);   
+        }
+             
 
         //return Excel::download($export, $fileName);
     }

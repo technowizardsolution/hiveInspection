@@ -40,6 +40,8 @@ Route::group(['middleware' => 'localization'], function(){
   
   Route::post('/getCMSpages', 'CommonController@getCMSpages');
 
+  
+
 	Route::group(['middleware' => 'auth:api'], function(){
     //User
     Route::post('/updateDeviceToken', 'API\UserController@updateDeviceToken');
@@ -56,6 +58,8 @@ Route::group(['middleware' => 'localization'], function(){
     Route::post('/addInspection', 'API\InspectionController@addInspection');
     Route::get('/getInspectionById/{id}','API\InspectionController@getInspectionById');
     Route::get('/getInspectionHistory','API\InspectionController@getInspectionHistory');
+    Route::post('/inspectionExport', 'API\InspectionController@inspectionExport');
+    
     
     
   });

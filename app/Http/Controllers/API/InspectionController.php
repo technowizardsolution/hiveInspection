@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\InspectionExport;
 use Str;
 
 class InspectionController extends Controller
@@ -27,6 +29,47 @@ class InspectionController extends Controller
     {
         $this->APIResponse = new APIResponse();
     }  
+
+    public function inspectionExport(Request $request)
+    {
+        $data = $request->json()->get('data');
+        try {
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {
+                $rules = array(
+                    'hive_id' => 'required'
+                );
+                $messages = [
+                    'hive_id.required' => 'Hive id is required'
+                ];
+                $validator = Validator::make($data, $rules, $messages);
+                if ($validator->fails()) {
+                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
+                } else {
+                    $hive_id = $data['hive_id'];
+                    $inspection = Inspection::where('hive_id',$hive_id)->get();
+                    if($inspection){
+                        return $this->APIResponse->respondInternalError('','There is no any inspection data');
+                    }else{
+                        $export = new InspectionExport($hive_id);
+                        $hivedata = Hive::find($hive_id);
+                        $name = str_replace(' ', '', $hivedata->hive_name);
+                        $fileName = $name.'_inspection.xlsx';
+                        Excel::store($export, $fileName);
+                        $hivedata->report_file = $fileName;
+                        $hivedata->save(); 
+                        $file= url('/').'/public/report/'.$fileName; 
+                        return $this->APIResponse->respondWithMessageAndPayload($file, 'Inspection Record');
+                    }
+                }
+            }           
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }
+
+        
+    }
 
     public function getInspectionById($inspection_id)
     {
@@ -116,7 +159,7 @@ class InspectionController extends Controller
                         //$hive = GlobalHelper::removeNull($hive);
                         return $this->APIResponse->respondWithMessageAndPayload($inspection, 'Inspection Filled Successfully');
                     } else {
-                        return $this->APIResponse->respondInternalError('Oops ! Something Went Wrong');
+                        return $this->APIResponse->respondInternalError('','Oops ! Something Went Wrong');
                     }
                 }
             }
