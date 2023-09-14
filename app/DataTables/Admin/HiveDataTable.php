@@ -41,7 +41,7 @@ class HiveDataTable extends DataTable
                     $delete = '';
                 }
 
-                $export = '<a class="label label-primary badge badge-light-primary" href="'.url("/admin/inspectionexport",$id).'"  title="View"><i class="fa fa-download"></i>&nbsp</a>';
+                $export = '<a class="label label-primary badge badge-light-primary" href="'.url("/admin/inspectionexport",$id).'"  title="Export"><i class="fa fa-download"></i>&nbsp</a>';
                
 
                 return $view . ' ' .$edit. ' ' .$delete.' '.$export;

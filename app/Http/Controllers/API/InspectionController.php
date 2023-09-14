@@ -47,11 +47,9 @@ class InspectionController extends Controller
                 if ($validator->fails()) {
                     return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
                 } else {
-                    $hive_id = $data['hive_id'];
+                    $hive_id = $data['hive_id'];                    
                     $inspection = Inspection::where('hive_id',$hive_id)->get();
-                    if($inspection){
-                        return $this->APIResponse->respondInternalError('','There is no any inspection data');
-                    }else{
+                    if(count($inspection) > 0){
                         $export = new InspectionExport($hive_id);
                         $hivedata = Hive::find($hive_id);
                         $name = str_replace(' ', '', $hivedata->hive_name);
@@ -61,6 +59,9 @@ class InspectionController extends Controller
                         $hivedata->save(); 
                         $file= url('/').'/public/report/'.$fileName; 
                         return $this->APIResponse->respondWithMessageAndPayload($file, 'Inspection Record');
+                        
+                    }else{
+                        return $this->APIResponse->respondInternalError('','There is no any inspection data');
                     }
                 }
             }           
