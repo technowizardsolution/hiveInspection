@@ -168,14 +168,8 @@ $(document.body).on('click', "#hiveForm", function(){
 
 
 function deleteConfirm(id){
-    bootbox.confirm({
-      message: "Are you sure you want to delete ?",
-      buttons: {'cancel': {label: 'No',className: 'btn-danger'},
-                'confirm': {label: 'Yes',className: 'btn-success'}
-      },
-      callback: function(result){
-        if (result){
-          $.ajax({
+
+    $.ajax({
             url: SITE_URL + '/user/hive/'+id,
             type: "DELETE",
             cache: false,
@@ -188,9 +182,30 @@ function deleteConfirm(id){
               else {  toastr.error(data); }
             }
           });
-        }
-      }
-    });
+
+    // bootbox.confirm({
+    //   message: "Are you sure you want to delete ?",
+    //   buttons: {'cancel': {label: 'No',className: 'btn-danger'},
+    //             'confirm': {label: 'Yes',className: 'btn-success'}
+    //   },
+    //   callback: function(result){
+    //     if (result){
+    //       $.ajax({
+    //         url: SITE_URL + '/user/hive/'+id,
+    //         type: "DELETE",
+    //         cache: false,
+    //         data:{ _token:'{{ csrf_token() }}'},
+    //         success: function (data, textStatus, xhr) {
+    //           if(data== true && textStatus=='success' && xhr.status=='200')
+    //           {
+    //               toastr.warning('Hive Deleted !!');                  
+    //           }
+    //           else {  toastr.error(data); }
+    //         }
+    //       });
+    //     }
+    //   }
+    // });
   }
 </script>
 

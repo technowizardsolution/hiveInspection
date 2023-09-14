@@ -9,6 +9,7 @@ use App\Helper\GlobalHelper;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Hive;
+use App\Inspection;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -221,7 +222,8 @@ class HiveController extends Controller
     {
         if (isset($id)) {            
             $hive = Hive::find($id);            
-            if ($hive->delete()) {                              
+            if ($hive->delete()) {  
+                Inspection::where('hive_id',$id)->delete();                                
                 return true;
             } else {
                 return 'Something went to wrong';

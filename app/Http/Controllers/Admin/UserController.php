@@ -8,6 +8,8 @@ use App\Device;
 use App\Helper\GlobalHelper;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Hive;
+use App\Inspection;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -226,6 +228,9 @@ class UserController extends Controller
             if ($user->delete()) {
                 if ($role) {
                     $user->removeRole($role);
+
+                    $hive = Hive::where('user_id',$id)->delete();
+                    $inspection = Inspection::where('user_id',$id)->delete();
                 }                
                 return true;
             } else {
