@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 navVC.showColoredNavigationBar(.white)
                 window.rootViewController = navVC
             }else {
-                let dvc : LoginVC = mainStoryBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                let dvc : WelcomeVC = mainStoryBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
                 let navVC : UINavigationController = UINavigationController(rootViewController: dvc)
                 navVC.showColoredNavigationBar(.white)
                 window.rootViewController = navVC

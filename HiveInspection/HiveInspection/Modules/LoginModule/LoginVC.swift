@@ -24,10 +24,10 @@ class LoginVC : UIViewController {
         txtPasswordOutlet.delegate = self
         loginVM = LoginViewModel()
         loginVM?.delegate = self
-        if UIApplication.shared.inferredEnvironment == .debug {
-            txtEmailOutlet.text = "jhon@gmail.com"
-            txtPasswordOutlet.text = "Jhon@123"
-        }
+//        if UIApplication.shared.inferredEnvironment == .debug {
+//            txtEmailOutlet.text = "jhon@gmail.com"
+//            txtPasswordOutlet.text = "Jhon@123"
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

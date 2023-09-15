@@ -11,12 +11,12 @@ import Foundation
 struct HiveInspectModel: Codable {
     let status: Int?
     let message: String?
-    let data: HiveInspectModelData?
+//    let data: HiveInspectModelData?
 
     enum CodingKeys: String, CodingKey {
         case status = "status"
         case message = "message"
-        case data = "data"
+//        case data = "data"
     }
 }
 
