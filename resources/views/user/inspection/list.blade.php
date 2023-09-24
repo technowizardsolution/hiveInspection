@@ -62,7 +62,7 @@
                     </div>
 
 
-                    <table id="inspectionTable" class="table table-striped table-bordered table-sm" cellspacing="0"
+                    <table id="inspectionTable" class="table table-striped table-bordered table-sm" cellspacing="0" style="display: block;overflow-x: auto;white-space: nowrap;"
                     width="100%">
                     <thead>
                         <tr>

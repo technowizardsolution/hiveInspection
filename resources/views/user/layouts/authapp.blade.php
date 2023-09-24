@@ -23,8 +23,8 @@
     @yield('content')
 
     
-    @if(isset($app) && $app)
-    @else
+    @if(request()->get('app'))
+    @elseif(Auth::check())
     @include('user.layouts.footer')
     @endif
     
