@@ -198,4 +198,24 @@ class InspectionController extends Controller
             return redirect('user/hive');
         }
     }
+
+    public function inspectionReport(Request $request,$hive_ids)
+    {
+
+        $app = false;
+        if(isset($request->app) && $request->app){            
+            $app = true;
+        }
+
+        $hive_id = base64_decode($hive_ids);
+        $inspectionlist = Inspection::where('hive_id',$hive_id)->get();
+        
+        $hivedata = Hive::find($hive_id);
+        if(count($inspectionlist) > 0){ 
+            return view('user.inspection.list',compact('inspectionlist','hivedata','app'));
+        }else{
+            return view('user.inspection.list',compact('inspectionlist','hivedata','app'));
+        }
+        
+    }
 }

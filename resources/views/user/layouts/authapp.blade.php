@@ -21,7 +21,13 @@
         @include('user.layouts.homeheader')    
     @endif
     @yield('content')
+
+    
+    @if(isset($app) && $app)
+    @else
     @include('user.layouts.footer')
+    @endif
+    
     @include('user.layouts.authJs')
     @yield('script')
 </body>

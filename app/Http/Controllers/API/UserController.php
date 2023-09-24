@@ -249,7 +249,7 @@ class UserController extends Controller
                         $socialnew->password = bcrypt('Qwerty@123');
                         $socialnew->user_status = '1';
                         if ($socialnew->save()) {
-                            $socialnew->assignRole(5);
+                            $socialnew->assignRole(2);
                             $token = null;
                             try {
                                 if (!$token = $socialnew->createToken('Laravel')->accessToken) {

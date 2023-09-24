@@ -1,3 +1,5 @@
+@if(isset($app) && $app)
+@else
 <header>
     <div class="container">
         <div class="row">
@@ -27,3 +29,4 @@
         </div>
     </div>
 </header>
+@endif
