@@ -199,7 +199,7 @@ class UserController extends Controller
                 return $this->APIResponse->respondNotFound(__(trans('messages.data.dataKey_notFound')));
             } else {
                 $rules = array(
-                    "social_provider" => 'required|in:google,facebook,twitter',
+                    "social_provider" => 'required|in:google,facebook,apple',
                     'social_provider_id' => 'required',
                     // 'email' => 'email|required',
                 );
