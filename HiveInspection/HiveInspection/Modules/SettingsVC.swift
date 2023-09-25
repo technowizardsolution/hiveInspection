@@ -47,17 +47,19 @@ extension SettingsVC {
             tableview.reloadData()
         }
         getSettingsData = []
-        getSettingsData?.append(SettingsData(title: "Add a Hive", type: .detail))
+        getSettingsData?.append(SettingsData(title: settingTitle.AddaHive.rawValue, type: .detail))
 //        getSettingsData?.append(SettingsData(title: "Edit a Hive", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Notifications", type: ._switch))
-        getSettingsData?.append(SettingsData(title: "About Us", type: .detail))
+        getSettingsData?.append(SettingsData(title: settingTitle.Notifications.rawValue, type: ._switch))
+        getSettingsData?.append(SettingsData(title: settingTitle.AboutUs.rawValue, type: .detail))
 //        getSettingsData?.append(SettingsData(title: "Subscription", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Change Password", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Terms & Conditions", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Privacy Policy", type: .detail))
-        getSettingsData?.append(SettingsData(title: "App Version", type: .version))
-        getSettingsData?.append(SettingsData(title: "Logout", type: .none))
-        getSettingsData?.append(SettingsData(title: "Delete Account", type: .none))
+        if Constants.isSocialLogin() == false {
+            getSettingsData?.append(SettingsData(title: settingTitle.ChangePassword.rawValue, type: .detail))
+        }
+        getSettingsData?.append(SettingsData(title: settingTitle.TermsConditions.rawValue, type: .detail))
+        getSettingsData?.append(SettingsData(title: settingTitle.PrivacyPolicy.rawValue, type: .detail))
+        getSettingsData?.append(SettingsData(title: settingTitle.AppVersion.rawValue, type: .version))
+        getSettingsData?.append(SettingsData(title: settingTitle.Logout.rawValue, type: .none))
+        getSettingsData?.append(SettingsData(title: settingTitle.DeleteAccount.rawValue, type: .none))
     }
     
     private func setupButtons() {
@@ -99,14 +101,14 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = getSettingsData?[indexPath.row]
-        switch indexPath.row {
-        case 0:
+        switch item?.title {
+        case settingTitle.AddaHive.rawValue:
             //Add a Hive
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveSetupVC") as! HiveSetupVC
             dvc.showBackbutton = true
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 2:
+        case settingTitle.AboutUs.rawValue:
             //About Us
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
@@ -114,13 +116,13 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 3:
+        case settingTitle.ChangePassword.rawValue:
             //Change Password
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 4:
+        case settingTitle.TermsConditions.rawValue:
             //Terms & Conditions
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
@@ -128,7 +130,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 5:
+        case settingTitle.PrivacyPolicy.rawValue:
             //Privacy Policy
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
@@ -136,7 +138,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 7:
+        case settingTitle.Logout.rawValue:
             //Logout
             self.vibrate()
             UIAlertController.actionWith(andMessage: "Are you sure you want to logout", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .destructive),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
@@ -149,7 +151,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
                 }
             }
             break
-        case 8:
+        case settingTitle.DeleteAccount.rawValue:
             //Delete Account
             self.vibrate()
             UIAlertController.actionWith(andMessage: "Are you sure you want to delete your account?", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .destructive),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in

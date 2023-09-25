@@ -40,6 +40,10 @@ class NetworkManager: Networkable {
         request(target: API.login(param: param), completion: completion)
     }
     
+    func socialLogin(_ param: [String : Any], completion: @escaping (Result<LoginModel, Error>) -> ()) {
+        request(target: API.socialLogin(param: param), completion: completion)
+    }
+    
     func signup(_ param: [String : Any], completion: @escaping (Result<SignUpModel, Error>) -> ()) {
         request(target: API.signUp(param: param), completion: completion)
     }

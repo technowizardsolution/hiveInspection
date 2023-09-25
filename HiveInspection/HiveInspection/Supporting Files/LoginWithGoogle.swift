@@ -13,7 +13,6 @@ import Firebase
 class LoginWithGoogle : NSObject {
 
     private var googleSignIn: GIDSignIn? = nil
-    var completionHandlerGoogleSigninData : ((GIDGoogleUser?) -> ())? = nil
     class var shared : LoginWithGoogle {
         struct Static {
             static let instance : LoginWithGoogle = LoginWithGoogle()
@@ -26,14 +25,11 @@ class LoginWithGoogle : NSObject {
     }
 
     func loginWithGoogle(completionHandler : @escaping (GIDGoogleUser?) -> ()) {
-        completionHandlerGoogleSigninData = completionHandler
         appDelegate.window?.rootViewController?.view.endEditing(true)
         GIDSignIn.sharedInstance.signIn(withPresenting: appDelegate.window?.rootViewController ?? UIViewController(), completion: { user, err in
             guard err == nil else { return }
             guard let user = user else { return }
-            if self.completionHandlerGoogleSigninData != nil {
-                self.completionHandlerGoogleSigninData!(user.user)
-            }
+            completionHandler(user.user)
         })
     }
 }

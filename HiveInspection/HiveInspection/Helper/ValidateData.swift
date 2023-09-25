@@ -7,12 +7,14 @@
 
 import Foundation
 
-func checkLoginValidation(validationModel : LoginValidation) -> (Bool,String) {
+func checkLoginValidation(validationModel : LoginValidation, isSocial : Bool = false) -> (Bool,String) {
 //    return (true,"")
     if validationModel.email == "" {
         return (false,popupMessages.noEmail.rawValue)
     }else if validateEmailWithString(validationModel.email) {
         return (false,popupMessages.correctEmail.rawValue)
+    }else if isSocial {
+        return (true,"")
     }else if validationModel.password == "" {
         return (false,popupMessages.noPassword.rawValue)
     }else if validePassword((validationModel.password) as NSString) {

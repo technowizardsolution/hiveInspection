@@ -115,6 +115,20 @@ extension LoginVC {
         self.vibrate()
         LoginWithFacebook.shared.loginWithFacebook { facebookData in
             print(facebookData)
+//            var loginValidation = LoginValidation()
+//            loginValidation.email = facebookData?.email ?? ""
+//            let validated = checkLoginValidation(validationModel: loginValidation, isSocial: true)
+//            if validated.0 {
+            let param : [String:Any] = ["data": [
+                "first_name": facebookData?.name,
+                "social_provider":"facebook",
+                "social_provider_id":facebookData?.FBId,
+                "device_type":"1",
+                "device_token": Constants.FCMToken()]]
+            self.loginVM?.callLoginAPI(param, isSocial: true)
+//            }else {
+//                UIAlertController.actionWith(andMessage: validated.1, getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in }
+//            }
         }
     }
 
@@ -122,6 +136,13 @@ extension LoginVC {
         self.vibrate()
         LoginWithGoogle.shared.loginWithGoogle { user in
             print(user)
+            let param : [String:Any] = ["data": [
+                "first_name": user?.profile?.name,
+                "social_provider":"google",
+                "social_provider_id":user?.userID,
+                "device_type":"1",
+                "device_token": Constants.FCMToken()]]
+            self.loginVM?.callLoginAPI(param, isSocial: true)
         }
     }
 
@@ -129,6 +150,13 @@ extension LoginVC {
         self.vibrate()
         LoginWithApple.shared.loginWithApple { credentials in
             print(credentials?.fullName ?? "")
+            let param : [String:Any] = ["data": [
+                "first_name": credentials?.fullName ?? "",
+                "social_provider":"apple",
+                "social_provider_id":credentials?.user ?? "",
+                "device_type":"1",
+                "device_token": Constants.FCMToken()]]
+            self.loginVM?.callLoginAPI(param, isSocial: true)
         }
     }
     

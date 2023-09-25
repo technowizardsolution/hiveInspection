@@ -14,6 +14,7 @@ enum Constants {
     
     enum API {
         static let login = "login"
+        static let socialRegister = "socialRegister"
         static let signup = "register"
         static let addUpdateHive = "addUpdateHive"
         static let hiveList = "getHiveList"
@@ -38,6 +39,11 @@ enum Constants {
     static func getUserId() -> String {
         guard let userId = UserDefaults.standard.object(forKey: "UserId") as? String else { return "" }
         return userId
+    }
+    
+    static func isSocialLogin() -> Bool {
+        guard let isSocial = UserDefaults.standard.object(forKey: "isSocial") as? Bool else { return false }
+        return isSocial
     }
     
     static func clearDefaults() {

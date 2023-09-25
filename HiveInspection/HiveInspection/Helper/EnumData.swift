@@ -43,3 +43,15 @@ enum CMSPages : String {
     case termsandcondition = "terms-and-conditions"
     case privacypolicy = "privacy-policy"
 }
+
+enum settingTitle : String {
+    case AddaHive = "Add a Hive"
+    case Notifications = "Notifications"
+    case AboutUs = "About Us"
+    case ChangePassword = "Change Password"
+    case TermsConditions = "Terms & Conditions"
+    case PrivacyPolicy = "Privacy Policy"
+    case AppVersion = "App Version"
+    case Logout = "Logout"
+    case DeleteAccount = "Delete Account"
+}

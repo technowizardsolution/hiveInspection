@@ -10,6 +10,7 @@ import Moya
 
 enum API {
     case login(param : [String:Any])
+    case socialLogin(param : [String:Any])
     case signUp(param : [String:Any])
     case addUpdateHive(param : [String:Any])
     case hiveList
@@ -26,6 +27,8 @@ extension API : TargetType {
         switch self {
         case .login:
             return Constants.API.login
+        case .socialLogin:
+            return Constants.API.socialRegister
         case .signUp:
             return Constants.API.signup
         case .addUpdateHive:
@@ -49,7 +52,7 @@ extension API : TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect, .forgotPassword, .inspectionExport:
+        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect, .forgotPassword, .inspectionExport, .socialLogin:
             return .post
         case .hiveList:
             return .get
@@ -62,7 +65,7 @@ extension API : TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param), .forgotPassword(param: let param), .inspectionExport(param: let param):
+        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param), .forgotPassword(param: let param), .inspectionExport(param: let param), .socialLogin(param: let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .hiveList:
             return .requestPlain
@@ -71,7 +74,7 @@ extension API : TargetType {
     
     var headers: [String : String]? {
         switch self {
-        case .login, .signUp:
+        case .login, .signUp, .socialLogin:
             return ["Content-type": "application/json"]
         default:
             return ["Content-type": "application/json","Authorization" : "Bearer \(Constants.getToken())"]
