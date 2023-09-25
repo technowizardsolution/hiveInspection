@@ -47,6 +47,7 @@ Route::group(['middleware' => 'localization'], function(){
     Route::post('/updateDeviceToken', 'API\UserController@updateDeviceToken');
     Route::post('/changePassword', 'API\UserController@changePassword');
     Route::post('/updateProfile','API\UserController@updateProfile');
+    Route::post('/updateNotification','API\UserController@updateNotification');    
     Route::post('/getProfile','API\UserController@getProfile');
 
     //Hive

@@ -620,5 +620,46 @@ class UserController extends Controller
         }
     }
 
+    public function updateNotification(Request $request)
+    {
+        $data = $request->json()->get('data');        
+        try {
+
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {
+                $rules = array(
+                    'notification_status' => 'required',
+                );
+                $messages = [
+                    'notification_status.required' => 'notification_status field is required',
+                ];
+                $validator = Validator::make($data, $rules, $messages);
+                if ($validator->fails()) {
+                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
+                } else {
+                    $notification_status = $data['notification_status'];
+                    $user_id = $request->user()->id;
+                    $user = User::find($user_id);
+                    $user->notification_status = $notification_status;
+                    if ($user->save()) {
+                        return $this->APIResponse->respondWithMessageAndPayload($user, trans('messages.update_successfully'));
+                    } else {
+                        return $this->APIResponse->respondInternalError(__(trans('messages.failed_update_profile')));
+                    }
+                }
+            }
+
+            
+
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }    
+     
+    }    
+
+
+
+
 
 }
