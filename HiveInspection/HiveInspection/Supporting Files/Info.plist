@@ -2,6 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.262141681478-b77mjp188m15k2o0u3l2bi0s5ms0b7of</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1744763345958905</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ABeeZee-Italic.ttf</string>
@@ -31,5 +48,19 @@
 		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1744763345958905</string>
+	<key>FacebookClientToken</key>
+	<string>c9bf716a71179d8d14a93801042a6d97</string>
+	<key>FacebookDisplayName</key>
+	<string>Hive Inspector</string>
+	<key>GIDClientID</key>
+	<string>262141681478-b77mjp188m15k2o0u3l2bi0s5ms0b7of.apps.googleusercontent.com</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

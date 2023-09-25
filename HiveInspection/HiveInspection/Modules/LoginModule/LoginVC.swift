@@ -113,14 +113,23 @@ extension LoginVC {
 
     @IBAction private func onBtnLoginWithFacebookAction(_ sender : UIButton) {
         self.vibrate()
+        LoginWithFacebook.shared.loginWithFacebook { facebookData in
+            print(facebookData)
+        }
     }
 
     @IBAction private func onBtnLoginWithGoogleAction(_ sender : UIButton) {
         self.vibrate()
+        LoginWithGoogle.shared.loginWithGoogle { user in
+            print(user)
+        }
     }
 
     @IBAction private func onBtnLoginWithAppleAction(_ sender : UIButton) {
         self.vibrate()
+        LoginWithApple.shared.loginWithApple { credentials in
+            print(credentials?.fullName ?? "")
+        }
     }
     
     func addAlertController() {

@@ -32,9 +32,6 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hexPattern" translatesAutoresizingMaskIntoConstraints="NO" id="0eD-HU-NnM">
                                 <rect key="frame" x="131" y="612" width="262" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="s2y-Ku-bcC"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome to Hive inspection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-Wm-zgN">
                                 <rect key="frame" x="10" y="479.66666666666669" width="373" height="32"/>
@@ -99,6 +96,7 @@
                             <constraint firstItem="FQ3-ew-gTE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WJg-Ob-fsy" secondAttribute="bottom" constant="10" id="rRp-kE-t8z"/>
                             <constraint firstItem="Hgu-Wm-zgN" firstAttribute="top" secondItem="jRn-us-CDc" secondAttribute="bottom" constant="40" id="saj-TE-HVM"/>
                             <constraint firstItem="k0e-bi-POd" firstAttribute="bottom" secondItem="FQ3-ew-gTE" secondAttribute="bottom" constant="20" id="tnv-gM-alP"/>
+                            <constraint firstItem="0eD-HU-NnM" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="131" id="vSB-vD-I1m"/>
                             <constraint firstItem="FQ3-ew-gTE" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="20" id="zDn-jA-gEl"/>
                         </constraints>
                     </view>
@@ -2378,6 +2376,50 @@ Please share / post where you can. Thank you!</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQ5-wj-bfc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4614.5038167938928" y="1554.9295774647887"/>
+        </scene>
+        <!--Hive Inspect ReportVC-->
+        <scene sceneID="txw-YL-yXk">
+            <objects>
+                <viewController storyboardIdentifier="HiveInspectReportVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jhw-Ou-V3b" customClass="HiveInspectReportVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yx3-C3-Yt7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hexPattern" translatesAutoresizingMaskIntoConstraints="NO" id="f8k-ty-oeM">
+                                <rect key="frame" x="0.0" y="314" width="393" height="360"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f8k-ty-oeM" secondAttribute="height" multiplier="131:120" id="2Js-LX-dZN"/>
+                                </constraints>
+                            </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NZr-Hx-IH7">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ptp-7K-L8S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ptp-7K-L8S" firstAttribute="trailing" secondItem="f8k-ty-oeM" secondAttribute="trailing" id="6dr-Wx-6sh"/>
+                            <constraint firstItem="f8k-ty-oeM" firstAttribute="leading" secondItem="Ptp-7K-L8S" secondAttribute="leading" id="EiU-c6-iWg"/>
+                            <constraint firstItem="Ptp-7K-L8S" firstAttribute="trailing" secondItem="NZr-Hx-IH7" secondAttribute="trailing" id="JnV-AD-2mK"/>
+                            <constraint firstItem="NZr-Hx-IH7" firstAttribute="leading" secondItem="Ptp-7K-L8S" secondAttribute="leading" id="Jvm-aA-bdw"/>
+                            <constraint firstItem="Ptp-7K-L8S" firstAttribute="bottom" secondItem="NZr-Hx-IH7" secondAttribute="bottom" id="MCV-En-zZz"/>
+                            <constraint firstItem="NZr-Hx-IH7" firstAttribute="top" secondItem="Ptp-7K-L8S" secondAttribute="top" id="XkC-hf-w1A"/>
+                            <constraint firstItem="Ptp-7K-L8S" firstAttribute="bottom" secondItem="f8k-ty-oeM" secondAttribute="bottom" constant="144" id="ik2-ht-Sdu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="wkWebViewOutlet" destination="NZr-Hx-IH7" id="rUm-u8-5va"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-CF-TvZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5572" y="701"/>
         </scene>
     </scenes>
     <designables>

@@ -24,7 +24,8 @@ extension UIAlertController {
     ///   - buttons: Add your buttons name so we can add buttons with given name
     ///   - comp: It will return the block of button action with button name, you just need to compare your button name string with the given completionBlock
     class func actionWith(_ title : String = UIApplication.shared.displayName ?? "" ,andMessage Message : String , getStyle : UIAlertController.Style, controller : UIViewController = appDelegate.window?.rootViewController ?? UIViewController(), buttons : [actionTitleStyle], completionBlock : @escaping(String) -> ()) {
-        let alert = self.init(title: title, message: Message, preferredStyle: getStyle)
+        let alert = self.init(title: title, message: Message, preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : getStyle)
+        alert.modalPresentationStyle = .popover
         for button in buttons {
             let btnAction = UIAlertAction(title: button.title, style: button.style) { (action) in
                 completionBlock(button.title)

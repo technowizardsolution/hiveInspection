@@ -9,7 +9,7 @@ import UIKit
 
 enum Constants {
     enum baseURL {
-        static let baseUrl = "http://13.41.120.190/hiveInspection/api"
+        static let baseUrl = "https://hiveinspection.letsnurture.co.uk/api"
     }
     
     enum API {

@@ -55,8 +55,9 @@ class HiveListVC: UIViewController {
             let param : [String:Any] = ["data":["hive_id":hiveId.string]]
             hiveListVM?.callExportHiveAPI(param: param, completion: { response in
                 if let data = response?.data, let dataUrl = URL(string: data) {
-                    if UIApplication.shared.canOpenURL(dataUrl) {
-                        UIApplication.shared.open(dataUrl)
+                    if let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspectReportVC") as? HiveInspectReportVC {
+                        dvc.urlToLoad = dataUrl
+                        self.navigationController?.pushViewController(dvc, animated: true)
                     }
                 }
             })

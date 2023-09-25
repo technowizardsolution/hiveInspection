@@ -51,7 +51,7 @@ extension SettingsVC {
 //        getSettingsData?.append(SettingsData(title: "Edit a Hive", type: .detail))
         getSettingsData?.append(SettingsData(title: "Notifications", type: ._switch))
         getSettingsData?.append(SettingsData(title: "About Us", type: .detail))
-        getSettingsData?.append(SettingsData(title: "Subscription", type: .detail))
+//        getSettingsData?.append(SettingsData(title: "Subscription", type: .detail))
         getSettingsData?.append(SettingsData(title: "Change Password", type: .detail))
         getSettingsData?.append(SettingsData(title: "Terms & Conditions", type: .detail))
         getSettingsData?.append(SettingsData(title: "Privacy Policy", type: .detail))
@@ -114,13 +114,13 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 4:
+        case 3:
             //Change Password
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "ChangePasswordVC") as! ChangePasswordVC
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 5:
+        case 4:
             //Terms & Conditions
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
@@ -128,7 +128,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 6:
+        case 5:
             //Privacy Policy
             self.vibrate()
             let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
@@ -136,10 +136,10 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
             dvc.getTitle = item?.title ?? ""
             navigationController?.pushViewController(dvc, animated: true)
             break
-        case 8:
+        case 7:
             //Logout
             self.vibrate()
-            UIAlertController.actionWith(andMessage: "Are you sure you want to logout", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .default),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
+            UIAlertController.actionWith(andMessage: "Are you sure you want to logout", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .destructive),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
                 self.vibrate()
                 if btn == "Yes" {
                     //navigate to login
@@ -149,7 +149,7 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
                 }
             }
             break
-        case 9:
+        case 8:
             //Delete Account
             self.vibrate()
             UIAlertController.actionWith(andMessage: "Are you sure you want to delete your account?", getStyle: .actionSheet, controller : self, buttons: [UIAlertController.actionTitleStyle(title: "Yes", style: .destructive),UIAlertController.actionTitleStyle(title: "Cancel", style: .cancel)]) { btn in
