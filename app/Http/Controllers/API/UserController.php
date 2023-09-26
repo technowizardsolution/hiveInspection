@@ -504,7 +504,7 @@ class UserController extends Controller
     public function getProfile(Request $request)
     {
         try {
-            $userDetail = User::where('id', Auth()->user()->id)->with('countyData', 'stateData', 'cityData')->where('user_status', '1')->first();
+            $userDetail = User::where('id', Auth()->user()->id)->where('user_status', '1')->first();
             if (empty($userDetail)) {
                 return $this->APIResponse->respondNotFound('No record Found');
             } else {
