@@ -15,13 +15,12 @@ class HiveSetupVC : UIViewController {
     @IBOutlet weak var onBtnSaveOutlet : LetsButton!
     @IBOutlet weak var onBtnAddAHiveOutlet : LetsButton!
     @IBOutlet weak var onBtnStartInspectingOutlet : LetsButton!
-
     @IBOutlet weak var queenIntroducedDatePickerOutlet: UIDatePicker!
     @IBOutlet weak var buildDatePickerOutlet: UIDatePicker!
-    
     @IBOutlet weak var txtHiveLocationOutlet: UITextField!
     @IBOutlet weak var txtHiveNameOutlet: UITextField!
-    
+    @IBOutlet weak var lblOROutlet: UILabel!
+    @IBOutlet weak var lblSetupHiveOutlet: UILabel!
     var hiveSetupDataArray : [HiveSetup]?
     var hiveSetupDeepsDataArray : [HiveSetup]?
     var hiveSetupMediumDataArray : [HiveSetup]?
@@ -65,7 +64,7 @@ extension HiveSetupVC {
             closeButton()
             txtHiveLocationOutlet.text = hiveListModelData?.location ?? ""
             txtHiveNameOutlet.text = hiveListModelData?.hiveName ?? ""
-    
+            lblSetupHiveOutlet.text = "Hive Details"
             
             if let buildDate = hiveListModelData?.buildDate?.toDate("yyyy-MM-dd") {
                 if buildDate.daysUntilNow.intValue > 0 {
@@ -296,13 +295,15 @@ extension HiveSetupVC {
             onBtnSaveOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupAddAHiveButton() {
-            onBtnAddAHiveOutlet.setTitle(hiveListModelData == nil ? "Add a Hive" : "Update a Hive", for: .normal)
+            onBtnAddAHiveOutlet.setTitle(hiveListModelData == nil ? "Add a Hive" : "Update Hive", for: .normal)
             onBtnAddAHiveOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnAddAHiveOutlet.setTitleColor(UIColor.black, for: .normal)
             onBtnAddAHiveOutlet.cornerRadius = onBtnAddAHiveOutlet.frame.height / 2
             onBtnAddAHiveOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupStartInspectingButton() {
+            onBtnStartInspectingOutlet.isHidden = hiveListModelData == nil
+            lblOROutlet.isHidden = hiveListModelData == nil
             onBtnStartInspectingOutlet.setTitle("Start inspecting!", for: .normal)
             onBtnStartInspectingOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnStartInspectingOutlet.setTitleColor(UIColor.black, for: .normal)

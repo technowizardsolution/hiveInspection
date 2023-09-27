@@ -88,7 +88,7 @@ extension UIViewController {
     func addButton() {
         self.view.endEditing(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let barButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(UIViewController.addButtonAction))
+        let barButton = UIBarButtonItem(title: "Add Hive", style: .plain, target: self, action: #selector(UIViewController.addButtonAction))
         barButton.tintColor = UIColor.black
         self.navigationItem.rightBarButtonItem = barButton
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -101,7 +101,7 @@ extension UIViewController {
     func exportButton() {
         self.view.endEditing(true)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        let barButton = UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(UIViewController.exportButtonAction))
+        let barButton = UIBarButtonItem(title: "Send Report", style: .plain, target: self, action: #selector(UIViewController.exportButtonAction))
         barButton.tintColor = UIColor.black
         self.navigationItem.rightBarButtonItem = barButton
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]

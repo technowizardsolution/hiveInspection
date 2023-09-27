@@ -18,7 +18,7 @@
         <!--WelcomeVC-->
         <scene sceneID="XkL-Gg-aE6">
             <objects>
-                <viewController storyboardIdentifier="WelcomeVC" id="BjF-bq-yvx" customClass="WelcomeVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="BjF-bq-yvx" customClass="WelcomeVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpb-9n-tfe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-ew-gTE">
                                 <rect key="frame" x="20" y="683" width="353" height="115"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-ha-jok" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeX-ha-jok" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rll-sg-9K5"/>
@@ -65,7 +65,7 @@
                                             <action selector="onBtnLoginAction:" destination="BjF-bq-yvx" eventType="touchUpInside" id="1xa-wg-KFW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-EG-Rfw" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ay-EG-Rfw" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="65" width="353" height="50"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -118,7 +118,7 @@
         <!--LoginVC-->
         <scene sceneID="Nzw-1H-YVc">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sO-pb-C6o" customClass="LoginVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sO-pb-C6o" customClass="LoginVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YXB-2f-DoC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,13 +131,13 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-Xv-xes">
-                                            <rect key="frame" x="20.000000000000007" y="50" width="89.666666666666686" height="42"/>
+                                            <rect key="frame" x="20.000000000000007" y="50" width="90.666666666666686" height="42.666666666666657"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="36"/>
                                             <color key="textColor" name="ThemeBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LRJ-tT-Zel">
-                                            <rect key="frame" x="20" y="132" width="353" height="120"/>
+                                            <rect key="frame" x="20" y="132.66666666666666" width="353" height="120"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8H-M6-6pX">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="45"/>
@@ -201,8 +201,8 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tta-JP-Jbo" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="272" width="353" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tta-JP-Jbo" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="272.66666666666669" width="353" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="trf-ll-kGO"/>
                                             </constraints>
@@ -216,7 +216,7 @@
                                                 <action selector="onBtnLoginAction:" destination="2sO-pb-C6o" eventType="touchUpInside" id="W2n-Br-6wt"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7b-Ef-biF" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7b-Ef-biF" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                             <rect key="frame" x="20" y="746" width="353" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="8sJ-PX-vOq"/>
@@ -231,8 +231,8 @@
                                                 <action selector="onBtnSignUpAction:" destination="2sO-pb-C6o" eventType="touchUpInside" id="CRe-7m-h86"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="use-g4-AbO" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                            <rect key="frame" x="225" y="332" width="148" height="35.666666666666686"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="use-g4-AbO" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
+                                            <rect key="frame" x="223" y="332.66666666666669" width="150" height="34.666666666666686"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Forgot Password?">
@@ -244,17 +244,17 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6I-yd-z6L">
-                                            <rect key="frame" x="20" y="447.66666666666669" width="353" height="1"/>
+                                            <rect key="frame" x="20" y="447.33333333333331" width="353" height="1"/>
                                             <color key="backgroundColor" name="ThemeGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="NvB-7S-65f"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55e-4P-9rc">
-                                            <rect key="frame" x="176.66666666666666" y="437.66666666666669" width="40" height="21"/>
+                                            <rect key="frame" x="176.66666666666666" y="437" width="40" height="21.333333333333314"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZW-2U-afw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="21.333333333333332"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="uuO-0L-bov"/>
@@ -273,7 +273,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with your Social account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzM-SP-nqP">
-                                            <rect key="frame" x="59" y="508.66666666666669" width="275.33333333333337" height="23.333333333333314"/>
+                                            <rect key="frame" x="53.333333333333343" y="508.33333333333331" width="286.33333333333326" height="23.666666666666686"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="20"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -284,7 +284,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GWl-NJ-026">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-wz-TQL" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-wz-TQL" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="169" height="50"/>
                                                             <color key="backgroundColor" red="0.090196078431372548" green="0.47058823529411764" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -304,7 +304,7 @@
                                                                 <action selector="onBtnLoginWithFacebookAction:" destination="2sO-pb-C6o" eventType="touchUpInside" id="OXf-AF-00v"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIt-RC-VUD" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIt-RC-VUD" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                                             <rect key="frame" x="184" y="0.0" width="169" height="50"/>
                                                             <color key="backgroundColor" name="CustomWhite"/>
                                                             <constraints>
@@ -330,7 +330,7 @@
                                                         </button>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elq-Pp-OFY" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elq-Pp-OFY" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="65" width="353" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -421,7 +421,7 @@
         <!--Sign UpVC-->
         <scene sceneID="VOX-EA-CQL">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vxb-Q2-xV5" customClass="SignUpVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vxb-Q2-xV5" customClass="SignUpVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aqE-Zq-hqY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,7 +559,7 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEg-8h-ubq" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEg-8h-ubq" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                             <rect key="frame" x="20" y="616" width="353" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="LGV-t9-Za6"/>
@@ -612,7 +612,7 @@
         <!--Hive SetupVC-->
         <scene sceneID="Rqt-JX-xgu">
             <objects>
-                <viewController storyboardIdentifier="HiveSetupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c7l-Hh-mga" customClass="HiveSetupVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveSetupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c7l-Hh-mga" customClass="HiveSetupVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfR-mC-HEX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,7 +633,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wB2-B7-4DM">
                                             <rect key="frame" x="5" y="619" width="383" height="44"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhc-h9-ahC" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhc-h9-ahC" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Amk-iz-xwM"/>
@@ -653,7 +653,7 @@
                                                     <color key="textColor" name="ThemeBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhw-rr-quv" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhw-rr-quv" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                                     <rect key="frame" x="199" y="0.0" width="184" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="WC7-4M-tNN"/>
@@ -672,7 +672,7 @@
                                                 <constraint firstItem="mhc-h9-ahC" firstAttribute="width" secondItem="lhw-rr-quv" secondAttribute="width" multiplier="0.85" id="VDn-zf-Wvk"/>
                                             </constraints>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ7-t4-d9F" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ7-t4-d9F" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                             <rect key="frame" x="146.66666666666666" y="565" width="100" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="HDd-8e-dGi"/>
@@ -950,6 +950,8 @@ Introduced</string>
                     </view>
                     <connections>
                         <outlet property="buildDatePickerOutlet" destination="NIJ-mm-jaP" id="fRC-ZO-DW5"/>
+                        <outlet property="lblOROutlet" destination="hWZ-FP-1SM" id="gHs-xy-quj"/>
+                        <outlet property="lblSetupHiveOutlet" destination="YMS-7k-hiV" id="3j6-q5-hvG"/>
                         <outlet property="onBtnAddAHiveOutlet" destination="mhc-h9-ahC" id="koL-Cq-L15"/>
                         <outlet property="onBtnDeepsOutlet" destination="Y7h-EJ-Uo8" id="K5T-Am-he3"/>
                         <outlet property="onBtnMediumsOutlet" destination="Hen-Av-QSD" id="LI3-of-jKU"/>
@@ -968,7 +970,7 @@ Introduced</string>
         <!--Rate AppVC-->
         <scene sceneID="85r-nl-qW3">
             <objects>
-                <viewController storyboardIdentifier="RateAppVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w0g-1u-WNO" customClass="RateAppVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RateAppVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w0g-1u-WNO" customClass="RateAppVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NXn-pi-Rq4">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -997,7 +999,7 @@ Introduced</string>
                                 <color key="textColor" name="ThemeGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-Xu-a2m" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVs-Xu-a2m" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                 <rect key="frame" x="20" y="677.33333333333337" width="353" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2ff-py-QWV"/>
@@ -1043,7 +1045,7 @@ Introduced</string>
         <!--ShareVC-->
         <scene sceneID="pVq-S4-VCF">
             <objects>
-                <viewController storyboardIdentifier="ShareVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E2j-Rc-jmQ" customClass="ShareVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E2j-Rc-jmQ" customClass="ShareVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OpZ-2m-wR6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1055,7 +1057,7 @@ Introduced</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help spread the word!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00h-mr-FgP">
-                                <rect key="frame" x="58" y="154" width="277" height="32.666666666666657"/>
+                                <rect key="frame" x="50.666666666666657" y="154" width="291.66666666666674" height="32.666666666666657"/>
                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="28"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1066,7 +1068,7 @@ Introduced</string>
                                     <constraint firstAttribute="width" secondItem="bqr-gM-9m9" secondAttribute="height" multiplier="220:241" id="234-RO-wW6"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhC-Sg-CIU" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhC-Sg-CIU" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                 <rect key="frame" x="20" y="677.33333333333337" width="353" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="qt1-v6-EDv"/>
@@ -1080,7 +1082,7 @@ Introduced</string>
                                     <action selector="onBtnSubmitAction:" destination="E2j-Rc-jmQ" eventType="touchUpInside" id="Vy7-Jr-5Bm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="079-O3-Nfo" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="079-O3-Nfo" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                 <rect key="frame" x="193" y="756" width="180" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="GKp-YO-Fa5"/>
@@ -1096,7 +1098,7 @@ Introduced</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-fl-FdW">
-                                <rect key="frame" x="20" y="360.33333333333331" width="353" height="105"/>
+                                <rect key="frame" x="20" y="360.33333333333331" width="353" height="106.66666666666669"/>
                                 <string key="text">Your continued support makes this app possible. 
 
 Please share the app with your fellow beekeepers and groups. Helping us grow our community.
@@ -1106,8 +1108,8 @@ Please share / post where you can. Thank you!</string>
                                 <color key="textColor" name="ThemeGrey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-Y7-sIz" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                <rect key="frame" x="156.66666666666666" y="485.33333333333331" width="80" height="43.999999999999943"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-Y7-sIz" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
+                                <rect key="frame" x="156.66666666666666" y="487" width="80" height="44"/>
                                 <color key="backgroundColor" name="ThemeYellow"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="S7R-f1-ER1"/>
@@ -1176,7 +1178,7 @@ Please share / post where you can. Thank you!</string>
         <!--CMSVC-->
         <scene sceneID="RDU-ta-dJU">
             <objects>
-                <viewController storyboardIdentifier="CMSVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D83-KF-Evg" customClass="CMSVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CMSVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D83-KF-Evg" customClass="CMSVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b0i-Fx-Hjy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1187,7 +1189,7 @@ Please share / post where you can. Thank you!</string>
                                     <constraint firstAttribute="width" secondItem="mig-47-zpI" secondAttribute="height" multiplier="131:120" id="zkR-yq-291"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18E-ir-cuu" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18E-ir-cuu" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                 <rect key="frame" x="193" y="756" width="180" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="E0s-fD-kG8"/>
@@ -1252,7 +1254,7 @@ Please share / post where you can. Thank you!</string>
         <!--Change PasswordVC-->
         <scene sceneID="njb-oC-2NF">
             <objects>
-                <viewController storyboardIdentifier="ChangePasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RUz-O7-vgm" customClass="ChangePasswordVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RUz-O7-vgm" customClass="ChangePasswordVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="flU-uF-jcP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1414,7 +1416,7 @@ Please share / post where you can. Thank you!</string>
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOR-FL-EoJ" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOR-FL-EoJ" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                             <rect key="frame" x="20" y="571.66666666666663" width="353" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="3rk-M4-isy"/>
@@ -1481,7 +1483,7 @@ Please share / post where you can. Thank you!</string>
         <!--SettingsVC-->
         <scene sceneID="iLT-ym-0ob">
             <objects>
-                <viewController storyboardIdentifier="SettingsVC" id="omg-ZW-hlL" customClass="SettingsVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="omg-ZW-hlL" customClass="SettingsVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g3j-ME-NoU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1489,7 +1491,7 @@ Please share / post where you can. Thank you!</string>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_HiveSettingScreen" translatesAutoresizingMaskIntoConstraints="NO" id="44S-RW-EEu">
                                 <rect key="frame" x="0.0" y="239" width="383" height="613"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujp-8K-k0I" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujp-8K-k0I" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                 <rect key="frame" x="203" y="764" width="180" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="ELr-xm-Lm4"/>
@@ -1505,7 +1507,7 @@ Please share / post where you can. Thank you!</string>
                                 <rect key="frame" x="0.0" y="59" width="393" height="685"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_Settings" rowHeight="67" id="QNm-Hq-z66" customClass="CellT_Settings" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_Settings" rowHeight="67" id="QNm-Hq-z66" customClass="CellT_Settings" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QNm-Hq-z66" id="BpB-YJ-lKx">
@@ -1589,7 +1591,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive ListVC-->
         <scene sceneID="G8G-B1-IZ7">
             <objects>
-                <viewController storyboardIdentifier="HiveListVC" id="rpQ-ad-EB9" customClass="HiveListVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveListVC" id="rpQ-ad-EB9" customClass="HiveListVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k8w-VK-49g">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1598,7 +1600,7 @@ Please share / post where you can. Thank you!</string>
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellT_HiveList" editingAccessoryType="disclosureIndicator" rowHeight="92" id="gjl-6C-IOG" customClass="CellT_HiveList" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellT_HiveList" editingAccessoryType="disclosureIndicator" rowHeight="92" id="gjl-6C-IOG" customClass="CellT_HiveList" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjl-6C-IOG" id="hsW-0R-zZ6">
@@ -1609,38 +1611,38 @@ Please share / post where you can. Thank you!</string>
                                                     <rect key="frame" x="10" y="10" width="342.66666666666669" height="72"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ej9-Ug-N4A">
-                                                            <rect key="frame" x="0.0" y="0.0" width="252.66666666666666" height="72"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="212.66666666666666" height="72"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF3-V1-d9j">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="252.66666666666666" height="17.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="212.66666666666666" height="17.333333333333332"/>
                                                                     <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNK-Pr-VUZ">
-                                                                    <rect key="frame" x="0.0" y="27.333333333333336" width="252.66666666666666" height="17.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="27.333333333333336" width="212.66666666666666" height="17.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMB-TS-yhT">
-                                                                    <rect key="frame" x="0.0" y="54.666666666666671" width="252.66666666666666" height="17.333333333333329"/>
+                                                                    <rect key="frame" x="0.0" y="54.666666666666671" width="212.66666666666666" height="17.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46G-fV-qb5" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                                            <rect key="frame" x="262.66666666666669" y="18" width="80" height="36"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46G-fV-qb5" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
+                                                            <rect key="frame" x="222.66666666666663" y="18" width="120" height="36"/>
                                                             <color key="backgroundColor" name="ThemeYellow"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="oqu-z5-dFm"/>
-                                                                <constraint firstAttribute="width" constant="80" id="qDZ-UW-ibB"/>
+                                                                <constraint firstAttribute="width" constant="120" id="qDZ-UW-ibB"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Export">
+                                                            <state key="normal" title="Send Report">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
@@ -1680,7 +1682,7 @@ Please share / post where you can. Thank you!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="No data found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqo-hj-nAI">
-                                <rect key="frame" x="138.66666666666666" y="428" width="115.66666666666666" height="21"/>
+                                <rect key="frame" x="135.33333333333334" y="428" width="122.66666666666666" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1711,7 +1713,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive Inspect1VC-->
         <scene sceneID="o2Z-HC-PoW">
             <objects>
-                <viewController storyboardIdentifier="HiveInspect1VC" id="IFR-XJ-IDH" customClass="HiveInspect1VC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveInspect1VC" id="IFR-XJ-IDH" customClass="HiveInspect1VC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="js8-1g-lvu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1720,7 +1722,7 @@ Please share / post where you can. Thank you!</string>
                                 <rect key="frame" x="0.0" y="94" width="393" height="650"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect" rowHeight="67" id="CQU-jD-v9S" customClass="CellT_HiveInspect" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect" rowHeight="67" id="CQU-jD-v9S" customClass="CellT_HiveInspect" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CQU-jD-v9S" id="al7-hg-wQE">
@@ -1758,7 +1760,6 @@ Please share / post where you can. Thank you!</string>
                                                                 <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fG1-da-06e">
                                                                     <rect key="frame" x="352" y="18" width="2" height="31"/>
                                                                     <color key="backgroundColor" name="ThemeGrey"/>
-                                                                    <color key="onTintColor" name="ThemeBlue"/>
                                                                     <color key="thumbTintColor" name="CustomWhite"/>
                                                                     <connections>
                                                                         <action selector="onSwitchChangeAction:" destination="CQU-jD-v9S" eventType="valueChanged" id="aI4-aw-rBu"/>
@@ -1791,7 +1792,7 @@ Please share / post where you can. Thank you!</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wp6-yK-aoP">
                                 <rect key="frame" x="78.333333333333343" y="754" width="304.66666666666663" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc3-ow-69f" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc3-ow-69f" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="f2t-xv-FFB"/>
@@ -1805,7 +1806,7 @@ Please share / post where you can. Thank you!</string>
                                             <action selector="onBtnAddAHiveAction:" destination="IFR-XJ-IDH" eventType="touchUpInside" id="w65-ck-wPY"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-tN-kbK" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS2-tN-kbK" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="157.33333333333331" y="0.0" width="147.33333333333331" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="147.33000000000001" id="7sB-4L-sDu"/>
@@ -1862,7 +1863,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive Inspect2VC-->
         <scene sceneID="Cg2-Xl-D9U">
             <objects>
-                <viewController storyboardIdentifier="HiveInspect2VC" id="aFt-b0-Cjk" customClass="HiveInspect2VC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveInspect2VC" id="aFt-b0-Cjk" customClass="HiveInspect2VC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXi-5P-Bok">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1871,7 +1872,7 @@ Please share / post where you can. Thank you!</string>
                                 <rect key="frame" x="0.0" y="94" width="393" height="650"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect2" rowHeight="67" id="cp9-QJ-ZOw" customClass="CellT_HiveInspect2" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect2" rowHeight="67" id="cp9-QJ-ZOw" customClass="CellT_HiveInspect2" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cp9-QJ-ZOw" id="dgX-f6-9tN">
@@ -1887,7 +1888,6 @@ Please share / post where you can. Thank you!</string>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="muw-d0-TeL">
                                                                     <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                                     <color key="backgroundColor" name="ThemeGrey"/>
-                                                                    <color key="onTintColor" name="ThemeBlue"/>
                                                                     <color key="thumbTintColor" name="CustomWhite"/>
                                                                     <connections>
                                                                         <action selector="onSwitchWithTextChangeAction:" destination="cp9-QJ-ZOw" eventType="valueChanged" id="ady-P1-Dkb"/>
@@ -1918,7 +1918,6 @@ Please share / post where you can. Thank you!</string>
                                                                 <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8yY-t1-ORV">
                                                                     <rect key="frame" x="303" y="0.0" width="2" height="31"/>
                                                                     <color key="backgroundColor" name="ThemeGrey"/>
-                                                                    <color key="onTintColor" name="ThemeBlue"/>
                                                                     <color key="thumbTintColor" name="CustomWhite"/>
                                                                     <connections>
                                                                         <action selector="onSwitchChangeAction:" destination="cp9-QJ-ZOw" eventType="valueChanged" id="Hsw-r4-6Ml"/>
@@ -1951,7 +1950,7 @@ Please share / post where you can. Thank you!</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dG5-mD-7d8">
                                 <rect key="frame" x="233" y="754" width="150" height="44"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6g-sw-bGr" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6g-sw-bGr" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="eAO-z0-gok"/>
@@ -1965,7 +1964,7 @@ Please share / post where you can. Thank you!</string>
                                             <action selector="onBtnAddAHiveAction:" destination="aFt-b0-Cjk" eventType="touchUpInside" id="WHi-WP-P2i"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-Lv-EPC" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-Lv-EPC" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="5xz-rJ-6Ev"/>
@@ -2022,7 +2021,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive Inspect3VC-->
         <scene sceneID="tF1-pG-9DZ">
             <objects>
-                <viewController storyboardIdentifier="HiveInspect3VC" id="eeI-OA-s5l" customClass="HiveInspect3VC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveInspect3VC" id="eeI-OA-s5l" customClass="HiveInspect3VC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69N-el-awW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2031,7 +2030,7 @@ Please share / post where you can. Thank you!</string>
                                 <rect key="frame" x="0.0" y="94" width="393" height="650"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect3" rowHeight="67" id="XX0-B0-7k5" customClass="CellT_HiveInspect3" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect3" rowHeight="67" id="XX0-B0-7k5" customClass="CellT_HiveInspect3" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XX0-B0-7k5" id="8dp-Ml-Q07">
@@ -2047,7 +2046,6 @@ Please share / post where you can. Thank you!</string>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3SR-Ew-zc1">
                                                                     <rect key="frame" x="0.0" y="7.3333333333333357" width="51" height="31"/>
                                                                     <color key="backgroundColor" name="ThemeGrey"/>
-                                                                    <color key="onTintColor" name="ThemeBlue"/>
                                                                     <color key="thumbTintColor" name="CustomWhite"/>
                                                                     <connections>
                                                                         <action selector="onSwitchWithTextChangeAction:" destination="XX0-B0-7k5" eventType="valueChanged" id="8FK-RG-si1"/>
@@ -2110,7 +2108,7 @@ Please share / post where you can. Thank you!</string>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-CL-TQW">
                                 <rect key="frame" x="233" y="754" width="150" height="44"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl5-Ut-lhF" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gl5-Ut-lhF" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="8Hx-La-77W"/>
@@ -2124,7 +2122,7 @@ Please share / post where you can. Thank you!</string>
                                             <action selector="onBtnAddAHiveAction:" destination="eeI-OA-s5l" eventType="touchUpInside" id="Ayy-oQ-WNS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzZ-ZE-T1v" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzZ-ZE-T1v" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="Tm7-H4-B6K"/>
@@ -2181,7 +2179,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive Inspect4VC-->
         <scene sceneID="5cV-d5-Awq">
             <objects>
-                <viewController storyboardIdentifier="HiveInspect4VC" id="kCg-PO-NT5" customClass="HiveInspect4VC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveInspect4VC" id="kCg-PO-NT5" customClass="HiveInspect4VC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HIJ-ew-uXO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2193,7 +2191,7 @@ Please share / post where you can. Thank you!</string>
                                     <rect key="frame" x="0.0" y="145" width="393" height="187"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="day-6M-Ujg" customClass="LetsTextView" customModule="HiveInspection" customModuleProvider="target">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="day-6M-Ujg" customClass="LetsTextView" customModule="HiveInspectionTests" customModuleProvider="target">
                                             <rect key="frame" x="10" y="10" width="373" height="167"/>
                                             <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2213,7 +2211,7 @@ Please share / post where you can. Thank you!</string>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect4" rowHeight="67" id="Lrx-cb-I0t" customClass="CellT_HiveInspect4" customModule="HiveInspection" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellT_HiveInspect4" rowHeight="67" id="Lrx-cb-I0t" customClass="CellT_HiveInspect4" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lrx-cb-I0t" id="6cw-ow-tfG">
@@ -2229,7 +2227,6 @@ Please share / post where you can. Thank you!</string>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="usX-FS-X7r">
                                                                     <rect key="frame" x="0.0" y="9.3333333333333357" width="51" height="31"/>
                                                                     <color key="backgroundColor" name="ThemeGrey"/>
-                                                                    <color key="onTintColor" name="ThemeBlue"/>
                                                                     <color key="thumbTintColor" name="CustomWhite"/>
                                                                     <connections>
                                                                         <action selector="onSwitchWithTextChangeAction:" destination="Lrx-cb-I0t" eventType="valueChanged" id="vQa-PP-ZJ8"/>
@@ -2307,11 +2304,12 @@ Please share / post where you can. Thank you!</string>
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="du2-LP-3yg">
-                                <rect key="frame" x="78.333333333333343" y="754" width="304.66666666666663" height="44"/>
+                                <rect key="frame" x="235.66666666666663" y="754" width="147.33333333333337" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBO-0D-cLa" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBO-0D-cLa" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="44"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="147.33000000000001" id="cLq-Em-DC2"/>
                                             <constraint firstAttribute="height" constant="44" id="oFG-g5-WCl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -2323,8 +2321,8 @@ Please share / post where you can. Thank you!</string>
                                             <action selector="onBtnAddAHiveAction:" destination="kCg-PO-NT5" eventType="touchUpInside" id="PnZ-tJ-aZx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-ma-hNm" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                        <rect key="frame" x="157.33333333333331" y="0.0" width="147.33333333333331" height="44"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-ma-hNm" customClass="LetsButton" customModule="HiveInspectionTests" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="147.33000000000001" id="1cb-Jc-BU3"/>
                                             <constraint firstAttribute="height" constant="44" id="jWc-hZ-zBG"/>
@@ -2381,7 +2379,7 @@ Please share / post where you can. Thank you!</string>
         <!--Hive Inspect ReportVC-->
         <scene sceneID="txw-YL-yXk">
             <objects>
-                <viewController storyboardIdentifier="HiveInspectReportVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jhw-Ou-V3b" customClass="HiveInspectReportVC" customModule="HiveInspection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HiveInspectReportVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jhw-Ou-V3b" customClass="HiveInspectReportVC" customModule="HiveInspectionTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yx3-C3-Yt7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2434,7 +2432,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="46G-fV-qb5">
-            <size key="intrinsicContentSize" width="53" height="33"/>
+            <size key="intrinsicContentSize" width="103" height="34"/>
         </designable>
         <designable name="5fR-ma-hNm">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2446,7 +2444,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="GIt-RC-VUD">
-            <size key="intrinsicContentSize" width="91" height="22"/>
+            <size key="intrinsicContentSize" width="92" height="22"/>
         </designable>
         <designable name="HeX-ha-jok">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2473,7 +2471,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="elq-Pp-OFY">
-            <size key="intrinsicContentSize" width="165" height="21"/>
+            <size key="intrinsicContentSize" width="172" height="22"/>
         </designable>
         <designable name="gJ7-t4-d9F">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2497,16 +2495,16 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="use-g4-AbO">
-            <size key="intrinsicContentSize" width="148" height="33"/>
+            <size key="intrinsicContentSize" width="150" height="34"/>
         </designable>
         <designable name="y0t-wz-TQL">
-            <size key="intrinsicContentSize" width="119" height="28"/>
+            <size key="intrinsicContentSize" width="118" height="28"/>
         </designable>
         <designable name="yzZ-ZE-T1v">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="zxb-Y7-sIz">
-            <size key="intrinsicContentSize" width="52" height="36"/>
+            <size key="intrinsicContentSize" width="53" height="36"/>
         </designable>
     </designables>
     <resources>

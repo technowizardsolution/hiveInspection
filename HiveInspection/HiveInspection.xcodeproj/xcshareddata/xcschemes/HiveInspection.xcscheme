@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "53678C552A971881007FA7D2"
-               BuildableName = "HiveInspection.app"
+               BuildableName = "Hive Inspect.app"
                BlueprintName = "HiveInspection"
                ReferencedContainer = "container:HiveInspection.xcodeproj">
             </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53678C552A971881007FA7D2"
-            BuildableName = "HiveInspection.app"
+            BuildableName = "Hive Inspect.app"
             BlueprintName = "HiveInspection"
             ReferencedContainer = "container:HiveInspection.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53678C552A971881007FA7D2"
-            BuildableName = "HiveInspection.app"
+            BuildableName = "Hive Inspect.app"
             BlueprintName = "HiveInspection"
             ReferencedContainer = "container:HiveInspection.xcodeproj">
          </BuildableReference>

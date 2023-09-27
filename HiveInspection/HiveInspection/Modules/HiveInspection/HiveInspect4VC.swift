@@ -176,6 +176,7 @@ extension HiveInspect4VC {
             onBtnAddAHiveOutlet.titleLabel?.font = UIFont(name: "ABeeZee-Italic", size: 20)
         }
         func setupStartInspectingButton() {
+            onBtnNextOutlet.isHidden = true
             onBtnNextOutlet.setTitle("See History", for: .normal)
             onBtnNextOutlet.backgroundColor = UIColor(named: HiveColor.ThemeYellow.rawValue)
             onBtnNextOutlet.setTitleColor(UIColor.black, for: .normal)
