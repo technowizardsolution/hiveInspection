@@ -190,7 +190,7 @@ class GlobalHelper
      * Date         :
      * Description  : Send FCM For android
      */
-    public static function sendFCM($title, $message, $target = 0, $device_type)
+    public static function sendFCM($title, $message, $target = 0)
     {
 
         //$baseurl="http://".url();
@@ -198,22 +198,22 @@ class GlobalHelper
         $url = 'https://fcm.googleapis.com/fcm/send';
         //api_key available in Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key
         // $server_key = 'AAAA_76mKPk:APA91bHTGei6hpJBwQtjJaI3oUyhhmyOAQ593Qt3TVAhxbQ7oFNqW0phUFkG2JcX8MBvUOZe61oilBgVV-tCXuceUoHOqmdhbkMEA9z7hkF9iSfzWp_r64HRkySsKYu3mq0JGOr5uQLY';
-        $server_key = 'AAAAUp5MkFM:APA91bEK8_7T3wnkmIRyMTzf0g2yAt75rJ-YfvFOFLBAHwGi-TggfpToxSt1gX_FnCE3op5hY4QBqkv6oCX07fDz3mRDuOiUbfOHjwkuaN6WIed67KeT1CawwoGR1KN_Jbqnc11lt8uW';
+        $server_key = 'AAAADnI9Pd4:APA91bHkrmP7xFttGicYyfssPHzU7NhoktuDUWbK3GJvdjUZbb8jlSwKo-KbJ1j76r7MnNO8_mO9a-0n6J9LPbYCS8x6atBxgaZTo8DZ7nkVusxk_8KTOETMBDXzKvz4PJZN_qnHp9uV';
 
-        if ($device_type == 1) { //need this field fro android
+        // if ($device_type == 1) { //need this field fro android
             $fields['notification'] = array();
             $fields['notification']['body'] = $message;
             $fields['notification']['title'] = $title;
             $fields['notification']['click_action'] = '.MainActivity';
             $fields['notification']['sound'] = 'default';
-        } else {
+        // } else {
             $fields = array();
             $fields['data'] = array();
             $fields['data']['body'] = $message;
             $fields['data']['title'] = $title;
             $fields['data']['click_action'] = '.MainActivity';
             $fields['data']['sound'] = 'default';
-        }
+        // }
         $fields['to'] = $target;
         $fields['content_available'] = true;
         $fields['priority'] = "high";
