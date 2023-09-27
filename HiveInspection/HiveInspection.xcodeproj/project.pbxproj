@@ -70,6 +70,8 @@
 		53678CEB2A97373E007FA7D2 /* LetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE62A97373D007FA7D2 /* LetsView.swift */; };
 		53678CEC2A97373E007FA7D2 /* LetsFloatField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE72A97373E007FA7D2 /* LetsFloatField.swift */; };
 		53678CED2A97373E007FA7D2 /* LetsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53678CE82A97373E007FA7D2 /* LetsButton.swift */; };
+		53853DB02AC2DE370061BBE7 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53853DAF2AC2DE370061BBE7 /* ProfileModel.swift */; };
+		53853DB22AC2DF1D0061BBE7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53853DB12AC2DF1D0061BBE7 /* ProfileViewModel.swift */; };
 		5386A4562AA5B30B006E444B /* MoyaHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4552AA5B30B006E444B /* MoyaHandler.swift */; };
 		5386A4582AA5B379006E444B /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4572AA5B379006E444B /* ApiConstants.swift */; };
 		5386A45A2AA5F830006E444B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386A4592AA5F830006E444B /* NetworkManager.swift */; };
@@ -158,7 +160,7 @@
 		535F4AB62AB184A000375ACF /* LoginWithApple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWithApple.swift; sourceTree = "<group>"; };
 		535F4AB72AB184A000375ACF /* LoginWithFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWithFacebook.swift; sourceTree = "<group>"; };
 		535F4AB82AB184A100375ACF /* LoginWithGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWithGoogle.swift; sourceTree = "<group>"; };
-		53678C562A971881007FA7D2 /* HiveInspection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiveInspection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53678C562A971881007FA7D2 /* Hive Inspect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hive Inspect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53678C592A971881007FA7D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53678C5B2A971881007FA7D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		53678C602A971881007FA7D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,8 @@
 		53678CE62A97373D007FA7D2 /* LetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsView.swift; sourceTree = "<group>"; };
 		53678CE72A97373E007FA7D2 /* LetsFloatField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFloatField.swift; sourceTree = "<group>"; };
 		53678CE82A97373E007FA7D2 /* LetsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsButton.swift; sourceTree = "<group>"; };
+		53853DAF2AC2DE370061BBE7 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		53853DB12AC2DF1D0061BBE7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5386A4552AA5B30B006E444B /* MoyaHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaHandler.swift; sourceTree = "<group>"; };
 		5386A4572AA5B379006E444B /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		5386A4592AA5F830006E444B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -352,7 +356,7 @@
 		53678C572A971881007FA7D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				53678C562A971881007FA7D2 /* HiveInspection.app */,
+				53678C562A971881007FA7D2 /* Hive Inspect.app */,
 				53678C6F2A971884007FA7D2 /* HiveInspectionTests.xctest */,
 				53678C792A971884007FA7D2 /* HiveInspectionUITests.xctest */,
 			);
@@ -439,7 +443,7 @@
 				53FFE32E2AA774CD00C01B3D /* HiveSetupModule */,
 				533BC5FB2AAC92DC005F2726 /* HiveListModule */,
 				53A91B202A9C415600EF3205 /* ShareVC.swift */,
-				531131CD2A9C55070040370C /* SettingsVC.swift */,
+				53853DAE2AC2DE0C0061BBE7 /* SettingsModule */,
 				5327018B2AC1539A00EDD5FA /* HiveInspectReportModule */,
 				53F4E8DD2AAF609E00D9EC73 /* CMSModule */,
 				CCA94C3D2A9CBA4B000F49A9 /* HiveInspection */,
@@ -503,6 +507,16 @@
 				53678CE22A9730B6007FA7D2 /* ABeeZee-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		53853DAE2AC2DE0C0061BBE7 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				531131CD2A9C55070040370C /* SettingsVC.swift */,
+				53853DAF2AC2DE370061BBE7 /* ProfileModel.swift */,
+				53853DB12AC2DF1D0061BBE7 /* ProfileViewModel.swift */,
+			);
+			path = SettingsModule;
 			sourceTree = "<group>";
 		};
 		5386A4542AA5B2FC006E444B /* ApiManager */ = {
@@ -615,7 +629,7 @@
 				5325F2572ABEE3AD0017A492 /* FacebookLogin */,
 			);
 			productName = HiveInspection;
-			productReference = 53678C562A971881007FA7D2 /* HiveInspection.app */;
+			productReference = 53678C562A971881007FA7D2 /* Hive Inspect.app */;
 			productType = "com.apple.product-type.application";
 		};
 		53678C6E2A971884007FA7D2 /* HiveInspectionTests */ = {
@@ -853,6 +867,7 @@
 				53678C5A2A971881007FA7D2 /* AppDelegate.swift in Sources */,
 				53FFE3322AA774F000C01B3D /* HiveSetupViewModel.swift in Sources */,
 				5386A4662AA5FD5D006E444B /* APIHandler.swift in Sources */,
+				53853DB02AC2DE370061BBE7 /* ProfileModel.swift in Sources */,
 				535F4ABB2AB184A100375ACF /* LoginWithFacebook.swift in Sources */,
 				53678CDE2A971B48007FA7D2 /* UINavigationBar+Extension.swift in Sources */,
 				53678CC62A971B48007FA7D2 /* String+Extension.swift in Sources */,
@@ -872,6 +887,7 @@
 				CC9B4C7A2AA066FF001098AD /* HiveInspect3VC.swift in Sources */,
 				53F4E8DF2AAF60B500D9EC73 /* CMSViewModel.swift in Sources */,
 				535F4ABA2AB184A100375ACF /* LoginWithApple.swift in Sources */,
+				53853DB22AC2DF1D0061BBE7 /* ProfileViewModel.swift in Sources */,
 				53678CC22A971B48007FA7D2 /* UIAlertController + extension.swift in Sources */,
 				5386A45D2AA5F898006E444B /* LoginModel.swift in Sources */,
 				53678C5C2A971881007FA7D2 /* SceneDelegate.swift in Sources */,
@@ -1109,26 +1125,26 @@
 				CODE_SIGN_ENTITLEMENTS = HiveInspection/HiveInspection.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HJ24GYP5P2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiveInspection/Supporting Files/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspection";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspector";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.george.hiveinspection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hive Inspect";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = HiveInspection_Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1146,26 +1162,26 @@
 				CODE_SIGN_ENTITLEMENTS = HiveInspection/HiveInspection.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HJ24GYP5P2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HiveInspection/Supporting Files/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspection";
+				INFOPLIST_KEY_CFBundleDisplayName = "Hive Inspector";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.george.hiveinspection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hive Inspect";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = HiveInspection_AppStore;
 				SWIFT_EMIT_LOC_STRINGS = YES;

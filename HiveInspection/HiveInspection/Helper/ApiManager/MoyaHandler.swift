@@ -20,6 +20,8 @@ enum API {
     case addInspect(param : [String:Any])
     case forgotPassword(param : [String:Any])
     case inspectionExport(param : [String:Any])
+    case getProfile(param : [String:Any])
+    case updateNotification(param : [String:Any])
 }
 
 extension API : TargetType {
@@ -47,12 +49,16 @@ extension API : TargetType {
             return Constants.API.forgotPassword
         case .inspectionExport:
             return Constants.API.exportReport
+        case .getProfile:
+            return Constants.API.getProfile
+        case .updateNotification:
+            return Constants.API.updateNotification
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect, .forgotPassword, .inspectionExport, .socialLogin:
+        case .login, .signUp, .addUpdateHive, .changePassword, .CMS, .deleteHive, .addInspect, .forgotPassword, .inspectionExport, .socialLogin, .getProfile, .updateNotification:
             return .post
         case .hiveList:
             return .get
@@ -65,7 +71,7 @@ extension API : TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param), .forgotPassword(param: let param), .inspectionExport(param: let param), .socialLogin(param: let param):
+        case .login(param: let param), .signUp(param: let param), .addUpdateHive(param: let param), .changePassword(param: let param), .CMS(param: let param), .deleteHive(param: let param), .addInspect(param: let param), .forgotPassword(param: let param), .inspectionExport(param: let param), .socialLogin(param: let param), .getProfile(param: let param), .updateNotification(param: let param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         case .hiveList:
             return .requestPlain

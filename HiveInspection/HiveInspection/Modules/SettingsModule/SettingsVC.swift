@@ -22,7 +22,7 @@ class SettingsVC : UIViewController {
     @IBOutlet private weak var tableview : UITableView!
     @IBOutlet weak var onBtnStartInspectingOutlet : LetsButton!
     var getSettingsData : [SettingsData]?
-    
+    var profileVM : ProfileViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
@@ -38,7 +38,22 @@ class SettingsVC : UIViewController {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
+        profileVM = ProfileViewModel()
+        profileVM?.delegate = self
+        profileVM?.callAPI()
     }
+}
+
+extension SettingsVC : ProfileResponse {
+    func updateNotificationResponse(_ model: SignUpModel) {
+        profileVM?.callAPI()
+    }
+    
+    func getProfileResponse(_ model: ProfileModel) {
+        self.tableview.reloadData()
+    }
+    
+    func failureResponse(_ error: String) { }
 }
 
 extension SettingsVC {
@@ -89,8 +104,14 @@ extension SettingsVC : UITableViewDataSource, UITableViewDelegate {
         cell.lblVersionOutlet.isHidden = !(item?.type == .version)
         cell.lblTitleOutlet.text = item?.title
         cell.lblVersionOutlet.text = "V \(UIApplication.shared.version ?? "1.0")"
+        if profileVM != nil, profileVM?.profileData != nil {
+            cell.switchNotificationOutlet.isOn = (profileVM?.profileData?.data?.notificationStatus ?? "") == "1"
+        }else {
+            cell.switchNotificationOutlet.isOn = false
+        }
         cell.completionSwitchChanged = { sender in
-            //Call notification Api
+            let param : [String : Any] = ["data":["notification_status":sender.isOn ? "1" : "0"]]
+            self.profileVM?.callNotificationUpdateAPI(param: param)
         }
         return cell
     }

@@ -97,6 +97,19 @@ extension UIViewController {
     @objc func addButtonAction() {
         self.view.endEditing(true)
     }
+    
+    func exportButton() {
+        self.view.endEditing(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let barButton = UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(UIViewController.exportButtonAction))
+        barButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = barButton
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font : UIFont(name: "ABeeZee-Italic", size: 28)! , NSAttributedString.Key.foregroundColor: UIColor.black]
+    }
+    
+    @objc func exportButtonAction() {
+        self.view.endEditing(true)
+    }
 
     func pullDownButton(completion : @escaping (String) -> ()) {
         self.view.endEditing(true)
@@ -310,6 +323,14 @@ extension String {
             }
         }
         return nil
+    }
+    
+    var base64String : String {
+        if let data = self.data(using: .utf8) {
+            let base64String = data.base64EncodedString()
+            return base64String
+        }
+        return self
     }
 }
 

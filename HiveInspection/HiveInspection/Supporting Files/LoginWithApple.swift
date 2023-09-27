@@ -45,8 +45,7 @@ class LoginWithApple : NSObject, ASAuthorizationControllerDelegate, ASAuthorizat
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
             KeychainItem.currentUserIdentifier = appleIDCredential.user
-            KeychainItem.currentUserFirstName = appleIDCredential.fullName?.givenName
-            KeychainItem.currentUserLastName = appleIDCredential.fullName?.familyName
+            KeychainItem.currentUserName = (appleIDCredential.fullName?.givenName ?? "") + " " + (appleIDCredential.fullName?.familyName ?? "")
             KeychainItem.currentUserEmail = appleIDCredential.email
             guard let idTokenString = String(data: appleIDCredential.identityToken ?? Data(), encoding: .utf8) else { return }
             KeychainItem.identityToken = idTokenString

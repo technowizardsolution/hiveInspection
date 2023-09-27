@@ -34,7 +34,11 @@ class SignUpVC : UIViewController {
 
 extension SignUpVC : SignUpResponse {
     func getSignUpResponse(_ model: SignUpModel) {
-        navigationController?.popViewController(animated: true)
+        UIAlertController.actionWith(andMessage: model.message ?? "", getStyle: .alert,controller: self, buttons: [UIAlertController.actionTitleStyle(title: "OK", style: .default)]) { _ in
+            if (model.status ?? 0) == 1 {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     func failureResponse(_ error: String) {

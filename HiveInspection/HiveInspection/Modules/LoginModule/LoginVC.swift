@@ -150,13 +150,23 @@ extension LoginVC {
         self.vibrate()
         LoginWithApple.shared.loginWithApple { credentials in
             print(credentials?.fullName ?? "")
-            let param : [String:Any] = ["data": [
-                "first_name": credentials?.fullName ?? "",
-                "social_provider":"apple",
-                "social_provider_id":credentials?.user ?? "",
-                "device_type":"1",
-                "device_token": Constants.FCMToken()]]
-            self.loginVM?.callLoginAPI(param, isSocial: true)
+            if KeychainItem.currentUserIdentifier != nil {
+                let param : [String:Any] = ["data": [
+                    "first_name": KeychainItem.currentUserName,
+                    "social_provider":"apple",
+                    "social_provider_id":KeychainItem.currentUserIdentifier,
+                    "device_type":"1",
+                    "device_token": Constants.FCMToken()]]
+                self.loginVM?.callLoginAPI(param, isSocial: true)
+            }else {
+                let param : [String:Any] = ["data": [
+                    "first_name": credentials?.fullName ?? "",
+                    "social_provider":"apple",
+                    "social_provider_id":credentials?.user ?? "",
+                    "device_type":"1",
+                    "device_token": Constants.FCMToken()]]
+                self.loginVM?.callLoginAPI(param, isSocial: true)
+            }
         }
     }
     

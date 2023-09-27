@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gch-pm-t5v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gch-pm-t5v">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,6 +31,9 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_hexPattern" translatesAutoresizingMaskIntoConstraints="NO" id="0eD-HU-NnM">
                                 <rect key="frame" x="131" y="612" width="262" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0eD-HU-NnM" secondAttribute="height" multiplier="131:120" id="3EW-Gu-YlN"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Welcome to Hive inspection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgu-Wm-zgN">
                                 <rect key="frame" x="10" y="479.66666666666669" width="373" height="32"/>
@@ -82,7 +84,6 @@
                         <constraints>
                             <constraint firstItem="jRn-us-CDc" firstAttribute="centerY" secondItem="k0e-bi-POd" secondAttribute="centerY" id="1NY-8j-aAN"/>
                             <constraint firstItem="WJg-Ob-fsy" firstAttribute="top" secondItem="Hgu-Wm-zgN" secondAttribute="bottom" constant="20" id="25t-aa-mnQ"/>
-                            <constraint firstItem="0eD-HU-NnM" firstAttribute="width" secondItem="0eD-HU-NnM" secondAttribute="height" multiplier="131:120" id="3EW-Gu-YlN"/>
                             <constraint firstItem="0eD-HU-NnM" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="131" id="ER0-Yh-bC3"/>
                             <constraint firstItem="Hgu-Wm-zgN" firstAttribute="centerX" secondItem="k0e-bi-POd" secondAttribute="centerX" id="Gz1-fc-nQ1"/>
                             <constraint firstItem="jRn-us-CDc" firstAttribute="leading" secondItem="k0e-bi-POd" secondAttribute="leading" constant="85" id="IkV-4E-aaH"/>
@@ -130,13 +131,13 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-Xv-xes">
-                                            <rect key="frame" x="20.000000000000007" y="50" width="90.666666666666686" height="42.666666666666657"/>
+                                            <rect key="frame" x="20.000000000000007" y="50" width="89.666666666666686" height="42"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="36"/>
                                             <color key="textColor" name="ThemeBlue"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LRJ-tT-Zel">
-                                            <rect key="frame" x="20" y="132.66666666666666" width="353" height="120"/>
+                                            <rect key="frame" x="20" y="132" width="353" height="120"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8H-M6-6pX">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="45"/>
@@ -201,7 +202,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tta-JP-Jbo" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="272.66666666666669" width="353" height="50"/>
+                                            <rect key="frame" x="20" y="272" width="353" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="trf-ll-kGO"/>
                                             </constraints>
@@ -231,7 +232,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="use-g4-AbO" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                            <rect key="frame" x="223" y="332.66666666666669" width="150" height="34.666666666666686"/>
+                                            <rect key="frame" x="225" y="332" width="148" height="35.666666666666686"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" title="Forgot Password?">
@@ -243,17 +244,17 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6I-yd-z6L">
-                                            <rect key="frame" x="20" y="447.33333333333331" width="353" height="1"/>
+                                            <rect key="frame" x="20" y="447.66666666666669" width="353" height="1"/>
                                             <color key="backgroundColor" name="ThemeGrey"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="NvB-7S-65f"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55e-4P-9rc">
-                                            <rect key="frame" x="176.66666666666666" y="437" width="40" height="21.333333333333314"/>
+                                            <rect key="frame" x="176.66666666666666" y="437.66666666666669" width="40" height="21"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZW-2U-afw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="21.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="21"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="uuO-0L-bov"/>
@@ -272,7 +273,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with your Social account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzM-SP-nqP">
-                                            <rect key="frame" x="53.333333333333343" y="508.33333333333331" width="286.33333333333326" height="23.666666666666686"/>
+                                            <rect key="frame" x="59" y="508.66666666666669" width="275.33333333333337" height="23.333333333333314"/>
                                             <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="20"/>
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -1054,7 +1055,7 @@ Introduced</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help spread the word!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00h-mr-FgP">
-                                <rect key="frame" x="50.666666666666657" y="154" width="291.66666666666674" height="32.666666666666657"/>
+                                <rect key="frame" x="58" y="154" width="277" height="32.666666666666657"/>
                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="28"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1095,7 +1096,7 @@ Introduced</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-fl-FdW">
-                                <rect key="frame" x="20" y="360.33333333333331" width="353" height="106.66666666666669"/>
+                                <rect key="frame" x="20" y="360.33333333333331" width="353" height="105"/>
                                 <string key="text">Your continued support makes this app possible. 
 
 Please share the app with your fellow beekeepers and groups. Helping us grow our community.
@@ -1106,7 +1107,7 @@ Please share / post where you can. Thank you!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-Y7-sIz" customClass="LetsButton" customModule="HiveInspection" customModuleProvider="target">
-                                <rect key="frame" x="156.66666666666666" y="487" width="80" height="44"/>
+                                <rect key="frame" x="156.66666666666666" y="485.33333333333331" width="80" height="43.999999999999943"/>
                                 <color key="backgroundColor" name="ThemeYellow"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="S7R-f1-ER1"/>
@@ -1679,7 +1680,7 @@ Please share / post where you can. Thank you!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="No data found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqo-hj-nAI">
-                                <rect key="frame" x="135.33333333333334" y="428" width="122.66666666666666" height="21.333333333333314"/>
+                                <rect key="frame" x="138.66666666666666" y="428" width="115.66666666666666" height="21"/>
                                 <fontDescription key="fontDescription" name="ABeeZee-Italic" family="ABeeZee" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2433,7 +2434,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="46G-fV-qb5">
-            <size key="intrinsicContentSize" width="56" height="34"/>
+            <size key="intrinsicContentSize" width="53" height="33"/>
         </designable>
         <designable name="5fR-ma-hNm">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2445,7 +2446,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="GIt-RC-VUD">
-            <size key="intrinsicContentSize" width="92" height="22"/>
+            <size key="intrinsicContentSize" width="91" height="22"/>
         </designable>
         <designable name="HeX-ha-jok">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2472,7 +2473,7 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="elq-Pp-OFY">
-            <size key="intrinsicContentSize" width="172" height="22"/>
+            <size key="intrinsicContentSize" width="165" height="21"/>
         </designable>
         <designable name="gJ7-t4-d9F">
             <size key="intrinsicContentSize" width="30" height="30"/>
@@ -2496,16 +2497,16 @@ Please share / post where you can. Thank you!</string>
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="use-g4-AbO">
-            <size key="intrinsicContentSize" width="150" height="34"/>
+            <size key="intrinsicContentSize" width="148" height="33"/>
         </designable>
         <designable name="y0t-wz-TQL">
-            <size key="intrinsicContentSize" width="118" height="28"/>
+            <size key="intrinsicContentSize" width="119" height="28"/>
         </designable>
         <designable name="yzZ-ZE-T1v">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="zxb-Y7-sIz">
-            <size key="intrinsicContentSize" width="53" height="36"/>
+            <size key="intrinsicContentSize" width="52" height="36"/>
         </designable>
     </designables>
     <resources>

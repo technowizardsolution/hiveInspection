@@ -57,6 +57,7 @@ class HiveListVC: UIViewController {
                 if let data = response?.data, let dataUrl = URL(string: data) {
                     if let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspectReportVC") as? HiveInspectReportVC {
                         dvc.urlToLoad = dataUrl
+                        dvc.hiveId = hiveId.string
                         self.navigationController?.pushViewController(dvc, animated: true)
                     }
                 }

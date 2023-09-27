@@ -24,6 +24,8 @@ enum Constants {
         static let addInspection = "addInspection"
         static let forgotPassword = "forgotPassword"
         static let exportReport = "inspectionExport"
+        static let getProfile = "getProfile"
+        static let updateNotification = "updateNotification"
     }
     
     static func FCMToken() -> String {

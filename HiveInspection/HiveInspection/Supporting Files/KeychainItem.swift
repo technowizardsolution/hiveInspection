@@ -133,42 +133,23 @@ extension KeychainItem {
     }
     
     //Get and Set Current User First Name. Set nil to delete.
-    static var currentUserFirstName: String? {
+    static var currentUserName: String? {
         get {
-            return try? KeychainItem(service: bundleIdentifier, account: "userFirstName").readItem()
+            return try? KeychainItem(service: bundleIdentifier, account: "userName").readItem()
         }
         set {
             guard let value = newValue else {
-                try? KeychainItem(service: bundleIdentifier, account: "userFirstName").deleteItem()
+                try? KeychainItem(service: bundleIdentifier, account: "userName").deleteItem()
                 return
             }
             do {
-                try KeychainItem(service: bundleIdentifier, account: "userFirstName").saveItem(value)
+                try KeychainItem(service: bundleIdentifier, account: "userName").saveItem(value)
             } catch {
                 print("Unable to save userFirstName to keychain.")
             }
         }
     }
-    
-    //Get and Set Current User Last Name. Set nil to delete.
-    static var currentUserLastName: String? {
-        get {
-            return try? KeychainItem(service: bundleIdentifier, account: "userLastName").readItem()
-        }
-        set {
-            guard let value = newValue else {
-                try? KeychainItem(service: bundleIdentifier, account: "userLastName").deleteItem()
-                return
-            }
-            do {
-                try KeychainItem(service: bundleIdentifier, account: "userLastName").saveItem(value)
-            } catch {
-                print("Unable to save userLastName to keychain.")
-            }
-        }
-    }
-    
-    
+        
     //Get and Set Current User Email. Set nil to delete.
     static var currentUserEmail: String? {
         get {
@@ -225,7 +206,7 @@ extension KeychainItem {
     
     static func delete() {
         do {
-            var items = ["userIdentifier","userFirstName","userLastName","userEmail","identityToken", "authCode"]
+            let items = ["userIdentifier","userName","userEmail","identityToken", "authCode"]
             for item in items {
                 try KeychainItem(service: bundleIdentifier, account: item).deleteItem()
             }
