@@ -51,7 +51,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="step-info-card">
-
+                    @if($inspectionlist->count())
                     <div class="main-section">
                         <div class="main-tittle">
                            <h4><b>{{$hivedata->hive_name}}</b></h4>
@@ -509,9 +509,9 @@
                     </tbody>
                     </table>
 
-
-
-
+                    @else
+                    <h4>No inspection Found.</h4>
+                    @endif
 
                 </div>
             </div>
