@@ -58,6 +58,16 @@ class InspectionController extends Controller
                         $hivedata->report_file = $fileName;
                         $hivedata->save(); 
                         $file= url('/').'/public/report/'.$fileName; 
+
+                        $files = [ url('/').'/public/report/'.$fileName ];
+                        $user = User::find($hivedata->user_id);
+                        Mail::send('emails.sendInspectionReport', ['email'=>$user->email], function ($m) use ($user, $files) {
+                            $m->to($user->email, $user->name)->subject('Inspection Report');
+                            foreach ($files as $file){
+                                $message->attach($file);
+                            }
+                        });
+
                         return $this->APIResponse->respondWithMessageAndPayload($file, 'Inspection Record');
                         
                     }else{
@@ -71,6 +81,8 @@ class InspectionController extends Controller
 
         
     }
+
+   
 
     public function getInspectionById($inspection_id)
     {

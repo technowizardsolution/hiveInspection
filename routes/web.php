@@ -57,6 +57,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/inspectionReport/{id}', 'User\InspectionController@inspectionReport');
     Route::get('/inspectionexport/{id}', 'User\InspectionController@inspectionExport');
+    Route::get('/sendinspectionreport/{id}', 'User\InspectionController@sendReportInEmail');
+
+    
 
     Route::group(['middleware' => ['auth']], function () {
         // Route::get('/home', 'HomeController@index');

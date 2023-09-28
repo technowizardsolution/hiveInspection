@@ -58,10 +58,15 @@
                         </div>
                         <div class="main-button">
                             <a class="btn btn-primary hive-button" href="{{url('/inspectionexport',$hivedata->hive_id)}}">Export Inspection</a>
+                            @if(request()->get('app'))
+                            <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id).'?app=true'}}">Send Report To Mail</a>
+                            @elseif(Auth::check())
+                            <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id)}}">Send Report To Mail</a>
+                            @endif                            
                         </div>                       
                     </div>
-
-
+                    <br/><br/>
+                    
                     <table id="inspectionTable" class="table table-striped table-bordered table-sm" cellspacing="0" 
                     width="100%">
                     <thead>
