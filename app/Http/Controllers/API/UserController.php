@@ -14,6 +14,7 @@ use App\Notifications\UserRegistration;
 use App\SubCategory;
 use App\User;
 use App\UserToken;
+use App\Inspection;
 use Exception;
 use File;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 use Str;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -657,6 +659,15 @@ class UserController extends Controller
         }    
      
     }    
+
+    public function sendReminder(Request $request)
+    {
+        $inspections = Inspection::whereNotNull('medication_reminder')->whereDate('medication_reminder', Carbon::today())->with('user')->get();
+        foreach($inspections as $inspection) {
+            GlobalHelper::sendFCM("Medication Reminder", "Hello, this is a medication reminder for your hive inspection", $inspection['user']['device_token']);
+        }
+        return true;
+    }   
 
 
 
