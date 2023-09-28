@@ -57,12 +57,10 @@
                            <h4><b>{{$hivedata->hive_name}}</b></h4>
                         </div>
                         <div class="main-button">
-                            @if(request()->get('app'))
-                            <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id).'?app=true'}}">Send Report To Mail</a>
-                            @elseif(Auth::check())
+                            @if(!request()->get('app'))
                             <a class="btn btn-primary hive-button" href="{{url('/inspectionexport',$hivedata->hive_id)}}">Export Inspection</a>
-                            <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id)}}">Send Report To Mail</a>
                             @endif
+                            <a class="btn btn-primary hive-button sendReportButton" id="sendReportButton" @if(request()->get('app')) href="{{url('/sendinspectionreport',$hivedata->hive_id)}}" @else href="{{url('/sendinspectionreport',$hivedata->hive_id).'?app=true'}}" @endif>Send Report To Mail</a>
                         </div>
                     </div>
                     <br/><br/>
@@ -547,6 +545,13 @@
             scrollX: true
         });
     });
+
+    var SITE_URL = "<?php echo URL::to('/'); ?>";
+    $(document.body).on('click', ".sendReportButton", function(){
+      document.getElementById("sendReportButton").disabled = true;
+      $("#sendReportButton").html('<i class="fa fa-spinner fa-spin fa-1x fa-fw"></i>');
+    });
+
 </script>
 
 @endsection
