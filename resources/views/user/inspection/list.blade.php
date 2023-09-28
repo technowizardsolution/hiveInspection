@@ -3,7 +3,7 @@
 @section('content')
 <style>
   .color-green{
-    background-color: #008000;    
+    background-color: #008000;
     display: block;
     color: #fff;
     margin: 0px;
@@ -11,7 +11,7 @@
     font-weight: 600;
   }
   .color-red{
-    background-color: #FF0000;    
+    background-color: #FF0000;
     display: block;
     color: #fff;
     margin: 0px;
@@ -19,7 +19,7 @@
     font-weight: 600;
   }
   .color-yellow{
-    background-color: #F4B61A;    
+    background-color: #F4B61A;
     display: block;
     color: #fff;
     margin: 0px;
@@ -27,23 +27,23 @@
     font-weight: 600;
   }
   .color-gray{
-    background-color: #adabab;    
+    background-color: #adabab;
     display: block;
     color: #fff;
     margin: 0px;
-    padding: 0.72rem 2rem;    
+    padding: 0.72rem 2rem;
     font-weight: 600;
   }
-  .text-center{    
+  .text-center{
     display: block;
     color: #000;
-    margin-top: 10px;    
+    margin-top: 10px;
     font-weight: 400;
   }
-    div.dataTables_wrapper {        
+    div.dataTables_wrapper {
         margin: 0 auto;
     }
-  
+
 </style>
 
 <section class="form-section">
@@ -54,20 +54,20 @@
 
                     <div class="main-section">
                         <div class="main-tittle">
-                           <h4><b>{{$hivedata->hive_name}}</b></h4> 
+                           <h4><b>{{$hivedata->hive_name}}</b></h4>
                         </div>
                         <div class="main-button">
-                            <a class="btn btn-primary hive-button" href="{{url('/inspectionexport',$hivedata->hive_id)}}">Export Inspection</a>
                             @if(request()->get('app'))
                             <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id).'?app=true'}}">Send Report To Mail</a>
                             @elseif(Auth::check())
+                            <a class="btn btn-primary hive-button" href="{{url('/inspectionexport',$hivedata->hive_id)}}">Export Inspection</a>
                             <a class="btn btn-primary hive-button" href="{{url('/sendinspectionreport',$hivedata->hive_id)}}">Send Report To Mail</a>
-                            @endif                            
-                        </div>                       
+                            @endif
+                        </div>
                     </div>
                     <br/><br/>
-                    
-                    <table id="inspectionTable" class="table table-striped table-bordered table-sm" cellspacing="0" 
+
+                    <table id="inspectionTable" class="table table-striped table-bordered table-sm" cellspacing="0"
                     width="100%">
                     <thead>
                         <tr>
@@ -114,7 +114,7 @@
                             <th>Split hive</th>
                             <th>Re queen</th>
                             <th>Swap brood boxes</th>
-                            <th>Insulate winterize</th>                            
+                            <th>Insulate winterize</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,8 +130,8 @@
                                     @elseif($inspection->normal_hive_condition == '0')
                                     <span class="color-red"> No </span>
                                     @endif
-                                </td>                               
-                                         
+                                </td>
+
                                 <td class="text-primary">
                                     @if($inspection->saw_queen == '1')
                                     <span class="color-green"> Yes </span>
@@ -139,8 +139,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                                        
-                                            
+
+
                                 <td class="text-primary">
                                     @if($inspection->queen_marked == '1')
                                     <span class="color-green"> Yes </span>
@@ -148,8 +148,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->eggs_seen == '1')
                                     <span class="color-green"> Yes </span>
@@ -157,8 +157,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->larva_seen == '1')
                                     <span class="color-green"> Yes </span>
@@ -166,8 +166,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->pupa_seen == '1')
                                     <span class="color-green"> Yes </span>
@@ -175,8 +175,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->drone_cells == '1')
                                     <span class="color-green"> Yes </span>
@@ -184,8 +184,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->queen_cells == '1')
                                     <span class="color-yellow"> Yes </span>
@@ -193,8 +193,8 @@
                                     <span class="color-green"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->hive_beetles == '1')
                                     <span class="color-red"> Yes </span>
@@ -202,8 +202,8 @@
                                     <span class="color-green"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->wax_moth == '1')
                                     <span class="color-red"> Yes </span>
@@ -211,8 +211,8 @@
                                     <span class="color-green"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->noseema == '1')
                                     <span class="color-red"> Yes </span>
@@ -220,8 +220,8 @@
                                     <span class="color-green"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->mite_wash == '1')
                                     <span class="color-green"> Yes </span>
@@ -229,12 +229,12 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                 <span class="text-center">{{$inspection->mite_count}}</span></td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->temperment == 'Calm')
                                     <span class="color-green"> {{$inspection->temperment}} </span>
@@ -242,10 +242,10 @@
                                     <span class="color-yellow"> {{$inspection->temperment}} </span>
                                     @elseif($inspection->temperment == 'Aggressive')
                                     <span class="color-red"> {{$inspection->temperment}} </span>
-                                    @endif                                              
+                                    @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->population == 'Heavy')
                                     <span class="color-yellow"> {{$inspection->population}} </span>
@@ -255,7 +255,7 @@
                                     <span class="color-red"> {{$inspection->population}} </span>
                                     @endif
                                 </td>
-                            
+
                                 <td class="text-primary">
                                     @if($inspection->solid_uniform_frames)
                                     <span class="text-center">{{$inspection->solid_uniform_frames}}</span>
@@ -263,8 +263,8 @@
                                     <span class="text-center">No</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->slightly_spotty_frames)
                                     <span class="text-center">{{$inspection->slightly_spotty_frames}}</span>
@@ -272,8 +272,8 @@
                                     <span class="text-center">No</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->spotty_frames == '1')
                                     <span class="color-red"> Yes </span>
@@ -281,8 +281,8 @@
                                     <span class="color-green"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->normal_odor == '1')
                                     <span class="color-green"> Yes </span>
@@ -290,8 +290,8 @@
                                     <span class="color-red"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->brood == 'Heavy')
                                     <span class="color-yellow"> {{$inspection->brood}} </span>
@@ -301,8 +301,8 @@
                                     <span class="color-red"> {{$inspection->brood}} </span>
                                     @endif
                                     </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->honey == 'Heavy')
                                     <span class="color-yellow"> {{$inspection->honey}} </span>
@@ -312,8 +312,8 @@
                                     <span class="color-red"> {{$inspection->honey}} </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->pollen == 'Heavy')
                                     <span class="color-yellow"> {{$inspection->pollen}} </span>
@@ -323,36 +323,36 @@
                                     <span class="color-red"> {{$inspection->pollen}} </span>
                                     @endif
                                     </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->frames_of_bees)
                                         <span class="text-center">{{$inspection->frames_of_bees}}</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->frames_of_brood)
                                     <span class="text-center">{{$inspection->frames_of_brood}}</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->frames_of_honey)
                                        <span class="text-center">{{$inspection->frames_of_honey}}</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->frames_of_pollen)
                                         <span class="text-center">{{$inspection->frames_of_pollen}}</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->honey_supers)
                                     <span class="color-green"> {{$inspection->honey_supers}} </span>
@@ -360,8 +360,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->add_supers)
                                     <span class="color-green">  {{$inspection->add_supers}}</span>
@@ -369,8 +369,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_super_3)
                                     <span class="color-green">  {{$inspection->weigh_super_3}}</span>
@@ -378,8 +378,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_super_2)
                                     <span class="color-green">  {{$inspection->weigh_super_2}}</span>
@@ -387,8 +387,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_super_1)
                                     <span class="color-green"> {{$inspection->weigh_super_1}}</span>
@@ -396,8 +396,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_brood_3)
                                     <span class="color-green">  {{$inspection->weigh_brood_3}}</span>
@@ -405,8 +405,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_brood_2)
                                     <span class="color-green">  {{$inspection->weigh_brood_2}}</span>
@@ -414,8 +414,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->weigh_brood_1)
                                     <span class="color-green">  {{$inspection->weigh_brood_1}}</span>
@@ -423,8 +423,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->prep_for_extraction == '1')
                                     <span class="color-green"> Yes </span>
@@ -432,17 +432,17 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->feed_hive_what)
-                                    <span class="text-center"> {{$inspection->feed_hive_what}}</span>  
+                                    <span class="text-center"> {{$inspection->feed_hive_what}}</span>
                                     @else
-                                    <span class="text-center">-</span>  
+                                    <span class="text-center">-</span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->install_medication_what == 'Formic')
                                     <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
@@ -450,17 +450,17 @@
                                     <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
                                     @elseif($inspection->install_medication_what == 'Other')
                                     <span class="color-yellow"> {{$inspection->install_medication_what}} </span>
-                                    @endif                                              
+                                    @endif
                                 </td>
-                            
 
-                            
+
+
                                 <td class="text-primary">
-                                    <span class="text-center"> {{$inspection->medication_reminder}} </span>                                             
+                                    <span class="text-center"> {{$inspection->medication_reminder}} </span>
                                 </td>
-                            
 
-                            
+
+
                                 <td class="text-primary">
                                     @if($inspection->remove_medication == '1')
                                     <span class="color-green"> Yes </span>
@@ -468,8 +468,8 @@
                                     <span class="color-yellow"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->split_hive == '1')
                                     <span class="color-yellow"> Yes </span>
@@ -477,8 +477,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->re_queen == '1')
                                     <span class="color-green"> Yes </span>
@@ -486,8 +486,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->swap_brood_boxes == '1')
                                     <span class="color-gray"> Yes </span>
@@ -495,8 +495,8 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                            
-                                
+
+
                                 <td class="text-primary">
                                     @if($inspection->insulate_winterize == '1')
                                     <span class="color-gray"> Yes </span>
@@ -504,17 +504,17 @@
                                     <span class="color-gray"> No </span>
                                     @endif
                                 </td>
-                                        
 
-                            </tr>   
-                        @endforeach                        
+
+                            </tr>
+                        @endforeach
                     </tbody>
-                    </table>               
+                    </table>
 
-                    
-                       
-                   
-                        
+
+
+
+
                 </div>
             </div>
 
