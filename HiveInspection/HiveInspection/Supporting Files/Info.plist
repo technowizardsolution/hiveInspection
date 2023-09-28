@@ -52,8 +52,14 @@
 	<string>1744763345958905</string>
 	<key>FacebookClientToken</key>
 	<string>c9bf716a71179d8d14a93801042a6d97</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookDisplayName</key>
-	<string>Hive Inspector</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>GIDClientID</key>
 	<string>262141681478-b77mjp188m15k2o0u3l2bi0s5ms0b7of.apps.googleusercontent.com</string>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
@@ -62,5 +68,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 </dict>
 </plist>

@@ -16,7 +16,7 @@ class HiveInspectReportVC : UIViewController {
         super.viewDidLoad()
         showColoredNavigationBar(.white)
         closeButton()
-        exportButton()
+//        exportButton()
         self.title = "Report"
         loadUrl()
     }
