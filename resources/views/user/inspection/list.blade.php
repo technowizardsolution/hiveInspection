@@ -60,7 +60,7 @@
                             @if(!request()->get('app'))
                             <a class="btn btn-primary hive-button" href="{{url('/inspectionexport',$hivedata->hive_id)}}">Export Inspection</a>
                             @endif
-                            <a class="btn btn-primary hive-button sendReportButton" id="sendReportButton" @if(request()->get('app')) href="{{url('/sendinspectionreport',$hivedata->hive_id.'?app=true')}}" @else href="{{url('/sendinspectionreport',$hivedata->hive_id)}}" @endif>Send Report To Mail</a>
+                            <a class="btn btn-primary hive-button sendReportButton" id="sendReportButton" @if(!request()->get('app')) href="{{url('/sendinspectionreport',$hivedata->hive_id)}}" @else href="{{url('/sendinspectionreport',$hivedata->hive_id).'?app=true'}}" @endif>Send Report To Mail</a>
                         </div>
                     </div>
                     <br/><br/>
