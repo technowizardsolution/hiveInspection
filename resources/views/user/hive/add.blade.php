@@ -72,16 +72,21 @@
                                         <input type="date" class="form-control" name="queen_introduced" id="queen_introduced" placeholder="Queen Introduced">
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div>                            
                         </div>
+                    
                         
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="previous-btn">
                                 <button type="submit" class="">Add a Hive</button>
                                 </div>
-                            </div>                            
+                            </div>    
+                            <div class="col-md-6">
+                                <div class="next-btn">
+                                    <a href="{{url('/')}}" class="second_next next">Back</a>                                       
+                                </div>
+                            </div>                        
                         </div>
                     </form>                    
                     <img src="{{ URL::asset('public/images/shap.png')}}" alt="">
@@ -120,48 +125,48 @@ $(document.body).on('click', "#hiveForm", function(){
                 "hive_name":{
                     required:true
                 },
-                // "location":{
-                //     required:true
-                // },
-                // "build_date":{
-                //     required:true,                            
-                // },
+                "location":{
+                    required:true
+                },
+                "build_date":{
+                    required:true,                            
+                },
                 // "origin":{
                 //     required:true,                            
                 // },
-                // "deeps":{
-                //     required:true,                            
-                // },
-                // "mediums":{
-                //     required:true,                            
-                // },
-                // "queen_introduced":{
-                //     required:true,                            
-                // }
+                "deeps":{
+                    required:true,                            
+                },
+                "mediums":{
+                    required:true,                            
+                },
+                "queen_introduced":{
+                    required:true,                            
+                }
 
             },
             messages: {
                 "hive_name":{
                     required:"Please enter hive name.",
                 },
-                // "location":{
-                //     required:"Please enter location.",
-                // },
-                // "build_date":{
-                //     required:"Please enter build date.",                            
-                // },
+                "location":{
+                    required:"Please enter location.",
+                },
+                "build_date":{
+                    required:"Please enter build date.",                            
+                },
                 // "origin":{
                 //     required:"Please enter origin.",                            
                 // },
-                // "deeps":{
-                //     required:"Please enter deeps.",                            
-                // },
-                // "mediums":{
-                //     required:"Please enter mediums.",                            
-                // },
-                // "queen_introduced":{
-                //     required:"Please enter queen introduced.",                            
-                // }                        
+                "deeps":{
+                    required:"Please enter deeps.",                            
+                },
+                "mediums":{
+                    required:"Please enter mediums.",                            
+                },
+                "queen_introduced":{
+                    required:"Please enter queen introduced.",                            
+                }                        
             },
             errorPlacement: function(error, element) {
                 if(element.is('select')){

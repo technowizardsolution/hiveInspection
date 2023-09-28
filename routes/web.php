@@ -54,6 +54,11 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::get('/about', 'CommonController@about');
     Route::get('/terms-privacy', 'CommonController@termsPrivacy');
+
+    Route::get('/inspectionReport/{id}', 'User\InspectionController@inspectionReport');
+    Route::get('/inspectionexport/{id}', 'User\InspectionController@inspectionExport');
+    Route::get('/sendinspectionreport/{id}', 'User\InspectionController@sendReportInEmail');
+
     
 
     Route::group(['middleware' => ['auth']], function () {
@@ -104,6 +109,8 @@ Route::group(['middleware' => ['web']], function () {
            
         });
 
+       
+
         Route::group(['prefix' => 'user', 'middleware' => ['role:user'], 'namespace' => 'User'], function () {
             // Hive
             Route::get('/hive', 'HiveController@index');
@@ -117,6 +124,8 @@ Route::group(['middleware' => ['web']], function () {
             Route::get('/inspection/{id}', 'InspectionController@index');
             Route::post('/inspection/store', 'InspectionController@store');
             Route::get('/inspectionexport/{id}', 'InspectionController@inspectionExport');
+            
+            
 
         });
 

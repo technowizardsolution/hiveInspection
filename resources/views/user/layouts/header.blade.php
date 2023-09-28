@@ -1,3 +1,5 @@
+@if(request()->get('app'))
+@elseif(Auth::check())
 <header>
     <div class="container">
         <div class="row">
@@ -8,8 +10,8 @@
                            <img alt="Logo" src="{{ URL::asset('public/images/logo.png') }}">
                         </a>
                     </div>
-                    <div class="login-btn">
-                        <a href="{{ url('about') }}">About</a>
+                    <div class="login-btn" style="z-index:9999">
+                        <!-- <a href="{{ url('about') }}">About</a> -->
                         <a href="{{ route('logout') }}" title="@lang('messages.logout')"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" class="btn-login">
@@ -27,3 +29,4 @@
         </div>
     </div>
 </header>
+@endif

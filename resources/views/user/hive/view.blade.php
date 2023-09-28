@@ -54,8 +54,8 @@
                                             <strong> Queen introduced : </strong> {{$data->queen_introduced}}
                                         </p>                                                
 
-                                        <a class="btn btn-primary hive-button" href="{{url('user/inspection',$data->hive_id)}}">Start Inspecting!</a>
-                                        <a class="btn btn-primary hive-button" href="{{url('/user/inspectionexport',$data->hive_id)}}">Export Report</a>
+                                        <a class="btn btn-primary hive-button" href="{{url('user/inspection',$data->hive_id)}}">Start Inspection</a>
+                                        <a class="btn btn-primary hive-button" href="{{url('/inspectionReport',base64_encode($data->hive_id))}}">View Inspection</a>
                                         
                                     </div>
                                 </div>

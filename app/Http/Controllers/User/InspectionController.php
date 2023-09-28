@@ -11,7 +11,8 @@ use Session;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\InspectionExport;
 use Response;
-
+use App\User;
+use Mail;
 
 class InspectionController extends Controller
 {
@@ -23,6 +24,7 @@ class InspectionController extends Controller
 
     public function inspectionExport($hive_id)
     {
+
         $inspection = Inspection::where('hive_id',$hive_id)->get();
         if(count($inspection) > 0){
             $export = new InspectionExport($hive_id);
@@ -44,6 +46,50 @@ class InspectionController extends Controller
              
 
         //return Excel::download($export, $fileName);
+    }
+
+    public function sendReportInEmail(Request $request,$hive_id)
+    {
+        
+        $inspection = Inspection::where('hive_id',$hive_id)->get();
+        if(count($inspection) > 0){
+            $export = new InspectionExport($hive_id);
+            $hivedata = Hive::find($hive_id);
+            $name = str_replace(' ', '', $hivedata->hive_name);
+            $fileName = $name.'_inspection.xlsx';
+            Excel::store($export, $fileName);
+            $hivedata->report_file = $fileName;
+            $hivedata->save(); 
+            $file= url('/').'/public/report/'.$fileName; 
+
+            $files = [ url('/').'/public/report/'.$fileName ];
+            $user = User::find($hivedata->user_id);
+            Mail::send('emails.sendInspectionReport', ['email'=>$user->email], function ($m) use ($user, $files) {
+                $m->to($user->email, $user->name)->subject('Inspection Report');
+                foreach ($files as $file){
+                    $m->attach($file);
+                }
+            });
+
+            Session::flash('message', 'Send Inspection Report succesfully in your Mail Id');
+            Session::flash('alert-class', 'success');    
+            if(isset($request->app) && $request->app){             
+                return redirect('inspectionReport/'.base64_encode($hive_id).'?app=true');
+            }else{
+                return redirect('inspectionReport/'.base64_encode($hive_id));
+            }        
+            
+        }else{
+            Session::flash('message', 'Inspection data is not available.');
+            Session::flash('alert-class', 'error');
+            if(isset($request->app) && $request->app){             
+                return redirect('inspectionReport/'.base64_encode($hive_id).'?app=true');
+            }else{
+                return redirect('inspectionReport/'.base64_encode($hive_id));
+            }   
+        }
+
+        
     }
 
     public function getDownload()
@@ -197,5 +243,25 @@ class InspectionController extends Controller
             Session::flash('alert-class', 'error');
             return redirect('user/hive');
         }
+    }
+
+    public function inspectionReport(Request $request,$hive_ids)
+    {
+
+        $app = false;
+        if(isset($request->app) && $request->app){            
+            $app = true;
+        }
+
+        $hive_id = base64_decode($hive_ids);
+        $inspectionlist = Inspection::where('hive_id',$hive_id)->get();
+        
+        $hivedata = Hive::find($hive_id);
+        if(count($inspectionlist) > 0){ 
+            return view('user.inspection.list',compact('inspectionlist','hivedata','app'));
+        }else{
+            return view('user.inspection.list',compact('inspectionlist','hivedata','app'));
+        }
+        
     }
 }

@@ -47,11 +47,9 @@ class InspectionController extends Controller
                 if ($validator->fails()) {
                     return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
                 } else {
-                    $hive_id = $data['hive_id'];
+                    $hive_id = $data['hive_id'];                    
                     $inspection = Inspection::where('hive_id',$hive_id)->get();
-                    if($inspection){
-                        return $this->APIResponse->respondInternalError('','There is no any inspection data');
-                    }else{
+                    if(count($inspection) > 0){
                         $export = new InspectionExport($hive_id);
                         $hivedata = Hive::find($hive_id);
                         $name = str_replace(' ', '', $hivedata->hive_name);
@@ -60,7 +58,20 @@ class InspectionController extends Controller
                         $hivedata->report_file = $fileName;
                         $hivedata->save(); 
                         $file= url('/').'/public/report/'.$fileName; 
+
+                        $files = [ url('/').'/public/report/'.$fileName ];
+                        $user = User::find($hivedata->user_id);
+                        Mail::send('emails.sendInspectionReport', ['email'=>$user->email], function ($m) use ($user, $files) {
+                            $m->to($user->email, $user->name)->subject('Inspection Report');
+                            foreach ($files as $file){
+                                $message->attach($file);
+                            }
+                        });
+
                         return $this->APIResponse->respondWithMessageAndPayload($file, 'Inspection Record');
+                        
+                    }else{
+                        return $this->APIResponse->respondInternalError('','There is no any inspection data');
                     }
                 }
             }           
@@ -70,6 +81,8 @@ class InspectionController extends Controller
 
         
     }
+
+   
 
     public function getInspectionById($inspection_id)
     {

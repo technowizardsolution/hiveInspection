@@ -102,7 +102,7 @@ class APIResponse
             $data = [
                 'status' => $success,
                 'message' => $message,
-                'data' => $payload,
+                //'data' => $payload,
                 'debug' => $debug
             ];
         } else {

@@ -231,9 +231,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('google')->user();
         if ($user->email != "") {
-            $authUser = User::where('google_id', $user->id)
-                ->orWhere('social_provider_id', $user->id)
-                ->first();
+            $authUser = User::Where('social_provider_id', $user->id)->first();
             //if user already registerd
             if ($authUser) {
                 Auth::login($authUser, true);
@@ -250,7 +248,6 @@ class LoginController extends Controller
                         return redirect('/login');
                     } else {
                         $emailExsist->social_provider_id = $user->id;
-                        $emailExsist->google_id = $user->id;
                         $emailExsist->social_provider = 'google';
                         if ($emailExsist->save()) {
                             Auth::login($emailExsist, true);
@@ -265,12 +262,9 @@ class LoginController extends Controller
                     }
                 } else {
                     $newUser = new User();
-                    $newUser->first_name = $user->user['given_name'];
-                    $newUser->last_name = $user->user['family_name'];
                     $newUser->email = $user->email;
                     $newUser->user_status = '1';
                     $newUser->social_provider_id = $user->id;
-                    $newUser->google_id = $user->id;
                     $newUser->social_provider = 'google';
                     $newUser->password = Hash::make(Str::random(8));
                     if ($newUser->save()) {
@@ -302,9 +296,7 @@ class LoginController extends Controller
     public function handleFacebookCallback()
     {
         $user = Socialite::driver('facebook')->user();
-        $authUser = User::where('facebook_id', $user->user['id'])
-            ->orWhere('social_provider_id', $user->user['id'])
-            ->first();
+        $authUser = User::Where('social_provider_id', $user->id)->first();
         //if user already registerd
         if ($authUser) {
             Auth::login($authUser, true);
@@ -322,7 +314,6 @@ class LoginController extends Controller
                         return redirect('/login');
                     } else {
                         $emailExsist->social_provider_id = $user->user['id'];
-                        $emailExsist->facebook_id = $user->user['id'];
                         $emailExsist->social_provider = 'facebook';
                         if ($emailExsist->save()) {
                             Auth::login($emailExsist, true);
@@ -336,14 +327,10 @@ class LoginController extends Controller
                         }
                     }
                 } else {
-                    $pieces = explode(" ", $user->name);
                     $newUser = new User();
-                    $newUser->first_name = $pieces[0];
-                    $newUser->last_name = $pieces[1] ? $pieces[1] : null;
                     $newUser->email = $user->user['email'];
                     $newUser->user_status = '1';
                     $newUser->social_provider_id = $user->user['id'];
-                    $newUser->facebook_id = $user->user['id'];
                     $newUser->social_provider = 'facebook';
                     $newUser->password = Hash::make(Str::random(8));
                     if ($newUser->save()) {
@@ -359,35 +346,22 @@ class LoginController extends Controller
                     }
                 }
             } else {
-                $emailExsist = User::where('facebook_id', $user->user['id'])
-                    ->orWhere('social_provider_id', $user->user['id'])
-                    ->first();
-                if ($emailExsist) {
-                    Session::flash('message', 'Your Facebook registered email already exist. Please try to login with same email address.');
+                $newUser = new User();
+                $newUser->email = isset($user->user['email']) ? $user->user['email'] : null;
+                $newUser->user_status = '1';
+                $newUser->social_provider_id = $user->user['id'];
+                $newUser->social_provider = 'facebook';
+                $newUser->password = Hash::make(Str::random(8));
+                if ($newUser->save()) {
+                    $newUser->roles()->attach(2);
+                    Auth::login($newUser, true);
+                    Session::flash('message', 'Login success');
+                    Session::flash('alert-class', 'success');
+                    return redirect()->intended('/');
+                } else {
+                    Session::flash('message', 'Oops !! Something went wrong!');
                     Session::flash('alert-class', 'error');
                     return redirect('/login');
-                } else {
-                    $pieces = explode(" ", $user->name);
-                    $newUser = new User();
-                    $newUser->first_name = $pieces[0];
-                    $newUser->last_name = $pieces[1] ? $pieces[1] : null;
-                    $newUser->email = isset($user->user['email']) ? $user->user['email'] : null;
-                    $newUser->user_status = '1';
-                    $newUser->social_provider_id = $user->user['id'];
-                    $newUser->facebook_id = $user->user['id'];
-                    $newUser->social_provider = 'facebook';
-                    $newUser->password = Hash::make(Str::random(8));
-                    if ($newUser->save()) {
-                        $newUser->roles()->attach(2);
-                        Auth::login($newUser, true);
-                        Session::flash('message', 'Login success');
-                        Session::flash('alert-class', 'success');
-                        return redirect()->intended('/');
-                    } else {
-                        Session::flash('message', 'Oops !! Something went wrong!');
-                        Session::flash('alert-class', 'error');
-                        return redirect('/login');
-                    }
                 }
             }
         }

@@ -14,6 +14,7 @@ use App\Notifications\UserRegistration;
 use App\SubCategory;
 use App\User;
 use App\UserToken;
+use App\Inspection;
 use Exception;
 use File;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 use Str;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -199,7 +201,7 @@ class UserController extends Controller
                 return $this->APIResponse->respondNotFound(__(trans('messages.data.dataKey_notFound')));
             } else {
                 $rules = array(
-                    "social_provider" => 'required|in:google,facebook,twitter',
+                    "social_provider" => 'required|in:google,facebook,apple',
                     'social_provider_id' => 'required',
                     // 'email' => 'email|required',
                 );
@@ -249,7 +251,7 @@ class UserController extends Controller
                         $socialnew->password = bcrypt('Qwerty@123');
                         $socialnew->user_status = '1';
                         if ($socialnew->save()) {
-                            $socialnew->assignRole(5);
+                            $socialnew->assignRole(2);
                             $token = null;
                             try {
                                 if (!$token = $socialnew->createToken('Laravel')->accessToken) {
@@ -504,7 +506,7 @@ class UserController extends Controller
     public function getProfile(Request $request)
     {
         try {
-            $userDetail = User::where('id', Auth()->user()->id)->with('countyData', 'stateData', 'cityData')->where('user_status', '1')->first();
+            $userDetail = User::where('id', Auth()->user()->id)->where('user_status', '1')->first();
             if (empty($userDetail)) {
                 return $this->APIResponse->respondNotFound('No record Found');
             } else {
@@ -619,6 +621,56 @@ class UserController extends Controller
             return $this->APIResponse->handleAndResponseException($e);
         }
     }
+
+    public function updateNotification(Request $request)
+    {
+        $data = $request->json()->get('data');        
+        try {
+
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {
+                $rules = array(
+                    'notification_status' => 'required',
+                );
+                $messages = [
+                    'notification_status.required' => 'notification_status field is required',
+                ];
+                $validator = Validator::make($data, $rules, $messages);
+                if ($validator->fails()) {
+                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
+                } else {
+                    $notification_status = $data['notification_status'];
+                    $user_id = $request->user()->id;
+                    $user = User::find($user_id);
+                    $user->notification_status = $notification_status;
+                    if ($user->save()) {
+                        return $this->APIResponse->respondWithMessageAndPayload($user, trans('messages.update_successfully'));
+                    } else {
+                        return $this->APIResponse->respondInternalError(__(trans('messages.failed_update_profile')));
+                    }
+                }
+            }
+
+            
+
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }    
+     
+    }    
+
+    public function sendReminder(Request $request)
+    {
+        $inspections = Inspection::whereNotNull('medication_reminder')->whereDate('medication_reminder', Carbon::today())->with('user')->get();
+        foreach($inspections as $inspection) {
+            GlobalHelper::sendFCM("Medication Reminder", "Hello, this is a medication reminder for your hive inspection", $inspection['user']['device_token']);
+        }
+        return true;
+    }   
+
+
+
 
 
 }
