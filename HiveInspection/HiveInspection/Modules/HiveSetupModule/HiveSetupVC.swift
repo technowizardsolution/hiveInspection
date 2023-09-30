@@ -126,6 +126,7 @@ extension HiveSetupVC {
         self.vibrate()
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect1VC") as! HiveInspect1VC
         if hiveListModelData != nil {
+            dvc.hiveName = hiveListModelData?.hiveName ?? ""
             dvc.hiveId = hiveListModelData?.hiveid?.string ?? ""
         }
         navigationController?.pushViewController(dvc, animated: true)

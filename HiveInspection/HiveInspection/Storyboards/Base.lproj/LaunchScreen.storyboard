@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,7 +46,9 @@
                         <constraints>
                             <constraint firstItem="YuW-N8-W55" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6FO-7C-m00"/>
                             <constraint firstItem="WLo-jl-PpU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AZU-la-0Dq"/>
-                            <constraint firstItem="YuW-N8-W55" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="DnV-Qn-nbX"/>
+                            <constraint firstItem="YuW-N8-W55" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="DnV-Qn-nbX">
+                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="JXG-dr-e1p" secondAttribute="bottom" id="R6L-Cz-h8x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JXG-dr-e1p" secondAttribute="trailing" id="Tbp-et-pja"/>
                             <constraint firstItem="JXG-dr-e1p" firstAttribute="top" secondItem="YuW-N8-W55" secondAttribute="bottom" constant="53" id="ULB-qg-AHB"/>

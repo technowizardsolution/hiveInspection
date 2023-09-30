@@ -208,7 +208,7 @@ class HiveInspect2VC : UIViewController {
             spottyFramesData.append(HiveSetup(name: getData.string, isSelected: false))
             normalOdorData.append(HiveSetup(name: getData.string, isSelected: false))
         }
-        self.title = "Hive Number \(selectedHiveNumber)"
+        self.title = "\(selectedHiveNumber)"
         tableview.dataSource = self
         tableview.delegate = self
         setupData()

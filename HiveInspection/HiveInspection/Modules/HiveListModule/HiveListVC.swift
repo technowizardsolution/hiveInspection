@@ -52,16 +52,16 @@ class HiveListVC: UIViewController {
     
     @IBAction func onBtnExportAction(_ sender: LetsButton) {
         if let hiveId = hiveListVM?.hiveListModel?.data?[sender.tag].hiveid {
-            let param : [String:Any] = ["data":["hive_id":hiveId.string]]
-            hiveListVM?.callExportHiveAPI(param: param, completion: { response in
-                if let data = response?.data, let dataUrl = URL(string: data) {
+//            let param : [String:Any] = ["data":["hive_id":hiveId.string]]
+//            hiveListVM?.callExportHiveAPI(param: param, completion: { response in
+//                if let data = response?.data, let dataUrl = URL(string: data) {
                     if let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspectReportVC") as? HiveInspectReportVC {
-                        dvc.urlToLoad = dataUrl
+//                        dvc.urlToLoad = dataUrl
                         dvc.hiveId = hiveId.string
                         self.navigationController?.pushViewController(dvc, animated: true)
                     }
-                }
-            })
+//                }
+//            })
         }
     }
 }

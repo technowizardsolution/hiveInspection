@@ -7,33 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9A28F7C6-15C1-4F75-91DB-2EF06F2CFE86"
+            uuid = "8CBE4502-CF35-47B6-B6BF-23537698E17B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HiveInspection/Modules/SettingsModule/SettingsVC.swift"
+            filePath = "HiveInspection/Modules/HiveInspection/HiveInspectViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "getProfileResponse(_:)"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "callAPI(with:hiveId:additionalNotes:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B5ED5B82-B6BF-492E-8D30-EC85C8C45E51"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HiveInspection/Modules/SettingsModule/SettingsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8CBE4502-CF35-47B6-B6BF-23537698E17B - 3d1fac6a91e59955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hive_Inspector.HiveInspectViewModel.callAPI(with: Swift.Array&lt;Hive_Inspector.HiveInspectData&gt;, hiveId: Swift.String, additionalNotes: Swift.String) -&gt; ()"
+                  moduleName = "Hive Inspector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tc/Documents/Projects/Freelance/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "18212">
+               </Location>
+               <Location
+                  uuid = "8CBE4502-CF35-47B6-B6BF-23537698E17B - acdb602b1758a14f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #45 (Swift.Result&lt;Hive_Inspector.HiveInspectModel, Swift.Error&gt;) -&gt; () in Hive_Inspector.HiveInspectViewModel.callAPI(with: Swift.Array&lt;Hive_Inspector.HiveInspectData&gt;, hiveId: Swift.String, additionalNotes: Swift.String) -&gt; ()"
+                  moduleName = "Hive Inspector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tc/Documents/Projects/Freelance/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "8CBE4502-CF35-47B6-B6BF-23537698E17B - 3d1fac6a91e59955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hive_Inspector.HiveInspectViewModel.callAPI(with: Swift.Array&lt;Hive_Inspector.HiveInspectData&gt;, hiveId: Swift.String, additionalNotes: Swift.String) -&gt; ()"
+                  moduleName = "Hive Inspector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tc/Documents/Projects/Freelance/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "28108">
+               </Location>
+               <Location
+                  uuid = "8CBE4502-CF35-47B6-B6BF-23537698E17B - 3d1fac6a91e59955"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hive_Inspector.HiveInspectViewModel.callAPI(with: Swift.Array&lt;Hive_Inspector.HiveInspectData&gt;, hiveId: Swift.String, additionalNotes: Swift.String) -&gt; ()"
+                  moduleName = "Hive Inspector"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tc/Documents/Projects/Freelance/hiveinspection/HiveInspection/HiveInspection/Modules/HiveInspection/HiveInspectViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "28104">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

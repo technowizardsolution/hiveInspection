@@ -1125,7 +1125,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiveInspection/HiveInspection.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HJ24GYP5P2;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1162,7 +1162,7 @@
 				CODE_SIGN_ENTITLEMENTS = HiveInspection/HiveInspection.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HJ24GYP5P2;
 				GENERATE_INFOPLIST_FILE = YES;

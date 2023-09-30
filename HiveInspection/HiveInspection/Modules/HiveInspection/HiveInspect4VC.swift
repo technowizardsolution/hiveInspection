@@ -56,7 +56,7 @@ class HiveInspect4VC : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Hive Number \(selectedHiveNumber)"
+        self.title = "\(selectedHiveNumber)"
         tableview.dataSource = self
         tableview.delegate = self
         setupData()

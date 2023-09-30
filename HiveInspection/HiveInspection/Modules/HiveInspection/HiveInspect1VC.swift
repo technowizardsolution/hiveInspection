@@ -14,7 +14,7 @@ class CellT_HiveInspect : UITableViewCell {
     @IBOutlet weak var onDatePickerOutlet : UIDatePicker!
     @IBOutlet weak var onBtnDropDownOutlet : UIButton!
     @IBOutlet weak var lblTitleOutlet : UILabel!
-
+    var completionOnSwitchChange : (UISwitch) -> () = { _ in }
     func setPopUpButton(completion : @escaping (String) -> ()) {
         let optionClosure = {(action: UIAction) in
             self.onBtnDropDownOutlet.setTitle(action.title, for: .normal)
@@ -31,7 +31,7 @@ class CellT_HiveInspect : UITableViewCell {
         }
     }
     @IBAction func onSwitchChangeAction(_ sender: UISwitch) {
-
+        completionOnSwitchChange(sender)
     }
 }
 
@@ -42,21 +42,18 @@ class HiveInspect1VC : UIViewController {
 
     var getHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
-    var selectedHiveNumber = "1"
     var hiveId = ""
+    var hiveName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Hive Number"
+        self.title = hiveName
         tableview.dataSource = self
         tableview.delegate = self
         setupData()
         setupButtons()
         showTransparentNavigationBar()
         closeButton()
-        pullDownButton { selectedString in
-            self.selectedHiveNumber = selectedString
-        }
         setupProgressBar()
     }
 
@@ -64,9 +61,6 @@ class HiveInspect1VC : UIViewController {
         super.viewWillAppear(animated)
         showTransparentNavigationBar()
         closeButton()
-        pullDownButton { selectedString in
-            self.selectedHiveNumber = selectedString
-        }
     }
 }
 
@@ -84,8 +78,12 @@ extension HiveInspect1VC : UITableViewDataSource, UITableViewDelegate {
             cell.onSwitchOutlet.isHidden = !(item.type == ._switch)
             cell.onDatePickerOutlet.isHidden = !(item.type == .date)
             cell.onSwitchOutlet.layerCornerRadius = cell.onSwitchOutlet.height / 2
+            cell.onSwitchOutlet.tag = indexPath.row
             cell.setPopUpButton { selectedTitle in
                 self.getHiveInspectData?[indexPath.row].selectedTitle = selectedTitle
+            }
+            cell.completionOnSwitchChange = { sender in
+                self.getHiveInspectData?[sender.tag].isSwitchOn = sender.isOn
             }
         }
         return cell
@@ -159,7 +157,7 @@ extension HiveInspect1VC {
             }
         }
         let dvc = mainStoryBoard.instantiateViewController(withIdentifier: "HiveInspect2VC") as! HiveInspect2VC
-        dvc.selectedHiveNumber = self.selectedHiveNumber
+        dvc.selectedHiveNumber = self.hiveName
         dvc.getTotalHiveInspectData = []
         dvc.hiveId = self.hiveId
         dvc.getTotalHiveInspectData = self.getHiveInspectData
