@@ -122,6 +122,7 @@ table {
                               <th>Re queen</th>
                               <th>Swap brood boxes</th>
                               <th>Insulate winterize</th>
+                              <th>Additional notes</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -510,6 +511,10 @@ table {
                                       @elseif($inspection->insulate_winterize == '0')
                                       <span class="color-gray"> No </span>
                                       @endif
+                                  </td>
+
+                                  <td class="text-primary">
+                                  <span class="text-center">{{$inspection->additional_notes}} </span>
                                   </td>
 
 
