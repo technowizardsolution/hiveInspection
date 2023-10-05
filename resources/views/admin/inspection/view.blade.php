@@ -175,7 +175,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Noseema</strong></td>
+                                            <td><strong>Nosema</strong></td>
                                             <td class="text-primary">
                                               @if($inspection->noseema == '1')
                                               <span class="color-red"> Yes </span>
@@ -251,9 +251,9 @@
                                         <tr>
                                             <td><strong>Spotty frames</strong></td>
                                             <td class="text-primary">
-                                              @if($inspection->spotty_frames == '1')
+                                              @if($inspection->spotty_frames && $inspection->spotty_frames == '1')
                                               <span class="color-red"> Yes </span>
-                                              @elseif($inspection->spotty_frames == '0')
+                                              @elseif(!$inspection->spotty_frames || $inspection->spotty_frames == '0')
                                               <span class="color-green"> No </span>
                                               @endif
                                             </td>
@@ -261,9 +261,9 @@
                                         <tr>
                                             <td><strong>Normal odor</strong></td>
                                             <td class="text-primary">
-                                              @if($inspection->normal_odor == '1')
+                                              @if($inspection->normal_odor &&  $inspection->normal_odor == '1')
                                               <span class="color-green"> Yes </span>
-                                              @elseif($inspection->normal_odor == '0')
+                                              @elseif(!$inspection->normal_odor || $inspection->normal_odor == '0')
                                               <span class="color-red"> No </span>
                                               @endif
                                             </td>

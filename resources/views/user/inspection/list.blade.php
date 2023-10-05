@@ -89,7 +89,7 @@ table {
                               <th>Queen cells</th>
                               <th>Hive beetles</th>
                               <th>Wax moth</th>
-                              <th>Noseema</th>
+                              <th>Nosema</th>
                               <th>Mite wash</th>
                               <th>Mite count</th>
                               <th>Temperment</th>
@@ -281,20 +281,19 @@ table {
                                       @endif
                                   </td>
 
-
                                   <td class="text-primary">
-                                      @if($inspection->spotty_frames == '1')
+                                      @if($inspection->spotty_frames && $inspection->spotty_frames == '1')
                                       <span class="color-red"> Yes </span>
-                                      @elseif($inspection->spotty_frames == '0')
+                                      @elseif(!$inspection->spotty_frames || $inspection->spotty_frames == '0')
                                       <span class="color-green"> No </span>
                                       @endif
                                   </td>
 
 
                                   <td class="text-primary">
-                                      @if($inspection->normal_odor == '1')
+                                      @if($inspection->normal_odor && $inspection->normal_odor == '1')
                                       <span class="color-green"> Yes </span>
-                                      @elseif($inspection->normal_odor == '0')
+                                      @elseif(!$inspection->normal_odor || $inspection->normal_odor == '0')
                                       <span class="color-red"> No </span>
                                       @endif
                                   </td>

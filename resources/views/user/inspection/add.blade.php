@@ -104,7 +104,7 @@
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Noseema
+                                                <label class="checkbox-label">Nosema
                                                     <input type="checkbox" name="noseema" id="noseema" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -117,7 +117,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="Mite Count">Mite Count
-                                                    <input type="text" name="mite_count" class="form-control" id="mite_count" placeholder="Mite Count">                                                   
+                                                    <input type="text" name="mite_count" class="form-control" id="mite_count" placeholder="Mite Count" value="0">                                                   
                                                 </label>
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@
                                             <select name="population" id="population" class="form-control">
                                                 <option value="">Select Population</option>
                                                 <option value="Heavy">Heavy</option>
-                                                <option value="Moderate">Moderate</option>
+                                                <option selected value="Moderate">Moderate</option>
                                                 <option value="Low">Low</option>
                                             </select>
                                         </div>
@@ -201,7 +201,7 @@
                                             <select name="brood" id="brood" class="form-control">
                                                 <option value="">Select Brood</option>
                                                 <option value="Heavy">Heavy</option>
-                                                <option value="Moderate">Moderate</option>
+                                                <option selected value="Moderate">Moderate</option>
                                                 <option value="Low">Low</option>
                                             </select>
                                         </div>
@@ -212,7 +212,7 @@
                                             <select name="honey" id="honey" class="form-control">
                                                 <option value="">Select Honey</option>
                                                 <option value="Heavy">Heavy</option>
-                                                <option value="Moderate">Moderate</option>
+                                                <option selected value="Moderate">Moderate</option>
                                                 <option value="Low">Low</option>
                                             </select>
                                         </div>
@@ -223,7 +223,7 @@
                                             <select name="pollen" id="pollen" class="form-control">
                                                 <option value="">Select Pollen</option>
                                                 <option value="Heavy">Heavy</option>
-                                                <option value="Moderate">Moderate</option>
+                                                <option selected value="Moderate">Moderate</option>
                                                 <option value="Low">Low</option>
                                             </select>
                                         </div>
