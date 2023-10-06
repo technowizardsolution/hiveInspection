@@ -33,7 +33,7 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
     public function headings(): array
     {
          
-        return ['Inspection Date','Normal Hive Condition', 'Saw Queen','Queen marked','Eggs seen', 'Larva seen','Pupa seen', 'Drone cells', 'Queen cells','Hive beetles','Wax moth','Noseema','Mite wash','Mite count','Temperment','Population', 'Solid uniform frames','Slightly potty frames','Spotty frames','Normal odor','Brood','Honey','Pollen','Frames of bees','Frames of brood','Frames of honey','Frames of pollen','Honey supers','Add supers','Weigh super 3','Weigh super 2','Weigh super 1','Weigh brood 3','Weigh brood 2','Weigh brood 1','Prep for extraction','Feed hive what','Medication Reminder','Install medication what','Remove medication','Split hive','Re queen','Swap brood boxes','Insulate winterize','Additional notes'];        
+        return ['Inspection Date','Normal Hive Condition', 'Saw Queen','Queen marked','Eggs seen', 'Larva seen','Pupa seen', 'Drone cells', 'Queen cells','Hive beetles','Wax moth','Nosema','Mite wash','Mite count','Temperment','Population', 'Solid uniform frames','Slightly potty frames','Spotty frames','Normal odor','Brood','Honey','Pollen','Frames of bees','Frames of brood','Frames of honey','Frames of pollen','Honey supers','Add supers','Weigh super 3','Weigh super 2','Weigh super 1','Weigh brood 3','Weigh brood 2','Weigh brood 1','Prep for extraction','Feed hive what','Medication Reminder','Install medication what','Remove medication','Split hive','Re queen','Swap brood boxes','Insulate winterize','Additional notes'];        
     }
 
     public function collection()
