@@ -186,14 +186,14 @@ class HiveInspect2VC : UIViewController {
     var getTotalHiveInspectData : [HiveInspectData]?
     var progressBar: FlexibleSteppedProgressBar!
     var tempermentData : [HiveSetup] = [HiveSetup(name: "Calm", isSelected: false), HiveSetup(name: "Nervous", isSelected: false), HiveSetup(name: "Aggressive", isSelected: false)]
-    var populationData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
+    var populationData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: true), HiveSetup(name: "Low", isSelected: false)]
     var solidUniformFrameData : [HiveSetup] = []
     var slightlySpottyFramesData : [HiveSetup] = []
     var spottyFramesData : [HiveSetup] = []
     var normalOdorData : [HiveSetup] = []
-    var broodData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
-    var honeyData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
-    var pollenData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: false), HiveSetup(name: "Low", isSelected: false)]
+    var broodData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: true), HiveSetup(name: "Low", isSelected: false)]
+    var honeyData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: true), HiveSetup(name: "Low", isSelected: false)]
+    var pollenData : [HiveSetup] = [HiveSetup(name: "Heavy", isSelected: false), HiveSetup(name: "Moderate", isSelected: true), HiveSetup(name: "Low", isSelected: false)]
     var hiveId = ""
     
     override func viewDidLoad() {

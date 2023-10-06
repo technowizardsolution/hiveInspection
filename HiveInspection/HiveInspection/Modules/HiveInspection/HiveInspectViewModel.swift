@@ -36,7 +36,7 @@ extension HiveInspectViewModel {
               let QueenCells = model.filter({$0.title == "Queen Cells"}).first?.selectedTitle,
               let HiveBeetles = model.filter({$0.title == "Hive Beetles"}).first?.selectedTitle,
               let WaxMoth = model.filter({$0.title == "Wax Moth"}).first?.selectedTitle,
-              let Noseema = model.filter({$0.title == "Noseema"}).first?.selectedTitle,
+              let Noseema = model.filter({$0.title == "Nosema"}).first?.selectedTitle,
               let MiteWash = model.filter({$0.title == "Mite Wash"}).first?.selectedTitle,
               let MiteCount = model.filter({$0.title == "Mite Count"}).first?.selectedTitle,
               let Temperment = model.filter({$0.title == "Temperment"}).first?.selectedTitle,

@@ -17,7 +17,7 @@ class CellT_HiveInspect4 : UITableViewCell {
     @IBOutlet weak var hiveTextStackViewOutlet : UIStackView!
     @IBOutlet weak var lblTitleOutlet : UILabel!
     var completionOnSwitchWithTextChanged : ((UISwitch) -> ())?
-    var medicationData : [HiveSetup] = [HiveSetup(name: "Formic", isSelected: false), HiveSetup(name: "Apivar", isSelected: false), HiveSetup(name: "Other", isSelected: false)]
+    var medicationData : [HiveSetup] = [HiveSetup(name: "-", isSelected: true),HiveSetup(name: "Formic", isSelected: false), HiveSetup(name: "Apivar", isSelected: false), HiveSetup(name: "Other", isSelected: false)]
 
     func setPopUpButton(completion : @escaping (String) -> ()) {
         let optionClosure = {(action: UIAction) in
@@ -190,7 +190,7 @@ extension HiveInspect4VC {
     private func setupData() {
         getHiveInspectData = []
         getHiveInspectData?.append(HiveInspectData(title: "Feed Hive What?", type: ._switchWithText))
-        getHiveInspectData?.append(HiveInspectData(title: "Install Medication What?", type: ._switchWithDropDown, selectedTitle: "Formic"))
+        getHiveInspectData?.append(HiveInspectData(title: "Install Medication What?", type: ._switchWithDropDown, selectedTitle: "-"))
         getHiveInspectData?.append(HiveInspectData(title: "Medication Reminder", type: .date))
         getHiveInspectData?.append(HiveInspectData(title: "Remove Medication", type: .frontSwitch))
         getHiveInspectData?.append(HiveInspectData(title: "Split Hive", type: .frontSwitch))

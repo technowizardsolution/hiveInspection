@@ -9,7 +9,8 @@ import UIKit
 
 enum Constants {
     enum baseURL {
-        static let baseUrl = "https://hiveinspection.letsnurture.co.uk/api"
+        static let baseUrl = "https://hiveinspectorapp.com/api"//"https://hiveinspection.letsnurture.co.uk/api"
+        static let baseUrlWithoutApi = "https://hiveinspectorapp.com"//"https://hiveinspection.letsnurture.co.uk/api"
     }
     
     enum API {

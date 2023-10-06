@@ -21,7 +21,7 @@ class CellT_HiveInspect : UITableViewCell {
             completion(action.title)
         }
         var arrUIAction = [UIAction]()
-        for hiveSetupData in 1...10 {
+        for hiveSetupData in 0...10 {
             arrUIAction.append(UIAction(title: hiveSetupData.string, state: .off, handler: optionClosure))
         }
         onBtnDropDownOutlet.menu = UIMenu(children: arrUIAction)
@@ -128,7 +128,7 @@ extension HiveInspect1VC {
         getHiveInspectData?.append(HiveInspectData(title: "Queen Cells", type: ._switch))
         getHiveInspectData?.append(HiveInspectData(title: "Hive Beetles", type: ._switch))
         getHiveInspectData?.append(HiveInspectData(title: "Wax Moth", type: ._switch))
-        getHiveInspectData?.append(HiveInspectData(title: "Noseema", type: ._switch))
+        getHiveInspectData?.append(HiveInspectData(title: "Nosema", type: ._switch))
         getHiveInspectData?.append(HiveInspectData(title: "Mite Wash", type: ._switch))
         getHiveInspectData?.append(HiveInspectData(title: "Mite Count", type: .dropdown))
     }
@@ -152,7 +152,7 @@ extension HiveInspect1VC {
                 selectDate(_index: _index)
             }else if inspectData.type == .dropdown {
                 if getHiveInspectData?[_index].selectedTitle == "" {
-                    getHiveInspectData?[_index].selectedTitle = "1"
+                    getHiveInspectData?[_index].selectedTitle = "0"
                 }
             }
         }

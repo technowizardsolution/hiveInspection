@@ -39,7 +39,7 @@ class HiveInspectReportVC : UIViewController {
     }
     
     func loadUrl() {
-        if let getUrl = URL(string: "https://hiveinspection.letsnurture.co.uk/inspectionReport/\((hiveId ?? "").base64String)?app=true") {
+        if let getUrl = URL(string: "\(Constants.baseURL.baseUrlWithoutApi)/inspectionReport/\((hiveId ?? "").base64String)?app=true") {
             let urlRequest = URLRequest(url: getUrl)
             wkWebViewOutlet.load(urlRequest)
         }
