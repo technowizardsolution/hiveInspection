@@ -597,11 +597,6 @@ class UserController extends Controller
         }
     }
 
-
-
- 
-   
-
     public function testnotification(Request $request)
     {
         $data = $request->json()->get('data');
