@@ -143,13 +143,13 @@ class UserController extends Controller
                                     } catch (Exception $e) {
                                         return $this->APIResponse->respondInternalError(__('failed_to_create_token'));
                                     }
-                                    $checkUserExists->save();
                                     $checkUserExists['token'] = $token;
                                     $checkUserExists['last_login_at'] = Date('Y-m-d H:i:s');
                                     // $checkUserExists['browser_name'] = $browser['browser'];
                                     // $checkUserExists['ip_address'] = $request->ip();
                                     $checkUserExists['device_type'] = $data['device_type'];
                                     $checkUserExists['device_token'] = $data['device_token'];
+                                    $checkUserExists->save();
                                     $checkUserExists = GlobalHelper::removeNull($checkUserExists->toArray());
                                     return $this->APIResponse->respondWithMessageAndPayload($checkUserExists, Lang::get('Login Successfully !'));
                                 } else {
