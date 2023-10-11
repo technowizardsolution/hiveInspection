@@ -147,7 +147,7 @@ class UserController extends Controller
                                     $checkUserExists['last_login_at'] = Date('Y-m-d H:i:s');
                                     // $checkUserExists['browser_name'] = $browser['browser'];
                                     // $checkUserExists['ip_address'] = $request->ip();
-                                    $checkUserExists['device_type'] = $data['device_type'];
+                                    $checkUserExists['device_type'] = '1';
                                     $checkUserExists['device_token'] = $data['device_token'];
                                     $checkUserExists->save();
                                     $checkUserExists = GlobalHelper::removeNull($checkUserExists->toArray());
@@ -216,6 +216,9 @@ class UserController extends Controller
                     if (isset($data['email']) && $data['email'] != '') {
                         $emailExsist = User::where('email', $data['email'])->where('social_provider_id', $data['social_provider_id'])->first();
                         if ($emailExsist) {
+                            $emailExsist->device_type = '1';
+                            $emailExsist->device_token = $data['device_token'];
+                            $emailExsist->save();
                             try {
                                 if (!$token = $emailExsist->createToken('Laravel')->accessToken) {
                                     return $this->APIResponse->respondUnauthorized(__(trans('messages.invalidEmailOrPassword')));
@@ -230,6 +233,9 @@ class UserController extends Controller
 
                     $checkSocialExists = User::where('social_provider_id', $data['social_provider_id'])->Where('social_provider', $data['social_provider'])->first();
                     if ($checkSocialExists) {
+                        $checkSocialExists->device_type = '1';
+                        $checkSocialExists->device_token = $data['device_token'];
+                        $checkSocialExists->save();
                         $token = null;
                         try {
                             if (!$token = $checkSocialExists->createToken('Laravel')->accessToken) {
@@ -250,6 +256,8 @@ class UserController extends Controller
                         }
                         $socialnew->password = bcrypt('Qwerty@123');
                         $socialnew->user_status = '1';
+                        $socialnew->device_type = '1';
+                        $socialnew->device_token = $data['device_token'];
                         if ($socialnew->save()) {
                             $socialnew->assignRole(2);
                             $token = null;
@@ -596,11 +604,6 @@ class UserController extends Controller
             return $this->APIResponse->handleAndResponseException($e);
         }
     }
-
-
-
- 
-   
 
     public function testnotification(Request $request)
     {
