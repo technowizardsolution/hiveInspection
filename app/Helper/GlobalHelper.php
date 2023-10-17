@@ -197,8 +197,7 @@ class GlobalHelper
         //FCM api URL
         $url = 'https://fcm.googleapis.com/fcm/send';
         //api_key available in Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key
-        // $server_key = 'AAAA_76mKPk:APA91bHTGei6hpJBwQtjJaI3oUyhhmyOAQ593Qt3TVAhxbQ7oFNqW0phUFkG2JcX8MBvUOZe61oilBgVV-tCXuceUoHOqmdhbkMEA9z7hkF9iSfzWp_r64HRkySsKYu3mq0JGOr5uQLY';
-        $server_key = 'AAAADnI9Pd4:APA91bHkrmP7xFttGicYyfssPHzU7NhoktuDUWbK3GJvdjUZbb8jlSwKo-KbJ1j76r7MnNO8_mO9a-0n6J9LPbYCS8x6atBxgaZTo8DZ7nkVusxk_8KTOETMBDXzKvz4PJZN_qnHp9uV';
+        $server_key = env('FIREBASE_SERVER_KEY');
 
         // if ($device_type == 1) { //need this field fro android
             $fields['notification'] = array();
@@ -325,7 +324,7 @@ class GlobalHelper
         //FCM api URL
         $url = 'https://fcm.googleapis.com/fcm/send';
         //api_key available in Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key
-        $server_key = 'AAAA_76mKPk:APA91bHTGei6hpJBwQtjJaI3oUyhhmyOAQ593Qt3TVAhxbQ7oFNqW0phUFkG2JcX8MBvUOZe61oilBgVV-tCXuceUoHOqmdhbkMEA9z7hkF9iSfzWp_r64HRkySsKYu3mq0JGOr5uQLY';
+        $server_key = env('FIREBASE_SERVER_KEY');
 
         $fields = array();
         $fields['notification'] = array();
