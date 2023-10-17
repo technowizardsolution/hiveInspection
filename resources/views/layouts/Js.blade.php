@@ -33,3 +33,5 @@
 <script src="{{URL::asset('resources/assets/custom/jQuery-validation-plugin/additional-methods.js')}}"></script>
 <script src="{{URL::asset('resources/assets/js/toastr.min.js')}}"></script>  
 {{-- <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')}}"></script> --}}
+
+

@@ -30,6 +30,7 @@
         "socialiteproviders/zoho": "^4.1",
         "softon/laravel-face-detect": "dev-master",
         "spatie/laravel-permission": "^3.16",
+        "square/square": "*",
         "stripe/stripe-php": "^7.116",
         "twilio/sdk": "^5.36",
         "yajra/laravel-datatables": "1.5"

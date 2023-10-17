@@ -20,6 +20,8 @@ Auth::routes();
 Route::post('apple/redirect', 'AppleController@redirect');
 Route::get('/2fa/validate', 'Auth\LoginController@getValidateToken');
 Route::post('/2fa/validate', ['middleware' => 'throttle:5', 'uses' => 'Auth\LoginController@postValidateToken']);
+Route::get('/payment', 'PaymentController@index');
+
 
 Route::group(['middleware' => ['web']], function () {
 
@@ -59,8 +61,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/inspectionexport/{id}', 'User\InspectionController@inspectionExport');
     Route::get('/sendinspectionreport/{id}', 'User\InspectionController@sendReportInEmail');
 
-    
-
+   
     Route::group(['middleware' => ['auth']], function () {
         // Route::get('/home', 'HomeController@index');
 
