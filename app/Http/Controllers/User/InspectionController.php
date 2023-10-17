@@ -170,8 +170,10 @@ class InspectionController extends Controller
         }        
         if($request['slightly_spotty_frames']){
             $inspection->slightly_spotty_frames = $request['slightly_spotty_frames_input'];
-        }        
-        $inspection->spotty_frames = $request['spotty_frames'];
+        } 
+        if($request['spotty_frames']){
+            $inspection->spotty_frames = $request['spotty_frames_input'];
+        }                
         $inspection->normal_odor = $request['normal_odor'];
         $inspection->brood = $request['brood']; 
         $inspection->honey = $request['honey'];
