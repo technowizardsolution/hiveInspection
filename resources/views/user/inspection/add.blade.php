@@ -68,19 +68,19 @@
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Larva Queen
+                                                <label class="checkbox-label">Larva 
                                                     <input type="checkbox" name="larva_seen" id="larva_seen" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Pupa Queen
+                                                <label class="checkbox-label">Pupa 
                                                     <input type="checkbox" name="pupa_seen" id="pupa_seen" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Drone Queen
+                                                <label class="checkbox-label">Drone 
                                                     <input type="checkbox" name="drone_cells" id="drone_cells" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -334,21 +334,21 @@
                                                 <input type="text" class="form-control mt-3 hide weigh_super_1_input" name="weigh_super_1_input" placeholder="Weigh super 1 value">
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Weigh brood 3 value
+                                                <label class="checkbox-label">Weigh brood 3 
                                                     <input type="checkbox" name="weigh_brood_3" id="weigh_brood_3" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <input type="text" class="form-control mt-3 hide weigh_brood_3_input" name="weigh_brood_3_input" placeholder="Weigh brood 3 value">
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Weigh brood 2 value
+                                                <label class="checkbox-label">Weigh brood 2 
                                                     <input type="checkbox" name="weigh_brood_2" id="weigh_brood_2" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
                                                 <input type="text" class="form-control mt-3 hide weigh_brood_2_input" name="weigh_brood_2_input" placeholder="Weigh brood 2 value">
                                             </div>
                                             <div class="form-group">
-                                                <label class="checkbox-label">Weigh brood 1 value
+                                                <label class="checkbox-label">Weigh brood 1 
                                                     <input type="checkbox" name="weigh_brood_1" id="weigh_brood_1" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
