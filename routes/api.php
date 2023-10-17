@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/updateMedia','API\ChatController@updateMedia');
 Route::post('/saveLastMessage', 'API\FirebaseChatController@saveLastMessage'); // save last chat message
 Route::post('/sendReminder','API\UserController@sendReminder');
+Route::post('/testnotification', 'API\UserController@testnotification');
 
 
 Route::group(['middleware' => 'localization'], function(){
