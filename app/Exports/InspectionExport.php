@@ -138,10 +138,10 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
                         $event->sheet->getDelegate()->getStyle('P'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->red);
                     }
 
-                    if($inspection->spotty_frames==1) {
-                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);
+                    if($inspection->spotty_frames) {
+                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setRGB($this->red);                        
                     } else {
-                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);
+                        $event->sheet->getDelegate()->getStyle('S'.(string)($key+2))->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB($this->green);                        
                     }
 
                     if($inspection->normal_odor==1) {
@@ -286,7 +286,7 @@ class InspectionExport implements FromCollection,WithMapping, WithHeadings, With
         if($inspection->mite_wash==1){ $mite_wash='Yes'; }else{ $mite_wash='No'; }
         if($inspection->solid_uniform_frames){ $solid_uniform_frames=$inspection->solid_uniform_frames; }else{ $solid_uniform_frames='No'; }
         if($inspection->slightly_spotty_frames){ $slightly_spotty_frames=$inspection->slightly_spotty_frames; }else{ $slightly_spotty_frames='No'; }
-        if($inspection->spotty_frames==1){ $spotty_frames='Yes'; }else{ $spotty_frames='No'; }
+        if($inspection->spotty_frames){ $spotty_frames=$inspection->spotty_frames; }else{ $spotty_frames='No'; }        
         if($inspection->normal_odor==1){ $normal_odor='Yes'; }else{ $normal_odor='No'; }
         if($inspection->honey_supers){ $honey_supers = $inspection->honey_supers; }else{ $honey_supers='No'; }
         if($inspection->add_supers){ $add_supers = $inspection->add_supers; }else{ $add_supers='No'; }

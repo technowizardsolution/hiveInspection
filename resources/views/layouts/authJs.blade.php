@@ -56,6 +56,7 @@
 
 <script src="{{URL::asset('/resources/assets/app-assets/js/scripts/pages/page-auth-register.js')}}"></script>
 
+
 <script>
     $(window).on('load', function() {
         if (feather) {

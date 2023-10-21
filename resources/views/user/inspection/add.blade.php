@@ -184,6 +184,7 @@
                                                 <input type="checkbox" name="spotty_frames" id="spotty_frames" value="1">
                                                     <span class="checkmark"></span>
                                                 </label>
+                                                <input type="text" class="form-control mt-3 hide spotty_frames_input" name="spotty_frames_input" placeholder="Spotty frames value">
                                             </div>
                                             <div class="form-group">
                                                 <label class="checkbox-label">Normal Odor
@@ -623,6 +624,14 @@ $(document).ready(function () {
             $('.slightly_spotty_frames_input').removeClass('hide');
         }else{
             $('.slightly_spotty_frames_input').addClass('hide');     
+        }
+    });
+
+    $("#spotty_frames").change(function() {
+        if(this.checked) {
+            $('.spotty_frames_input').removeClass('hide');
+        }else{
+            $('.spotty_frames_input').addClass('hide');     
         }
     });
 

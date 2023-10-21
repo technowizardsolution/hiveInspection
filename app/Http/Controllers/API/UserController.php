@@ -271,6 +271,7 @@ class UserController extends Controller
                             $userdata = User::where('social_provider_id', $data['social_provider_id'])->first();
                             $userdata = GlobalHelper::removeNull($userdata->toArray());
                             $userdata['token'] = $token;
+                            $userdata->save();
                             return $this->APIResponse->respondWithMessageAndPayload($userdata, trans('messages.loginsuccessfully'));
 
                         } else {

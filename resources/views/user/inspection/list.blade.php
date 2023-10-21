@@ -282,12 +282,12 @@ table {
                                   </td>
 
                                   <td class="text-primary">
-                                      @if($inspection->spotty_frames && $inspection->spotty_frames == '1')
-                                      <span class="color-red"> Yes </span>
-                                      @elseif(!$inspection->spotty_frames || $inspection->spotty_frames == '0')
+                                      @if($inspection->spotty_frames)
+                                      <span class="color-red">{{$inspection->spotty_frames}}</span>                                                                            
+                                      @else
                                       <span class="color-green"> No </span>
                                       @endif
-                                  </td>
+                                  </td>                                
 
 
                                   <td class="text-primary">
