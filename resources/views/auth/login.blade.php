@@ -42,19 +42,19 @@
                         <a href="{{ route('password.request') }}">Forgot Password?</a>
                         <span>Login with your Social account</span>
                         <div class="Social-Box">
-                                <a rel="nofollow" href="{{ url('/login/facebook') }}"
+                                <!-- <a rel="nofollow" href="{{ url('/login/facebook') }}"
                                     title="Connect with Facebook" style="margin: 10px;"
                                     data-provider="Facebook">
                                     <img src="{{ URL::asset('public/images/facebook.png')}}" alt="">Facebook
-                                </a>
+                                </a> -->
                                 <a rel="nofollow" href="{{ url('/login/google') }}" title="Connect with Google"
-                                    style="margin: 10px;" data-provider="Google">
+                                    style="margin: 10px;width:100%" data-provider="Google">
                                     <img src="{{ URL::asset('public/images/google.png')}}" alt="">Google
-                                </a>  
+                                </a>
                         </div>
                         <div class="sign-box">
                             <a href="{{ url('/register') }}">New User? SIGN UP</a>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
