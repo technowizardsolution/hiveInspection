@@ -72,7 +72,7 @@ class LoginController extends Controller
             return redirect('/');
         }
         return redirect()->intended('/');
-        
+
     }
 
     public function getValidateToken()
@@ -207,19 +207,19 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showLoginForm()
-    {
-        // Get URLs
-        $urlPrevious = url()->previous();
-        $urlBase = url()->to('/');
-
-        // Set the previous url that we came from to redirect to after successful login but only if is internal
-        if (($urlPrevious != $urlBase . '/login') && (substr($urlPrevious, 0, strlen($urlBase)) === $urlBase)) {
-            session()->put('url.intended', $urlPrevious);
-        }
-        GlobalHelper::passwordResetFrequency();
-        return view('auth.login');
-    }
+    // public function showLoginForm()
+    // {
+    //     // Get URLs
+    //     $urlPrevious = url()->previous();
+    //     $urlBase = url()->to('/');
+    //
+    //     // Set the previous url that we came from to redirect to after successful login but only if is internal
+    //     if (($urlPrevious != $urlBase . '/login') && (substr($urlPrevious, 0, strlen($urlBase)) === $urlBase)) {
+    //         session()->put('url.intended', $urlPrevious);
+    //     }
+    //     GlobalHelper::passwordResetFrequency();
+    //     return view('auth.login');
+    // }
 
     // Google social login
     public function redirectToGoogle()
