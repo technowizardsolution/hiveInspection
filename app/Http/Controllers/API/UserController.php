@@ -700,24 +700,28 @@ class UserController extends Controller
                     $id = $data['user_id'];
                     
                    
-                    if ($id == 1) {
-                        return $this->APIResponse->respondInternalError(__("You can't delete Super Admin"));
+                    if ($id == 1) {                        
+                        return $this->APIResponse->respondInternalError([],__("You can't delete Super Admin"));
                     }
         
                     $user = User::with('roles')->find($id);
-                   
-                    $role = (isset($user->roles) && count($user->roles)) ? $user->roles[0]->id : '';
-                    if ($user->delete()) {
-                        if ($role) {
-                            $user->removeRole($role);
-        
-                            $hive = Hive::where('user_id',$id)->delete();
-                            $inspection = Inspection::where('user_id',$id)->delete();
-                        }                
-                        return $this->APIResponse->respondWithMessageAndPayload([], 'User deleted');
-                    } else {
-                        return $this->APIResponse->respondInternalError(__("Something went wrong"));
-                    }
+                    if($user){
+                        $role = (isset($user->roles) && count($user->roles)) ? $user->roles[0]->id : '';
+                        if ($user->delete()) {
+                            if ($role) {
+                                $user->removeRole($role);
+            
+                                $hive = Hive::where('user_id',$id)->delete();
+                                $inspection = Inspection::where('user_id',$id)->delete();
+                            }                
+                            return $this->APIResponse->respondWithMessageAndPayload([], 'User deleted');
+                        } else {                            
+                            return $this->APIResponse->respondInternalError([],__("Something went wrong"));
+                        }
+                    }else{
+                        return $this->APIResponse->respondInternalError([],__("User not found"));
+                    }                  
+                    
                 }
             }
 
