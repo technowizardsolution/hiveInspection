@@ -13,8 +13,9 @@ use App\Notifications\ForgotPassword;
 use App\Notifications\UserRegistration;
 use App\SubCategory;
 use App\User;
-use App\UserToken;
+use App\Hive;
 use App\Inspection;
+use App\UserToken;
 use Exception;
 use File;
 use Illuminate\Http\Request;
@@ -232,7 +233,8 @@ class UserController extends Controller
                     }
 
                     $checkSocialExists = User::where('social_provider_id', $data['social_provider_id'])->Where('social_provider', $data['social_provider'])->first();
-                    if ($checkSocialExists) {
+                   
+                    if ($checkSocialExists) {                        
                         $checkSocialExists->device_type = '1';
                         $checkSocialExists->device_token = $data['device_token'];
                         $checkSocialExists->save();
@@ -247,6 +249,9 @@ class UserController extends Controller
                         $checkSocialExists['token'] = $token;
                         return $this->APIResponse->respondWithMessageAndPayload($checkSocialExists, trans('messages.loginsuccessfully'));
                     } else {
+
+
+                        
                         $socialnew = new User();
                         $socialnew->first_name = $data['first_name'];
                         $socialnew->social_provider_id = $data['social_provider_id'];
@@ -269,7 +274,7 @@ class UserController extends Controller
                                 return $this->APIResponse->respondInternalError(__(trans('messages.failed_to_create_token')));
                             }
                             $userdata = User::where('social_provider_id', $data['social_provider_id'])->first();
-                            $userdata = GlobalHelper::removeNull($userdata->toArray());
+                           // $userdata = GlobalHelper::removeNull($userdata->toArray());
                             $userdata['token'] = $token;
                             $userdata->save();
                             return $this->APIResponse->respondWithMessageAndPayload($userdata, trans('messages.loginsuccessfully'));
@@ -671,8 +676,58 @@ class UserController extends Controller
             GlobalHelper::sendFCM("Medication Reminder", "Hello, this is a medication reminder for your hive inspection", $inspection['user']['device_token']);
         }
         return true;
-    }   
+    } 
+    
+    
+    public function userDeleted(Request $request)
+    {
+        $data = $request->json()->get('data');        
+        try {
 
+            if (empty($data)) {
+                return $this->APIResponse->respondNotFound(__(Lang::get('messages.data_key_notfound')));
+            } else {
+                $rules = array(
+                    'user_id' => 'required',
+                );
+                $messages = [
+                    'user_id.required' => 'user_id field is required',
+                ];
+                $validator = Validator::make($data, $rules, $messages);
+                if ($validator->fails()) {
+                    return $this->APIResponse->respondValidationError(__($validator->errors()->first()));
+                } else {
+                    $id = $data['user_id'];
+                    
+                   
+                    if ($id == 1) {
+                        return $this->APIResponse->respondInternalError(__("You can't delete Super Admin"));
+                    }
+        
+                    $user = User::with('roles')->find($id);
+                   
+                    $role = (isset($user->roles) && count($user->roles)) ? $user->roles[0]->id : '';
+                    if ($user->delete()) {
+                        if ($role) {
+                            $user->removeRole($role);
+        
+                            $hive = Hive::where('user_id',$id)->delete();
+                            $inspection = Inspection::where('user_id',$id)->delete();
+                        }                
+                        return $this->APIResponse->respondWithMessageAndPayload([], 'User deleted');
+                    } else {
+                        return $this->APIResponse->respondInternalError(__("Something went wrong"));
+                    }
+                }
+            }
+
+            
+
+        } catch (\Exception $e) {
+            return $this->APIResponse->handleAndResponseException($e);
+        }    
+     
+    }    
 
 
 

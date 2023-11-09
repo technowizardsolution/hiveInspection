@@ -51,6 +51,7 @@ Route::group(['middleware' => 'localization'], function(){
     Route::post('/updateProfile','API\UserController@updateProfile');
     Route::post('/updateNotification','API\UserController@updateNotification');    
     Route::post('/getProfile','API\UserController@getProfile');
+    Route::post('/userDeleted', 'API\UserController@userDeleted');
 
     //Hive
     Route::get('/getHiveList','API\HiveController@getHiveList');
@@ -62,8 +63,6 @@ Route::group(['middleware' => 'localization'], function(){
     Route::get('/getInspectionById/{id}','API\InspectionController@getInspectionById');
     Route::get('/getInspectionHistory','API\InspectionController@getInspectionHistory');
     Route::post('/inspectionExport', 'API\InspectionController@inspectionExport');
-    
-    
     
   });
 });
